@@ -1,0 +1,433 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="我的博客 - blog">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="browsermode" content="application">
+    <meta name="screen-orientation" content="portrait">
+    <link rel="dns-prefetch" href="https://lives.xtcgch.ink">
+    <!--SEO-->
+
+<meta name="description" content="脑容量不够，笔记来凑">
+
+
+
+
+
+<meta name="robots" content="all">
+<meta name="google" content="all">
+<meta name="googlebot" content="all">
+<meta name="verify" content="all">
+    <!--Title-->
+
+
+<title>GCC和G++的编译 | 我的博客 - blog</title>
+
+
+    <link rel="alternate" href="/atom.xml" title="我的博客 - blog" type="application/atom+xml">
+
+
+    <link rel="icon" href="https://blog.xtcgch.ink/img/background/海绵宝宝.ico">
+
+    
+
+
+
+<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7">
+<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.5.0">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash">
+
+
+
+
+    
+
+
+
+
+
+    
+
+</head>
+
+</html>
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+
+<body>
+    <header class="main-header" style="background-image:url(https://blog.xtcgch.ink/img/head-bg.jpg)">
+    <div class="main-header-box">
+        <a class="header-avatar" href="/" title="unistd68">
+            <img src="/img/background/海绵宝宝.jpg" alt="logo头像" class="img-responsive center-block">
+        </a>
+        <div class="branding">
+        	<!--<h2 class="text-hide">Snippet主题,从未如此简单有趣</h2>-->
+            
+                <h2> 脑容量不够，笔记来凑 </h2>
+            
+    	</div>
+    </div>
+</header>
+    <nav class="main-navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header"><span class="nav-toggle-button collapsed pull-right" data-toggle="collapse" data-target="#main-menu" id="mnav">
+                    <span class="sr-only"></span>
+                        <i class="fa fa-bars"></i>
+                    </span>
+                    <a class="navbar-brand" href="https://lives.xtcgch.ink">我的博客 - blog</a>
+                </div>
+                <div class="collapse navbar-collapse" id="main-menu">
+                    <ul class="menu">
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="https://blog.xtcgch.ink/"><i class="fa "></i>主页</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="https://blog.xtcgch.ink/categories/原理/"><i class="fa "></i>原理</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="https://blog.xtcgch.ink/categories/代码/"><i class="fa "></i>代码</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="https://blog.xtcgch.ink/categories/热点/"><i class="fa "></i>热点</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="https://blog.xtcgch.ink/categories/知识导图/"><i class="fa "></i>知识导图</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="https://blog.xtcgch.ink/categories/其他/"><i class="fa "></i>其他</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="https://blog.xtcgch.ink/archives/"><i class="fa "></i>时间轴</a>
+                            </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+    <section class="content-wrap">
+        <div class="container">
+            <div class="row">
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="GCC和G++的编译">
+            
+	            GCC和G++的编译
+            
+        </h1>
+        <div class="post-meta">
+    
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <a href="https://blog.xtcgch.ink/categories/原理">
+            原理
+        </a>
+    </span>
+    
+
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+                
+                    <a href="https://blog.xtcgch.ink/tags/GCC" title="GCC">
+                        GCC
+                    </a>
+                
+                    <a href="https://blog.xtcgch.ink/tags/G++" title="G++">
+                        G++
+                    </a>
+                
+            
+        </span>
+    </span>
+    
+
+    
+        
+        <span class="fa-wrap">
+            <i class="fa fa-clock-o"></i>
+            <span class="date-meta">2020/12/02</span>
+        </span>
+        
+    
+</div>
+
+            
+            
+    </div>
+    
+    <div class="post-body post-content">
+        <p><strong>摘要：</strong>本文记录GCC和G++的一些要点。</p>
+<a id="more"></a>
+<hr>
+<h1 id="脑图"><a href="#脑图" class="headerlink" title="脑图"></a>脑图</h1><p><img src="脑图.png" alt></p>
+<hr>
+<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a><table><tr><td bgcolor="#C7C7C7">前言</td></tr></table></h1><hr>
+<h1 id="GCC"><a href="#GCC" class="headerlink" title="GCC"></a><table><tr><td bgcolor="#C7C7C7">GCC</td></tr></table></h1><h2 id="编译流程"><a href="#编译流程" class="headerlink" title="编译流程"></a><font color="#0000FF">编译流程</font></h2><ol>
+<li>预处理-Pre-Processing</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gcc  -E  test.c  -o  test.i    //.i文件</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>编译-Compiling</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gcc  -S  test.i  -o   test.s  //.s文件</span><br></pre></td></tr></table></figure>
+<ol start="3">
+<li>汇编-Assembling //.o文件</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gcc  -c  test.s  -o  test.o</span><br></pre></td></tr></table></figure>
+<ol start="4">
+<li>链接-Linking //bin文件</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gcc  test.o  -o  test</span><br></pre></td></tr></table></figure>
+<h2 id="编译参数"><a href="#编译参数" class="headerlink" title="编译参数"></a><font color="#0000FF">编译参数</font></h2><p>1）-E参数</p>
+<p>-E 选项指示编译器仅对输入文件进行预处理。当这个选项被使用时, 预处理器的输出被送到标准输出而不是储存在文件里.</p>
+<p>2）-S参数</p>
+<p>-S 编译选项告诉 GCC 在为 C 代码产生了汇编语言文件后停止编译。 GCC 产生的汇编语言文件的缺省扩展名是 .s 。</p>
+<p>3）-c参数</p>
+<p>-c 选项告诉 GCC 仅把源代码编译为目标代码。缺省时 GCC 建立的目标代码文件有一个 .o 的扩展名。</p>
+<p>4）-o参数</p>
+<p>-o 编译选项来为将产生的可执行文件用指定的文件名。</p>
+<p>5）-O参数</p>
+<p>-O 选项告诉 GCC 对源代码进行基本优化。这些优化在大多数情况下都会使程序执行的更快。 -O2 选项告诉 GCC 产生尽可能小和尽可能快的代码。 如-O2，-O3，-On（n 常为0–3）；</p>
+<p>-O 主要进行跳转和延迟退栈两种优化；</p>
+<p>-O0 表示不做优化</p>
+<p>-O1 为默认优化</p>
+<p>-O2 除了完成-O1的优化之外，还进行一些额外的调整工作，如指令调整等。</p>
+<p>-O3 则包括循环展开和其他一些与处理特性相关的优化工作。</p>
+<p>选项将使编译的速度比使用 -O 时慢， 但通常产生的代码执行速度会更快。</p>
+<p>6）调试选项-g和-pg</p>
+<p>　GCC 支持数种调试和剖析选项，常用到的是 -g 和 -pg 。</p>
+<p>　-g 选项告诉 GCC 产生能被 GNU 调试器使用的调试信息以便调试你的程序。GCC 提供了一个很多其他 C 编译器里没有的特性, 在 GCC 里你能使-g 和 -O(产生优化代码)联用。</p>
+<p>　 -pg 选项告诉 GCC 在编译好的程序里加入额外的代码。运行程序时, 产生 gprof 用的剖析信息以显示你的程序的耗时情况。</p>
+<p>7） -l参数和-L参数</p>
+<p>-l参数就是用来指定程序要链接的库，-l参数紧接着就是库名，</p>
+<p>8） -include和-I参数</p>
+<p>-include用来包含头文件，但一般情况下包含头文件都在源码里用＃i nclude xxxxxx实现，-include参数很少用。-I参数是用来指定头文件目录，/usr/include目录一般是不用指定的，gcc知道去那里找，但 是如果头文件不在/usr/icnclude里我们就要用-I参数指定了，比如头文件放在/myinclude目录里，那编译命令行就要加上-I/myinclude 参数了，如果不加你会得到一个”xxxx.h: No such file or directory”的错误。-I参数可以用相对路径，比如头文件在当前 目录，可以用-I.来指定。上面我们提到的–cflags参数就是用来生成-I参数的。</p>
+<p>9）-Wall、-w 和 -v参数</p>
+<h2 id="几个相关的环境变"><a href="#几个相关的环境变" class="headerlink" title=" 几个相关的环境变"></a><font color="#0000FF"> 几个相关的环境变</font></h2><ul>
+<li><p>PKG_CONFIG_PATH：用来指定pkg-config用到的pc文件的路径，默认是/usr/lib/pkgconfig，pc文件是文本文件，扩展名是.pc，里面定义开发包的安装路径，Libs参数和Cflags参数等等</p>
+</li>
+<li><p>CC：用来指定c编译器。</p>
+</li>
+<li><p>CXX：用来指定cxx编译器。</p>
+</li>
+<li><p>LIBS：跟上面的–libs作用差不多。</p>
+</li>
+<li><p>CFLAGS:跟上面的–cflags作用差不多。</p>
+</li>
+</ul>
+<p>CC，CXX，LIBS，CFLAGS手动编译时一般用不上，在做configure时有时用到，一般情况下不用管。</p>
+<p>环境变量设定方法：export  ENV_NAME=xxxxxxxxxxxxxxxxx</p>
+<hr>
+<h1 id="G"><a href="#G" class="headerlink" title="G++"></a><table><tr><td bgcolor="#C7C7C7">G++</td></tr></table></h1><hr>
+<h1 id="GDB调试"><a href="#GDB调试" class="headerlink" title="GDB调试"></a><table><tr><td bgcolor="#C7C7C7">GDB调试</td></tr></table></h1><p>前言: </p>
+<ul>
+<li><p>在编译时需要添加编译参数: -g</p>
+</li>
+<li><p>进入GDB</p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gdb [exe]</span><br></pre></td></tr></table></figure>
+<ul>
+<li>查看源码</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(gdb)l</span><br></pre></td></tr></table></figure>
+<ul>
+<li>设置断点</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">break  6  #第6行打断点</span><br></pre></td></tr></table></figure>
+<ul>
+<li>查看断点处情况</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">info b</span><br></pre></td></tr></table></figure>
+<ul>
+<li>启动程序进行调试</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">run</span><br></pre></td></tr></table></figure>
+<ul>
+<li>显示变量值</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">print var</span><br></pre></td></tr></table></figure>
+<ul>
+<li>设置变量值</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">set var=&quot;&quot;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>观察变量</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">watch var</span><br></pre></td></tr></table></figure>
+<ul>
+<li>单步运行</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">next(进入调用的函数内部)</span><br><span class="line">step(不进入调用的函数内部)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>程序继续运行</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">continue</span><br></pre></td></tr></table></figure>
+<ul>
+<li>退出GDB</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">quit</span><br></pre></td></tr></table></figure>
+<hr>
+<h1 id="调试core文件"><a href="#调试core文件" class="headerlink" title="调试core文件"></a><table><tr><td bgcolor="#C7C7C7">调试core文件</td></tr></table></h1><ul>
+<li>用gdb查看core文件</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gdb ./test core</span><br></pre></td></tr></table></figure>
+<ul>
+<li>用gdb实时观察某进程crash信息</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gdb -p PID</span><br></pre></td></tr></table></figure>
+<hr>
+<h1 id="MakeFile的使用"><a href="#MakeFile的使用" class="headerlink" title="MakeFile的使用"></a><table><tr><td bgcolor="#C7C7C7">MakeFile的使用</td></tr></table></h1><p>-&gt; <a href="https://blog.xtcgch.ink/makefile" title="makefile语法" target="_blank" rel="noopener">makefile语法</a></p>
+<hr>
+
+    </div>
+    
+    <div class="post-footer">
+        <div>
+            
+        </div>
+        <div>
+            
+        </div>
+    </div>
+</article>
+
+<div class="article-nav prev-next-wrap clearfix">
+    
+        <a href="/2020/12/03/数据库设计规范/" class="pre-post btn btn-default" title="数据库设计规范">
+            <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
+            <span class="hidden-xs">数据库设计规范</span>
+        </a>
+    
+    
+        <a href="/2020/12/02/RPC原理和使用/" class="next-post btn btn-default" title="RPC原理和使用">
+            <span class="hidden-lg">下一篇</span>
+            <span class="hidden-xs">RPC原理和使用</span><i class="fa fa-angle-right fa-fw"></i>
+        </a>
+    
+</div>
+
+
+    <div id="comments">
+        
+    
+    <div id="vcomments" class="valine"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="/assets/valine.min.js"></script>
+
+    <script>
+        new Valine({
+            av: AV,
+            el: '#vcomments',
+            appId: 'XWA5gq7VCJybw7YQhf5HG20r-gzGzoHsz',
+            appKey: '8FW1WEwrysHXaUD1bhGn2Rp8',
+            placeholder: '说点什么吧',
+            notify: true,
+            verify: false,
+            avatar: 'https://blog.xtcgch.ink/img/comment-avatar.jpg',
+            meta: 'nick,mail'.split(','),
+            pageSize: '10',
+            path: window.location.pathname,
+            lang: 'zh-CN'.toLowerCase()
+        })
+    </script>
+
+
+    </div>
+
+
+
+
+
+                </main>
+                
+                    <aside id="article-toc" role="navigation" class="col-md-4">
+    <div class="widget">
+        <h3 class="title">文章目录</h3>
+        
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#脑图"><span class="toc-text">脑图</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#前言"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#GCC"><span class="toc-text">GCC</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#编译流程"><span class="toc-text">编译流程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#编译参数"><span class="toc-text">编译参数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#几个相关的环境变"><span class="toc-text"> 几个相关的环境变</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#G"><span class="toc-text">G++</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#GDB调试"><span class="toc-text">GDB调试</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#调试core文件"><span class="toc-text">调试core文件</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#MakeFile的使用"><span class="toc-text">MakeFile的使用</span></a></li></ol>
+        
+    </div>
+</aside>
+
+                
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</footer>
+
+<a id="back-to-top" class="icon-btn hide">
+	<i class="fa fa-chevron-up"></i>
+</a>
+
+
+
+
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="busuanzi">
+    
+</div>
+
+            </div>
+            <div class="col-sm-12">
+                <span>Copyright &copy; 2018
+                </span> |
+                <span>
+                    Powered by <a href="//hexo.io" class="copyright-links" target="_blank" rel="nofollow">Hexo</a>
+                </span> |
+                <span>
+                    Theme by <a href="//github.com/shenliyang/hexo-theme-snippet.git" class="copyright-links" target="_blank" rel="nofollow">Snippet</a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+<script src="/js/app.js?rev=@@hash"></script>
+
+</body>
+</html>
