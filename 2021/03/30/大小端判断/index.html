@@ -1,0 +1,338 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="我的博客 - blog">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="browsermode" content="application">
+    <meta name="screen-orientation" content="portrait">
+    <link rel="dns-prefetch" href="https://lives.xtcgch.ink">
+    <!--SEO-->
+
+<meta name="description" content="脑容量不够，笔记来凑">
+
+
+
+
+
+<meta name="robots" content="all">
+<meta name="google" content="all">
+<meta name="googlebot" content="all">
+<meta name="verify" content="all">
+    <!--Title-->
+
+
+<title>大小端判断 | 我的博客 - blog</title>
+
+
+    <link rel="alternate" href="/atom.xml" title="我的博客 - blog" type="application/atom+xml">
+
+
+    <link rel="icon" href="https://blog.xtcgch.ink/img/background/海绵宝宝.ico">
+
+    
+
+
+
+<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7">
+<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.5.0">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash">
+
+
+
+
+    
+
+
+
+
+
+    
+
+</head>
+
+</html>
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+
+<body>
+    <header class="main-header" style="background-image:url(https://blog.xtcgch.ink/img/head-bg.jpg)">
+    <div class="main-header-box">
+        <a class="header-avatar" href="/" title="unistd68">
+            <img src="/img/background/海绵宝宝.jpg" alt="logo头像" class="img-responsive center-block">
+        </a>
+        <div class="branding">
+        	<!--<h2 class="text-hide">Snippet主题,从未如此简单有趣</h2>-->
+            
+                <h2> 脑容量不够，笔记来凑 </h2>
+            
+    	</div>
+    </div>
+</header>
+    <nav class="main-navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header"><span class="nav-toggle-button collapsed pull-right" data-toggle="collapse" data-target="#main-menu" id="mnav">
+                    <span class="sr-only"></span>
+                        <i class="fa fa-bars"></i>
+                    </span>
+                    <a class="navbar-brand" href="https://lives.xtcgch.ink">我的博客 - blog</a>
+                </div>
+                <div class="collapse navbar-collapse" id="main-menu">
+                    <ul class="menu">
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="https://blog.xtcgch.ink/"><i class="fa "></i>主页</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="https://blog.xtcgch.ink/categories/原理/"><i class="fa "></i>原理</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="https://blog.xtcgch.ink/categories/代码/"><i class="fa "></i>代码</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="https://blog.xtcgch.ink/categories/开源/"><i class="fa "></i>开源</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="https://blog.xtcgch.ink/categories/面试/"><i class="fa "></i>面试</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="https://blog.xtcgch.ink/categories/其他/"><i class="fa "></i>其他</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="https://blog.xtcgch.ink/archives/"><i class="fa "></i>时间轴</a>
+                            </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+    <section class="content-wrap">
+        <div class="container">
+            <div class="row">
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="大小端判断">
+            
+	            大小端判断
+            
+        </h1>
+        <div class="post-meta">
+    
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <a href="https://blog.xtcgch.ink/categories/原理">
+            原理
+        </a>
+    </span>
+    
+
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+                
+                    <a href="https://blog.xtcgch.ink/tags/C++" title="C++">
+                        C++
+                    </a>
+                
+                    <a href="https://blog.xtcgch.ink/tags/网络编程" title="网络编程">
+                        网络编程
+                    </a>
+                
+            
+        </span>
+    </span>
+    
+
+    
+        
+        <span class="fa-wrap">
+            <i class="fa fa-clock-o"></i>
+            <span class="date-meta">2021/03/30</span>
+        </span>
+        
+    
+</div>
+
+            
+            
+    </div>
+    
+    <div class="post-body post-content">
+        <p><strong>摘要：</strong>判断网络字节的大小端。</p>
+<a id="more"></a>
+<hr>
+<!-- # 脑图
+
+![](脑图.png) -->
+<hr>
+<p>网络字节序</p>
+<h1 id="网络字节序"><a href="#网络字节序" class="headerlink" title="网络字节序"></a><table><tr><td bgcolor="#C7C7C7">网络字节序</td></tr></table></h1><h2 id="大端和小端"><a href="#大端和小端" class="headerlink" title="大端和小端"></a><font color="#0000FF">大端和小端</font></h2><p><strong>1. 概念和区别：</strong></p>
+<ul>
+<li>大端字节序（Big Endian）：最高有效位存于最低内存地址处，最低有效位存于最高内存处；</li>
+<li>小端字节序（Little Endian）：最高有效位存于最高内存地址，最低有效位存于最低内存处。</li>
+</ul>
+<p><img src="大小端数据存储.png" alt="大小端数据存储"></p>
+<p><strong>2. 网络字节序:大端字节序</strong></p>
+<p>网络上传输的数据都是字节流</p>
+<ul>
+<li><p>网络中：UDP/TCP/IP协议规定:把接收到的<strong>第一个字节当作高位字节</strong>看待,这就要求发送端发送的第一个字节是高位字节;而在发送端发送数据时,发送的第一个字节是该数值在内存中的起始地址处对应的那个字节,也就是说,该数值在内存中的起始地址处对应的那个字节就是要发送的第一个高位字节</p>
+</li>
+<li><p>主机中：<strong>网络字节序就是大端字节序</strong>, 有些系统的本机字节序是小端字节序, 有些则是大端字节序, 为了保证传送顺序的一致性, 所以网际协议使用大端字节序来传送数据。</p>
+</li>
+</ul>
+<h2 id="C-实现"><a href="#C-实现" class="headerlink" title="C++实现"></a><font color="#0000FF">C++实现</font></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;iostrean&gt;</span><br><span class="line"></span><br><span class="line">bool bLittleEnd(void)</span><br><span class="line">&#123;</span><br><span class="line">    union End</span><br><span class="line">    &#123;</span><br><span class="line">        int i;</span><br><span class="line">        char c;</span><br><span class="line">    &#125;;</span><br><span class="line">    End e;</span><br><span class="line">    e.i = 1;</span><br><span class="line">    return e.c == 1;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    if(bLittleEnd()) cout&lt;&lt;&quot;小端&quot;&lt;&lt;endl;</span><br><span class="line">    else cout&lt;&lt;&quot;大端&quot;&lt;&lt;endl;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="字节序转换函数"><a href="#字节序转换函数" class="headerlink" title="字节序转换函数"></a><font color="#0000FF">字节序转换函数</font></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;arpa/inet.h&gt;</span><br><span class="line"></span><br><span class="line">//将主机字节序转换为网络字节序</span><br><span class="line"> unit32_t htonl (unit32_t hostlong);</span><br><span class="line"> unit16_t htons (unit16_t hostshort);</span><br><span class="line"> //将网络字节序转换为主机字节序</span><br><span class="line"> unit32_t ntohl (unit32_t netlong);</span><br><span class="line"> unit16_t ntohs (unit16_t netshort);</span><br><span class="line"></span><br><span class="line"> 说明：h -----host；n----network ；s------short；l----long。</span><br><span class="line">htons()--&quot;Host to Network Short&quot;</span><br><span class="line">htonl()--&quot;Host to Network Long&quot;</span><br><span class="line">ntohs()--&quot;Network to Host Short&quot;</span><br><span class="line">ntohl()--&quot;Network to Host Long&quot;</span><br></pre></td></tr></table></figure>
+<h2 id="为什么在数据结构-struct-sockaddr-in-中，-sin-addr-和-sin-port-需要转换为网络字节顺序，而sin-family-需不需要呢"><a href="#为什么在数据结构-struct-sockaddr-in-中，-sin-addr-和-sin-port-需要转换为网络字节顺序，而sin-family-需不需要呢" class="headerlink" title="为什么在数据结构 struct sockaddr_in 中， sin_addr 和 sin_port 需要转换为网络字节顺序，而sin_family 需不需要呢?"></a><font color="#0000FF">为什么在数据结构 struct sockaddr_in 中， sin_addr 和 sin_port 需要转换为网络字节顺序，而sin_family 需不需要呢?</font></h2><ul>
+<li>sin_addr 和 sin_port 分别封装在包的 IP 和 UDP 层。因此，它们必须要是网络字节顺序。</li>
+<li>sin_family 域只是被内核 (kernel) 使用来决定在数 据结构中包含什么类型的地址，所以它必须是本机字节顺序。同时，sin_family 没有发送到网络上，它们可以是本机字节顺序。</li>
+</ul>
+
+    </div>
+    
+    <div class="post-footer">
+        <div>
+            
+        </div>
+        <div>
+            
+        </div>
+    </div>
+</article>
+
+<div class="article-nav prev-next-wrap clearfix">
+    
+        <a href="/2021/04/17/python环境的配置/" class="pre-post btn btn-default" title="python环境的配置">
+            <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
+            <span class="hidden-xs">python环境的配置</span>
+        </a>
+    
+    
+        <a href="/2021/03/30/centos7安装python3/" class="next-post btn btn-default" title="centos7安装python3">
+            <span class="hidden-lg">下一篇</span>
+            <span class="hidden-xs">centos7安装python3</span><i class="fa fa-angle-right fa-fw"></i>
+        </a>
+    
+</div>
+
+
+    <div id="comments">
+        
+    
+    <div id="vcomments" class="valine"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="/assets/valine.min.js"></script>
+
+    <script>
+        new Valine({
+            av: AV,
+            el: '#vcomments',
+            appId: 'XWA5gq7VCJybw7YQhf5HG20r-gzGzoHsz',
+            appKey: '8FW1WEwrysHXaUD1bhGn2Rp8',
+            placeholder: '说点什么吧',
+            notify: true,
+            verify: false,
+            avatar: 'https://blog.xtcgch.ink/img/comment-avatar.jpg',
+            meta: 'nick,mail'.split(','),
+            pageSize: '10',
+            path: window.location.pathname,
+            lang: 'zh-CN'.toLowerCase()
+        })
+    </script>
+
+
+    </div>
+
+
+
+
+
+                </main>
+                
+                    <aside id="article-toc" role="navigation" class="col-md-4">
+    <div class="widget">
+        <h3 class="title">文章目录</h3>
+        
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#网络字节序"><span class="toc-text">网络字节序</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#大端和小端"><span class="toc-text">大端和小端</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#C-实现"><span class="toc-text">C++实现</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#字节序转换函数"><span class="toc-text">字节序转换函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#为什么在数据结构-struct-sockaddr-in-中，-sin-addr-和-sin-port-需要转换为网络字节顺序，而sin-family-需不需要呢"><span class="toc-text">为什么在数据结构 struct sockaddr_in 中， sin_addr 和 sin_port 需要转换为网络字节顺序，而sin_family 需不需要呢?</span></a></li></ol></li></ol>
+        
+    </div>
+</aside>
+
+                
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</footer>
+
+<a id="back-to-top" class="icon-btn hide">
+	<i class="fa fa-chevron-up"></i>
+</a>
+
+
+
+
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="busuanzi">
+    
+</div>
+
+            </div>
+            <div class="col-sm-12">
+                <span>Copyright &copy; 2018
+                </span> |
+                <span>
+                    Powered by <a href="//hexo.io" class="copyright-links" target="_blank" rel="nofollow">Hexo</a>
+                </span> |
+                <span>
+                    Theme by <a href="//github.com/shenliyang/hexo-theme-snippet.git" class="copyright-links" target="_blank" rel="nofollow">Snippet</a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+<script src="/js/app.js?rev=@@hash"></script>
+
+</body>
+</html>

@@ -1,0 +1,348 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="我的博客 - blog">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="browsermode" content="application">
+    <meta name="screen-orientation" content="portrait">
+    <link rel="dns-prefetch" href="https://lives.xtcgch.ink">
+    <!--SEO-->
+
+<meta name="description" content="脑容量不够，笔记来凑">
+
+
+
+
+
+<meta name="robots" content="all">
+<meta name="google" content="all">
+<meta name="googlebot" content="all">
+<meta name="verify" content="all">
+    <!--Title-->
+
+
+<title>协程的学习 | 我的博客 - blog</title>
+
+
+    <link rel="alternate" href="/atom.xml" title="我的博客 - blog" type="application/atom+xml">
+
+
+    <link rel="icon" href="https://blog.xtcgch.ink/img/background/海绵宝宝.ico">
+
+    
+
+
+
+<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7">
+<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.5.0">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash">
+
+
+
+
+    
+
+
+
+
+
+    
+
+</head>
+
+</html>
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+
+<body>
+    <header class="main-header" style="background-image:url(https://blog.xtcgch.ink/img/head-bg.jpg)">
+    <div class="main-header-box">
+        <a class="header-avatar" href="/" title="unistd68">
+            <img src="/img/background/海绵宝宝.jpg" alt="logo头像" class="img-responsive center-block">
+        </a>
+        <div class="branding">
+        	<!--<h2 class="text-hide">Snippet主题,从未如此简单有趣</h2>-->
+            
+                <h2> 脑容量不够，笔记来凑 </h2>
+            
+    	</div>
+    </div>
+</header>
+    <nav class="main-navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header"><span class="nav-toggle-button collapsed pull-right" data-toggle="collapse" data-target="#main-menu" id="mnav">
+                    <span class="sr-only"></span>
+                        <i class="fa fa-bars"></i>
+                    </span>
+                    <a class="navbar-brand" href="https://lives.xtcgch.ink">我的博客 - blog</a>
+                </div>
+                <div class="collapse navbar-collapse" id="main-menu">
+                    <ul class="menu">
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="https://blog.xtcgch.ink/"><i class="fa "></i>主页</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="https://blog.xtcgch.ink/categories/原理/"><i class="fa "></i>原理</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="https://blog.xtcgch.ink/categories/代码/"><i class="fa "></i>代码</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="https://blog.xtcgch.ink/categories/开源/"><i class="fa "></i>开源</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="https://blog.xtcgch.ink/categories/面试/"><i class="fa "></i>面试</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="https://blog.xtcgch.ink/categories/其他/"><i class="fa "></i>其他</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="https://blog.xtcgch.ink/archives/"><i class="fa "></i>时间轴</a>
+                            </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+    <section class="content-wrap">
+        <div class="container">
+            <div class="row">
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="协程的学习">
+            
+	            协程的学习
+            
+        </h1>
+        <div class="post-meta">
+    
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <a href="https://blog.xtcgch.ink/categories/原理">
+            原理
+        </a>
+    </span>
+    
+
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+                
+                    <a href="https://blog.xtcgch.ink/tags/协程" title="协程">
+                        协程
+                    </a>
+                
+            
+        </span>
+    </span>
+    
+
+    
+        
+        <span class="fa-wrap">
+            <i class="fa fa-clock-o"></i>
+            <span class="date-meta">2020/12/03</span>
+        </span>
+        
+    
+</div>
+
+            
+            
+    </div>
+    
+    <div class="post-body post-content">
+        <p><strong>摘要：</strong>记录协程的知识点。</p>
+<a id="more"></a>
+<hr>
+<h1 id="脑图"><a href="#脑图" class="headerlink" title="脑图"></a>脑图</h1><p><img src="脑图.png" alt></p>
+<hr>
+<h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a><table><tr><td bgcolor="#C7C7C7">简介</td></tr></table></h1><h2 id="C-20前的boost-coroutines"><a href="#C-20前的boost-coroutines" class="headerlink" title="C++20前的boost::coroutines"></a><font color="#0000FF">C++20前的boost::coroutines</font></h2><p>boost::coroutines2::coroutine&lt;&gt;</p>
+<ol>
+<li><p>头文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;boost/coroutine2/coroutine.hpp&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>相关函数</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">pull_type</span><br><span class="line">push_type</span><br><span class="line">sink</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>g++ test_coroutine.cpp -lboost_coroutine -lboost_context -o test</p>
+<h2 id="C-20下的std-coroutines"><a href="#C-20下的std-coroutines" class="headerlink" title="C++20下的std::coroutines"></a><font color="#0000FF">C++20下的std::coroutines</font></h2><h1 id="知识理解"><a href="#知识理解" class="headerlink" title="知识理解"></a><table><tr><td bgcolor="#C7C7C7">知识理解</td></tr></table></h1><ol>
+<li>协程是比线程更小的一种执行单元,每个线程分配1M左右的栈空间，而协程可能只有几十或者几百K</li>
+<li>线程的调度是在操作系统中进行的,而协程调度则是在用户空间进行的，是开发人员通过调用系统底层的执行上下文相关api来完成的</li>
+<li>协成是基于线程实现的，协程的创建、切换、销毁都是在某个线程中来进行的</li>
+<li>协程是用户级的线程</li>
+<li>协程无法使用CPU的多核</li>
+<li>协程要和异步使用才能发挥优势</li>
+<li>协程是分时复用，线程是时间片，</li>
+<li>C++20标准添加了协程的支持，即std::coroutine</li>
+</ol>
+<h1 id="协程切换快"><a href="#协程切换快" class="headerlink" title="协程切换快"></a><table><tr><td bgcolor="#C7C7C7">协程切换快</td></tr></table></h1><h2 id="原理"><a href="#原理" class="headerlink" title="原理"></a><font color="#0000FF">原理</font></h2><ol>
+<li>线程在进行切换的时候，需要将CPU中的寄存器的信息存储起来，然后读入另外一个线程的数据，这个会花费一些时间</li>
+<li>CPU的高速缓存中的数据，也可能失效，需要重新加载</li>
+<li>线程的切换会涉及到用户模式到内核模式的切换，据说每次模式切换都需要执行上千条指令，很耗时</li>
+</ol>
+<h2 id="优势"><a href="#优势" class="headerlink" title="优势"></a><font color="#0000FF">优势</font></h2><ol>
+<li>在切换的时候，寄存器需要保存和加载的数据量比较小。</li>
+<li>高速缓存可以有效利用</li>
+<li>没有用户模式到内核模式的切换操作。</li>
+<li>更有效率的调度，因为协程是非抢占式的，前一个协程执行完毕或者堵塞，才会让出CPU，而线程则一般使用了时间片的算法，会进行很多没有必要的切换（为了尽量让用户感知不到某个线程卡）</li>
+</ol>
+<hr>
+<h1 id="推荐项目"><a href="#推荐项目" class="headerlink" title="推荐项目"></a><font color="#0000FF">推荐项目</font></h1><ol>
+<li>腾讯的libco项目</li>
+</ol>
+<p>传送门: <a href="https://github.com/Tencent/libco" target="_blank" rel="noopener">libco项目github地址</a></p>
+<p>2. </p>
+
+    </div>
+    
+    <div class="post-footer">
+        <div>
+            
+        </div>
+        <div>
+            
+        </div>
+    </div>
+</article>
+
+<div class="article-nav prev-next-wrap clearfix">
+    
+        <a href="/2020/12/03/cmake学习/" class="pre-post btn btn-default" title="cmake学习">
+            <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
+            <span class="hidden-xs">cmake学习</span>
+        </a>
+    
+    
+        <a href="/2020/12/03/MYSQL学习/" class="next-post btn btn-default" title="MYSQL学习">
+            <span class="hidden-lg">下一篇</span>
+            <span class="hidden-xs">MYSQL学习</span><i class="fa fa-angle-right fa-fw"></i>
+        </a>
+    
+</div>
+
+
+    <div id="comments">
+        
+    
+    <div id="vcomments" class="valine"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="/assets/valine.min.js"></script>
+
+    <script>
+        new Valine({
+            av: AV,
+            el: '#vcomments',
+            appId: 'XWA5gq7VCJybw7YQhf5HG20r-gzGzoHsz',
+            appKey: '8FW1WEwrysHXaUD1bhGn2Rp8',
+            placeholder: '说点什么吧',
+            notify: true,
+            verify: false,
+            avatar: 'https://blog.xtcgch.ink/img/comment-avatar.jpg',
+            meta: 'nick,mail'.split(','),
+            pageSize: '10',
+            path: window.location.pathname,
+            lang: 'zh-CN'.toLowerCase()
+        })
+    </script>
+
+
+    </div>
+
+
+
+
+
+                </main>
+                
+                    <aside id="article-toc" role="navigation" class="col-md-4">
+    <div class="widget">
+        <h3 class="title">文章目录</h3>
+        
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#脑图"><span class="toc-text">脑图</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#简介"><span class="toc-text">简介</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#C-20前的boost-coroutines"><span class="toc-text">C++20前的boost::coroutines</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#C-20下的std-coroutines"><span class="toc-text">C++20下的std::coroutines</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#知识理解"><span class="toc-text">知识理解</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#协程切换快"><span class="toc-text">协程切换快</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#原理"><span class="toc-text">原理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#优势"><span class="toc-text">优势</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#推荐项目"><span class="toc-text">推荐项目</span></a></li></ol>
+        
+    </div>
+</aside>
+
+                
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</footer>
+
+<a id="back-to-top" class="icon-btn hide">
+	<i class="fa fa-chevron-up"></i>
+</a>
+
+
+
+
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="busuanzi">
+    
+</div>
+
+            </div>
+            <div class="col-sm-12">
+                <span>Copyright &copy; 2018
+                </span> |
+                <span>
+                    Powered by <a href="//hexo.io" class="copyright-links" target="_blank" rel="nofollow">Hexo</a>
+                </span> |
+                <span>
+                    Theme by <a href="//github.com/shenliyang/hexo-theme-snippet.git" class="copyright-links" target="_blank" rel="nofollow">Snippet</a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+<script src="/js/app.js?rev=@@hash"></script>
+
+</body>
+</html>

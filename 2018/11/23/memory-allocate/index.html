@@ -1,0 +1,404 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="我的博客 - blog">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="browsermode" content="application">
+    <meta name="screen-orientation" content="portrait">
+    <link rel="dns-prefetch" href="https://lives.xtcgch.ink">
+    <!--SEO-->
+
+<meta name="description" content="脑容量不够，笔记来凑">
+
+
+
+
+
+<meta name="robots" content="all">
+<meta name="google" content="all">
+<meta name="googlebot" content="all">
+<meta name="verify" content="all">
+    <!--Title-->
+
+
+<title>【原理】内存分配、管理和算法 | 我的博客 - blog</title>
+
+
+    <link rel="alternate" href="/atom.xml" title="我的博客 - blog" type="application/atom+xml">
+
+
+    <link rel="icon" href="https://blog.xtcgch.ink/img/background/海绵宝宝.ico">
+
+    
+
+
+
+<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7">
+<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.5.0">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash">
+
+
+
+
+    
+
+
+
+
+
+    
+
+</head>
+
+</html>
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+
+<body>
+    <header class="main-header" style="background-image:url(https://blog.xtcgch.ink/img/head-bg.jpg)">
+    <div class="main-header-box">
+        <a class="header-avatar" href="/" title="unistd68">
+            <img src="/img/background/海绵宝宝.jpg" alt="logo头像" class="img-responsive center-block">
+        </a>
+        <div class="branding">
+        	<!--<h2 class="text-hide">Snippet主题,从未如此简单有趣</h2>-->
+            
+                <h2> 脑容量不够，笔记来凑 </h2>
+            
+    	</div>
+    </div>
+</header>
+    <nav class="main-navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header"><span class="nav-toggle-button collapsed pull-right" data-toggle="collapse" data-target="#main-menu" id="mnav">
+                    <span class="sr-only"></span>
+                        <i class="fa fa-bars"></i>
+                    </span>
+                    <a class="navbar-brand" href="https://lives.xtcgch.ink">我的博客 - blog</a>
+                </div>
+                <div class="collapse navbar-collapse" id="main-menu">
+                    <ul class="menu">
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="https://blog.xtcgch.ink/"><i class="fa "></i>主页</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="https://blog.xtcgch.ink/categories/原理/"><i class="fa "></i>原理</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="https://blog.xtcgch.ink/categories/代码/"><i class="fa "></i>代码</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="https://blog.xtcgch.ink/categories/开源/"><i class="fa "></i>开源</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="https://blog.xtcgch.ink/categories/面试/"><i class="fa "></i>面试</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="https://blog.xtcgch.ink/categories/其他/"><i class="fa "></i>其他</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="https://blog.xtcgch.ink/archives/"><i class="fa "></i>时间轴</a>
+                            </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+    <section class="content-wrap">
+        <div class="container">
+            <div class="row">
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="【原理】内存分配、管理和算法">
+            
+	            【原理】内存分配、管理和算法
+            
+        </h1>
+        <div class="post-meta">
+    
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <a href="https://blog.xtcgch.ink/categories/原理">
+            原理
+        </a>
+    </span>
+    
+
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+                
+                    <a href="https://blog.xtcgch.ink/tags/内存管理" title="内存管理">
+                        内存管理
+                    </a>
+                
+                    <a href="https://blog.xtcgch.ink/tags/内存分配" title="内存分配">
+                        内存分配
+                    </a>
+                
+                    <a href="https://blog.xtcgch.ink/tags/操作系统" title="操作系统">
+                        操作系统
+                    </a>
+                
+            
+        </span>
+    </span>
+    
+
+    
+        
+        <span class="fa-wrap">
+            <i class="fa fa-clock-o"></i>
+            <span class="date-meta">2018/11/23</span>
+        </span>
+        
+    
+</div>
+
+            
+            
+            <p class="fa fa-exclamation-triangle warning">
+                本文于<strong>1024</strong>天之前发表，文中内容可能已经过时。
+            </p>
+        
+    </div>
+    
+    <div class="post-body post-content">
+        <p><strong>摘要</strong>：内存分配是指在程序执行的过程中分配或者回收存储空间的分配内存的方法。<br><a id="more"></a></p>
+<h2 id="栈和堆"><a href="#栈和堆" class="headerlink" title="栈和堆"></a>栈和堆</h2><p>（1）栈上的内存主要是由操作系统分配，不会发生内存泄漏，堆上的内存一般由程序员分配释放，若不释放，程序结束时可能由OS回收</p>
+<p>（2）栈上的分配内存的大小是有限制，超出上限会分配失败，而堆上的内存分配则是没有大小限制</p>
+<p>（3）堆区是公有的，栈区是线程独有的</p>
+<p>（4）什么是堆：堆是大家<strong>共有</strong>的空间，分全局堆和局部堆。<br>全局堆就是所有没有分配的空间，局部堆就是用户分配的空间。<br>堆在操作系统对进程 初始化的时候分配，运行过程中也可以向系统要额外的堆，但是记得用完了要还给操作系统，要不然就是内存泄漏。</p>
+<p>什么是栈：栈是线程<strong>独有</strong>的，保存其运行状态和局部自动变量的。<br>栈在线程开始的时候初始化，每个线程的栈互相独立。<br>每个函数都有自己的栈，栈被用来在函数之间传递参数。<br>操作系统在切换线程的时候会自动的切换栈，就是切换SS/ESP寄存器。<br>栈空间不需要在高级语言里面显式的分配和释放。</p>
+<p>注意：堆区与数据结构中的堆是两回事，分配方式倒是类似于链表。</p>
+<p>错误示例：</p>
+<pre><code>void Function(void) 
+{ 
+    char *p = (char *)malloc(100 * sizeof(char)); 
+}
+</code></pre><p>就这个例子，千万不要认为函数返回，函数所在的栈被销毁指针也跟着销毁，申请的内存也就一样跟着销毁了！这绝对是错误的！因为申请的内存在<strong>堆</strong>上，而函数所在的<strong>栈</strong>被销毁跟堆完全没有啥关系。</p>
+<hr>
+<h2 id="动态内存分配和静态内存分配"><a href="#动态内存分配和静态内存分配" class="headerlink" title="动态内存分配和静态内存分配"></a>动态内存分配和静态内存分配</h2><h3 id="动态内存分配"><a href="#动态内存分配" class="headerlink" title="动态内存分配"></a>动态内存分配</h3><p>动态内存分配(Dynamic Memory Allocation)就是指在程序执行的过程中动态地分配或者回收存储空间的分配内存的方法。动态内存分配不象数组等静态内存分配方法那样需要预先分配存储空间，而是由系统根据程序的需要即时分配，且分配的大小就是程序要求的大小。</p>
+<h3 id="静态内存分配"><a href="#静态内存分配" class="headerlink" title="静态内存分配"></a>静态内存分配</h3><p>静态的内存使用的是栈空间内存，不用程序员自己来分配。因为静态变量占用的存储空间对于编译器而言是可预计的，静态内存只需要编程的时候直接声明就可以了。</p>
+<hr>
+<h2 id="malloc-和-new"><a href="#malloc-和-new" class="headerlink" title="malloc 和 new"></a>malloc 和 new</h2><p><strong>1、联系</strong></p>
+<p>（1）都是动态分配内存</p>
+<p>（2）在释放内存后，原指针要进行相关的处理</p>
+<p><strong>2、区别</strong></p>
+<p>（1）申请的内存所在位置</p>
+<p><strong>new</strong>操作符从自由存储区（free store）上为对象动态分配内存空间（自由存储区可以是<strong>堆</strong>，可以是<strong>静态存储区</strong>）</p>
+<p><strong>malloc</strong>函数从<strong>堆</strong>上动态分配内存</p>
+<p>（2）返回类型安全性</p>
+<p>new是符合<strong>类型安全</strong>性的操作符：<br><strong>new</strong>操作符内存分配成功时，返回的是对象类型的指针，类型严格与对象匹配，无须进行类型转换</p>
+<p>malloc是<strong>非类型安全</strong>性的操作符：<br>malloc内存分配成功则是返回<code>void *</code> ，需要通过强制类型转换将<code>void *</code> 指针转换成我们需要的类型</p>
+<p>（3）内存分配失败时的返回值</p>
+<p><strong>new</strong>内存分配失败时，会抛出<strong>bac_alloc</strong>异常，它不会返回NULL</p>
+<p><strong>malloc</strong>分配内存失败时返回<strong>NULL</strong>，需要去判断是否分配成功</p>
+<p><strong>malloc</strong>检查分配内存是否成功：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">int *a  = (int *)malloc ( sizeof (int ));</span><br><span class="line">if(NULL == a)</span><br><span class="line">&#123;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br><span class="line">else </span><br><span class="line">&#123;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>new</strong>检查分配内存是否成功：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">try</span><br><span class="line">&#123;</span><br><span class="line">    int *a = new int();</span><br><span class="line">&#125;</span><br><span class="line">catch (bad_alloc)</span><br><span class="line">&#123;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>（4）是否需要指定内存大小</p>
+<p>new操作符申请内存分配时无须指定内存块的大小，编译器会根据类型信息自行计算，而malloc则需要显式地指出所需内存的尺寸</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">1、int* parr = new int [100] ; 则分配大小为 sizeof(int) * 100 </span><br><span class="line">2、int* parr = （int *）malloc （100 * sizeof（int））</span><br></pre></td></tr></table></figure>
+<p>（5）是否调用构造函数/析构函数</p>
+<p>使用<strong>new</strong>操作符来分配对象内存时会经历三个步骤：</p>
+<p>第一步：调用operator new 函数（对于数组是operator new[]）分配一块足够大的，原始的，未命名的内存空间以便存储特定类型的对象。<br>第二步：编译器运行相应的构造函数以构造对象，并为其传入初值。<br>第三步：对象构造完成后，返回一个指向该对象的指针。</p>
+<p>使用<strong>delete</strong>操作符来释放对象内存时会经历两个步骤：</p>
+<p>第一步：调用对象的析构函数。<br> 第二步：编译器调用operator delete(或operator delete[])函数释放内存空间。<br> 总之来说，new/delete会调用对象的构造函数/析构函数以完成对象的构造/析构。而malloc则不会。</p>
+<p>（6）对数组的处理</p>
+<p><strong>new</strong>对数组的支持体现在它会分别调用构造函数函数初始化每一个数组元素，释放对象时为每个对象调用析构函数。</p>
+<p>注意delete[]要与new[]配套使用，不然会找出数组对象部分释放的现象，造成内存泄漏。</p>
+<p>至于malloc，它并知道你在这块内存上要放的数组还是啥别的东西，反正它就给你一块原始的内存，在给你个内存的地址就完事。</p>
+<p>所以如果要动态分配一个数组的内存，还需要我们手动自定数组的大小</p>
+<p>（7）new与malloc是否可以相互调用</p>
+<p>operator new /operator delete的实现可以基于malloc，而malloc的实现不可以去调用new</p>
+<p>（8）是否可以被重载</p>
+<p>opeartor new /operator delete可以被重载。标准库是定义了operator new函数和operator delete函数的8个重载版本</p>
+<p> 而malloc/free并不允许重载</p>
+<p>（9）能够直观地重新分配内存</p>
+<p>使用<strong>malloc</strong>分配的内存后，如果在使用过程中发现内存不足，可以使用<strong>realloc</strong>函数进行内存重新分配实现内存的扩充。</p>
+<p><strong>realloc</strong>先判断当前的指针所指内存是否有足够的连续空间，如果有，<strong>原地扩大</strong>可分配的内存地址，并且返回原来的地址指针；如果空间不够，先按照新指定的大小分配空间，将原有数据从头到尾拷贝到新分配的内存区域，而后释放原来的内存区域。</p>
+<p><strong>new</strong>没有这样直观的配套设施来扩充内存。</p>
+<p>（10）客户处理内存分配不足</p>
+<p>在operator new抛出异常以反映一个未获得满足的需求之前，它会先调用一个用户指定的错误处理函数，这就是new-handler</p>
+<p>对于malloc，客户并不能够去编程决定内存不足以分配时要干什么事，只能看着malloc返回NULL</p>
+<p>注意：<br>（1）重复分配内存会使得内存泄漏<br>（2）重复释放内存会发生错误</p>
+<hr>
+<h2 id="连续内存分配方式"><a href="#连续内存分配方式" class="headerlink" title="连续内存分配方式"></a>连续内存分配方式</h2><p>1）固定分区分配</p>
+<p>将内存划分成若干个固定大小的块。将程序装入块中即可。内存划分成各个块之后，块大小不再改变。当然，划分块的方式有：所有的块大小相等；划分的块大小不相等。</p>
+<p>这种方式，在实际的内存分配之前，就已经知道了所有的内存块大小了。</p>
+<p>2）动态分区分配</p>
+<p>需要一个空闲表 或者 空闲链 来记录目前系统中空间的内存区域。在内存分配时，需要查找空间表或空闲链找到一块内存分配给当前进程。</p>
+<p>动态分区分配算法：</p>
+<p>a)首次适应法</p>
+<p>b)循环首次适应法</p>
+<p>c)最佳适应法</p>
+<p>d)最坏适应法</p>
+<p>e)快速适应法</p>
+<p>3）可重定位分区分配</p>
+<p>说白了，就是增加了内存移动的功能。由于若干次内存分配与回收之后，各个空闲的内存块不连续了。通过“重定位”，将已经分配的内存“紧凑”在一块（就类似于JVM垃圾回收中的复制算法）从而空出一大块空闲的内存出来。</p>
+<p>”紧凑“是需要开销的，比如需要重新计算 地址，这也为什么JVM垃圾回收会导致STW的原因。</p>
+<p>而离散分配方式–不管是分页还是分段，都是直接将程序放到各个离散的页中。从而就不存在“紧凑”一说了。</p>
+<p>连续内存分配方式涉及两种操作：内存分配操作 和 内存回收操作</p>
+<h2 id="离散内存分配方式"><a href="#离散内存分配方式" class="headerlink" title="离散内存分配方式"></a>离散内存分配方式</h2><p>内存资源是有限的，程序要运行，必须得加载到内存。如果内存已经满了，而现在又有新的程序要运行，怎么办？—SWAP</p>
+<p>把当前不用的程序(数据)先换出内存，从而就有空间 加载当前需要运行的程序的一部分数据进入内存，这样大大提高了内存的利用率。</p>
+<p>由于牵涉到换入与换出，前面的连续内存分配方式就有点不适用了。因为，最明显的一个问题：对于连续内存分配方式，究竟换出哪部分数据呢？</p>
+<p>而这种只装入部分”数据”就可以使程序运行的机制，就是虚拟存储器的本质。</p>
+<hr>
+<h2 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h2><ul>
+<li><a href="http://www.cnblogs.com/huhuuu/archive/2013/11/19/3432371.html" target="_blank" rel="noopener">文章一</a></li>
+<li><a href="https://www.cnblogs.com/hapjin/p/5689049.html" target="_blank" rel="noopener">文章二</a></li>
+</ul>
+
+    </div>
+    
+    <div class="post-footer">
+        <div>
+            
+        </div>
+        <div>
+            
+        </div>
+    </div>
+</article>
+
+<div class="article-nav prev-next-wrap clearfix">
+    
+        <a href="/2018/11/23/callback-function/" class="pre-post btn btn-default" title="【原理】回调函数">
+            <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
+            <span class="hidden-xs">【原理】回调函数</span>
+        </a>
+    
+    
+        <a href="/2018/11/22/sort-alogrithm/" class="next-post btn btn-default" title="【原理】常见排序算法">
+            <span class="hidden-lg">下一篇</span>
+            <span class="hidden-xs">【原理】常见排序算法</span><i class="fa fa-angle-right fa-fw"></i>
+        </a>
+    
+</div>
+
+
+    <div id="comments">
+        
+    
+    <div id="vcomments" class="valine"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="/assets/valine.min.js"></script>
+
+    <script>
+        new Valine({
+            av: AV,
+            el: '#vcomments',
+            appId: 'XWA5gq7VCJybw7YQhf5HG20r-gzGzoHsz',
+            appKey: '8FW1WEwrysHXaUD1bhGn2Rp8',
+            placeholder: '说点什么吧',
+            notify: true,
+            verify: false,
+            avatar: 'https://blog.xtcgch.ink/img/comment-avatar.jpg',
+            meta: 'nick,mail'.split(','),
+            pageSize: '10',
+            path: window.location.pathname,
+            lang: 'zh-CN'.toLowerCase()
+        })
+    </script>
+
+
+    </div>
+
+
+
+
+
+                </main>
+                
+                    <aside id="article-toc" role="navigation" class="col-md-4">
+    <div class="widget">
+        <h3 class="title">文章目录</h3>
+        
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#栈和堆"><span class="toc-text">栈和堆</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#动态内存分配和静态内存分配"><span class="toc-text">动态内存分配和静态内存分配</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#动态内存分配"><span class="toc-text">动态内存分配</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#静态内存分配"><span class="toc-text">静态内存分配</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#malloc-和-new"><span class="toc-text">malloc 和 new</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#连续内存分配方式"><span class="toc-text">连续内存分配方式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#离散内存分配方式"><span class="toc-text">离散内存分配方式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考文章"><span class="toc-text">参考文章</span></a></li></ol>
+        
+    </div>
+</aside>
+
+                
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</footer>
+
+<a id="back-to-top" class="icon-btn hide">
+	<i class="fa fa-chevron-up"></i>
+</a>
+
+
+
+
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="busuanzi">
+    
+</div>
+
+            </div>
+            <div class="col-sm-12">
+                <span>Copyright &copy; 2018
+                </span> |
+                <span>
+                    Powered by <a href="//hexo.io" class="copyright-links" target="_blank" rel="nofollow">Hexo</a>
+                </span> |
+                <span>
+                    Theme by <a href="//github.com/shenliyang/hexo-theme-snippet.git" class="copyright-links" target="_blank" rel="nofollow">Snippet</a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+<script src="/js/app.js?rev=@@hash"></script>
+
+</body>
+</html>

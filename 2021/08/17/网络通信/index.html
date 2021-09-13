@@ -1,0 +1,313 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="我的博客 - blog">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="browsermode" content="application">
+    <meta name="screen-orientation" content="portrait">
+    <link rel="dns-prefetch" href="https://lives.xtcgch.ink">
+    <!--SEO-->
+
+<meta name="description" content="脑容量不够，笔记来凑">
+
+
+
+
+
+<meta name="robots" content="all">
+<meta name="google" content="all">
+<meta name="googlebot" content="all">
+<meta name="verify" content="all">
+    <!--Title-->
+
+
+<title>网络通信 | 我的博客 - blog</title>
+
+
+    <link rel="alternate" href="/atom.xml" title="我的博客 - blog" type="application/atom+xml">
+
+
+    <link rel="icon" href="https://blog.xtcgch.ink/img/background/海绵宝宝.ico">
+
+    
+
+
+
+<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7">
+<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.5.0">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash">
+
+
+
+
+    
+
+
+
+
+
+    
+
+</head>
+
+</html>
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+
+<body>
+    <header class="main-header" style="background-image:url(https://blog.xtcgch.ink/img/head-bg.jpg)">
+    <div class="main-header-box">
+        <a class="header-avatar" href="/" title="unistd68">
+            <img src="/img/background/海绵宝宝.jpg" alt="logo头像" class="img-responsive center-block">
+        </a>
+        <div class="branding">
+        	<!--<h2 class="text-hide">Snippet主题,从未如此简单有趣</h2>-->
+            
+                <h2> 脑容量不够，笔记来凑 </h2>
+            
+    	</div>
+    </div>
+</header>
+    <nav class="main-navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header"><span class="nav-toggle-button collapsed pull-right" data-toggle="collapse" data-target="#main-menu" id="mnav">
+                    <span class="sr-only"></span>
+                        <i class="fa fa-bars"></i>
+                    </span>
+                    <a class="navbar-brand" href="https://lives.xtcgch.ink">我的博客 - blog</a>
+                </div>
+                <div class="collapse navbar-collapse" id="main-menu">
+                    <ul class="menu">
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="https://blog.xtcgch.ink/"><i class="fa "></i>主页</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="https://blog.xtcgch.ink/categories/原理/"><i class="fa "></i>原理</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="https://blog.xtcgch.ink/categories/代码/"><i class="fa "></i>代码</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="https://blog.xtcgch.ink/categories/开源/"><i class="fa "></i>开源</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="https://blog.xtcgch.ink/categories/面试/"><i class="fa "></i>面试</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="https://blog.xtcgch.ink/categories/其他/"><i class="fa "></i>其他</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="https://blog.xtcgch.ink/archives/"><i class="fa "></i>时间轴</a>
+                            </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+    <section class="content-wrap">
+        <div class="container">
+            <div class="row">
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="网络通信">
+            
+	            网络通信
+            
+        </h1>
+        <div class="post-meta">
+    
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <a href="https://blog.xtcgch.ink/categories/原理">
+            原理
+        </a>
+    </span>
+    
+
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+                
+                    <a href="https://blog.xtcgch.ink/tags/网络" title="网络">
+                        网络
+                    </a>
+                
+            
+        </span>
+    </span>
+    
+
+    
+        
+        <span class="fa-wrap">
+            <i class="fa fa-clock-o"></i>
+            <span class="date-meta">2021/08/17</span>
+        </span>
+        
+    
+</div>
+
+            
+            
+    </div>
+    
+    <div class="post-body post-content">
+        <p><strong>摘要：</strong>这是摘要！</p>
+<a id="more"></a>
+<hr>
+<h1 id="脑图"><a href="#脑图" class="headerlink" title="脑图"></a>脑图</h1><p><img src="脑图.png" alt></p>
+<hr>
+<h1 id="TCP可靠传输的实现"><a href="#TCP可靠传输的实现" class="headerlink" title="TCP可靠传输的实现"></a><table><tr><td bgcolor="#C7C7C7">TCP可靠传输的实现</td></tr></table></h1><h2 id="以字节为单位的滑动窗口"><a href="#以字节为单位的滑动窗口" class="headerlink" title="以字节为单位的滑动窗口"></a><font color="#0000FF">以字节为单位的滑动窗口</font></h2><h2 id="超时重传的时间的选择"><a href="#超时重传的时间的选择" class="headerlink" title="超时重传的时间的选择"></a><font color="#0000FF">超时重传的时间的选择</font></h2><h2 id="选择确认sack"><a href="#选择确认sack" class="headerlink" title="选择确认sack"></a><font color="#0000FF">选择确认sack</font></h2><h1 id="TCP的流量控制"><a href="#TCP的流量控制" class="headerlink" title="TCP的流量控制"></a><table><tr><td bgcolor="#C7C7C7">TCP的流量控制</td></tr></table></h1><h2 id="利用滑动窗口"><a href="#利用滑动窗口" class="headerlink" title="利用滑动窗口"></a><font color="#0000FF">利用滑动窗口</font></h2><h1 id="TCP的拥塞控制"><a href="#TCP的拥塞控制" class="headerlink" title="TCP的拥塞控制"></a><table><tr><td bgcolor="#C7C7C7">TCP的拥塞控制</td></tr></table></h1><h2 id="慢开始"><a href="#慢开始" class="headerlink" title="慢开始"></a><font color="#0000FF">慢开始</font></h2><h2 id="拥塞避免"><a href="#拥塞避免" class="headerlink" title="拥塞避免"></a><font color="#0000FF">拥塞避免</font></h2><h2 id="快重传"><a href="#快重传" class="headerlink" title="快重传"></a><font color="#0000FF">快重传</font></h2><h2 id="快恢复"><a href="#快恢复" class="headerlink" title="快恢复"></a><font color="#0000FF">快恢复</font></h2><h1 id="Centos7查看网卡流量的6种方法"><a href="#Centos7查看网卡流量的6种方法" class="headerlink" title="Centos7查看网卡流量的6种方法"></a><table><tr><td bgcolor="#C7C7C7">Centos7查看网卡流量的6种方法</td></tr></table></h1><h2 id="iptraf-ng-h"><a href="#iptraf-ng-h" class="headerlink" title="iptraf-ng -h"></a><font color="#0000FF">iptraf-ng -h</font></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># 查看每一块网卡上的流量</span><br><span class="line">sudo iptraf-ng -g</span><br><span class="line"># 显示指定网卡上的流量统计，总体流量、流入量、流出量、以及按协议分类的流量统计</span><br><span class="line">sudo iptraf-ng -d eth0</span><br><span class="line"># 统计各port的流量</span><br><span class="line">sudo iptraf-ng -s eth0</span><br><span class="line"># 查看远程主机端口及报文（含抓包信息）</span><br><span class="line">sudo iptraf-ng -i eth0</span><br></pre></td></tr></table></figure>
+<h2 id="nload"><a href="#nload" class="headerlink" title="nload"></a><font color="#0000FF">nload</font></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo nload  enp0s3</span><br></pre></td></tr></table></figure>
+<h2 id="ifstat"><a href="#ifstat" class="headerlink" title="ifstat"></a><font color="#0000FF">ifstat</font></h2><h2 id="sar"><a href="#sar" class="headerlink" title="sar"></a><font color="#0000FF">sar</font></h2><h2 id="watch"><a href="#watch" class="headerlink" title="watch"></a><font color="#0000FF">watch</font></h2><h2 id="iftop"><a href="#iftop" class="headerlink" title="iftop"></a><font color="#0000FF">iftop</font></h2>
+    </div>
+    
+    <div class="post-footer">
+        <div>
+            
+        </div>
+        <div>
+            
+        </div>
+    </div>
+</article>
+
+<div class="article-nav prev-next-wrap clearfix">
+    
+        <a href="/2021/09/08/面试之数据库篇/" class="pre-post btn btn-default" title="面试之数据库篇">
+            <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
+            <span class="hidden-xs">面试之数据库篇</span>
+        </a>
+    
+    
+        <a href="/2021/08/14/守护进程/" class="next-post btn btn-default" title="守护进程">
+            <span class="hidden-lg">下一篇</span>
+            <span class="hidden-xs">守护进程</span><i class="fa fa-angle-right fa-fw"></i>
+        </a>
+    
+</div>
+
+
+    <div id="comments">
+        
+    
+    <div id="vcomments" class="valine"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="/assets/valine.min.js"></script>
+
+    <script>
+        new Valine({
+            av: AV,
+            el: '#vcomments',
+            appId: 'XWA5gq7VCJybw7YQhf5HG20r-gzGzoHsz',
+            appKey: '8FW1WEwrysHXaUD1bhGn2Rp8',
+            placeholder: '说点什么吧',
+            notify: true,
+            verify: false,
+            avatar: 'https://blog.xtcgch.ink/img/comment-avatar.jpg',
+            meta: 'nick,mail'.split(','),
+            pageSize: '10',
+            path: window.location.pathname,
+            lang: 'zh-CN'.toLowerCase()
+        })
+    </script>
+
+
+    </div>
+
+
+
+
+
+                </main>
+                
+                    <aside id="article-toc" role="navigation" class="col-md-4">
+    <div class="widget">
+        <h3 class="title">文章目录</h3>
+        
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#脑图"><span class="toc-text">脑图</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#TCP可靠传输的实现"><span class="toc-text">TCP可靠传输的实现</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#以字节为单位的滑动窗口"><span class="toc-text">以字节为单位的滑动窗口</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#超时重传的时间的选择"><span class="toc-text">超时重传的时间的选择</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#选择确认sack"><span class="toc-text">选择确认sack</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#TCP的流量控制"><span class="toc-text">TCP的流量控制</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#利用滑动窗口"><span class="toc-text">利用滑动窗口</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#TCP的拥塞控制"><span class="toc-text">TCP的拥塞控制</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#慢开始"><span class="toc-text">慢开始</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#拥塞避免"><span class="toc-text">拥塞避免</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#快重传"><span class="toc-text">快重传</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#快恢复"><span class="toc-text">快恢复</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Centos7查看网卡流量的6种方法"><span class="toc-text">Centos7查看网卡流量的6种方法</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#iptraf-ng-h"><span class="toc-text">iptraf-ng -h</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#nload"><span class="toc-text">nload</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ifstat"><span class="toc-text">ifstat</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#sar"><span class="toc-text">sar</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#watch"><span class="toc-text">watch</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#iftop"><span class="toc-text">iftop</span></a></li></ol></li></ol>
+        
+    </div>
+</aside>
+
+                
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</footer>
+
+<a id="back-to-top" class="icon-btn hide">
+	<i class="fa fa-chevron-up"></i>
+</a>
+
+
+
+
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="busuanzi">
+    
+</div>
+
+            </div>
+            <div class="col-sm-12">
+                <span>Copyright &copy; 2018
+                </span> |
+                <span>
+                    Powered by <a href="//hexo.io" class="copyright-links" target="_blank" rel="nofollow">Hexo</a>
+                </span> |
+                <span>
+                    Theme by <a href="//github.com/shenliyang/hexo-theme-snippet.git" class="copyright-links" target="_blank" rel="nofollow">Snippet</a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+<script src="/js/app.js?rev=@@hash"></script>
+
+</body>
+</html>

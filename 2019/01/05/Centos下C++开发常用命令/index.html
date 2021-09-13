@@ -1,0 +1,356 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="我的博客 - blog">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="browsermode" content="application">
+    <meta name="screen-orientation" content="portrait">
+    <link rel="dns-prefetch" href="https://lives.xtcgch.ink">
+    <!--SEO-->
+
+<meta name="description" content="脑容量不够，笔记来凑">
+
+
+
+
+
+<meta name="robots" content="all">
+<meta name="google" content="all">
+<meta name="googlebot" content="all">
+<meta name="verify" content="all">
+    <!--Title-->
+
+
+<title>【原理】Centos下C++开发常用命令 | 我的博客 - blog</title>
+
+
+    <link rel="alternate" href="/atom.xml" title="我的博客 - blog" type="application/atom+xml">
+
+
+    <link rel="icon" href="https://blog.xtcgch.ink/img/background/海绵宝宝.ico">
+
+    
+
+
+
+<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7">
+<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.5.0">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash">
+
+
+
+
+    
+
+
+
+
+
+    
+
+</head>
+
+</html>
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+
+<body>
+    <header class="main-header" style="background-image:url(https://blog.xtcgch.ink/img/head-bg.jpg)">
+    <div class="main-header-box">
+        <a class="header-avatar" href="/" title="unistd68">
+            <img src="/img/background/海绵宝宝.jpg" alt="logo头像" class="img-responsive center-block">
+        </a>
+        <div class="branding">
+        	<!--<h2 class="text-hide">Snippet主题,从未如此简单有趣</h2>-->
+            
+                <h2> 脑容量不够，笔记来凑 </h2>
+            
+    	</div>
+    </div>
+</header>
+    <nav class="main-navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header"><span class="nav-toggle-button collapsed pull-right" data-toggle="collapse" data-target="#main-menu" id="mnav">
+                    <span class="sr-only"></span>
+                        <i class="fa fa-bars"></i>
+                    </span>
+                    <a class="navbar-brand" href="https://lives.xtcgch.ink">我的博客 - blog</a>
+                </div>
+                <div class="collapse navbar-collapse" id="main-menu">
+                    <ul class="menu">
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="https://blog.xtcgch.ink/"><i class="fa "></i>主页</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="https://blog.xtcgch.ink/categories/原理/"><i class="fa "></i>原理</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="https://blog.xtcgch.ink/categories/代码/"><i class="fa "></i>代码</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="https://blog.xtcgch.ink/categories/开源/"><i class="fa "></i>开源</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="https://blog.xtcgch.ink/categories/面试/"><i class="fa "></i>面试</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="https://blog.xtcgch.ink/categories/其他/"><i class="fa "></i>其他</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="https://blog.xtcgch.ink/archives/"><i class="fa "></i>时间轴</a>
+                            </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+    <section class="content-wrap">
+        <div class="container">
+            <div class="row">
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="【原理】Centos下C++开发常用命令">
+            
+	            【原理】Centos下C++开发常用命令
+            
+        </h1>
+        <div class="post-meta">
+    
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <a href="https://blog.xtcgch.ink/categories/原理">
+            原理
+        </a>
+    </span>
+    
+
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+                
+                    <a href="https://blog.xtcgch.ink/tags/C++" title="C++">
+                        C++
+                    </a>
+                
+                    <a href="https://blog.xtcgch.ink/tags/CentOS" title="CentOS">
+                        CentOS
+                    </a>
+                
+            
+        </span>
+    </span>
+    
+
+    
+        
+        <span class="fa-wrap">
+            <i class="fa fa-clock-o"></i>
+            <span class="date-meta">2019/01/05</span>
+        </span>
+        
+    
+</div>
+
+            
+            
+            <p class="fa fa-exclamation-triangle warning">
+                本文于<strong>982</strong>天之前发表，文中内容可能已经过时。
+            </p>
+        
+    </div>
+    
+    <div class="post-body post-content">
+        <p><strong>摘要：</strong>新手入门，保持更新！</p>
+<a id="more"></a>
+<hr>
+<h2 id="1、脑图"><a href="#1、脑图" class="headerlink" title="1、脑图"></a>1、脑图</h2><p><img src="./脑图.png" alt></p>
+<hr>
+<p>本人是在Centos6.4 64bit系统上进行测试的，GCC版本是4.4.7。</p>
+<hr>
+<h2 id="2、编译命令"><a href="#2、编译命令" class="headerlink" title="2、编译命令"></a>2、编译命令</h2><h3 id="2-1-引进外部头文件"><a href="#2-1-引进外部头文件" class="headerlink" title="2.1 引进外部头文件"></a>2.1 引进外部头文件</h3><h4 id="2-1-1-方法一"><a href="#2-1-1-方法一" class="headerlink" title="2.1.1 方法一"></a>2.1.1 方法一</h4><p>  在编译时添加命令 <code>-I</code>(i的大写)</p>
+<h4 id="2-1-2-方法二"><a href="#2-1-2-方法二" class="headerlink" title="2.1.2 方法二"></a>2.1.2 方法二</h4><p>在环境变量中进行设置(临时)</p>
+<p>（1）gcc中查找路径<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">C_INCLUDE_PATH=/usr/include/  </span><br><span class="line">export C_INCLUDE_PATH</span><br></pre></td></tr></table></figure></p>
+<p>(2)g++的查找路径<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">CPLUS_INCLUDE_PATH=$CPLUS_INCLUDE_PATH:/usr/include/  </span><br><span class="line">export CPLUS_INCLUDE_PATH</span><br></pre></td></tr></table></figure></p>
+<hr>
+<h3 id="2-2-引进外部静态-动态库"><a href="#2-2-引进外部静态-动态库" class="headerlink" title="2.2 引进外部静态/动态库"></a>2.2 引进外部静态/动态库</h3><h4 id="2-2-1-动态库"><a href="#2-2-1-动态库" class="headerlink" title="2.2.1 动态库"></a>2.2.1 动态库</h4><p>（1）方法一：添加编译命令</p>
+<p>库目录：<code>-L/lib/</code><br>库文件：<code>-l/libsoci_mysql</code> ,代表着libsoci_mysql.so库</p>
+<p>（2）方法二：添加环境变量</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/MyLib  </span><br><span class="line">export LD_LIBRARY_PATH</span><br></pre></td></tr></table></figure>
+<h4 id="2-2-2-静态库"><a href="#2-2-2-静态库" class="headerlink" title="2.2.2 静态库"></a>2.2.2 静态库</h4><p>（1）方法一：添加编译命令</p>
+<p>库目录：<code>-L/lib/ -static</code><br>库文件：<code>-l/libsoci_mysql</code> ,代表着libsoci_mysql.so库</p>
+<p>（2）方法二：添加环境变量</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">LIBRARY_PATH=$LIBRARY_PATH:/MyLib  </span><br><span class="line">export LIBRARY_PATH</span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="2-3-使用C-11标准进行编译"><a href="#2-3-使用C-11标准进行编译" class="headerlink" title="2.3 使用C++11标准进行编译"></a>2.3 使用C++11标准进行编译</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-std=c++11（字母都是小写形式）</span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="3-调试命令"><a href="#3-调试命令" class="headerlink" title="3 调试命令"></a>3 调试命令</h2><h3 id="3-1-strings命令：查看系统glibc支持的版本"><a href="#3-1-strings命令：查看系统glibc支持的版本" class="headerlink" title="3.1 strings命令：查看系统glibc支持的版本"></a>3.1 strings命令：查看系统glibc支持的版本</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">[root@lzv6 c++]# strings /usr/lib64/libstdc++.so.6 | grep GLIBC</span><br><span class="line">GLIBCXX_3.4</span><br><span class="line">GLIBCXX_3.4.1</span><br><span class="line">GLIBCXX_3.4.2</span><br><span class="line">GLIBCXX_3.4.3</span><br><span class="line">GLIBCXX_3.4.4</span><br><span class="line">GLIBCXX_3.4.5</span><br><span class="line">GLIBCXX_3.4.6</span><br><span class="line">GLIBCXX_3.4.7</span><br><span class="line">GLIBCXX_3.4.8</span><br><span class="line">GLIBCXX_3.4.9</span><br><span class="line">GLIBCXX_3.4.10</span><br><span class="line">GLIBCXX_3.4.11</span><br><span class="line">GLIBCXX_3.4.12</span><br><span class="line">GLIBCXX_3.4.13</span><br><span class="line">GLIBC_2.2.5</span><br><span class="line">GLIBC_2.3</span><br><span class="line">GLIBC_2.4</span><br><span class="line">GLIBC_2.3.2</span><br><span class="line">GLIBCXX_FORCE_NEW</span><br><span class="line">GLIBCXX_DEBUG_MESSAGE_LENGTH</span><br><span class="line">[root@lzv6 c++]# strings /lib64/libc.so.6 | grep GLIBC_</span><br><span class="line">GLIBC_2.2.5</span><br><span class="line">GLIBC_2.2.6</span><br><span class="line">GLIBC_2.3</span><br><span class="line">GLIBC_2.3.2</span><br><span class="line">GLIBC_2.3.3</span><br><span class="line">GLIBC_2.3.4</span><br><span class="line">GLIBC_2.4</span><br><span class="line">GLIBC_2.5</span><br><span class="line">GLIBC_2.6</span><br><span class="line">GLIBC_2.7</span><br><span class="line">GLIBC_2.8</span><br><span class="line">GLIBC_2.9</span><br><span class="line">GLIBC_2.10</span><br><span class="line">GLIBC_2.11</span><br><span class="line">GLIBC_2.12</span><br><span class="line">GLIBC_PRIVATE</span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="3-2-g-E选项：预处理源文件"><a href="#3-2-g-E选项：预处理源文件" class="headerlink" title="3.2 g++ -E选项：预处理源文件"></a>3.2 g++ -E选项：预处理源文件</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[root@lzv6 c++]# g++ -E -o vec2.cpp vec.cpp </span><br><span class="line">[root@lzv6 c++]# wc vec.cpp vec2.cpp </span><br><span class="line">     33     71    557 vec.cpp</span><br><span class="line">  20958  45683 534803 vec2.cpp</span><br><span class="line">  20991  45754 535360 总用量</span><br></pre></td></tr></table></figure>
+<p>上面每行分别代表行数、单次数、字节数。<br> 从这里也可以看出引入多余头文件是件多么可怕的事情，多引入一个头文件，就要预处理N行。你可以试着#include &lt;stdio.h&gt;,然后再看看增加了多少行。</p>
+<hr>
+<h3 id="3-3-ldd命令：显示目标文件的依赖库"><a href="#3-3-ldd命令：显示目标文件的依赖库" class="headerlink" title="3.3 ldd命令：显示目标文件的依赖库"></a>3.3 ldd命令：显示目标文件的依赖库</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">[root@lzv6 c++]# ldd vec</span><br><span class="line">    linux-vdso.so.1 =&gt;  (0x00007fff8fbff000)</span><br><span class="line">    libstdc++.so.6 =&gt; /usr/lib64/libstdc++.so.6 (0x0000003317800000)</span><br><span class="line">    libm.so.6 =&gt; /lib64/libm.so.6 (0x000000309ca00000)</span><br><span class="line">    libgcc_s.so.1 =&gt; /lib64/libgcc_s.so.1 (0x0000003317400000)</span><br><span class="line">    libc.so.6 =&gt; /lib64/libc.so.6 (0x000000309ce00000)</span><br><span class="line">    /lib64/ld-linux-x86-64.so.2 (0x000000309c600000)</span><br><span class="line">    </span><br><span class="line">    [root@lzv6 c++]# ldd -v vec  // -v 表示 打印所有信息，例如包括符号的版本信息</span><br><span class="line">    linux-vdso.so.1 =&gt;  (0x00007fff585ff000)</span><br><span class="line">    libstdc++.so.6 =&gt; /usr/lib64/libstdc++.so.6 (0x0000003317800000)</span><br><span class="line">    libm.so.6 =&gt; /lib64/libm.so.6 (0x000000309ca00000)</span><br><span class="line">    libgcc_s.so.1 =&gt; /lib64/libgcc_s.so.1 (0x0000003317400000)</span><br><span class="line">    libc.so.6 =&gt; /lib64/libc.so.6 (0x000000309ce00000)</span><br><span class="line">    /lib64/ld-linux-x86-64.so.2 (0x000000309c600000)</span><br><span class="line"></span><br><span class="line">    Version information:</span><br><span class="line">    ./vec:</span><br><span class="line">        libgcc_s.so.1 (GCC_3.0) =&gt; /lib64/libgcc_s.so.1</span><br><span class="line">        libc.so.6 (GLIBC_2.2.5) =&gt; /lib64/libc.so.6</span><br><span class="line">        libstdc++.so.6 (CXXABI_1.3) =&gt; /usr/lib64/libstdc++.so.6</span><br><span class="line">        libstdc++.so.6 (GLIBCXX_3.4) =&gt; /usr/lib64/libstdc++.so.6</span><br><span class="line">    /usr/lib64/libstdc++.so.6:</span><br><span class="line">        libm.so.6 (GLIBC_2.2.5) =&gt; /lib64/libm.so.6</span><br><span class="line">        ld-linux-x86-64.so.2 (GLIBC_2.3) =&gt; /lib64/ld-linux-x86-64.so.2</span><br><span class="line">        libgcc_s.so.1 (GCC_4.2.0) =&gt; /lib64/libgcc_s.so.1</span><br><span class="line">        libgcc_s.so.1 (GCC_3.3) =&gt; /lib64/libgcc_s.so.1</span><br><span class="line">        libgcc_s.so.1 (GCC_3.0) =&gt; /lib64/libgcc_s.so.1</span><br><span class="line">        libc.so.6 (GLIBC_2.4) =&gt; /lib64/libc.so.6</span><br><span class="line">        libc.so.6 (GLIBC_2.3) =&gt; /lib64/libc.so.6</span><br><span class="line">        libc.so.6 (GLIBC_2.3.2) =&gt; /lib64/libc.so.6</span><br><span class="line">        libc.so.6 (GLIBC_2.2.5) =&gt; /lib64/libc.so.6</span><br><span class="line">    /lib64/libm.so.6:</span><br><span class="line">        libc.so.6 (GLIBC_PRIVATE) =&gt; /lib64/libc.so.6</span><br><span class="line">        libc.so.6 (GLIBC_2.2.5) =&gt; /lib64/libc.so.6</span><br><span class="line">    /lib64/libgcc_s.so.1:</span><br><span class="line">        libc.so.6 (GLIBC_2.4) =&gt; /lib64/libc.so.6</span><br><span class="line">        libc.so.6 (GLIBC_2.2.5) =&gt; /lib64/libc.so.6</span><br><span class="line">    /lib64/libc.so.6:</span><br><span class="line">        ld-linux-x86-64.so.2 (GLIBC_PRIVATE) =&gt; /lib64/ld-linux-x86-64.so.2</span><br><span class="line">        ld-linux-x86-64.so.2 (GLIBC_2.3) =&gt; /lib64/ld-linux-x86-64.so.2</span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="3-4-objdump命令：查看目标文件的动态引用符号表"><a href="#3-4-objdump命令：查看目标文件的动态引用符号表" class="headerlink" title="3.4 objdump命令：查看目标文件的动态引用符号表"></a>3.4 objdump命令：查看目标文件的动态引用符号表</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">[root@lzv6 c++]# objdump -T vec</span><br><span class="line"></span><br><span class="line">vec:     file format elf64-x86-64</span><br><span class="line"></span><br><span class="line">DYNAMIC SYMBOL TABLE:</span><br><span class="line">0000000000000000      DF *UND*    0000000000000000  GLIBCXX_3.4 _ZSt20__throw_length_errorPKc</span><br><span class="line">0000000000000000      DF *UND*    0000000000000000  GLIBCXX_3.4 _ZNSolsEi</span><br><span class="line">0000000000000000  w   D  *UND*    0000000000000000              __gmon_start__</span><br><span class="line">0000000000000000  w   D  *UND*    0000000000000000              _Jv_RegisterClasses</span><br><span class="line">0000000000000000      DF *UND*    0000000000000000  GLIBCXX_3.4 _ZdlPv</span><br><span class="line">0000000000000000      DF *UND*    0000000000000000  CXXABI_1.3  __cxa_rethrow</span><br><span class="line">0000000000000000      DF *UND*    0000000000000000  GLIBCXX_3.4 _ZNSt8ios_base4InitC1Ev</span><br><span class="line">0000000000000000      DF *UND*    0000000000000000  GLIBC_2.2.5 __libc_start_main</span><br><span class="line">0000000000000000      DF *UND*    0000000000000000  GLIBC_2.2.5 __cxa_atexit</span><br><span class="line">0000000000000000      DF *UND*    0000000000000000  GLIBCXX_3.4 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc</span><br><span class="line">0000000000000000      DF *UND*    0000000000000000  GLIBC_2.2.5 memmove</span><br><span class="line">0000000000000000      DF *UND*    0000000000000000  CXXABI_1.3  __cxa_end_catch</span><br><span class="line">0000000000000000      DF *UND*    0000000000000000  GLIBCXX_3.4 _ZSt17__throw_bad_allocv</span><br><span class="line">0000000000000000      DF *UND*    0000000000000000  CXXABI_1.3  __cxa_begin_catch</span><br><span class="line">0000000000000000      DF *UND*    0000000000000000  GLIBCXX_3.4 _Znwm</span><br><span class="line">0000000000000000      DF *UND*    0000000000000000  GCC_3.0     _Unwind_Resume</span><br><span class="line">0000000000400910      DF *UND*    0000000000000000  GLIBCXX_3.4 _ZNSt8ios_base4InitD1Ev</span><br><span class="line">00000000006026e0 g    DO .bss    0000000000000110  GLIBCXX_3.4 _ZSt4cout</span><br><span class="line">0000000000400970      DF *UND*    0000000000000000  CXXABI_1.3  __gxx_personality_v0</span><br></pre></td></tr></table></figure>
+<p>–</p>
+<h3 id="3-4-objdump命令：查看目标文件引用了GLIBC的哪些版本中的哪些函数"><a href="#3-4-objdump命令：查看目标文件引用了GLIBC的哪些版本中的哪些函数" class="headerlink" title="3.4 objdump命令：查看目标文件引用了GLIBC的哪些版本中的哪些函数"></a>3.4 objdump命令：查看目标文件引用了GLIBC的哪些版本中的哪些函数</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">1 [root@lzv6 c++]# objdump -T vec | grep GLIBC_</span><br><span class="line">2 0000000000000000      DF *UND*    0000000000000000  GLIBC_2.2.5 __libc_start_main</span><br><span class="line">3 0000000000000000      DF *UND*    0000000000000000  GLIBC_2.2.5 __cxa_atexit</span><br><span class="line">4 0000000000000000      DF *UND*    0000000000000000  GLIBC_2.2.5 memmove</span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="3-6-nm命令：显示vec程序中使用的函数"><a href="#3-6-nm命令：显示vec程序中使用的函数" class="headerlink" title="3.6 nm命令：显示vec程序中使用的函数"></a>3.6 nm命令：显示vec程序中使用的函数</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">1 [root@lzv6 c++]# nm -o vec | grep print</span><br><span class="line">2 vec:0000000000400c50 t _GLOBAL__I__Z9print_vecRKSt6vectorIiSaIiEE</span><br><span class="line">3 vec:0000000000400b0c T _Z9print_inti</span><br><span class="line">4 vec:0000000000400b42 T _Z9print_strPc</span><br><span class="line">5 vec:0000000000400a84 T _Z9print_vecRKSt6vectorIiSaIiEE</span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="3-7-c-filt命令：显示未重整-unmangled-的原函数声明"><a href="#3-7-c-filt命令：显示未重整-unmangled-的原函数声明" class="headerlink" title="3.7 c++filt命令：显示未重整(unmangled)的原函数声明"></a>3.7 c++filt命令：显示未重整(unmangled)的原函数声明</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">[root@lzv6 c++]# nm  vec | grep &apos;print&apos;</span><br><span class="line">00000000004009e0 t _GLOBAL__I__Z9print_vecRKSt6vectorIiSaIiEE</span><br><span class="line">0000000000400b00 T _Z9print_inti</span><br><span class="line">0000000000400a90 T _Z9print_strPc</span><br><span class="line">0000000000400a10 T _Z9print_vecRKSt6vectorIiSaIiEE</span><br><span class="line">[root@lzv6 c++]# c++filt _Z9print_inti</span><br><span class="line">print_int(int)</span><br><span class="line">[root@lzv6 c++]# nm vec | grep print | c++filt</span><br><span class="line">00000000004009e0 t global constructors keyed to _Z9print_vecRKSt6vectorIiSaIiEE</span><br><span class="line">0000000000400b00 T print_int(int)</span><br><span class="line">0000000000400a90 T print_str(char*)</span><br><span class="line">0000000000400a10 T print_vec(std::vector&lt;int, std::allocator&lt;int&gt; &gt; const&amp;)</span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="3-8-nm命令：显示目标文件的所有符号清单"><a href="#3-8-nm命令：显示目标文件的所有符号清单" class="headerlink" title="3.8 nm命令：显示目标文件的所有符号清单"></a>3.8 nm命令：显示目标文件的所有符号清单</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br></pre></td><td class="code"><pre><span class="line">[root@lzv6 c++]# nm -o vec</span><br><span class="line">vec:0000000000602460 d _DYNAMIC</span><br><span class="line">vec:0000000000602628 d _GLOBAL_OFFSET_TABLE_</span><br><span class="line">vec:0000000000400c50 t _GLOBAL__I__Z9print_vecRKSt6vectorIiSaIiEE</span><br><span class="line">vec:00000000004019b8 R _IO_stdin_used</span><br><span class="line">vec:                 w _Jv_RegisterClasses</span><br><span class="line">vec:                 U _Unwind_Resume@@GCC_3.0</span><br><span class="line">vec:0000000000400c10 t _Z41__static_initialization_and_destruction_0ii</span><br><span class="line">vec:0000000000400b0c T _Z9print_inti</span><br><span class="line">vec:0000000000400b42 T _Z9print_strPc</span><br><span class="line">vec:0000000000400a84 T _Z9print_vecRKSt6vectorIiSaIiEE</span><br><span class="line">vec:0000000000401504 W _ZN9__gnu_cxx13new_allocatorIiE10deallocateEPim</span><br><span class="line">vec:00000000004014b6 W _ZN9__gnu_cxx13new_allocatorIiE7destroyEPi</span><br><span class="line">vec:00000000004015e8 W _ZN9__gnu_cxx13new_allocatorIiE8allocateEmPKv</span><br><span class="line">vec:0000000000400eae W _ZN9__gnu_cxx13new_allocatorIiE9constructEPiRKi</span><br><span class="line">vec:0000000000401664 W _ZN9__gnu_cxx13new_allocatorIiEC1Ev</span><br><span class="line">vec:0000000000401664 W _ZN9__gnu_cxx13new_allocatorIiEC2Ev</span><br><span class="line">vec:00000000004014fa W _ZN9__gnu_cxx13new_allocatorIiED1Ev</span><br><span class="line">vec:00000000004014fa W _ZN9__gnu_cxx13new_allocatorIiED2Ev</span><br><span class="line">vec:00000000004014c4 W _ZN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEC1ERKS1_</span><br><span class="line">vec:00000000004014c4 W _ZN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEC2ERKS1_</span><br><span class="line">vec:00000000004013fb W _ZN9__gnu_cxxmiIPiSt6vectorIiSaIiEEEENS_17__normal_iteratorIT_T0_E15difference_typeERKS8_SB_</span><br><span class="line">vec:00000000004016bc W _ZNK9__gnu_cxx13new_allocatorIiE8max_sizeEv</span><br><span class="line">vec:00000000004012a6 W _ZNK9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEE4baseEv</span><br><span class="line">vec:00000000004012fa W _ZNK9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEdeEv</span><br><span class="line">vec:00000000004016ae W _ZNKSt12_Vector_baseIiSaIiEE19_M_get_Tp_allocatorEv</span><br><span class="line">vec:000000000040130c W _ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc</span><br><span class="line">vec:0000000000400c78 W _ZNKSt6vectorIiSaIiEE4sizeEv</span><br><span class="line">vec:000000000040159a W _ZNKSt6vectorIiSaIiEE8max_sizeEv</span><br><span class="line">vec:0000000000400ca2 W _ZNKSt6vectorIiSaIiEEixEm</span><br><span class="line">vec:00000000004014e0 W _ZNSaIiEC1Ev</span><br><span class="line">vec:00000000004014e0 W _ZNSaIiEC2Ev</span><br><span class="line">vec:0000000000401232 W _ZNSaIiED1Ev</span><br><span class="line">vec:0000000000401232 W _ZNSaIiED2Ev</span><br><span class="line">vec:                 U _ZNSolsEi@@GLIBCXX_3.4</span><br><span class="line">vec:0000000000401861 W _ZNSt11__copy_moveILb0ELb1ESt26random_access_iterator_tagE8__copy_mIiEEPT_PKS3_S6_S4_</span><br><span class="line">vec:0000000000401526 W _ZNSt12_Destroy_auxILb1EE9__destroyIPiEEvT_S3_</span><br><span class="line">vec:0000000000401442 W _ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm</span><br><span class="line">vec:00000000004011f4 W _ZNSt12_Vector_baseIiSaIiEE12_Vector_implC1Ev</span><br><span class="line">vec:00000000004011f4 W _ZNSt12_Vector_baseIiSaIiEE12_Vector_implC2Ev</span><br><span class="line">vec:0000000000400dc4 W _ZNSt12_Vector_baseIiSaIiEE12_Vector_implD1Ev</span><br><span class="line">vec:0000000000400dc4 W _ZNSt12_Vector_baseIiSaIiEE12_Vector_implD2Ev</span><br><span class="line">vec:000000000040124c W _ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim</span><br><span class="line">vec:0000000000400e76 W _ZNSt12_Vector_baseIiSaIiEE19_M_get_Tp_allocatorEv</span><br><span class="line">vec:0000000000400dde W _ZNSt12_Vector_baseIiSaIiEEC1Ev</span><br><span class="line">vec:0000000000400dde W _ZNSt12_Vector_baseIiSaIiEEC2Ev</span><br><span class="line">vec:0000000000400df8 W _ZNSt12_Vector_baseIiSaIiEED1Ev</span><br><span class="line">vec:0000000000400df8 W _ZNSt12_Vector_baseIiSaIiEED2Ev</span><br><span class="line">vec:0000000000401534 W _ZNSt12__miter_baseIPiLb0EE3__bES0_</span><br><span class="line">vec:000000000040166e W _ZNSt12__niter_baseIPiLb0EE3__bES0_</span><br><span class="line">vec:00000000004016fd W _ZNSt20__copy_move_backwardILb0ELb1ESt26random_access_iterator_tagE13__copy_move_bIiEEPT_PKS3_S6_S4_</span><br><span class="line">vec:0000000000401765 W _ZNSt20__uninitialized_copyILb1EE18uninitialized_copyIPiS2_EET0_T_S4_S3_</span><br><span class="line">vec:0000000000400ee6 W _ZNSt6vectorIiSaIiEE13_M_insert_auxEN9__gnu_cxx17__normal_iteratorIPiS1_EERKi</span><br><span class="line">vec:00000000004011ca W _ZNSt6vectorIiSaIiEE3endEv</span><br><span class="line">vec:00000000004013d6 W _ZNSt6vectorIiSaIiEE5beginEv</span><br><span class="line">vec:0000000000400d4a W _ZNSt6vectorIiSaIiEE9push_backERKi</span><br><span class="line">vec:0000000000400cc2 W _ZNSt6vectorIiSaIiEEC1Ev</span><br><span class="line">vec:0000000000400cc2 W _ZNSt6vectorIiSaIiEEC2Ev</span><br><span class="line">vec:0000000000400cdc W _ZNSt6vectorIiSaIiEED1Ev</span><br><span class="line">vec:0000000000400cdc W _ZNSt6vectorIiSaIiEED2Ev</span><br><span class="line">vec:                 U _ZNSt8ios_base4InitC1Ev@@GLIBCXX_3.4</span><br><span class="line">vec:                 U _ZNSt8ios_base4InitD1Ev@@GLIBCXX_3.4</span><br><span class="line">vec:0000000000401830 W _ZSt13__copy_move_aILb0EPiS0_ET1_T0_S2_S1_</span><br><span class="line">vec:00000000004012b4 W _ZSt13copy_backwardIPiS0_ET0_T_S2_S1_</span><br><span class="line">vec:00000000004017d8 W _ZSt14__copy_move_a2ILb0EPiS0_ET1_T0_S2_S1_</span><br><span class="line">vec:                 U _ZSt17__throw_bad_allocv@@GLIBCXX_3.4</span><br><span class="line">vec:00000000004016d0 W _ZSt18uninitialized_copyIPiS0_ET0_T_S2_S1_</span><br><span class="line">vec:                 U _ZSt20__throw_length_errorPKc@@GLIBCXX_3.4</span><br><span class="line">vec:000000000040167c W _ZSt22__copy_move_backward_aILb0EPiS0_ET1_T0_S2_S1_</span><br><span class="line">vec:0000000000401633 W _ZSt22__uninitialized_copy_aIPiS0_iET0_T_S2_S1_RSaIT1_E</span><br><span class="line">vec:000000000040147a W _ZSt22__uninitialized_move_aIPiS0_SaIiEET0_T_S3_S2_RT1_</span><br><span class="line">vec:0000000000401542 W _ZSt23__copy_move_backward_a2ILb0EPiS0_ET1_T0_S2_S1_</span><br><span class="line">vec:00000000004015bc W _ZSt3maxImERKT_S2_S2_</span><br><span class="line">vec:0000000000401792 W _ZSt4copyIPiS0_ET0_T_S2_S1_</span><br><span class="line">vec:00000000006026e0 B _ZSt4cout@@GLIBCXX_3.4</span><br><span class="line">vec:0000000000401280 W _ZSt8_DestroyIPiEvT_S1_</span><br><span class="line">vec:0000000000400e84 W _ZSt8_DestroyIPiiEvT_S1_RSaIT0_E</span><br><span class="line">vec:0000000000602800 b _ZStL8__ioinit</span><br><span class="line">vec:                 U _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc@@GLIBCXX_3.4</span><br><span class="line">vec:                 U _ZdlPv@@GLIBCXX_3.4</span><br><span class="line">vec:                 U _Znwm@@GLIBCXX_3.4</span><br><span class="line">vec:0000000000400c65 W _ZnwmPv</span><br><span class="line">vec:0000000000602440 d __CTOR_END__</span><br><span class="line">vec:0000000000602430 d __CTOR_LIST__</span><br><span class="line">vec:0000000000602450 D __DTOR_END__</span><br><span class="line">vec:0000000000602448 d __DTOR_LIST__</span><br><span class="line">vec:00000000004023d0 r __FRAME_END__</span><br><span class="line">vec:0000000000602458 d __JCR_END__</span><br><span class="line">vec:0000000000602458 d __JCR_LIST__</span><br><span class="line">vec:00000000006026c4 A __bss_start</span><br><span class="line">vec:                 U __cxa_atexit@@GLIBC_2.2.5</span><br><span class="line">vec:                 U __cxa_begin_catch@@CXXABI_1.3</span><br><span class="line">vec:                 U __cxa_end_catch@@CXXABI_1.3</span><br><span class="line">vec:                 U __cxa_rethrow@@CXXABI_1.3</span><br><span class="line">vec:00000000006026c0 D __data_start</span><br><span class="line">vec:0000000000401970 t __do_global_ctors_aux</span><br><span class="line">vec:00000000004009f0 t __do_global_dtors_aux</span><br><span class="line">vec:00000000004019c0 R __dso_handle</span><br><span class="line">vec:                 w __gmon_start__</span><br><span class="line">vec:                 U __gxx_personality_v0@@CXXABI_1.3</span><br><span class="line">vec:000000000060242c d __init_array_end</span><br><span class="line">vec:000000000060242c d __init_array_start</span><br><span class="line">vec:00000000004018d0 T __libc_csu_fini</span><br><span class="line">vec:00000000004018e0 T __libc_csu_init</span><br><span class="line">vec:                 U __libc_start_main@@GLIBC_2.2.5</span><br><span class="line">vec:00000000006026c4 A _edata</span><br><span class="line">vec:0000000000602808 A _end</span><br><span class="line">vec:00000000004019a8 T _fini</span><br><span class="line">vec:0000000000400878 T _init</span><br><span class="line">vec:00000000004009a0 T _start</span><br><span class="line">vec:00000000004009cc t call_gmon_start</span><br><span class="line">vec:00000000006027f0 b completed.6349</span><br><span class="line">vec:00000000006026c0 W data_start</span><br><span class="line">vec:00000000006027f8 b dtor_idx.6351</span><br><span class="line">vec:0000000000400a60 t frame_dummy</span><br><span class="line">vec:0000000000400b7b T main</span><br><span class="line">vec:                 U memmove@@GLIBC_2.2.5</span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="3-9-strace命令：显示在预处理的时候读取的所有头文件"><a href="#3-9-strace命令：显示在预处理的时候读取的所有头文件" class="headerlink" title="3.9 strace命令：显示在预处理的时候读取的所有头文件"></a>3.9 strace命令：显示在预处理的时候读取的所有头文件</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br></pre></td><td class="code"><pre><span class="line">[root@lzv6 c++]# strace -f -e open cpp vec.cpp -o /dev/null 2&gt;&amp;1 | grep -v ENOENT | awk &apos;&#123;print $3&#125;&apos; </span><br><span class="line">=</span><br><span class="line">=</span><br><span class="line">=</span><br><span class="line">=</span><br><span class="line">=</span><br><span class="line">=</span><br><span class="line">attached</span><br><span class="line">open(&quot;/etc/ld.so.cache&quot;,</span><br><span class="line">open(&quot;/usr/lib64/libmpfr.so.1&quot;,</span><br><span class="line">open(&quot;/usr/lib64/libgmp.so.3&quot;,</span><br><span class="line">open(&quot;/lib64/libdl.so.2&quot;,</span><br><span class="line">open(&quot;/lib64/libc.so.6&quot;,</span><br><span class="line">open(&quot;/usr/lib/locale/locale-archive&quot;,</span><br><span class="line">open(&quot;/usr/share/locale/locale.alias&quot;,</span><br><span class="line">open(&quot;/usr/share/locale/zh_CN/LC_MESSAGES/gcc.mo&quot;,</span><br><span class="line">open(&quot;/usr/lib64/gconv/gconv-modules.cache&quot;,</span><br><span class="line">open(&quot;/proc/meminfo&quot;,</span><br><span class="line">open(&quot;/proc/meminfo&quot;,</span><br><span class="line">open(&quot;/proc/meminfo&quot;,</span><br><span class="line">open(&quot;/dev/null&quot;,</span><br><span class="line">open(&quot;vec.cpp&quot;,</span><br><span class="line">open(&quot;/usr/lib/gcc/x86_64-redhat-linux/4.4.7/../../../../include/c++/4.4.7/iostream&quot;,</span><br><span class="line">open(&quot;/usr/lib/gcc/x86_64-redhat-linux/4.4.7/../../../../include/c++/4.4.7/x86_64-redhat-linux/bits/c++config.h&quot;,</span><br><span class="line">open(&quot;/usr/include/bits/wordsize.h&quot;,</span><br><span class="line">open(&quot;/usr/lib/gcc/x86_64-redhat-linux/4.4.7/../../../../include/c++/4.4.7/x86_64-redhat-linux/bits/os_defines.h&quot;,</span><br><span class="line">open(&quot;/usr/include/features.h&quot;,</span><br><span class="line">open(&quot;/usr/include/sys/cdefs.h&quot;,</span><br><span class="line">open(&quot;/usr/include/bits/wordsize.h&quot;,</span><br><span class="line">open(&quot;/usr/include/gnu/stubs.h&quot;,</span><br><span class="line">open(&quot;/usr/include/bits/wordsize.h&quot;,</span><br><span class="line">open(&quot;/usr/include/gnu/stubs-64.h&quot;,</span><br><span class="line">open(&quot;/usr/lib/gcc/x86_64-redhat-linux/4.4.7/../../../../include/c++/4.4.7/x86_64-redhat-linux/bits/cpu_defines.h&quot;,</span><br><span class="line">open(&quot;/usr/lib/gcc/x86_64-redhat-linux/4.4.7/../../../../include/c++/4.4.7/ostream&quot;,</span><br><span class="line">open(&quot;/usr/lib/gcc/x86_64-redhat-linux/4.4.7/../../../../include/c++/4.4.7/ios&quot;,</span><br><span class="line">open(&quot;/usr/lib/gcc/x86_64-redhat-linux/4.4.7/../../../../include/c++/4.4.7/iosfwd&quot;,</span><br><span class="line">open(&quot;/usr/lib/gcc/x86_64-redhat-linux/4.4.7/../../../../include/c++/4.4.7/bits/stringfwd.h&quot;,</span><br><span class="line">open(&quot;/usr/lib/gcc/x86_64-redhat-linux/4.4.7/../../../../include/c++/4.4.7/bits/postypes.h&quot;,</span><br><span class="line">open(&quot;/usr/lib/gcc/x86_64-redhat-linux/4.4.7/../../../../include/c++/4.4.7/cwchar&quot;,</span><br><span class="line">open(&quot;/usr/lib/gcc/x86_64-redhat-linux/4.4.7/../../../../include/c++/4.4.7/cstddef&quot;,</span><br><span class="line">open(&quot;/usr/lib/gcc/x86_64-redhat-linux/4.4.7/include/stddef.h&quot;,</span><br><span class="line">open(&quot;/usr/include/wchar.h&quot;,</span><br><span class="line">open(&quot;/usr/include/stdio.h&quot;,</span><br><span class="line">open(&quot;/usr/lib/gcc/x86_64-redhat-linux/4.4.7/include/stdarg.h&quot;,</span><br><span class="line">open(&quot;/usr/include/bits/wchar.h&quot;,</span><br><span class="line">open(&quot;/usr/lib/gcc/x86_64-redhat-linux/4.4.7/include/stddef.h&quot;,</span><br><span class="line">open(&quot;/usr/include/xlocale.h&quot;,</span><br><span class="line">open(&quot;/usr/lib/gcc/x86_64-redhat-linux/4.4.7/../../../../include/c++/4.4.7/exception&quot;,</span><br><span class="line">open(&quot;/usr/lib/gcc/x86_64-redhat-linux/4.4.7/../../../../include/c++/4.4.7/bits/char_traits.h&quot;,</span><br><span class="line">open(&quot;/usr/lib/gcc/x86_64-redhat-linux/4.4.7/../../../../include/c++/4.4.7/bits/stl_algobase.h&quot;,</span><br><span class="line">open(&quot;/usr/lib/gcc/x86_64-redhat-linux/4.4.7/../../../../include/c++/4.4.7/cstddef&quot;,</span><br><span class="line">open(&quot;/usr/lib/gcc/x86_64-redhat-linux/4.4.7/include/stddef.h&quot;,</span><br><span class="line">open(&quot;/usr/lib/gcc/x86_64-redhat-linux/4.4.7/../../../../include/c++/4.4.7/bits/functexcept.h&quot;,</span><br><span class="line">open(&quot;/usr/lib/gcc/x86_64-redhat-linux/4.4.7/../../../../include/c++/4.4.7/exception_defines.h&quot;,</span><br><span class="line">open(&quot;/usr/lib/gcc/x86_64-redhat-linux/4.4.7/../../../../include/c++/4.4.7/bits/cpp_type_traits.h&quot;,</span><br><span class="line">open(&quot;/usr/lib/gcc/x86_64-redhat-linux/4.4.7/../../../../include/c++/4.4.7/ext/type_traits.h&quot;,</span><br><span class="line">open(&quot;/usr/lib/gcc/x86_64-redhat-linux/4.4.7/../../../../include/c++/4.4.7/ext/numeric_traits.h&quot;,</span><br><span class="line">open(&quot;/usr/lib/gcc/x86_64-redhat-linux/4.4.7/../../../../include/c++/4.4.7/bits/stl_pair.h&quot;,</span><br><span class="line">open(&quot;/usr/lib/gcc/x86_64-redhat-linux/4.4.7/../../../../include/c++/4.4.7/bits/move.h&quot;,</span><br><span class="line">open(&quot;/usr/lib/gcc/x86_64-redhat-linux/4.4.7/../../../../include/c++/4.4.7/cstddef&quot;,</span><br><span class="line">open(&quot;/usr/lib/gcc/x86_64-redhat-linux/4.4.7/include/stddef.h&quot;,</span><br><span class="line">open(&quot;/usr/lib/gcc/x86_64-redhat-linux/4.4.7/../../../../include/c++/4.4.7/bits/concept_check.h&quot;,</span><br><span class="line">open(&quot;/usr/lib/gcc/x86_64-redhat-linux/4.4.7/../../../../include/c++/4.4.7/bits/stl_iterator_base_types.h&quot;,</span><br><span class="line">open(&quot;/usr/lib/gcc/x86_64-redhat-linux/4.4.7/../../../../include/c++/4.4.7/cstddef&quot;,</span><br><span class="line">open(&quot;/usr/lib/gcc/x86_64-redhat-linux/4.4.7/include/stddef.h&quot;,</span><br><span class="line">open(&quot;/usr/lib/gcc/x86_64-redhat-linux/4.4.7/../../../../include/c++/4.4.7/bits/stl_iterator_base_funcs.h&quot;,</span><br><span class="line">open(&quot;/usr/lib/gcc/x86_64-redhat-linux/4.4.7/../../../../include/c++/4.4.7/bits/stl_iterator.h&quot;,</span><br><span class="line">open(&quot;/usr/lib/gcc/x86_64-redhat-linux/4.4.7/../../../../include/c++/4.4.7/debug/debug.h&quot;,</span><br><span class="line">open(&quot;/usr/lib/gcc/x86_64-redhat-linux/4.4.7/../../../../include/c++/4.4.7/cwchar&quot;,</span><br><span class="line">open(&quot;/usr/lib/gcc/x86_64-redhat-linux/4.4.7/../../../../include/c++/4.4.7/cstddef&quot;,</span><br><span class="line">open(&quot;/usr/lib/gcc/x86_64-redhat-linux/4.4.7/include/stddef.h&quot;,</span><br><span class="line">open(&quot;/usr/include/wchar.h&quot;,</span><br><span class="line">open(&quot;/usr/lib/gcc/x86_64-redhat-linux/4.4.7/../../../../include/c++/4.4.7/bits/localefwd.h&quot;,</span><br><span class="line">open(&quot;/usr/lib/gcc/x86_64-redhat-linux/4.4.7/../../../../include/c++/4.4.7/x86_64-redhat-linux/bits/c++locale.h&quot;,</span><br><span class="line">open(&quot;/usr/lib/gcc/x86_64-redhat-linux/4.4.7/../../../../include/c++/4.4.7/clocale&quot;,</span><br><span class="line">open(&quot;/usr/include/locale.h&quot;,</span><br><span class="line">open(&quot;/usr/lib/gcc/x86_64-redhat-linux/4.4.7/include/stddef.h&quot;,</span><br><span class="line">open(&quot;/usr/include/bits/locale.h&quot;,</span><br><span class="line">open(&quot;/usr/lib/gcc/x86_64-redhat-linux/4.4.7/../../../../include/c++/4.4.7/cstddef&quot;,</span><br><span class="line">open(&quot;/usr/lib/gcc/x86_64-redhat-linux/4.4.7/include/stddef.h&quot;,</span><br><span class="line">open(&quot;/usr/lib/gcc/x86_64-redhat-linux/4.4.7/../../../../include/c++/4.4.7/cctype&quot;,</span><br><span class="line">open(&quot;/usr/include/ctype.h&quot;,</span><br><span class="line">open(&quot;/usr/include/bits/types.h&quot;,</span><br><span class="line">open(&quot;/usr/include/bits/wordsize.h&quot;,</span><br><span class="line">open(&quot;/usr/include/bits/typesizes.h&quot;,</span><br><span class="line">open(&quot;/usr/include/endian.h&quot;,</span><br><span class="line">open(&quot;/usr/include/bits/endian.h&quot;,</span><br><span class="line">open(&quot;/usr/include/bits/byteswap.h&quot;,</span><br><span class="line">open(&quot;/usr/include/bits/wordsize.h&quot;,</span><br><span class="line">open(&quot;/usr/lib/gcc/x86_64-redhat-linux/4.4.7/../../../../include/c++/4.4.7/bits/ios_base.h&quot;,</span><br><span class="line">open(&quot;/usr/lib/gcc/x86_64-redhat-linux/4.4.7/../../../../include/c++/4.4.7/ext/atomicity.h&quot;,</span><br><span class="line">open(&quot;/usr/lib/gcc/x86_64-redhat-linux/4.4.7/../../../../include/c++/4.4.7/x86_64-redhat-linux/bits/gthr.h&quot;,</span><br><span class="line">open(&quot;/usr/lib/gcc/x86_64-redhat-linux/4.4.7/../../../../include/c++/4.4.7/x86_64-redhat-linux/bits/gthr-default.h&quot;,</span><br><span class="line">open(&quot;/usr/include/pthread.h&quot;,</span><br><span class="line">open(&quot;/usr/include/sched.h&quot;,</span><br><span class="line">open(&quot;/usr/lib/gcc/x86_64-redhat-linux/4.4.7/include/stddef.h&quot;,</span><br><span class="line">open(&quot;/usr/include/time.h&quot;,</span><br><span class="line">open(&quot;/usr/include/bits/sched.h&quot;,</span><br><span class="line">open(&quot;/usr/include/time.h&quot;,</span><br><span class="line">open(&quot;/usr/lib/gcc/x86_64-redhat-linux/4.4.7/include/stddef.h&quot;,</span><br><span class="line">open(&quot;/usr/include/bits/time.h&quot;,</span><br><span class="line">open(&quot;/usr/include/bits/pthreadtypes.h&quot;,</span><br><span class="line">open(&quot;/usr/include/bits/wordsize.h&quot;,</span><br><span class="line">open(&quot;/usr/include/bits/setjmp.h&quot;,</span><br><span class="line">open(&quot;/usr/include/bits/wordsize.h&quot;,</span><br><span class="line">open(&quot;/usr/include/bits/wordsize.h&quot;,</span><br><span class="line">open(&quot;/usr/include/unistd.h&quot;,</span><br><span class="line">open(&quot;/usr/include/bits/posix_opt.h&quot;,</span><br><span class="line">open(&quot;/usr/include/bits/environments.h&quot;,</span><br><span class="line">open(&quot;/usr/include/bits/wordsize.h&quot;,</span><br><span class="line">open(&quot;/usr/lib/gcc/x86_64-redhat-linux/4.4.7/include/stddef.h&quot;,</span><br><span class="line">open(&quot;/usr/include/bits/confname.h&quot;,</span><br><span class="line">open(&quot;/usr/include/getopt.h&quot;,</span><br><span class="line">open(&quot;/usr/lib/gcc/x86_64-redhat-linux/4.4.7/../../../../include/c++/4.4.7/x86_64-redhat-linux/bits/atomic_word.h&quot;,</span><br><span class="line">open(&quot;/usr/lib/gcc/x86_64-redhat-linux/4.4.7/../../../../include/c++/4.4.7/bits/locale_classes.h&quot;,</span><br><span class="line">open(&quot;/usr/lib/gcc/x86_64-redhat-linux/4.4.7/../../../../include/c++/4.4.7/string&quot;,</span><br><span class="line">open(&quot;/usr/lib/gcc/x86_64-redhat-linux/4.4.7/../../../../include/c++/4.4.7/bits/allocator.h&quot;,</span><br><span class="line">open(&quot;/usr/lib/gcc/x86_64-redhat-linux/4.4.7/../../../../include/c++/4.4.7/x86_64-redhat-linux/bits/c++allocator.h&quot;,</span><br><span class="line">open(&quot;/usr/lib/gcc/x86_64-redhat-linux/4.4.7/../../../../include/c++/4.4.7/ext/new_allocator.h&quot;,</span><br><span class="line">open(&quot;/usr/lib/gcc/x86_64-redhat-linux/4.4.7/../../../../include/c++/4.4.7/new&quot;,</span><br><span class="line">open(&quot;/usr/lib/gcc/x86_64-redhat-linux/4.4.7/../../../../include/c++/4.4.7/cstddef&quot;,</span><br><span class="line">open(&quot;/usr/lib/gcc/x86_64-redhat-linux/4.4.7/include/stddef.h&quot;,</span><br><span class="line">open(&quot;/usr/lib/gcc/x86_64-redhat-linux/4.4.7/../../../../include/c++/4.4.7/bits/ostream_insert.h&quot;,</span><br><span class="line">open(&quot;/usr/lib/gcc/x86_64-redhat-linux/4.4.7/../../../../include/c++/4.4.7/cxxabi-forced.h&quot;,</span><br><span class="line">open(&quot;/usr/lib/gcc/x86_64-redhat-linux/4.4.7/../../../../include/c++/4.4.7/bits/stl_function.h&quot;,</span><br><span class="line">open(&quot;/usr/lib/gcc/x86_64-redhat-linux/4.4.7/../../../../include/c++/4.4.7/backward/binders.h&quot;,</span><br><span class="line">open(&quot;/usr/lib/gcc/x86_64-redhat-linux/4.4.7/../../../../include/c++/4.4.7/bits/basic_string.h&quot;,</span><br><span class="line">open(&quot;/usr/lib/gcc/x86_64-redhat-linux/4.4.7/../../../../include/c++/4.4.7/initializer_list&quot;,</span><br><span class="line">open(&quot;/usr/lib/gcc/x86_64-redhat-linux/4.4.7/../../../../include/c++/4.4.7/bits/basic_string.tcc&quot;,</span><br><span class="line">open(&quot;/usr/lib/gcc/x86_64-redhat-linux/4.4.7/../../../../include/c++/4.4.7/bits/locale_classes.tcc&quot;,</span><br><span class="line">open(&quot;/usr/lib/gcc/x86_64-redhat-linux/4.4.7/../../../../include/c++/4.4.7/streambuf&quot;,</span><br><span class="line">open(&quot;/usr/lib/gcc/x86_64-redhat-linux/4.4.7/../../../../include/c++/4.4.7/bits/streambuf.tcc&quot;,</span><br><span class="line">open(&quot;/usr/lib/gcc/x86_64-redhat-linux/4.4.7/../../../../include/c++/4.4.7/bits/basic_ios.h&quot;,</span><br><span class="line">open(&quot;/usr/lib/gcc/x86_64-redhat-linux/4.4.7/../../../../include/c++/4.4.7/bits/locale_facets.h&quot;,</span><br><span class="line">open(&quot;/usr/lib/gcc/x86_64-redhat-linux/4.4.7/../../../../include/c++/4.4.7/cwctype&quot;,</span><br><span class="line">open(&quot;/usr/include/wctype.h&quot;,</span><br><span class="line">open(&quot;/usr/include/wchar.h&quot;,</span><br><span class="line">open(&quot;/usr/lib/gcc/x86_64-redhat-linux/4.4.7/../../../../include/c++/4.4.7/cctype&quot;,</span><br><span class="line">open(&quot;/usr/lib/gcc/x86_64-redhat-linux/4.4.7/../../../../include/c++/4.4.7/x86_64-redhat-linux/bits/ctype_base.h&quot;,</span><br><span class="line">open(&quot;/usr/lib/gcc/x86_64-redhat-linux/4.4.7/../../../../include/c++/4.4.7/bits/streambuf_iterator.h&quot;,</span><br><span class="line">open(&quot;/usr/lib/gcc/x86_64-redhat-linux/4.4.7/../../../../include/c++/4.4.7/x86_64-redhat-linux/bits/ctype_inline.h&quot;,</span><br><span class="line">open(&quot;/usr/lib/gcc/x86_64-redhat-linux/4.4.7/../../../../include/c++/4.4.7/bits/locale_facets.tcc&quot;,</span><br><span class="line">open(&quot;/usr/lib/gcc/x86_64-redhat-linux/4.4.7/../../../../include/c++/4.4.7/bits/basic_ios.tcc&quot;,</span><br><span class="line">open(&quot;/usr/lib/gcc/x86_64-redhat-linux/4.4.7/../../../../include/c++/4.4.7/bits/ostream.tcc&quot;,</span><br><span class="line">open(&quot;/usr/lib/gcc/x86_64-redhat-linux/4.4.7/../../../../include/c++/4.4.7/istream&quot;,</span><br><span class="line">open(&quot;/usr/lib/gcc/x86_64-redhat-linux/4.4.7/../../../../include/c++/4.4.7/bits/istream.tcc&quot;,</span><br><span class="line">open(&quot;/usr/lib/gcc/x86_64-redhat-linux/4.4.7/../../../../include/c++/4.4.7/vector&quot;,</span><br><span class="line">open(&quot;/usr/lib/gcc/x86_64-redhat-linux/4.4.7/../../../../include/c++/4.4.7/bits/stl_construct.h&quot;,</span><br><span class="line">open(&quot;/usr/lib/gcc/x86_64-redhat-linux/4.4.7/../../../../include/c++/4.4.7/bits/stl_uninitialized.h&quot;,</span><br><span class="line">open(&quot;/usr/lib/gcc/x86_64-redhat-linux/4.4.7/../../../../include/c++/4.4.7/bits/stl_vector.h&quot;,</span><br><span class="line">open(&quot;/usr/lib/gcc/x86_64-redhat-linux/4.4.7/../../../../include/c++/4.4.7/bits/stl_bvector.h&quot;,</span><br><span class="line">open(&quot;/usr/lib/gcc/x86_64-redhat-linux/4.4.7/../../../../include/c++/4.4.7/bits/vector.tcc&quot;,</span><br><span class="line">detached</span><br><span class="line">(Child</span><br></pre></td></tr></table></figure>
+<p>测试代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;iostream&gt;</span><br><span class="line">#include &lt;vector&gt;</span><br><span class="line"></span><br><span class="line">void print_vec(const std::vector&lt;int&gt;&amp; vec)</span><br><span class="line">&#123;</span><br><span class="line">    std::cout &lt;&lt; &quot;print vec : &quot;;</span><br><span class="line">    size_t size = vec.size();</span><br><span class="line">    for(size_t i = 0; i&lt;size; i++)</span><br><span class="line">        std::cout &lt;&lt; vec[i] &lt;&lt; &quot;\t&quot;;</span><br><span class="line">    std::cout &lt;&lt; &quot;\n&quot;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void print_int(int i)</span><br><span class="line">&#123;</span><br><span class="line">    std::cout&lt;&lt;&quot;print_int : &quot; &lt;&lt; i &lt;&lt; &quot;\n&quot;; </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void print_str(char* str)</span><br><span class="line">&#123;</span><br><span class="line">    std::cout&lt;&lt;&quot;print_str : &quot; &lt;&lt; str &lt;&lt; &quot;\n&quot;; </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    std::vector&lt;int&gt; vec;</span><br><span class="line">    vec.push_back(1);</span><br><span class="line">    </span><br><span class="line">    print_vec(vec);</span><br><span class="line">    print_int(vec.size());</span><br><span class="line">    print_str(&quot;hello world!&quot;);</span><br><span class="line"></span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//编译：</span><br><span class="line">//g++ -o vec vec.cpp</span><br></pre></td></tr></table></figure>
+    </div>
+    
+    <div class="post-footer">
+        <div>
+            
+        </div>
+        <div>
+            
+        </div>
+    </div>
+</article>
+
+<div class="article-nav prev-next-wrap clearfix">
+    
+        <a href="/2019/01/08/Centos7下编译boost/" class="pre-post btn btn-default" title="【原理】Centos7下编译boost">
+            <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
+            <span class="hidden-xs">【原理】Centos7下编译boost</span>
+        </a>
+    
+    
+        <a href="/2018/12/16/平衡树/" class="next-post btn btn-default" title="【原理】平衡树">
+            <span class="hidden-lg">下一篇</span>
+            <span class="hidden-xs">【原理】平衡树</span><i class="fa fa-angle-right fa-fw"></i>
+        </a>
+    
+</div>
+
+
+    <div id="comments">
+        
+    
+    <div id="vcomments" class="valine"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="/assets/valine.min.js"></script>
+
+    <script>
+        new Valine({
+            av: AV,
+            el: '#vcomments',
+            appId: 'XWA5gq7VCJybw7YQhf5HG20r-gzGzoHsz',
+            appKey: '8FW1WEwrysHXaUD1bhGn2Rp8',
+            placeholder: '说点什么吧',
+            notify: true,
+            verify: false,
+            avatar: 'https://blog.xtcgch.ink/img/comment-avatar.jpg',
+            meta: 'nick,mail'.split(','),
+            pageSize: '10',
+            path: window.location.pathname,
+            lang: 'zh-CN'.toLowerCase()
+        })
+    </script>
+
+
+    </div>
+
+
+
+
+
+                </main>
+                
+                    <aside id="article-toc" role="navigation" class="col-md-4">
+    <div class="widget">
+        <h3 class="title">文章目录</h3>
+        
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1、脑图"><span class="toc-text">1、脑图</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2、编译命令"><span class="toc-text">2、编译命令</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-引进外部头文件"><span class="toc-text">2.1 引进外部头文件</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2-1-1-方法一"><span class="toc-text">2.1.1 方法一</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-1-2-方法二"><span class="toc-text">2.1.2 方法二</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-引进外部静态-动态库"><span class="toc-text">2.2 引进外部静态/动态库</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2-2-1-动态库"><span class="toc-text">2.2.1 动态库</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-2-2-静态库"><span class="toc-text">2.2.2 静态库</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-使用C-11标准进行编译"><span class="toc-text">2.3 使用C++11标准进行编译</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-调试命令"><span class="toc-text">3 调试命令</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-strings命令：查看系统glibc支持的版本"><span class="toc-text">3.1 strings命令：查看系统glibc支持的版本</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-g-E选项：预处理源文件"><span class="toc-text">3.2 g++ -E选项：预处理源文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3-ldd命令：显示目标文件的依赖库"><span class="toc-text">3.3 ldd命令：显示目标文件的依赖库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-4-objdump命令：查看目标文件的动态引用符号表"><span class="toc-text">3.4 objdump命令：查看目标文件的动态引用符号表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-4-objdump命令：查看目标文件引用了GLIBC的哪些版本中的哪些函数"><span class="toc-text">3.4 objdump命令：查看目标文件引用了GLIBC的哪些版本中的哪些函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-6-nm命令：显示vec程序中使用的函数"><span class="toc-text">3.6 nm命令：显示vec程序中使用的函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-7-c-filt命令：显示未重整-unmangled-的原函数声明"><span class="toc-text">3.7 c++filt命令：显示未重整(unmangled)的原函数声明</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-8-nm命令：显示目标文件的所有符号清单"><span class="toc-text">3.8 nm命令：显示目标文件的所有符号清单</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-9-strace命令：显示在预处理的时候读取的所有头文件"><span class="toc-text">3.9 strace命令：显示在预处理的时候读取的所有头文件</span></a></li></ol></li></ol>
+        
+    </div>
+</aside>
+
+                
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</footer>
+
+<a id="back-to-top" class="icon-btn hide">
+	<i class="fa fa-chevron-up"></i>
+</a>
+
+
+
+
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="busuanzi">
+    
+</div>
+
+            </div>
+            <div class="col-sm-12">
+                <span>Copyright &copy; 2018
+                </span> |
+                <span>
+                    Powered by <a href="//hexo.io" class="copyright-links" target="_blank" rel="nofollow">Hexo</a>
+                </span> |
+                <span>
+                    Theme by <a href="//github.com/shenliyang/hexo-theme-snippet.git" class="copyright-links" target="_blank" rel="nofollow">Snippet</a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+<script src="/js/app.js?rev=@@hash"></script>
+
+</body>
+</html>

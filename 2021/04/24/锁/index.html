@@ -1,0 +1,362 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="我的博客 - blog">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="browsermode" content="application">
+    <meta name="screen-orientation" content="portrait">
+    <link rel="dns-prefetch" href="https://lives.xtcgch.ink">
+    <!--SEO-->
+
+<meta name="description" content="脑容量不够，笔记来凑">
+
+
+
+
+
+<meta name="robots" content="all">
+<meta name="google" content="all">
+<meta name="googlebot" content="all">
+<meta name="verify" content="all">
+    <!--Title-->
+
+
+<title>锁 | 我的博客 - blog</title>
+
+
+    <link rel="alternate" href="/atom.xml" title="我的博客 - blog" type="application/atom+xml">
+
+
+    <link rel="icon" href="https://blog.xtcgch.ink/img/background/海绵宝宝.ico">
+
+    
+
+
+
+<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7">
+<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.5.0">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash">
+
+
+
+
+    
+
+
+
+
+
+    
+
+</head>
+
+</html>
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+
+<body>
+    <header class="main-header" style="background-image:url(https://blog.xtcgch.ink/img/head-bg.jpg)">
+    <div class="main-header-box">
+        <a class="header-avatar" href="/" title="unistd68">
+            <img src="/img/background/海绵宝宝.jpg" alt="logo头像" class="img-responsive center-block">
+        </a>
+        <div class="branding">
+        	<!--<h2 class="text-hide">Snippet主题,从未如此简单有趣</h2>-->
+            
+                <h2> 脑容量不够，笔记来凑 </h2>
+            
+    	</div>
+    </div>
+</header>
+    <nav class="main-navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header"><span class="nav-toggle-button collapsed pull-right" data-toggle="collapse" data-target="#main-menu" id="mnav">
+                    <span class="sr-only"></span>
+                        <i class="fa fa-bars"></i>
+                    </span>
+                    <a class="navbar-brand" href="https://lives.xtcgch.ink">我的博客 - blog</a>
+                </div>
+                <div class="collapse navbar-collapse" id="main-menu">
+                    <ul class="menu">
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="https://blog.xtcgch.ink/"><i class="fa "></i>主页</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="https://blog.xtcgch.ink/categories/原理/"><i class="fa "></i>原理</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="https://blog.xtcgch.ink/categories/代码/"><i class="fa "></i>代码</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="https://blog.xtcgch.ink/categories/开源/"><i class="fa "></i>开源</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="https://blog.xtcgch.ink/categories/面试/"><i class="fa "></i>面试</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="https://blog.xtcgch.ink/categories/其他/"><i class="fa "></i>其他</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="https://blog.xtcgch.ink/archives/"><i class="fa "></i>时间轴</a>
+                            </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+    <section class="content-wrap">
+        <div class="container">
+            <div class="row">
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="锁">
+            
+	            锁
+            
+        </h1>
+        <div class="post-meta">
+    
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <a href="https://blog.xtcgch.ink/categories/原理">
+            原理
+        </a>
+    </span>
+    
+
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+                
+                    <a href="https://blog.xtcgch.ink/tags/数据库" title="数据库">
+                        数据库
+                    </a>
+                
+                    <a href="https://blog.xtcgch.ink/tags/线程" title="线程">
+                        线程
+                    </a>
+                
+                    <a href="https://blog.xtcgch.ink/tags/锁" title="锁">
+                        锁
+                    </a>
+                
+            
+        </span>
+    </span>
+    
+
+    
+        
+        <span class="fa-wrap">
+            <i class="fa fa-clock-o"></i>
+            <span class="date-meta">2021/04/24</span>
+        </span>
+        
+    
+</div>
+
+            
+            
+    </div>
+    
+    <div class="post-body post-content">
+        <p><strong>摘要：</strong>这是摘要！</p>
+<a id="more"></a>
+<hr>
+<h1 id="常见的线程锁"><a href="#常见的线程锁" class="headerlink" title="常见的线程锁"></a><table><tr><td bgcolor="#C7C7C7">常见的线程锁</td></tr></table></h1><h2 id="互斥锁"><a href="#互斥锁" class="headerlink" title="互斥锁"></a><font color="#0000FF">互斥锁</font></h2><p>头文件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;mutex&gt;</span><br></pre></td></tr></table></figure></p>
+<p>相关变量和函数<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">std::mutex</span><br><span class="line">std::lock_guard&lt;std::mutex&gt;() ,lock(),unlock()</span><br><span class="line">std::unique_lock&lt;std::mutex&gt;()</span><br></pre></td></tr></table></figure></p>
+<h2 id="自旋锁"><a href="#自旋锁" class="headerlink" title="自旋锁"></a><font color="#0000FF">自旋锁</font></h2><ul>
+<li>自旋锁主要适用于被持有时间短，线程不希望在重新调度上花过多时间的情况。</li>
+<li>实际上许多其他类型的锁在底层使用了自旋锁实现，例如多数互斥锁在试图获取锁的时候会先自旋一小段时间，然后才会休眠。</li>
+</ul>
+<p>C++11之前：</p>
+<p><strong>头文件</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;pthread.h&gt;</span><br></pre></td></tr></table></figure>
+<p><strong>相关变量和函数</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">int pthread_spin_init(pthread_spinlock_t *, int); //初始化自旋锁</span><br><span class="line">int pthread_spin_lock(pthread_spinlock_t *); //获得一个自旋锁 </span><br><span class="line">int pthread_spin_trylock(pthread_spinlock_t *); //尝试获取一个自旋锁</span><br><span class="line">int pthread_spin_unlock(pthread_spinlock_t *);//释放（解锁）一个自旋锁 </span><br><span class="line">int pthread_spin_destroy(pthread_spinlock_t *); //销毁一个自旋锁</span><br></pre></td></tr></table></figure></p>
+<p><strong>1. 使用C++11的原子操作实现自旋锁</strong></p>
+<p>1.1 指定内存序提高性能</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">class spin_mutex &#123;</span><br><span class="line">  std::atomic&lt;bool&gt; flag = ATOMIC_VAR_INIT(false);</span><br><span class="line">public:</span><br><span class="line">  spin_mutex() = default;</span><br><span class="line">  spin_mutex(const spin_mutex&amp;) = delete;</span><br><span class="line">  spin_mutex&amp; operator= (const spin_mutex&amp;) = delete;</span><br><span class="line">  void lock() &#123;</span><br><span class="line">    bool expected = false;</span><br><span class="line">    while(!flag.compare_exchange_strong(expected, true, std::memory_order_acquire))</span><br><span class="line">      expected = false;</span><br><span class="line">  &#125;</span><br><span class="line">  void unlock() &#123;</span><br><span class="line">    flag.store(false, std::memory_order_release);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>1.2 不使用CAS(compare-and-swap)的实现</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">class spin_mutex &#123;</span><br><span class="line">  std::atomic&lt;bool&gt; flag = ATOMIC_VAR_INIT(false);</span><br><span class="line">public:</span><br><span class="line">  spin_mutex() = default;</span><br><span class="line">  spin_mutex(const spin_mutex&amp;) = delete;</span><br><span class="line">  spin_mutex&amp; operator= (const spin_mutex&amp;) = delete;</span><br><span class="line">  void lock() &#123;</span><br><span class="line">    while(flag.exchange(true, std::memory_order_acquire))</span><br><span class="line">      ;</span><br><span class="line">  &#125;</span><br><span class="line">  void unlock() &#123;</span><br><span class="line">    flag.store(false, std::memory_order_release);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p><strong>2. 使用std::atomic_flag的实现</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">#include &lt;atomic&gt;</span><br><span class="line">#include &lt;thread&gt;</span><br><span class="line">#include &lt;mutex&gt;</span><br><span class="line">#include &lt;iostream&gt;</span><br><span class="line"></span><br><span class="line">class spin_mutex &#123;</span><br><span class="line">  std::atomic_flag flag = ATOMIC_FLAG_INIT;</span><br><span class="line">public:</span><br><span class="line">  spin_mutex() = default;</span><br><span class="line">  spin_mutex(const spin_mutex&amp;) = delete;</span><br><span class="line">  spin_mutex&amp; operator= (const spin_mutex&amp;) = delete;</span><br><span class="line">  void lock() &#123;</span><br><span class="line">    while(flag.test_and_set(std::memory_order_acquire))</span><br><span class="line">      ;</span><br><span class="line">  &#125;</span><br><span class="line">  void unlock() &#123;</span><br><span class="line">    flag.clear(std::memory_order_release);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">int num = 0;</span><br><span class="line">spin_mutex sm;</span><br><span class="line"></span><br><span class="line">void thread_proc()</span><br><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">  for(int i = 0; i &lt; 100000; ++i) &#123;</span><br><span class="line">    std::lock_guard&lt;spin_mutex&gt; lock(sm);</span><br><span class="line">    ++num;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">  std::thread td1(thread_proc), td2(thread_proc);</span><br><span class="line">  td1.join();</span><br><span class="line">  td2.join();</span><br><span class="line">  std::cout &lt;&lt; num &lt;&lt; std::endl;</span><br><span class="line">  return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="条件变量"><a href="#条件变量" class="headerlink" title="条件变量"></a><font color="#0000FF">条件变量</font></h2><p>std::condition_variable</p>
+<h2 id="原子锁"><a href="#原子锁" class="headerlink" title="原子锁"></a><font color="#0000FF">原子锁</font></h2><p>std::atomic</p>
+<h2 id="读写锁"><a href="#读写锁" class="headerlink" title="读写锁"></a><font color="#0000FF">读写锁</font></h2><p><strong>C++17标准</strong><br>以前是boost库，在C++17之后添加到std标准库中</p>
+<p>头文件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;shared_mutex&gt;</span><br></pre></td></tr></table></figure></p>
+<p>相关变量和函数<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">std::shared_mutex</span><br><span class="line"></span><br><span class="line">lock_shared() </span><br><span class="line">unlock_shared()</span><br></pre></td></tr></table></figure></p>
+<p>demo:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">#include &lt;thread&gt;</span><br><span class="line">#include &lt;shared_mutex&gt;</span><br><span class="line">#include &lt;iostream&gt;</span><br><span class="line">#include &lt;vector&gt;</span><br><span class="line">#include &lt;unistd.h&gt; // sleep(seconds), usleep(microseconds)</span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">class Counter &#123;</span><br><span class="line">public:</span><br><span class="line">  Counter() : value_(0) &#123;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  // Multiple threads/readers can read the counter&apos;s value at the same time.</span><br><span class="line">  std::size_t Get() const &#123;</span><br><span class="line">    std::shared_lock&lt;std::shared_mutex&gt; lock(mutex_);</span><br><span class="line">    return value_;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  // Only one thread/writer can increment/write the counter&apos;s value.</span><br><span class="line">  void Increase() &#123;</span><br><span class="line">    // You can also use lock_guard here.</span><br><span class="line">    std::unique_lock&lt;std::shared_mutex&gt; lock(mutex_);</span><br><span class="line">    value_++;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  // Only one thread/writer can reset/write the counter&apos;s value.</span><br><span class="line">  void Reset() &#123;</span><br><span class="line">    std::unique_lock&lt;std::shared_mutex&gt; lock(mutex_);</span><br><span class="line">    value_ = 0;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">private:</span><br><span class="line">  mutable std::shared_mutex mutex_;</span><br><span class="line">  std::size_t value_;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">std::mutex g_io_mutex;</span><br><span class="line"></span><br><span class="line">void Worker(Counter&amp; counter) &#123;</span><br><span class="line">  for (int i = 0; i &lt; 3; ++i) &#123;</span><br><span class="line">    counter.Increase();</span><br><span class="line">    std::size_t value = counter.Get();</span><br><span class="line"></span><br><span class="line">    std::lock_guard&lt;std::mutex&gt; lock(g_io_mutex);</span><br><span class="line">    std::cout &lt;&lt; std::this_thread::get_id() &lt;&lt; &apos; &apos; &lt;&lt; value &lt;&lt; std::endl;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int main() &#123;</span><br><span class="line">  const std::size_t SIZE = 2;</span><br><span class="line"></span><br><span class="line">  Counter counter;</span><br><span class="line"></span><br><span class="line">  std::vector&lt;std::thread&gt; v;</span><br><span class="line">  v.reserve(SIZE);</span><br><span class="line"></span><br><span class="line">  v.emplace_back(Worker, std::ref(counter));</span><br><span class="line">  v.emplace_back(Worker, std::ref(counter));</span><br><span class="line"></span><br><span class="line">  for (std::thread&amp; t : v) &#123;</span><br><span class="line">    t.join();</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<h1 id="乐观锁和悲观锁"><a href="#乐观锁和悲观锁" class="headerlink" title="乐观锁和悲观锁"></a><table><tr><td bgcolor="#C7C7C7">乐观锁和悲观锁</td></tr></table></h1><h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a><font color="#0000FF">基本概念</font></h2><p>乐观锁和悲观锁的讨论对象是<strong>数据库</strong></p>
+<p><strong>乐观锁：</strong>乐观锁在操作数据时非常乐观，认为别人不会同时修改数据。</p>
+<p>因此乐观锁不会上锁，只是在执行更新的时候判断一下在此期间别人是否修改了数据：如果别人修改了数据则放弃操作，否则执行操作。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">update t_goods   </span><br><span class="line">set status=2,version=version+1  </span><br><span class="line">where id=#&#123;id&#125; and version=#&#123;version&#125;;</span><br></pre></td></tr></table></figure>
+<p><strong>悲观锁：</strong>悲观锁在操作数据时比较悲观，认为别人会同时修改数据。</p>
+<p>因此操作数据时直接把数据锁住，直到操作完成后才会释放锁；上锁期间其他人不能修改数据。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">//悲观锁查询</span><br><span class="line">SELECT * FROM account WHERE name = &quot;MAX&quot; for update</span><br></pre></td></tr></table></figure>
+<h2 id="实现方式"><a href="#实现方式" class="headerlink" title="实现方式"></a><font color="#0000FF">实现方式</font></h2><blockquote>
+<p> 乐观锁的实现方式主要有两种：CAS机制和版本号机制</p>
+</blockquote>
+<h2 id="优缺点和适用场景"><a href="#优缺点和适用场景" class="headerlink" title="优缺点和适用场景"></a><font color="#0000FF">优缺点和适用场景</font></h2><p>乐观锁和悲观锁并没有优劣之分，它们有各自适合的场景；下面从两个方面进行说明。</p>
+<p>功能限制 与悲观锁相比，乐观锁适用的场景受到了更多的限制，无论是CAS还是版本号机制。<br>例如，CAS只能保证单个变量操作的原子性，当涉及到多个变量时，CAS是无能为力的，而synchronized则可以通过对整个代码块加锁来处理。</p>
+<p>再比如版本号机制，如果query的时候是针对表1，而update的时候是针对表2，也很难通过简单的版本号来实现乐观锁。</p>
+<p>竞争激烈程度 如果悲观锁和乐观锁都可以使用，那么选择就要考虑竞争的激烈程度：<br>当竞争不激烈 (出现并发冲突的概率小)时，乐观锁更有优势，因为悲观锁会锁住代码块或数据，其他线程无法同时访问，影响并发，而且加锁和释放锁都需要消耗额外的资源。</p>
+<p>当竞争激烈(出现并发冲突的概率大)时，悲观锁更有优势，因为乐观锁在执行更新时频繁失败，需要不断重试，浪费CPU资源。</p>
+<h2 id="乐观锁加锁吗"><a href="#乐观锁加锁吗" class="headerlink" title=" 乐观锁加锁吗"></a><font color="#0000FF"> 乐观锁加锁吗</font></h2><ol>
+<li>乐观锁本身是不加锁的，只是在更新时判断一下数据是否被其他线程更新了；AtomicInteger便是一个例子。</li>
+<li>有时乐观锁可能与加锁操作合作，例如，在前述updateCoins()的例子中，MySQL在执行update时会加排它锁。</li>
+</ol>
+<p>但这只是乐观锁与加锁操作合作的例子，不能改变“乐观锁本身不加锁”这一事实。</p>
+<h2 id="CAS有哪些缺点"><a href="#CAS有哪些缺点" class="headerlink" title=" CAS有哪些缺点"></a><font color="#0000FF"> CAS有哪些缺点</font></h2>
+    </div>
+    
+    <div class="post-footer">
+        <div>
+            
+        </div>
+        <div>
+            
+        </div>
+    </div>
+</article>
+
+<div class="article-nav prev-next-wrap clearfix">
+    
+        <a href="/2021/04/24/new/" class="pre-post btn btn-default" title="C++操作数据库">
+            <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
+            <span class="hidden-xs">C++操作数据库</span>
+        </a>
+    
+    
+        <a href="/2021/04/21/C++11/" class="next-post btn btn-default" title="C++11">
+            <span class="hidden-lg">下一篇</span>
+            <span class="hidden-xs">C++11</span><i class="fa fa-angle-right fa-fw"></i>
+        </a>
+    
+</div>
+
+
+    <div id="comments">
+        
+    
+    <div id="vcomments" class="valine"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="/assets/valine.min.js"></script>
+
+    <script>
+        new Valine({
+            av: AV,
+            el: '#vcomments',
+            appId: 'XWA5gq7VCJybw7YQhf5HG20r-gzGzoHsz',
+            appKey: '8FW1WEwrysHXaUD1bhGn2Rp8',
+            placeholder: '说点什么吧',
+            notify: true,
+            verify: false,
+            avatar: 'https://blog.xtcgch.ink/img/comment-avatar.jpg',
+            meta: 'nick,mail'.split(','),
+            pageSize: '10',
+            path: window.location.pathname,
+            lang: 'zh-CN'.toLowerCase()
+        })
+    </script>
+
+
+    </div>
+
+
+
+
+
+                </main>
+                
+                    <aside id="article-toc" role="navigation" class="col-md-4">
+    <div class="widget">
+        <h3 class="title">文章目录</h3>
+        
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#常见的线程锁"><span class="toc-text">常见的线程锁</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#互斥锁"><span class="toc-text">互斥锁</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#自旋锁"><span class="toc-text">自旋锁</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#条件变量"><span class="toc-text">条件变量</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#原子锁"><span class="toc-text">原子锁</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#读写锁"><span class="toc-text">读写锁</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#乐观锁和悲观锁"><span class="toc-text">乐观锁和悲观锁</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#基本概念"><span class="toc-text">基本概念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#实现方式"><span class="toc-text">实现方式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#优缺点和适用场景"><span class="toc-text">优缺点和适用场景</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#乐观锁加锁吗"><span class="toc-text"> 乐观锁加锁吗</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CAS有哪些缺点"><span class="toc-text"> CAS有哪些缺点</span></a></li></ol></li></ol>
+        
+    </div>
+</aside>
+
+                
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</footer>
+
+<a id="back-to-top" class="icon-btn hide">
+	<i class="fa fa-chevron-up"></i>
+</a>
+
+
+
+
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="busuanzi">
+    
+</div>
+
+            </div>
+            <div class="col-sm-12">
+                <span>Copyright &copy; 2018
+                </span> |
+                <span>
+                    Powered by <a href="//hexo.io" class="copyright-links" target="_blank" rel="nofollow">Hexo</a>
+                </span> |
+                <span>
+                    Theme by <a href="//github.com/shenliyang/hexo-theme-snippet.git" class="copyright-links" target="_blank" rel="nofollow">Snippet</a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+<script src="/js/app.js?rev=@@hash"></script>
+
+</body>
+</html>

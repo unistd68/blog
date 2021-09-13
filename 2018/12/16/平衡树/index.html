@@ -1,0 +1,387 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="我的博客 - blog">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="browsermode" content="application">
+    <meta name="screen-orientation" content="portrait">
+    <link rel="dns-prefetch" href="https://lives.xtcgch.ink">
+    <!--SEO-->
+
+<meta name="description" content="脑容量不够，笔记来凑">
+
+
+
+
+
+<meta name="robots" content="all">
+<meta name="google" content="all">
+<meta name="googlebot" content="all">
+<meta name="verify" content="all">
+    <!--Title-->
+
+
+<title>【原理】平衡树 | 我的博客 - blog</title>
+
+
+    <link rel="alternate" href="/atom.xml" title="我的博客 - blog" type="application/atom+xml">
+
+
+    <link rel="icon" href="https://blog.xtcgch.ink/img/background/海绵宝宝.ico">
+
+    
+
+
+
+<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7">
+<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.5.0">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash">
+
+
+
+
+    
+
+
+
+
+
+    
+
+</head>
+
+</html>
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+
+<body>
+    <header class="main-header" style="background-image:url(https://blog.xtcgch.ink/img/head-bg.jpg)">
+    <div class="main-header-box">
+        <a class="header-avatar" href="/" title="unistd68">
+            <img src="/img/background/海绵宝宝.jpg" alt="logo头像" class="img-responsive center-block">
+        </a>
+        <div class="branding">
+        	<!--<h2 class="text-hide">Snippet主题,从未如此简单有趣</h2>-->
+            
+                <h2> 脑容量不够，笔记来凑 </h2>
+            
+    	</div>
+    </div>
+</header>
+    <nav class="main-navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header"><span class="nav-toggle-button collapsed pull-right" data-toggle="collapse" data-target="#main-menu" id="mnav">
+                    <span class="sr-only"></span>
+                        <i class="fa fa-bars"></i>
+                    </span>
+                    <a class="navbar-brand" href="https://lives.xtcgch.ink">我的博客 - blog</a>
+                </div>
+                <div class="collapse navbar-collapse" id="main-menu">
+                    <ul class="menu">
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="https://blog.xtcgch.ink/"><i class="fa "></i>主页</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="https://blog.xtcgch.ink/categories/原理/"><i class="fa "></i>原理</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="https://blog.xtcgch.ink/categories/代码/"><i class="fa "></i>代码</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="https://blog.xtcgch.ink/categories/开源/"><i class="fa "></i>开源</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="https://blog.xtcgch.ink/categories/面试/"><i class="fa "></i>面试</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="https://blog.xtcgch.ink/categories/其他/"><i class="fa "></i>其他</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="https://blog.xtcgch.ink/archives/"><i class="fa "></i>时间轴</a>
+                            </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+    <section class="content-wrap">
+        <div class="container">
+            <div class="row">
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="【原理】平衡树">
+            
+	            【原理】平衡树
+            
+        </h1>
+        <div class="post-meta">
+    
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <a href="https://blog.xtcgch.ink/categories/原理">
+            原理
+        </a>
+    </span>
+    
+
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+                
+                    <a href="https://blog.xtcgch.ink/tags/数据结构" title="数据结构">
+                        数据结构
+                    </a>
+                
+                    <a href="https://blog.xtcgch.ink/tags/树" title="树">
+                        树
+                    </a>
+                
+            
+        </span>
+    </span>
+    
+
+    
+        
+        <span class="fa-wrap">
+            <i class="fa fa-clock-o"></i>
+            <span class="date-meta">2018/12/16</span>
+        </span>
+        
+    
+</div>
+
+            
+            
+            <p class="fa fa-exclamation-triangle warning">
+                本文于<strong>1002</strong>天之前发表，文中内容可能已经过时。
+            </p>
+        
+    </div>
+    
+    <div class="post-body post-content">
+        <p><strong>摘要：</strong>平衡树是一棵空树或它的左右两个子树的高度差的绝对值不超过1，并且左右两个子树都是一棵平衡二叉树。</p>
+<a id="more"></a>
+<h2 id="1、脑图"><a href="#1、脑图" class="headerlink" title="1、脑图"></a>1、脑图</h2><p><img src="./脑图.png" alt="平衡树脑图"></p>
+<hr>
+<h2 id="2、简介"><a href="#2、简介" class="headerlink" title="2、简介"></a>2、简介</h2><p>平衡树，即平衡二叉树（Balanced Binary Tree），具有以下性质：它是一棵空树或它的左右两个子树的高度差的绝对值不超过1，并且左右两个子树都是一棵平衡二叉树。</p>
+<p>平衡二叉树的常用实现方法有红黑树、AVL、替罪羊树、Treap、伸展树等。 最小二叉平衡树的节点的公式如下 F(n)=F(n-1)+F(n-2)+1 </p>
+<p>这个类似于一个递归的数列，可以参考Fibonacci数列，1是根节点，F(n-1)是左子树的节点数量，F(n-2)是右子树的节点数量。</p>
+<hr>
+<h2 id="3、旋转"><a href="#3、旋转" class="headerlink" title="3、旋转"></a>3、旋转</h2><p><img src="./AVL旋转一.jpg" alt="Alt text" title="左孩子旋转"><br><img src="./AVL旋转二.jpg" alt="Alt text" title="右孩子旋转"></p>
+<h3 id="3-1-LL（左左）"><a href="#3-1-LL（左左）" class="headerlink" title="3.1 LL（左左）"></a>3.1 LL（左左）</h3><ul>
+<li>X指的是一颗子树</li>
+<li>y和z都是一个节点</li>
+<li>K2是不符合平衡的节点</li>
+<li>K1,K2,和子树X的位置分布为左 、左，即LL</li>
+</ul>
+<p><img src="./LL.jpg" alt="Alt text"></p>
+<p>代码实现：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">static Node* left_left_rotation(AVLTree k2)</span><br><span class="line">&#123;</span><br><span class="line">	AVLTree k1;</span><br><span class="line"></span><br><span class="line">	k1 = k2-&gt;left;</span><br><span class="line">	k2-&gt;left = k1-&gt;right;</span><br><span class="line">	k1-&gt;right = k2;</span><br><span class="line"></span><br><span class="line">	k2-&gt;height = MAX( HEIGHT(k2-&gt;left), HEIGHT(k2-&gt;right)) + 1;</span><br><span class="line">	k1-&gt;height = MAX( HEIGHT(k1-&gt;left), k2-&gt;height) + 1;</span><br><span class="line"></span><br><span class="line">	return k1;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="3-2-RR（右右）"><a href="#3-2-RR（右右）" class="headerlink" title="3.2 RR（右右）"></a>3.2 RR（右右）</h3><ul>
+<li>Z指的是一颗子树</li>
+<li>y和x都是一个节点</li>
+<li>K1是不符合平衡的节点</li>
+<li>K1,K2,和Z子树的位置分布为右、右，即RR</li>
+</ul>
+<p><img src="./RR.jpg" alt="Alt text"></p>
+<p>代码实现：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">static Node* right_right_rotation(AVLTree k1)</span><br><span class="line">&#123;</span><br><span class="line">	AVLTree k2;</span><br><span class="line"></span><br><span class="line">	k2 = k1-&gt;right;</span><br><span class="line">	k1-&gt;right = k2-&gt;left;</span><br><span class="line">	k2-&gt;left = k1;</span><br><span class="line"></span><br><span class="line">	k1-&gt;height = MAX( HEIGHT(k1-&gt;left), HEIGHT(k1-&gt;right)) + 1;</span><br><span class="line">	k2-&gt;height = MAX( HEIGHT(k2-&gt;right), k1-&gt;height) + 1;</span><br><span class="line"></span><br><span class="line">	return k2;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="3-3-LR（RR-LL）"><a href="#3-3-LR（RR-LL）" class="headerlink" title="3.3 LR（RR+LL）"></a>3.3 LR（RR+LL）</h3><ul>
+<li>A,B,C,D都是一个节点</li>
+<li>K3是不符合平衡的节点</li>
+<li>K1,K2,K3的位置感为左，右，即LR分布</li>
+</ul>
+<p><img src="./LR.jpg" alt="Alt text"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">static Node* left_right_rotation(AVLTree k3)</span><br><span class="line">&#123;</span><br><span class="line">	k3-&gt;left = right_right_rotation(k3-&gt;left);</span><br><span class="line"></span><br><span class="line">	return left_left_rotation(k3);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="3-4-RL（LL-RR）"><a href="#3-4-RL（LL-RR）" class="headerlink" title="3.4 RL（LL+RR）"></a>3.4 RL（LL+RR）</h3><ul>
+<li>A,B,C,D都是一个节点</li>
+<li>K1是不符合平衡的节点</li>
+<li>K1,K2,K3的位置分布为右，左，即RL</li>
+</ul>
+<p><img src="./RL.jpg" alt="Alt text"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">static Node* right_left_rotation(AVLTree k1)</span><br><span class="line">&#123;</span><br><span class="line">	k1-&gt;right = left_left_rotation(k1-&gt;right);</span><br><span class="line"></span><br><span class="line">	return right_right_rotation(k1);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="4、例子"><a href="#4、例子" class="headerlink" title="4、例子"></a>4、例子</h2><p>依次添加”3,2,1,4,5,6,7,16,15,14,13,12,11,10,8,9” 到AVL树中，过程如下。</p>
+<p>（1）添加3,2</p>
+<p><img src="./3.2.jpg" alt="Alt text"></p>
+<p>（2）添加1</p>
+<p><img src="./添加1.jpg" alt="Alt text"></p>
+<p>（3）添加4</p>
+<p><img src="./添加4.jpg" alt="Alt text"></p>
+<p>（4）添加5</p>
+<p><img src="./添加5.jpg" alt="Alt text"></p>
+<p>（5）添加6</p>
+<p><img src="./添加6.jpg" alt="Alt text"></p>
+<p>（6）添加7</p>
+<p><img src="./添加7.jpg" alt="Alt text"></p>
+<p>（7）添加16</p>
+<p><img src="./添加16.jpg" alt="Alt text"></p>
+<p>（8）添加15—好像是RL，不是RR</p>
+<p><img src="./添加15.jpg" alt="Alt text"></p>
+<p>（9）添加14</p>
+<p><img src="./添加14.jpg" alt="Alt text"></p>
+<p>（10）添加13</p>
+<p><img src="./添加13.jpg" alt="Alt text"></p>
+<p>（11）添加12</p>
+<p><img src="./添加12.jpg" alt="Alt text"></p>
+<p>（12）添加11</p>
+<p><img src="./添加11.jpg" alt="Alt text"></p>
+<p>（13）添加10</p>
+<p><img src="./添加10.jpg" alt="Alt text"></p>
+<p>（14）添加8</p>
+<p><img src="./添加8.jpg" alt="Alt text"></p>
+<p>（15）添加9</p>
+<p><img src="./添加9.jpg" alt="Alt text"></p>
+
+    </div>
+    
+    <div class="post-footer">
+        <div>
+            
+        </div>
+        <div>
+            
+        </div>
+    </div>
+</article>
+
+<div class="article-nav prev-next-wrap clearfix">
+    
+        <a href="/2019/01/05/Centos下C++开发常用命令/" class="pre-post btn btn-default" title="【原理】Centos下C++开发常用命令">
+            <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
+            <span class="hidden-xs">【原理】Centos下C++开发常用命令</span>
+        </a>
+    
+    
+        <a href="/2018/12/14/SQL语法/" class="next-post btn btn-default" title="【原理】SQL语法">
+            <span class="hidden-lg">下一篇</span>
+            <span class="hidden-xs">【原理】SQL语法</span><i class="fa fa-angle-right fa-fw"></i>
+        </a>
+    
+</div>
+
+
+    <div id="comments">
+        
+    
+    <div id="vcomments" class="valine"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="/assets/valine.min.js"></script>
+
+    <script>
+        new Valine({
+            av: AV,
+            el: '#vcomments',
+            appId: 'XWA5gq7VCJybw7YQhf5HG20r-gzGzoHsz',
+            appKey: '8FW1WEwrysHXaUD1bhGn2Rp8',
+            placeholder: '说点什么吧',
+            notify: true,
+            verify: false,
+            avatar: 'https://blog.xtcgch.ink/img/comment-avatar.jpg',
+            meta: 'nick,mail'.split(','),
+            pageSize: '10',
+            path: window.location.pathname,
+            lang: 'zh-CN'.toLowerCase()
+        })
+    </script>
+
+
+    </div>
+
+
+
+
+
+                </main>
+                
+                    <aside id="article-toc" role="navigation" class="col-md-4">
+    <div class="widget">
+        <h3 class="title">文章目录</h3>
+        
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1、脑图"><span class="toc-text">1、脑图</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2、简介"><span class="toc-text">2、简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3、旋转"><span class="toc-text">3、旋转</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-LL（左左）"><span class="toc-text">3.1 LL（左左）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-RR（右右）"><span class="toc-text">3.2 RR（右右）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3-LR（RR-LL）"><span class="toc-text">3.3 LR（RR+LL）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-4-RL（LL-RR）"><span class="toc-text">3.4 RL（LL+RR）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4、例子"><span class="toc-text">4、例子</span></a></li></ol>
+        
+    </div>
+</aside>
+
+                
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</footer>
+
+<a id="back-to-top" class="icon-btn hide">
+	<i class="fa fa-chevron-up"></i>
+</a>
+
+
+
+
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="busuanzi">
+    
+</div>
+
+            </div>
+            <div class="col-sm-12">
+                <span>Copyright &copy; 2018
+                </span> |
+                <span>
+                    Powered by <a href="//hexo.io" class="copyright-links" target="_blank" rel="nofollow">Hexo</a>
+                </span> |
+                <span>
+                    Theme by <a href="//github.com/shenliyang/hexo-theme-snippet.git" class="copyright-links" target="_blank" rel="nofollow">Snippet</a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+<script src="/js/app.js?rev=@@hash"></script>
+
+</body>
+</html>

@@ -1,0 +1,344 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="我的博客 - blog">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="browsermode" content="application">
+    <meta name="screen-orientation" content="portrait">
+    <link rel="dns-prefetch" href="https://lives.xtcgch.ink">
+    <!--SEO-->
+
+<meta name="description" content="脑容量不够，笔记来凑">
+
+
+
+
+
+<meta name="robots" content="all">
+<meta name="google" content="all">
+<meta name="googlebot" content="all">
+<meta name="verify" content="all">
+    <!--Title-->
+
+
+<title>协程的介绍 | 我的博客 - blog</title>
+
+
+    <link rel="alternate" href="/atom.xml" title="我的博客 - blog" type="application/atom+xml">
+
+
+    <link rel="icon" href="https://blog.xtcgch.ink/img/background/海绵宝宝.ico">
+
+    
+
+
+
+<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7">
+<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.5.0">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash">
+
+
+
+
+    
+
+
+
+
+
+    
+
+</head>
+
+</html>
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+
+<body>
+    <header class="main-header" style="background-image:url(https://blog.xtcgch.ink/img/head-bg.jpg)">
+    <div class="main-header-box">
+        <a class="header-avatar" href="/" title="unistd68">
+            <img src="/img/background/海绵宝宝.jpg" alt="logo头像" class="img-responsive center-block">
+        </a>
+        <div class="branding">
+        	<!--<h2 class="text-hide">Snippet主题,从未如此简单有趣</h2>-->
+            
+                <h2> 脑容量不够，笔记来凑 </h2>
+            
+    	</div>
+    </div>
+</header>
+    <nav class="main-navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header"><span class="nav-toggle-button collapsed pull-right" data-toggle="collapse" data-target="#main-menu" id="mnav">
+                    <span class="sr-only"></span>
+                        <i class="fa fa-bars"></i>
+                    </span>
+                    <a class="navbar-brand" href="https://lives.xtcgch.ink">我的博客 - blog</a>
+                </div>
+                <div class="collapse navbar-collapse" id="main-menu">
+                    <ul class="menu">
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="https://blog.xtcgch.ink/"><i class="fa "></i>主页</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="https://blog.xtcgch.ink/categories/原理/"><i class="fa "></i>原理</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="https://blog.xtcgch.ink/categories/代码/"><i class="fa "></i>代码</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="https://blog.xtcgch.ink/categories/开源/"><i class="fa "></i>开源</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="https://blog.xtcgch.ink/categories/面试/"><i class="fa "></i>面试</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="https://blog.xtcgch.ink/categories/其他/"><i class="fa "></i>其他</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="https://blog.xtcgch.ink/archives/"><i class="fa "></i>时间轴</a>
+                            </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+    <section class="content-wrap">
+        <div class="container">
+            <div class="row">
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="协程的介绍">
+            
+	            协程的介绍
+            
+        </h1>
+        <div class="post-meta">
+    
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <a href="https://blog.xtcgch.ink/categories/原理">
+            原理
+        </a>
+    </span>
+    
+
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+                
+                    <a href="https://blog.xtcgch.ink/tags/协程" title="协程">
+                        协程
+                    </a>
+                
+            
+        </span>
+    </span>
+    
+
+    
+        
+        <span class="fa-wrap">
+            <i class="fa fa-clock-o"></i>
+            <span class="date-meta">2019/04/05</span>
+        </span>
+        
+    
+</div>
+
+            
+            
+            <p class="fa fa-exclamation-triangle warning">
+                本文于<strong>891</strong>天之前发表，文中内容可能已经过时。
+            </p>
+        
+    </div>
+    
+    <div class="post-body post-content">
+        <p><strong>摘要：</strong>非正式的协程学习笔记！</p>
+<a id="more"></a>
+<hr>
+<h2 id="简单介绍"><a href="#简单介绍" class="headerlink" title="简单介绍"></a><table><tr><td bgcolor="#C7C7C7">简单介绍</td></tr></table></h2><p>协程，又称微线程，纤程。英文名Coroutine。</p>
+<p>协程属于线程内的概念，脱离了线程就毫无意义。</p>
+<p>一个线程可以有很多个协程，协程数受到文件描述符的限制。</p>
+<p>协程是原子性的。</p>
+<p>协程的切换属于用户态，即只有显示使用协程，cpu才会使用协程的方式来处理代码。</p>
+<p>一个线程里的协程共享所有线程内的变量，且是独享，即每个协程获取到的线程变量值都是即时的数据，和线程使用进程内的公共变量不同，也即不需要加锁。</p>
+<p>协程的切换是由IO事件来操控，只有当协程发生IO操作，或者协程处理完事件，才会发生协程的切换。</p>
+<p>协程占有的资源量比线程小，且通常情况下协程间的切换对资源的消耗是比较小的，主要是因为协程切换时不会发生上下文的切换，cpu会根据偏移量来找到协程对应的栈位置，所以协程间的切换只是偏移量发生了改变，因此对资源的消耗量很小。</p>
+<p>和线程比，在IO任务不处理具体事情时，线程会被挂起，但是协程会一直切换，会消耗一定的cpu资源，目前可测出的消耗率约为1%-2%。</p>
+<hr>
+<h2 id="语言层面"><a href="#语言层面" class="headerlink" title="语言层面"></a><table><tr><td bgcolor="#C7C7C7">语言层面</td></tr></table></h2><p>目前支持协程的编程语言主要有python，lua，C/C++</p>
+<hr>
+<h2 id="应用场景"><a href="#应用场景" class="headerlink" title="应用场景"></a><table><tr><td bgcolor="#C7C7C7">应用场景</td></tr></table></h2><p>协程的特性是由IO事件来进行切换，因此在一些IO事件比较频繁的场景下运用，能够产生比较巨大的正面效果，如http/https请求，udp/tcp请求，数据库IO，文件IO，日志IO</p>
+<hr>
+<h2 id="一些协程库"><a href="#一些协程库" class="headerlink" title="一些协程库"></a><table><tr><td bgcolor="#C7C7C7">一些协程库</td></tr></table></h2><ul>
+<li>libco</li>
+</ul>
+<hr>
+<h2 id="坑"><a href="#坑" class="headerlink" title="坑"></a><table><tr><td bgcolor="#C7C7C7">坑</td></tr></table></h2><h3 id="1、锁"><a href="#1、锁" class="headerlink" title="1、锁"></a><font color="#0000FF">1、锁</font></h3><p>在一个函数fun1()中有一个IO操作，如写日志（设定为一直阻塞），并且在写日志前进行加锁，这时可能会发生如下情况：</p>
+<ul>
+<li>协程A获取锁，进行写日志IO操作</li>
+<li>cpu切换协程B来运行</li>
+<li>协程B视图获取锁，但是协程A未释放，因此协程B一直等待</li>
+<li>由于协程A一直阻塞在写日志操作，因此协程B也一直阻塞，也不能被切换出去，造成了死锁</li>
+</ul>
+<p>即使协程A未被阻塞，而是耗时比较长，那么协程B也只能等待，这种情况也会比较坑</p>
+<h3 id="2、socket"><a href="#2、socket" class="headerlink" title="2、socket"></a><font color="#0000FF">2、socket</font></h3><hr>
+<h2 id="一些使用建议"><a href="#一些使用建议" class="headerlink" title="一些使用建议"></a><table><tr><td bgcolor="#C7C7C7">一些使用建议</td></tr></table></h2><ol>
+<li>在使用IO函数之前要先释放锁</li>
+<li>使用最小粒度的锁</li>
+</ol>
+
+    </div>
+    
+    <div class="post-footer">
+        <div>
+            
+        </div>
+        <div>
+            
+        </div>
+    </div>
+</article>
+
+<div class="article-nav prev-next-wrap clearfix">
+    
+        <a href="/2019/04/07/画流程图/" class="pre-post btn btn-default" title="画流程图">
+            <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
+            <span class="hidden-xs">画流程图</span>
+        </a>
+    
+    
+        <a href="/2019/03/31/使用hexo搭建github博客/" class="next-post btn btn-default" title="使用hexo搭建github博客">
+            <span class="hidden-lg">下一篇</span>
+            <span class="hidden-xs">使用hexo搭建github博客</span><i class="fa fa-angle-right fa-fw"></i>
+        </a>
+    
+</div>
+
+
+    <div id="comments">
+        
+    
+    <div id="vcomments" class="valine"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="/assets/valine.min.js"></script>
+
+    <script>
+        new Valine({
+            av: AV,
+            el: '#vcomments',
+            appId: 'XWA5gq7VCJybw7YQhf5HG20r-gzGzoHsz',
+            appKey: '8FW1WEwrysHXaUD1bhGn2Rp8',
+            placeholder: '说点什么吧',
+            notify: true,
+            verify: false,
+            avatar: 'https://blog.xtcgch.ink/img/comment-avatar.jpg',
+            meta: 'nick,mail'.split(','),
+            pageSize: '10',
+            path: window.location.pathname,
+            lang: 'zh-CN'.toLowerCase()
+        })
+    </script>
+
+
+    </div>
+
+
+
+
+
+                </main>
+                
+                    <aside id="article-toc" role="navigation" class="col-md-4">
+    <div class="widget">
+        <h3 class="title">文章目录</h3>
+        
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#简单介绍"><span class="toc-text">简单介绍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#语言层面"><span class="toc-text">语言层面</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#应用场景"><span class="toc-text">应用场景</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#一些协程库"><span class="toc-text">一些协程库</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#坑"><span class="toc-text">坑</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1、锁"><span class="toc-text">1、锁</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2、socket"><span class="toc-text">2、socket</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#一些使用建议"><span class="toc-text">一些使用建议</span></a></li></ol>
+        
+    </div>
+</aside>
+
+                
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</footer>
+
+<a id="back-to-top" class="icon-btn hide">
+	<i class="fa fa-chevron-up"></i>
+</a>
+
+
+
+
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="busuanzi">
+    
+</div>
+
+            </div>
+            <div class="col-sm-12">
+                <span>Copyright &copy; 2018
+                </span> |
+                <span>
+                    Powered by <a href="//hexo.io" class="copyright-links" target="_blank" rel="nofollow">Hexo</a>
+                </span> |
+                <span>
+                    Theme by <a href="//github.com/shenliyang/hexo-theme-snippet.git" class="copyright-links" target="_blank" rel="nofollow">Snippet</a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+<script src="/js/app.js?rev=@@hash"></script>
+
+</body>
+</html>
