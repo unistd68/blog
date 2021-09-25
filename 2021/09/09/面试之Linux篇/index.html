@@ -29,7 +29,7 @@
     <!--Title-->
 
 
-<title>面试之Linux篇 | 我的博客 - blog</title>
+<title>【面试】面试之Linux篇 | 我的博客 - blog</title>
 
 
     <link rel="alternate" href="/atom.xml" title="我的博客 - blog" type="application/atom+xml">
@@ -136,9 +136,9 @@
                     <p id="process"></p>
 <article class="post">
     <div class="post-head">
-        <h1 id="面试之Linux篇">
+        <h1 id="【面试】面试之Linux篇">
             
-	            面试之Linux篇
+	            【面试】面试之Linux篇
             
         </h1>
         <div class="post-meta">
@@ -200,15 +200,16 @@
 <li><a href="#1.4">4 如何判断一个程序是死锁还是死循环</a></li>
 <li><a href="#1.5">5 gdb调试命令</a></li>
 <li><a href="#1.6">6 gdb step和next的区别</a></li>
-<li><a href="#1.7">7 dgb查看内存</a></li>
+<li><a href="#1.7">7 gdb 查看内存</a></li>
 <li><a href="#1.8">8 gdb多线程调试</a></li>
 <li><a href="#1.9">9 gdb查看调用堆栈</a></li>
 <li><a href="#1.10">10 gdb 带参数调试</a></li>
 <li><a href="#1.11">11 gdb list命令</a></li>
 <li><a href="#1.12">12 用户态到内核态的转化原理</a></li>
 <li><a href="#1.13">13 系统调用</a></li>
-<li><a href="#1.14">14 6种微服务RPC框架</a><br><a href="#进阶篇">★★★ 二、进阶篇 ★★★</a></li>
+<li><a href="#1.14">14 6种微服务RPC框架</a></li>
 </ul>
+<p><a href="#进阶篇">★★★ 二、进阶篇 ★★★</a></p>
 <hr>
 <h1 id="★★★-一、基础篇-★★★-1"><a href="#★★★-一、基础篇-★★★-1" class="headerlink" title="★★★ 一、基础篇 ★★★"></a><div align="center" id="基础篇"><font size="70">★★★ 一、基础篇 ★★★</font></div></h1><h2 id="1-select，epoll的区别"><a href="#1-select，epoll的区别" class="headerlink" title="1 select，epoll的区别"></a><table><tr><td bgcolor="#C7C7C7" id="1.1">1 select，epoll的区别</td></tr></table></h2><h2 id="2-Linux虚拟地址空间"><a href="#2-Linux虚拟地址空间" class="headerlink" title="2 Linux虚拟地址空间"></a><table><tr><td bgcolor="#C7C7C7" id="1.2">2 Linux虚拟地址空间</td></tr></table></h2><p>为了防止不同进程同一时刻在物理内存中运行而对物理内存的争夺和践踏，采用了虚拟内存。</p>
 <p>虚拟内存技术使得不同进程在运行过程中，它所看到的是自己独自占有了当前系统的4G内存。所有进程共享同一物理内存，每个进程只把自己目前需要的虚拟内存空间映射并存储到物理内存上。 </p>
@@ -216,7 +217,7 @@
 <p>还有进程运行过程中，要动态分配内存，比如malloc时，也只是分配了虚拟内存，即为这块虚拟内存对应的页表项做相应设置，当进程真正访问到此数据时，才引发缺页异常。</p>
 <p>请求分页系统、请求分段系统和请求段页式系统都是针对虚拟内存的，通过请求实现内存与外存的信息置换。</p>
 <p>虚拟内存的好处：</p>
-<p>1.扩大地址空间；</p>
+<p>1.扩大地址空间</p>
 <p>2.内存保护：每个进程运行在各自的虚拟内存地址空间，互相不能干扰对方。虚存还对特定的内存地址提供写保护，可以防止代码或数据被恶意篡改。</p>
 <p>3.公平内存分配。采用了虚存之后，每个进程都相当于有同样大小的虚存空间。</p>
 <p>4.当进程通信时，可采用虚存共享的方式实现。</p>
@@ -294,6 +295,7 @@
 <li>将先前由中断向量检索得到的中断处理程序的cs，eip信息装入相应的寄存器，开始执行中断处理程序，这时就转到了内核态的程序执行了。</li>
 </ol>
 <hr>
+<hr>
 <h1 id="★★★-二、进阶篇-★★★"><a href="#★★★-二、进阶篇-★★★" class="headerlink" title="★★★ 二、进阶篇 ★★★"></a><div align="center" id="进阶篇"><font size="70">★★★ 二、进阶篇 ★★★</font></div></h1>
     </div>
     
@@ -309,15 +311,15 @@
 
 <div class="article-nav prev-next-wrap clearfix">
     
-        <a href="/2021/09/09/面试之C++篇/" class="pre-post btn btn-default" title="面试之C++篇">
+        <a href="/2021/09/09/面试之C++篇/" class="pre-post btn btn-default" title="【面试】面试之C++篇">
             <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
-            <span class="hidden-xs">面试之C++篇</span>
+            <span class="hidden-xs">【面试】面试之C++篇</span>
         </a>
     
     
-        <a href="/2021/09/09/面试之网络通信篇/" class="next-post btn btn-default" title="面试之网络通信篇">
+        <a href="/2021/09/09/面试之网络通信篇/" class="next-post btn btn-default" title="【面试】面试之网络通信篇">
             <span class="hidden-lg">下一篇</span>
-            <span class="hidden-xs">面试之网络通信篇</span><i class="fa fa-angle-right fa-fw"></i>
+            <span class="hidden-xs">【面试】面试之网络通信篇</span><i class="fa fa-angle-right fa-fw"></i>
         </a>
     
 </div>
