@@ -1,0 +1,421 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="我的博客 - blog">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="browsermode" content="application">
+    <meta name="screen-orientation" content="portrait">
+    <link rel="dns-prefetch" href="https://lives.xtcgch.ink">
+    <!--SEO-->
+
+<meta name="description" content="脑容量不够，笔记来凑">
+
+
+
+
+
+<meta name="robots" content="all">
+<meta name="google" content="all">
+<meta name="googlebot" content="all">
+<meta name="verify" content="all">
+    <!--Title-->
+
+
+<title>【原理】CentOS7环境配置篇 | 我的博客 - blog</title>
+
+
+    <link rel="alternate" href="/atom.xml" title="我的博客 - blog" type="application/atom+xml">
+
+
+    <link rel="icon" href="https://blog.xtcgch.ink/img/background/海绵宝宝.ico">
+
+    
+
+
+
+<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7">
+<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.5.0">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash">
+
+
+
+
+    
+
+
+
+
+
+    
+
+</head>
+
+</html>
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+
+<body>
+    <header class="main-header" style="background-image:url(https://blog.xtcgch.ink/img/head-bg.jpg)">
+    <div class="main-header-box">
+        <a class="header-avatar" href="/" title="unistd68">
+            <img src="/img/background/海绵宝宝.jpg" alt="logo头像" class="img-responsive center-block">
+        </a>
+        <div class="branding">
+        	<!--<h2 class="text-hide">Snippet主题,从未如此简单有趣</h2>-->
+            
+                <h2> 脑容量不够，笔记来凑 </h2>
+            
+    	</div>
+    </div>
+</header>
+    <nav class="main-navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header"><span class="nav-toggle-button collapsed pull-right" data-toggle="collapse" data-target="#main-menu" id="mnav">
+                    <span class="sr-only"></span>
+                        <i class="fa fa-bars"></i>
+                    </span>
+                    <a class="navbar-brand" href="https://lives.xtcgch.ink">我的博客 - blog</a>
+                </div>
+                <div class="collapse navbar-collapse" id="main-menu">
+                    <ul class="menu">
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="https://blog.xtcgch.ink/"><i class="fa "></i>主页</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="https://blog.xtcgch.ink/categories/原理/"><i class="fa "></i>原理</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="https://blog.xtcgch.ink/categories/代码/"><i class="fa "></i>代码</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="https://blog.xtcgch.ink/categories/开源/"><i class="fa "></i>开源</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="https://blog.xtcgch.ink/categories/面试/"><i class="fa "></i>面试</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="https://blog.xtcgch.ink/categories/其他/"><i class="fa "></i>其他</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="https://blog.xtcgch.ink/archives/"><i class="fa "></i>时间轴</a>
+                            </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+    <section class="content-wrap">
+        <div class="container">
+            <div class="row">
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="【原理】CentOS7环境配置篇">
+            
+	            【原理】CentOS7环境配置篇
+            
+        </h1>
+        <div class="post-meta">
+    
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <a href="https://blog.xtcgch.ink/categories/原理">
+            原理
+        </a>
+    </span>
+    
+
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+                
+                    <a href="https://blog.xtcgch.ink/tags/MYSQL" title="MYSQL">
+                        MYSQL
+                    </a>
+                
+                    <a href="https://blog.xtcgch.ink/tags/CENTOS" title="CENTOS">
+                        CENTOS
+                    </a>
+                
+                    <a href="https://blog.xtcgch.ink/tags/REDIS" title="REDIS">
+                        REDIS
+                    </a>
+                
+            
+        </span>
+    </span>
+    
+
+    
+        
+        <span class="fa-wrap">
+            <i class="fa fa-clock-o"></i>
+            <span class="date-meta">2019/01/09</span>
+        </span>
+        
+    
+</div>
+
+            
+            
+            <p class="fa fa-exclamation-triangle warning">
+                本文于<strong>997</strong>天之前发表，文中内容可能已经过时。
+            </p>
+        
+    </div>
+    
+    <div class="post-body post-content">
+        <p><strong>摘要：</strong>本文主要介绍在CentOS7下组件的安装和环境的配置。</p>
+<a id="more"></a>
+<h2 id="1、脑图"><a href="#1、脑图" class="headerlink" title="1、脑图"></a>1、脑图</h2><p><img src="./脑图.png" alt="【原理】CentOS7环境配置篇"></p>
+<hr>
+<p><strong>前言</strong>:都是在root权限下进行安装和配置。</p>
+<h1 id="★★★-MYSQL8的安装和配置-★★★"><a href="#★★★-MYSQL8的安装和配置-★★★" class="headerlink" title="★★★ MYSQL8的安装和配置 ★★★"></a><table><tr><td bgcolor="#C7C7C7">★★★ MYSQL8的安装和配置 ★★★</td></tr></table></h1><p>检测操作系统自带安装的mysql和mariadb服务</p>
+<h2 id="检测操作系统自带安装的mysql和mariadb服务"><a href="#检测操作系统自带安装的mysql和mariadb服务" class="headerlink" title=" 检测操作系统自带安装的mysql和mariadb服务"></a><table><tr><td bgcolor="#C7C7C7"> 检测操作系统自带安装的mysql和mariadb服务</td></tr></table></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">rpm -qa | grep mysql</span><br><span class="line">rpm -qa | grep mariadb</span><br></pre></td></tr></table></figure>
+<h2 id="卸载mysql和mariadb服务"><a href="#卸载mysql和mariadb服务" class="headerlink" title=" 卸载mysql和mariadb服务"></a><table><tr><td bgcolor="#C7C7C7"> 卸载mysql和mariadb服务</td></tr></table></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">rpm -e mariadb-devel* --nodeps</span><br><span class="line">rpm -e mariadb-libs* --nodeps</span><br><span class="line">rpm -e qt5-qtbase-mysql* --nodeps</span><br><span class="line">rpm -e qt-mysql*  --nodeps</span><br></pre></td></tr></table></figure>
+<h2 id="查看repo源"><a href="#查看repo源" class="headerlink" title=" 查看repo源"></a><table><tr><td bgcolor="#C7C7C7"> 查看repo源</td></tr></table></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum repolist all | grep mysql</span><br></pre></td></tr></table></figure>
+<p>使用repo源在线安装</p>
+<h2 id="repo源下载和安装"><a href="#repo源下载和安装" class="headerlink" title=" repo源下载和安装"></a><table><tr><td bgcolor="#C7C7C7"> repo源下载和安装</td></tr></table></h2><ul>
+<li>下载一：<code>https://dev.mysql.com/downloads/repo/yum/</code></li>
+<li>下载二：<code>wget https://repo.mysql.com//mysql80-community-release-el7-1.noarch.rpm</code></li>
+<li>安装：<code>rpm -ivh mysql80-community-release-el7-1.noarch.rpm</code></li>
+</ul>
+<h2 id="安装mysql-server"><a href="#安装mysql-server" class="headerlink" title=" 安装mysql-server"></a><table><tr><td bgcolor="#C7C7C7"> 安装mysql-server</td></tr></table></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install mysql-server</span><br></pre></td></tr></table></figure>
+<p>至此，mysql已经安装完成！可以小高兴一会！</p>
+<h2 id="mysql默认安装位置"><a href="#mysql默认安装位置" class="headerlink" title=" mysql默认安装位置"></a><table><tr><td bgcolor="#C7C7C7"> mysql默认安装位置</td></tr></table></h2><ul>
+<li>查看mysql相关: <code>whereis mysql</code></li>
+<li>头文件：<code></code></li>
+<li>lib包： <code>/usr/lib64/mysql</code></li>
+<li>可执行文件： <code>/usr/bin/mysql</code></li>
+<li>日志: <code></code></li>
+<li>socket: <code>/var/lib/mysql/mysql.sock</code></li>
+<li>配置文件: <code>/etc/my.cnf</code></li>
+<li>mysqldump文件位置:<code>/usr/bin/mysqldump</code></li>
+<li>mysql数据目录:<code>/var/lib/mysql</code></li>
+</ul>
+<h2 id="mysql服务的管理"><a href="#mysql服务的管理" class="headerlink" title=" mysql服务的管理"></a><table><tr><td bgcolor="#C7C7C7"> mysql服务的管理</td></tr></table></h2><ul>
+<li>启动：<code>service mysqld start</code>或<code>systemctl start mysql</code></li>
+<li>重启：<code>service mysqld restart</code>或<code>systemctl restart mysql</code></li>
+<li>关闭：<code>service mysqld stop</code>或<code>systemctl stop mysql</code></li>
+</ul>
+<h2 id="查看初始密码"><a href="#查看初始密码" class="headerlink" title=" 查看初始密码"></a><table><tr><td bgcolor="#C7C7C7"> 查看初始密码</td></tr></table></h2><p><code>sudo grep &#39;temporary password&#39; /var/log/mysqld.log</code></p>
+<h2 id="设置密码"><a href="#设置密码" class="headerlink" title=" 设置密码"></a><table><tr><td bgcolor="#C7C7C7"> 设置密码</td></tr></table></h2><p>密码组合规则：<strong>大写字母+小写字母+数字和符号</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ALTER USER &apos;root&apos;@&apos;localhost&apos; IDENTIFIED WITH mysql_native_password BY &quot;ROOTroot@123456&quot;;</span><br></pre></td></tr></table></figure></p>
+<p>立即生效：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">flush privileges;</span><br></pre></td></tr></table></figure></p>
+<h2 id="修改root远程登录访问权限"><a href="#修改root远程登录访问权限" class="headerlink" title=" 修改root远程登录访问权限"></a><table><tr><td bgcolor="#C7C7C7"> 修改root远程登录访问权限</td></tr></table></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">update user set host=&apos;%&apos; where user=&apos;root&apos;;</span><br><span class="line"> </span><br><span class="line">flush privileges;</span><br></pre></td></tr></table></figure>
+<h2 id="创建用户"><a href="#创建用户" class="headerlink" title=" 创建用户"></a><table><tr><td bgcolor="#C7C7C7"> 创建用户</td></tr></table></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">CREATE USER &apos;gch&apos;@&apos;%&apos; IDENTIFIED BY &apos;GCHgch@123456&apos;;</span><br><span class="line">flush privileges;</span><br></pre></td></tr></table></figure>
+<hr>
+<p><strong>LINUX的配置</strong></p>
+<h2 id="安装firewalld"><a href="#安装firewalld" class="headerlink" title=" 安装firewalld"></a><table><tr><td bgcolor="#C7C7C7"> 安装firewalld</td></tr></table></h2><p>在CentOS 7中防火墙已经由firewalld来管理,Centos7默认安装了firewalld,没有安装的可以用yum 命令安装，与iptables区别不小</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install firewalld firewalld-config</span><br></pre></td></tr></table></figure>
+<h2 id="查看防火墙状态"><a href="#查看防火墙状态" class="headerlink" title=" 查看防火墙状态"></a><table><tr><td bgcolor="#C7C7C7"> 查看防火墙状态</td></tr></table></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl status firewalld //或者 firewall-cmd --state</span><br></pre></td></tr></table></figure>
+<h2 id="启动防火墙"><a href="#启动防火墙" class="headerlink" title=" 启动防火墙"></a><table><tr><td bgcolor="#C7C7C7"> 启动防火墙</td></tr></table></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl start firewalld.service</span><br></pre></td></tr></table></figure>
+<h2 id="重启防火墙"><a href="#重启防火墙" class="headerlink" title=" 重启防火墙"></a><table><tr><td bgcolor="#C7C7C7"> 重启防火墙</td></tr></table></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">firewall-cmd --reload  或者  service firewalld restart</span><br></pre></td></tr></table></figure>
+<h2 id="防火墙开放3306端口"><a href="#防火墙开放3306端口" class="headerlink" title=" 防火墙开放3306端口"></a><table><tr><td bgcolor="#C7C7C7"> 防火墙开放3306端口</td></tr></table></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">firewall-cmd --zone=public --add-port=3306/tcp --permanent  //--permanent永久生效,没有此参数防火墙重启便失效</span><br></pre></td></tr></table></figure>
+<h2 id="防火墙关闭开放的3306端口"><a href="#防火墙关闭开放的3306端口" class="headerlink" title=" 防火墙关闭开放的3306端口"></a><table><tr><td bgcolor="#C7C7C7"> 防火墙关闭开放的3306端口</td></tr></table></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">firewall-cmd --zone=public --remove-port=3306/tcp --permanent</span><br></pre></td></tr></table></figure>
+<h2 id="禁用防火墙"><a href="#禁用防火墙" class="headerlink" title=" 禁用防火墙"></a><table><tr><td bgcolor="#C7C7C7"> 禁用防火墙</td></tr></table></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl stop firewalld</span><br></pre></td></tr></table></figure>
+<h2 id="设置开机启动"><a href="#设置开机启动" class="headerlink" title=" 设置开机启动"></a><table><tr><td bgcolor="#C7C7C7"> 设置开机启动</td></tr></table></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl enable firewalld</span><br></pre></td></tr></table></figure>
+<h2 id="停止并禁用开机启动"><a href="#停止并禁用开机启动" class="headerlink" title=" 停止并禁用开机启动"></a><table><tr><td bgcolor="#C7C7C7"> 停止并禁用开机启动</td></tr></table></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sytemctl disable firewalld</span><br></pre></td></tr></table></figure>
+<h2 id="查看端口列表"><a href="#查看端口列表" class="headerlink" title=" 查看端口列表"></a><table><tr><td bgcolor="#C7C7C7"> 查看端口列表</td></tr></table></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">firewall-cmd --permanent --list-port</span><br></pre></td></tr></table></figure>
+<ul>
+<li>进入：<code>mysql -uroot</code>,注意，不要使用-p</li>
+<li>查看：<code>use mysql;</code> , <code>show tables;</code> , <code>describe user;</code> </li>
+<li>配置新密码：<code>update user set password=password(&#39;new password&#39;) where user=&#39;root&#39;;</code>注意，密码要使用password(‘’)函数进行散列化</li>
+<li>刷新缓存，让配置立即生效：<code>flush privileges;</code></li>
+</ul>
+<h2 id="my-cnf文件解读"><a href="#my-cnf文件解读" class="headerlink" title=" my.cnf文件解读"></a><table><tr><td bgcolor="#C7C7C7"> my.cnf文件解读</td></tr></table></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br></pre></td><td class="code"><pre><span class="line">[client]</span><br><span class="line">port = 3306</span><br><span class="line">socket = /usr/local/services/mysql/var/data/mysql.sock</span><br><span class="line"></span><br><span class="line">[mysqld]</span><br><span class="line">bind-address = 0.0.0.0</span><br><span class="line">port = 3306</span><br><span class="line">socket = /usr/local/services/mysql/var/data/mysql.sock</span><br><span class="line">pid-file = /usr/local/services/mysql/var/logs/mysql.pid</span><br><span class="line">character-set-server = utf8</span><br><span class="line">basedir = /usr/local/services/mysql</span><br><span class="line">datadir = /usr/local/services/mysql/var/data</span><br><span class="line"></span><br><span class="line">skip-external-locking</span><br><span class="line">skip-name-resolve</span><br><span class="line">lower_case_table_names = 1</span><br><span class="line">log-bin-trust-function-creators = 1</span><br><span class="line"></span><br><span class="line">max_connections = 6000</span><br><span class="line">max_user_connections = 6000</span><br><span class="line">max_connect_errors = 4000</span><br><span class="line">wait_timeout = 86400</span><br><span class="line">interactive_timeout = 86400</span><br><span class="line">table_open_cache = 512</span><br><span class="line">max_allowed_packet = 32M</span><br><span class="line">sort_buffer_size = 2M</span><br><span class="line">join_buffer_size = 2M</span><br><span class="line">thread_cache_size = 8</span><br><span class="line">thread_concurrency = 8</span><br><span class="line">query_cache_size = 32M</span><br><span class="line">#default-storage-engine = InnoDB</span><br><span class="line"></span><br><span class="line">#sql_mode=&quot;STRICT_ALL_TABLES,NO_AUTO_CREATE_USER&quot;</span><br><span class="line">server-id = 1</span><br><span class="line"></span><br><span class="line">log-short-format</span><br><span class="line">log-error = /usr/local/services/mysql/var/logs/mysql.log</span><br><span class="line">slow_query_log</span><br><span class="line">long_query_time = 2</span><br><span class="line">slow_query_log_file = /usr/local/services/mysql/var/logs/mysql-slow.log</span><br><span class="line"></span><br><span class="line">log-bin = /usr/local/services/mysql/var/binlog/mysql-bin</span><br><span class="line">log_bin_trust_function_creators=1</span><br><span class="line">binlog_format = MIXED</span><br><span class="line">expire_logs_days = 10</span><br><span class="line"></span><br><span class="line"># INNODB Specific options</span><br><span class="line">innodb_data_home_dir = /usr/local/services/mysql/var/data</span><br><span class="line">innodb_log_group_home_dir = /usr/local/services/mysql/var/redolog</span><br><span class="line">innodb_additional_mem_pool_size = 10M</span><br><span class="line">innodb_buffer_pool_size = 4G</span><br><span class="line">innodb_data_file_path = ibdata1:100M:autoextend</span><br><span class="line">innodb_file_io_threads = 4</span><br><span class="line">innodb_thread_concurrency = 8</span><br><span class="line">innodb_flush_log_at_trx_commit = 0</span><br><span class="line">innodb_flush_method = O_DIRECT</span><br><span class="line">innodb_log_buffer_size = 128M</span><br><span class="line">innodb_log_file_size = 256M</span><br><span class="line">innodb_log_files_in_group = 3</span><br><span class="line">innodb_max_dirty_pages_pct = 90</span><br><span class="line">innodb_lock_wait_timeout = 50</span><br><span class="line">innodb_file_per_table = 1</span><br><span class="line"></span><br><span class="line"># MyISAM Specific options</span><br><span class="line">key_buffer_size = 384M</span><br><span class="line">read_buffer_size = 4M</span><br><span class="line">read_rnd_buffer_size = 8M</span><br><span class="line">myisam_sort_buffer_size = 128M</span><br><span class="line">myisam_max_sort_file_size = 1G</span><br><span class="line">myisam_repair_threads = 1</span><br><span class="line">myisam_recover</span><br><span class="line"></span><br><span class="line">[mysqldump]</span><br><span class="line">quick</span><br><span class="line">max_allowed_packet = 16M</span><br><span class="line"></span><br><span class="line">[mysql]</span><br><span class="line">default-character-set = utf8</span><br><span class="line">no-auto-rehash</span><br><span class="line">socket = /usr/local/services/mysql/var/data/mysql.sock</span><br><span class="line"></span><br><span class="line">[myisamchk]</span><br><span class="line">key_buffer_size = 256M</span><br><span class="line">sort_buffer_size = 256M</span><br><span class="line">read_buffer = 2M</span><br><span class="line">write_buffer = 2M</span><br><span class="line"></span><br><span class="line">[mysqlhotcopy]</span><br><span class="line">interactive-timeout</span><br></pre></td></tr></table></figure>
+<hr>
+<h1 id="★★★-安装REDIS-★★★"><a href="#★★★-安装REDIS-★★★" class="headerlink" title="★★★ 安装REDIS ★★★"></a><table><tr><td bgcolor="#C7C7C7">★★★ 安装REDIS ★★★</td></tr></table></h1><h2 id="前置条件"><a href="#前置条件" class="headerlink" title=" 前置条件"></a><table><tr><td bgcolor="#C7C7C7"> 前置条件</td></tr></table></h2><ul>
+<li>gcc : for redis</li>
+<li>tcl 8.5: for  make test</li>
+</ul>
+<h2 id="TCL安装"><a href="#TCL安装" class="headerlink" title=" TCL安装"></a><table><tr><td bgcolor="#C7C7C7"> TCL安装</td></tr></table></h2><p>使用ActiveTcl代替tcl</p>
+<p>下载，从浏览器下载源码包：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://platform.activestate.com/unistd68/ActiveTcl-8.6</span><br></pre></td></tr></table></figure></p>
+<p>安装<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">tar zxvf ActiveTcl-8.6.11.1.0000-x86_64-linux-glibc-2.17-e4e2f327.tar.gz</span><br><span class="line">mv ActiveTcl-8.6.11.1.0000-x86_64-linux-glibc-2.17-e4e2f327 ActiveTcl</span><br><span class="line">cd ActiveTcl</span><br><span class="line">sh install.sh</span><br></pre></td></tr></table></figure></p>
+<p>加入环境变量<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">#/etc/profile文件</span><br><span class="line">export PATH=&quot;/opt/ActiveTcl-8.6/bin:$PATH&quot;</span><br><span class="line">export PATH=&quot;/usr/local/redis/bin:$PATH&quot;</span><br><span class="line">source /etc/profile</span><br></pre></td></tr></table></figure></p>
+<h2 id="源码安装"><a href="#源码安装" class="headerlink" title=" 源码安装"></a><table><tr><td bgcolor="#C7C7C7"> 源码安装</td></tr></table></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">wget https://download.redis.io/releases/redis-6.2.5.tar.gz</span><br><span class="line">tar xzf redis-6.2.5.tar.gz</span><br><span class="line">cd redis-6.2.5</span><br><span class="line">make &amp; make test</span><br></pre></td></tr></table></figure>
+<p>检查是否安装成功</p>
+<p><strong>本地客户端</strong></p>
+<p>无密码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">#在src下有redis-server可执行文件</span><br><span class="line">cd src</span><br><span class="line">./redis-cli</span><br><span class="line">set foo bar</span><br><span class="line">get foo</span><br></pre></td></tr></table></figure></p>
+<p>有密码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">#在src下有redis-cli可执行文件</span><br><span class="line">cd src</span><br><span class="line">./redis-cli</span><br><span class="line"> config set requirepass 123456 #设置密码</span><br><span class="line"> config get requirepass #查看密码</span><br></pre></td></tr></table></figure></p>
+<p><strong>远程客户端</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">#在src下有redis-server可执行文件</span><br><span class="line">cd src</span><br><span class="line">./redis-cli -h 127.0.0.1 -p 6379 -a &quot;123456&quot;</span><br></pre></td></tr></table></figure>
+<h2 id="环境配置"><a href="#环境配置" class="headerlink" title=" 环境配置"></a><table><tr><td bgcolor="#C7C7C7"> 环境配置</td></tr></table></h2><p>进入redis目录下:<br>绑定外界可以访问的ip地址<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#redis.conf</span><br><span class="line">bind 127.0.0.1 192.168.1.105</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd deps/hiredis</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo make install prefix=/usr/local/redis</span><br></pre></td></tr></table></figure>
+<h2 id="防火墙开启6379端口"><a href="#防火墙开启6379端口" class="headerlink" title=" 防火墙开启6379端口"></a><table><tr><td bgcolor="#C7C7C7"> 防火墙开启6379端口</td></tr></table></h2><p>参考mysql8的环境配置</p>
+<hr>
+<h1 id="★★★-网络配置-★★★"><a href="#★★★-网络配置-★★★" class="headerlink" title="★★★ 网络配置 ★★★"></a><table><tr><td bgcolor="#C7C7C7">★★★ 网络配置 ★★★</td></tr></table></h1><h2 id="网卡配置文件解读"><a href="#网卡配置文件解读" class="headerlink" title=" 网卡配置文件解读"></a><table><tr><td bgcolor="#C7C7C7"> 网卡配置文件解读</td></tr></table></h2><ul>
+<li>常见的命名规则：<code>ifcfg-en*</code>,如：<code>ifcfg-enp0s3</code></li>
+<li>配置文件地址：<code>/etc/sysconfig/network-scripts/ifcfg-你的网卡名字</code></li>
+<li>参数说明：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">TYPE=Ethernet #局域网</span><br><span class="line">PROXY_METHOD=none #是否设置代理</span><br><span class="line">BROWSER_ONLY=no #</span><br><span class="line">BOOTPROTO=static #是否静态IP ，static/dhcp</span><br><span class="line">#BOOTPROTO=dhcp</span><br><span class="line">DEFROUTE=yes </span><br><span class="line">IPV4_FAILURE_FATAL=no</span><br><span class="line">IPV6INIT=yes</span><br><span class="line">IPV6_AUTOCONF=yes</span><br><span class="line">IPV6_DEFROUTE=yes</span><br><span class="line">IPV6_FAILURE_FATAL=no</span><br><span class="line">IPV6_ADDR_GEN_MODE=stable-privacy</span><br><span class="line">NAME=enp0s3 #网卡名称</span><br><span class="line">UUID=b5701d6a-414e-48d8-85f2-9c8fa2bf7512 #MAC地址</span><br><span class="line">DEVICE=enp0s3 #设备名称</span><br><span class="line">ONBOOT=yes #是否系统boot引导启动时加载，或手动启动</span><br><span class="line">IPADDR=192.168.1.113 #静态IPV4地址，BOOTPROTO=static时必须设置</span><br><span class="line">PREFIX=24 #IPV4掩码</span><br><span class="line">GATEWAY=192.168.1.1 #IPV4网关</span><br><span class="line">DNS1=114.114.114.114 #DNS首选地址</span><br><span class="line">DNS2=114.114.115.115 #DNS备选地址</span><br><span class="line">ZONE=public</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="安装网络工具包"><a href="#安装网络工具包" class="headerlink" title=" 安装网络工具包"></a><table><tr><td bgcolor="#C7C7C7"> 安装网络工具包</td></tr></table></h2><p>网络工具包包含的常见工具有：</p>
+<ul>
+<li>ifconfig</li>
+<li>ping</li>
+<li>yum</li>
+</ul>
+<p><strong>查看是否安装ifconfig</strong></p>
+<ul>
+<li><code>cd /sbin</code></li>
+<li><code>ll</code></li>
+</ul>
+<p><strong>安装工具包</strong></p>
+<p><code>sudo yum install net-tools</code></p>
+<hr>
+<h1 id="★★★-安装使用rz-sz命令-★★★"><a href="#★★★-安装使用rz-sz命令-★★★" class="headerlink" title="★★★ 安装使用rz/sz命令 ★★★"></a><table><tr><td bgcolor="#C7C7C7">★★★ 安装使用rz/sz命令 ★★★</td></tr></table></h1><h2 id="查看提供sz-rz命令的工具包"><a href="#查看提供sz-rz命令的工具包" class="headerlink" title=" 查看提供sz/rz命令的工具包 "></a><table><tr><td bgcolor="#C7C7C7"> 查看提供sz/rz命令的工具包 </td></tr></table></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">yum whatprovides rz #</span><br><span class="line">yum install -y lrzsz</span><br></pre></td></tr></table></figure>
+<hr>
+<h1 id="★★★-安装VIM-★★★"><a href="#★★★-安装VIM-★★★" class="headerlink" title="★★★ 安装VIM ★★★"></a><table><tr><td bgcolor="#C7C7C7">★★★ 安装VIM ★★★</td></tr></table></h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum -y install vim*</span><br></pre></td></tr></table></figure>
+<p>配置vim<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&quot;/etc/vimrc</span><br><span class="line">set nu          &quot; 设置显示行号</span><br><span class="line">set showmode    &quot; 设置在命令行界面最下面显示当前模式等</span><br><span class="line">set ruler       &quot; 在右下角显示光标所在的行数等信息</span><br><span class="line">set autoindent  &quot; 设置每次单击Enter键后，光标移动到下一行时与上一行的起始字符对齐</span><br><span class="line">syntax on       &quot; 即设置语法检测，当编辑C或者Shell脚本时，关键字会用特殊颜色显示</span><br></pre></td></tr></table></figure></p>
+
+    </div>
+    
+    <div class="post-footer">
+        <div>
+            
+        </div>
+        <div>
+            
+        </div>
+    </div>
+</article>
+
+<div class="article-nav prev-next-wrap clearfix">
+    
+        <a href="/2019/01/10/CentOS下编译动态库和静态库/" class="pre-post btn btn-default" title="【原理】CentOS下编译动态库和静态库">
+            <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
+            <span class="hidden-xs">【原理】CentOS下编译动态库和静态库</span>
+        </a>
+    
+    
+        <a href="/2019/01/08/Centos7下编译boost/" class="next-post btn btn-default" title="【原理】Centos7下编译boost">
+            <span class="hidden-lg">下一篇</span>
+            <span class="hidden-xs">【原理】Centos7下编译boost</span><i class="fa fa-angle-right fa-fw"></i>
+        </a>
+    
+</div>
+
+
+    <div id="comments">
+        
+    
+    <div id="vcomments" class="valine"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="/assets/valine.min.js"></script>
+
+    <script>
+        new Valine({
+            av: AV,
+            el: '#vcomments',
+            appId: 'XWA5gq7VCJybw7YQhf5HG20r-gzGzoHsz',
+            appKey: '8FW1WEwrysHXaUD1bhGn2Rp8',
+            placeholder: '说点什么吧',
+            notify: true,
+            verify: false,
+            avatar: 'https://blog.xtcgch.ink/img/comment-avatar.jpg',
+            meta: 'nick,mail'.split(','),
+            pageSize: '10',
+            path: window.location.pathname,
+            lang: 'zh-CN'.toLowerCase()
+        })
+    </script>
+
+
+    </div>
+
+
+
+
+
+                </main>
+                
+                    <aside id="article-toc" role="navigation" class="col-md-4">
+    <div class="widget">
+        <h3 class="title">文章目录</h3>
+        
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1、脑图"><span class="toc-text">1、脑图</span></a></li></ol><li class="toc-item toc-level-1"><a class="toc-link" href="#★★★-MYSQL8的安装和配置-★★★"><span class="toc-text">★★★ MYSQL8的安装和配置 ★★★</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#检测操作系统自带安装的mysql和mariadb服务"><span class="toc-text"> 检测操作系统自带安装的mysql和mariadb服务</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#卸载mysql和mariadb服务"><span class="toc-text"> 卸载mysql和mariadb服务</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#查看repo源"><span class="toc-text"> 查看repo源</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#repo源下载和安装"><span class="toc-text"> repo源下载和安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安装mysql-server"><span class="toc-text"> 安装mysql-server</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#mysql默认安装位置"><span class="toc-text"> mysql默认安装位置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#mysql服务的管理"><span class="toc-text"> mysql服务的管理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#查看初始密码"><span class="toc-text"> 查看初始密码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#设置密码"><span class="toc-text"> 设置密码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#修改root远程登录访问权限"><span class="toc-text"> 修改root远程登录访问权限</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#创建用户"><span class="toc-text"> 创建用户</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安装firewalld"><span class="toc-text"> 安装firewalld</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#查看防火墙状态"><span class="toc-text"> 查看防火墙状态</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#启动防火墙"><span class="toc-text"> 启动防火墙</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#重启防火墙"><span class="toc-text"> 重启防火墙</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#防火墙开放3306端口"><span class="toc-text"> 防火墙开放3306端口</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#防火墙关闭开放的3306端口"><span class="toc-text"> 防火墙关闭开放的3306端口</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#禁用防火墙"><span class="toc-text"> 禁用防火墙</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#设置开机启动"><span class="toc-text"> 设置开机启动</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#停止并禁用开机启动"><span class="toc-text"> 停止并禁用开机启动</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#查看端口列表"><span class="toc-text"> 查看端口列表</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#my-cnf文件解读"><span class="toc-text"> my.cnf文件解读</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#★★★-安装REDIS-★★★"><span class="toc-text">★★★ 安装REDIS ★★★</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#前置条件"><span class="toc-text"> 前置条件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#TCL安装"><span class="toc-text"> TCL安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#源码安装"><span class="toc-text"> 源码安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#环境配置"><span class="toc-text"> 环境配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#防火墙开启6379端口"><span class="toc-text"> 防火墙开启6379端口</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#★★★-网络配置-★★★"><span class="toc-text">★★★ 网络配置 ★★★</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#网卡配置文件解读"><span class="toc-text"> 网卡配置文件解读</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安装网络工具包"><span class="toc-text"> 安装网络工具包</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#★★★-安装使用rz-sz命令-★★★"><span class="toc-text">★★★ 安装使用rz/sz命令 ★★★</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#查看提供sz-rz命令的工具包"><span class="toc-text"> 查看提供sz/rz命令的工具包 </span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#★★★-安装VIM-★★★"><span class="toc-text">★★★ 安装VIM ★★★</span></a>
+        
+    </li></div>
+</aside>
+
+                
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</footer>
+
+<a id="back-to-top" class="icon-btn hide">
+	<i class="fa fa-chevron-up"></i>
+</a>
+
+
+
+
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="busuanzi">
+    
+</div>
+
+            </div>
+            <div class="col-sm-12">
+                <span>Copyright &copy; 2018
+                </span> |
+                <span>
+                    Powered by <a href="//hexo.io" class="copyright-links" target="_blank" rel="nofollow">Hexo</a>
+                </span> |
+                <span>
+                    Theme by <a href="//github.com/shenliyang/hexo-theme-snippet.git" class="copyright-links" target="_blank" rel="nofollow">Snippet</a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+<script src="/js/app.js?rev=@@hash"></script>
+
+</body>
+</html>
