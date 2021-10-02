@@ -158,12 +158,12 @@
         <span class="tags-meta">
             
                 
-                    <a href="https://blog.xtcgch.ink/tags/面试" title="面试">
-                        面试
-                    </a>
-                
                     <a href="https://blog.xtcgch.ink/tags/LINUX" title="LINUX">
                         LINUX
+                    </a>
+                
+                    <a href="https://blog.xtcgch.ink/tags/面试" title="面试">
+                        面试
                     </a>
                 
             
@@ -191,7 +191,7 @@
 <hr>
 <h1 id="脑图"><a href="#脑图" class="headerlink" title="脑图"></a>脑图</h1><p><img src="脑图.png" alt></p>
 <hr>
-<h1 id="★★★-一、基础篇-★★★"><a href="#★★★-一、基础篇-★★★" class="headerlink" title="★★★ 一、基础篇 ★★★"></a><div align="center"><font size="70">★★★ 一、基础篇 ★★★</font></div></h1><h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a><table><tr><td bgcolor="#C7C7C7">目录</td></tr></table></h2><p><a href="#基础篇">★★★ 一、基础篇 ★★★</a></p>
+<h1 id="★★★-目录-★★★"><a href="#★★★-目录-★★★" class="headerlink" title="★★★ 目录 ★★★"></a><table><tr><td bgcolor="#C7C7C7">★★★ 目录 ★★★</td></tr></table></h1><p><a href="#基础篇">★★★ 一、基础篇 ★★★</a></p>
 <ul>
 <li><a href="#1.1">1 select，epoll的区别</a></li>
 <li><a href="#1.2">2 Linux虚拟地址空间</a></li>
@@ -208,10 +208,11 @@
 <li><a href="#1.12">12 用户态到内核态的转化原理</a></li>
 <li><a href="#1.13">13 系统调用</a></li>
 <li><a href="#1.14">14 6种微服务RPC框架</a></li>
+<li><a href="#1.15">15 软硬链接</a></li>
 </ul>
 <p><a href="#进阶篇">★★★ 二、进阶篇 ★★★</a></p>
 <hr>
-<h1 id="★★★-一、基础篇-★★★-1"><a href="#★★★-一、基础篇-★★★-1" class="headerlink" title="★★★ 一、基础篇 ★★★"></a><div align="center" id="基础篇"><font size="70">★★★ 一、基础篇 ★★★</font></div></h1><h2 id="1-select，epoll的区别"><a href="#1-select，epoll的区别" class="headerlink" title="1 select，epoll的区别"></a><table><tr><td bgcolor="#C7C7C7" id="1.1">1 select，epoll的区别</td></tr></table></h2><h2 id="2-Linux虚拟地址空间"><a href="#2-Linux虚拟地址空间" class="headerlink" title="2 Linux虚拟地址空间"></a><table><tr><td bgcolor="#C7C7C7" id="1.2">2 Linux虚拟地址空间</td></tr></table></h2><p>为了防止不同进程同一时刻在物理内存中运行而对物理内存的争夺和践踏，采用了虚拟内存。</p>
+<h1 id="★★★-一、基础篇-★★★"><a href="#★★★-一、基础篇-★★★" class="headerlink" title="★★★ 一、基础篇 ★★★"></a><div align="center" id="基础篇"><font size="70">★★★ 一、基础篇 ★★★</font></div></h1><h2 id="1-select，epoll的区别"><a href="#1-select，epoll的区别" class="headerlink" title="1 select，epoll的区别"></a><table><tr><td bgcolor="#C7C7C7" id="1.1">1 select，epoll的区别</td></tr></table></h2><h2 id="2-Linux虚拟地址空间"><a href="#2-Linux虚拟地址空间" class="headerlink" title="2 Linux虚拟地址空间"></a><table><tr><td bgcolor="#C7C7C7" id="1.2">2 Linux虚拟地址空间</td></tr></table></h2><p>为了防止不同进程同一时刻在物理内存中运行而对物理内存的争夺和践踏，采用了虚拟内存。</p>
 <p>虚拟内存技术使得不同进程在运行过程中，它所看到的是自己独自占有了当前系统的4G内存。所有进程共享同一物理内存，每个进程只把自己目前需要的虚拟内存空间映射并存储到物理内存上。 </p>
 <p>事实上，在每个进程创建加载时，内核只是为进程“创建”了虚拟内存的布局，具体就是初始化进程控制表中内存相关的链表，实际上并不立即就把虚拟内存对应位置的程序数据和代码（比如.text .data段）拷贝到物理内存中，只是建立好虚拟内存和磁盘文件之间的映射就好（叫做存储器映射），等到运行到对应的程序时，才会通过缺页异常，来拷贝数据。</p>
 <p>还有进程运行过程中，要动态分配内存，比如malloc时，也只是分配了虚拟内存，即为这块虚拟内存对应的页表项做相应设置，当进程真正访问到此数据时，才引发缺页异常。</p>
@@ -362,7 +363,7 @@
     <div class="widget">
         <h3 class="title">文章目录</h3>
         
-            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#脑图"><span class="toc-text">脑图</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#★★★-一、基础篇-★★★"><span class="toc-text">★★★ 一、基础篇 ★★★</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#目录"><span class="toc-text">目录</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#★★★-一、基础篇-★★★-1"><span class="toc-text">★★★ 一、基础篇 ★★★</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-select，epoll的区别"><span class="toc-text">1 select，epoll的区别</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-Linux虚拟地址空间"><span class="toc-text">2 Linux虚拟地址空间</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-fork和vfork的区别"><span class="toc-text">3 fork和vfork的区别</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-如何判断一个程序是死锁还是死循环"><span class="toc-text">4 如何判断一个程序是死锁还是死循环</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-用户态到内核态的转化原理"><span class="toc-text">5 用户态到内核态的转化原理</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#★★★-二、进阶篇-★★★"><span class="toc-text">★★★ 二、进阶篇 ★★★</span></a></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#脑图"><span class="toc-text">脑图</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#★★★-目录-★★★"><span class="toc-text">★★★ 目录 ★★★</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#★★★-一、基础篇-★★★"><span class="toc-text">★★★ 一、基础篇 ★★★</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-select，epoll的区别"><span class="toc-text">1 select，epoll的区别</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-Linux虚拟地址空间"><span class="toc-text">2 Linux虚拟地址空间</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-fork和vfork的区别"><span class="toc-text">3 fork和vfork的区别</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-如何判断一个程序是死锁还是死循环"><span class="toc-text">4 如何判断一个程序是死锁还是死循环</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-用户态到内核态的转化原理"><span class="toc-text">5 用户态到内核态的转化原理</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#★★★-二、进阶篇-★★★"><span class="toc-text">★★★ 二、进阶篇 ★★★</span></a></li></ol>
         
     </div>
 </aside>
