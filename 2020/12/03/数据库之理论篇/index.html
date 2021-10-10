@@ -1,0 +1,430 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="我的博客 - blog">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="browsermode" content="application">
+    <meta name="screen-orientation" content="portrait">
+    <link rel="dns-prefetch" href="https://lives.xtcgch.ink">
+    <!--SEO-->
+
+<meta name="description" content="脑容量不够，笔记来凑">
+
+
+
+
+
+<meta name="robots" content="all">
+<meta name="google" content="all">
+<meta name="googlebot" content="all">
+<meta name="verify" content="all">
+    <!--Title-->
+
+
+<title>数据库之理论篇 | 我的博客 - blog</title>
+
+
+    <link rel="alternate" href="/atom.xml" title="我的博客 - blog" type="application/atom+xml">
+
+
+    <link rel="icon" href="https://blog.xtcgch.ink/img/background/海绵宝宝.ico">
+
+    
+
+
+
+<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7">
+<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.5.0">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash">
+
+
+
+
+    
+
+
+
+
+
+    
+
+</head>
+
+</html>
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+
+<body>
+    <header class="main-header" style="background-image:url(https://blog.xtcgch.ink/img/head-bg.jpg)">
+    <div class="main-header-box">
+        <a class="header-avatar" href="/" title="unistd68">
+            <img src="/img/background/海绵宝宝.jpg" alt="logo头像" class="img-responsive center-block">
+        </a>
+        <div class="branding">
+        	<!--<h2 class="text-hide">Snippet主题,从未如此简单有趣</h2>-->
+            
+                <h2> 脑容量不够，笔记来凑 </h2>
+            
+    	</div>
+    </div>
+</header>
+    <nav class="main-navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header"><span class="nav-toggle-button collapsed pull-right" data-toggle="collapse" data-target="#main-menu" id="mnav">
+                    <span class="sr-only"></span>
+                        <i class="fa fa-bars"></i>
+                    </span>
+                    <a class="navbar-brand" href="https://lives.xtcgch.ink">我的博客 - blog</a>
+                </div>
+                <div class="collapse navbar-collapse" id="main-menu">
+                    <ul class="menu">
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="https://blog.xtcgch.ink/"><i class="fa "></i>主页</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="https://blog.xtcgch.ink/categories/原理/"><i class="fa "></i>原理</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="https://blog.xtcgch.ink/categories/代码/"><i class="fa "></i>代码</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="https://blog.xtcgch.ink/categories/开源/"><i class="fa "></i>开源</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="https://blog.xtcgch.ink/categories/面试/"><i class="fa "></i>面试</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="https://blog.xtcgch.ink/categories/其他/"><i class="fa "></i>其他</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="https://blog.xtcgch.ink/archives/"><i class="fa "></i>时间轴</a>
+                            </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+    <section class="content-wrap">
+        <div class="container">
+            <div class="row">
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="数据库之理论篇">
+            
+	            数据库之理论篇
+            
+        </h1>
+        <div class="post-meta">
+    
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <a href="https://blog.xtcgch.ink/categories/原理">
+            原理
+        </a>
+    </span>
+    
+
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+                
+                    <a href="https://blog.xtcgch.ink/tags/数据库" title="数据库">
+                        数据库
+                    </a>
+                
+                    <a href="https://blog.xtcgch.ink/tags/SQL" title="SQL">
+                        SQL
+                    </a>
+                
+            
+        </span>
+    </span>
+    
+
+    
+        
+        <span class="fa-wrap">
+            <i class="fa fa-clock-o"></i>
+            <span class="date-meta">2020/12/03</span>
+        </span>
+        
+    
+</div>
+
+            
+            
+    </div>
+    
+    <div class="post-body post-content">
+        <p><strong>摘要：</strong>记录数据库的一些知识。</p>
+<a id="more"></a>
+<hr>
+<h1 id="脑图"><a href="#脑图" class="headerlink" title="脑图"></a>脑图</h1><p><img src="脑图.png" alt></p>
+<hr>
+<h1 id="关系型数据库"><a href="#关系型数据库" class="headerlink" title="关系型数据库"></a><table><tr><td bgcolor="#C7C7C7">关系型数据库</td></tr></table></h1><h2 id="原则"><a href="#原则" class="headerlink" title="原则"></a><font color="#0000FF">原则</font></h2><ol>
+<li>数据库最容易也通常是一个系统的瓶颈，因此不要给数据库加压力，能够程序处理就程序处理</li>
+<li>一个系统越简单越稳定越不容量出问题， 因此要尽量简单使用数据库， 如SQL简单，事务小</li>
+<li>数据库是很难水平扩容的， 要水平扩容动作是很大的， 出了故障影响也是很大的， 不像应用可以很容易水平扩容。因此不要什么都往里面保存， 要预估好数据量</li>
+</ol>
+<h2 id="命名规范"><a href="#命名规范" class="headerlink" title="命名规范"></a><font color="#0000FF">命名规范</font></h2><ol>
+<li>所有数据库对象名（库名，表名,字段名等）必须由英文小写字母，下划线及数字组成，不要使用大写字母，更不能使用中文等非英文字符。</li>
+<li>所有数据库对象名不能使用mysql本身的关键字</li>
+<li>所有数据库对象名控制在32个字符内，名字要见文识义， 如t_merchant与t_merchant_login</li>
+<li>临时库表以tmp_为前缀并以日期为后缀，备份表以bak_为前缀并以日期(时间戳)为后缀</li>
+<li>分库或者分表以编号为结尾， 如db001, tb_001</li>
+<li>日表月表等时间分表以时间为结尾, 如tb20190909</li>
+</ol>
+<h2 id="建表设计规范"><a href="#建表设计规范" class="headerlink" title="建表设计规范"></a><font color="#0000FF">建表设计规范</font></h2><ol>
+<li>创建数据库或者表时要显式指定字符集， mysql5.1版本只能指定utf8, mysql5.5及以上版本只能指定为utf8mb4, 不要在字段上指定字符集。如create database db1 default character set utf8mb4</li>
+<li>创建表时要显式指定为engine=innodb， 如CREATE TABLE tb (xxx) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT=’备份配置表’</li>
+<li>表与每个字段要有COMMENT说明用途， 字段要NOT NULL DEFAULT xx指定默认值，使用NULL值会存在每一行都会占用额外存储空间、数据迁移容易出错、聚合函数计算结果偏差等问题</li>
+<li>日期默认值或者插入值禁止为’0000-00-00 00:00:00’等无意义非法时间或者日期值</li>
+<li>表必须要有主键， 主健只能是单个字段组成， 字段类型只能是unsigned int/bigint， 数据量多的要为unsigned bigint。主健命名为id,最好能程序生成全局唯一顺序增长整数，如不能则使用自增auto_increment。主健在业务上应该无意义，即是程序不应该用到它。业务意义需要id要另起一列， 如user_id。</li>
+<li>并不是只能主键才能做到唯一性约束， 唯一索引UNIQUE KEY也可以。不要使用主键来做唯一性约束， 请使用唯一索引</li>
+<li>每个表都要有create_time, update_time字段，create_time timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT ‘创建时间’， update_time timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT ‘创建时间’。并且update_time要加索引， create_time可以视情况加不加索引</li>
+<li>一个表数据量最好不要超过500万行</li>
+<li>临时表与中间表要定期清理数据， 清理数据不要直接delete全表，请先找DBA商量</li>
+<li>严禁使用存储过程</li>
+<li>严禁使用触发器</li>
+<li>严禁使用外键</li>
+<li>严禁使用event</li>
+<li>严禁使用分区表,严禁使用视图view</li>
+<li>严禁使用数据库存储图片与文件等二进制数据，禁止使用blob类型字段， 非必要不能使用text类型字段</li>
+<li>严禁使用enum, set类型字段， 请使用tinyint, smallint代替</li>
+<li>反范式设计：把经常需要join查询的字段，在其他表里冗余一份。如user_name属性在user_account，user_login_log等表里冗余一份，减少join查询</li>
+<li>保存相同数据的字段在不同的表，其命名与类型要一致。例如user_id在t_user表为bigint则在t_user_login也要为user_id bigint。严禁使用不同类型， 这在join语句中会引起类型转换，导致使用不了索引</li>
+</ol>
+<h2 id="字段类型选择"><a href="#字段类型选择" class="headerlink" title="字段类型选择"></a><font color="#0000FF">字段类型选择</font></h2><ul>
+<li>优先选择符合存储需要的最小的数据类型<ol>
+<li>能用整形就不要用浮点数或者字符串。合适就好，不要过大，浪费空间；也不要过小， 范围溢出。例如status，user_type此类分类字段， 使用tinyint一般够了。订单表自增主健id那就要使用unsigned bigint。如果范围不够， 那得修改大字段类型， 是要做DDL变更的。</li>
+<li>对于整型字段,非负数都加上unsigned, 可存储值大一倍</li>
+<li>使用varchar而不是char.对于字符串,由于使用utf8/utf8mb4字符集,char(10)与varchar(10)一样都是需要额外空间来保存实际的长度,是一样的，没什么区别，因此建议都使用varchar(10),省去不够长时的填充空格</li>
+</ol>
+</li>
+<li>禁止使用blob类型字段。</li>
+<li>非必须不要使用text字段，如果一定要使用请与表基础字段分离独立另一个表</li>
+<li>禁止使用set与enum类型字段</li>
+<li>财务相关字段使用decimal类型或者整型，不要使用float或者double</li>
+</ul>
+<h2 id="建索引"><a href="#建索引" class="headerlink" title="建索引"></a><font color="#0000FF">建索引</font></h2><ol>
+<li>ID,编号，时间等字段请在建表时加索引，这些一般查询会用到</li>
+<li>能建复合索引就建复合索引，例如user_id与user_name都要那索引，那建两个索引(user_id, user_name)与user_name, 而不是user_id与user_name分别一个索引</li>
+<li>复合索引包含的字段数不要超过3个, 选择性高的字段放在前面，即是重复值越少排越前面。例如user_name与status, 复合索引应该为(user_name, status)而不是(status, user_name)</li>
+<li>索引不要少。我第一次遇到大家担心多了索引影响插入的速度的情况， 这个是不必要的， insert很难成为瓶颈， 基本都是select,update, delete等需要搜索记录的SQL成为瓶颈。也就是搜索永远是数据库的瓶颈， 而使用索引只是为了加快搜索</li>
+<li>索引不要过多与冗余。每个索引都是一棵B+树， 每个节点都要存储索引字段与主健值， 别的不说， 会占用不少硬盘空间， 特别是我们公司数据量这么大的情况下。 索引（user_name）与索引(user_name, user_id)就重复了， 需要去掉索引(user_name)</li>
+<li>在多表join的SQL里，驱动表的连接列上要有索引。例如t1 inner join t2 on t1.user_id=t2.user_id， 那么t1.user_id与t2.user_id都要有索引。</li>
+<li>索引命名， 唯一索引以uidx_为开头如uidx_userid， 普通索引以idx_为开头idx_username</li>
+</ol>
+<h2 id="SQL规范"><a href="#SQL规范" class="headerlink" title="SQL规范"></a><font color="#0000FF">SQL规范</font></h2><ul>
+<li><p>连接管理</p>
+<ol>
+<li>使用长连接与连接池， 合理设置最大连接数， 最小连接数， 空闲连接回收时间。数据库对空闲连接的回收时间为10分钟， 应用空闲连接回收应该少于10分钟。</li>
+<li>连接池一般有重连功能， 没有重连功能的请大家配置上。处理故障时DBA会第一时间切换IP， 没有重连功能的应用需要重启。创建连接或读写timeout时间请合理设置， 例如3秒</li>
+<li>使用完连接请主动关闭连接， 释放资源</li>
+<li>API支持mysql5.7版本的新功能mysql_reset_connection()的请间隔一段时间reset连接,释放数据库资源。长连接可能存在一个问题,由于连接一直在使用,所消耗的资源不释放,mysql内存会不停增长。有些连接池自行实现了类似的功能,一个连接使用一段时间后就关闭这个连接重建创建一个新的连接,如果有这样的功能也请打开</li>
+</ol>
+</li>
+<li>严禁长事务,有些事务超过了1小时,这是严禁的,请不要在一个事务里面一个SQL执行完成了,去执行其它代码，长时间后再回来执行一个SQL。如果一个事务太多SQL太多步骤,要执行很长时间,请拆分为多个小事务。一个事务保持在10秒内是比较好的。</li>
+<li>严禁大事务,一个事务插入几百上千万行， 这也是严禁的。 请将一个事务影响或者涉及的行数控制在200行内5.4 事务内请专注与mysql相关的查询,不要在一个事务内去执行与mysql无关的代码，如查一下mysql然后去读个文件</li>
+<li>严禁select *,除了性能问题，更多的是业务兼容性的考虑</li>
+<li>严禁一次性大批量插入更新删除数据,必须要小批量变更， 一次不要超过1000行。例如 update tb set col=xx where a=xx and b=xx, 则这样的来小批量更新update tb set col=xx where a=xx and b=xx and id &gt;=yy and id &lt; yy+1000, 循环更新， 最好每个循环加个sleep(1)</li>
+<li>禁止limit更新删除,禁用update|delete t1 … where a=XX limit XX; 这种带limit的更新语句。因为会导致主从不一致，导致数据错乱。建议加上order by id</li>
+<li>禁止使用子查询，特别是依赖子查询子查询基本都可以使用join来代替。子查询特别是依赖子查询严重影响性能</li>
+<li>order by、group by、distinct 尽量少用,没必要的排序就不要排， 像order by order_sn这样的排序没任何意义。如果一定要排序，请确保where条件过滤出来的结果集不过多，例如不要超过5000行</li>
+<li>join表不要超过3个，join的字段要有索引</li>
+<li>insert into…values(XX),(XX),(XX)…。这里XX的值不要超过200个</li>
+<li>in值列表限制在200以内。例如select… where userid in(….200个以内…)</li>
+<li>严禁全表无条件更新删除查询，必须要有where条件</li>
+<li>where条件里等号左右字段类型必须一致，否则无法利用索引,where user_id=11, 如果user_id为字符串类型， 这样是用不上索引的。</li>
+<li>严禁like ‘%xx%’,只能like ‘xx%’</li>
+<li>严禁where条件字段使用函数或表达式，否则无法利用索引,如where date_format(update_time, ‘%Y-%m-%d’)=’2019-09-09’,或where user_id+2=10023</li>
+<li>严禁同字段where条件使用or,如 where user_id=1 or user_id=2, 请使用 in, where user_id in (1, 2)</li>
+<li>不同字段where条件or尽量用union代替,如 select yy from tb where user_id=1 or user_name=’xx’, 请使用 select yy from tb where user_id=1 union select yy from tb where user_name=’xx’。</li>
+<li>禁止使用不含字段列表的INSERT语句,如：insert into values (a,b,c);应使用insert into t(c1,c2,c3) values (a,b,c);</li>
+<li>在明显不会有重复值时使用UNION ALL而不是UNION,UNION会把两个结果集的所有数据放到临时表中后再进行去重操作,UNION ALL不会再对结果集进行去重操作</li>
+<li>严禁特复杂的SQL,一条SQL几百行,一个SQL里面套了5,6层子查询,一个SQL里面select col1, col2 …, 每个col都是一个子查询,等等,SQL越简单越好</li>
+</ul>
+<hr>
+<h1 id="数据库的5种索引类型"><a href="#数据库的5种索引类型" class="headerlink" title="数据库的5种索引类型"></a><table><tr><td bgcolor="#C7C7C7">数据库的5种索引类型</td></tr></table></h1><h2 id="普通索引"><a href="#普通索引" class="headerlink" title="普通索引"></a><font color="#0000FF">普通索引</font></h2><h2 id="唯一索引"><a href="#唯一索引" class="headerlink" title="唯一索引"></a><font color="#0000FF">唯一索引</font></h2><h2 id="全文索引（FULLTEXT）"><a href="#全文索引（FULLTEXT）" class="headerlink" title="全文索引（FULLTEXT）"></a><font color="#0000FF">全文索引（FULLTEXT）</font></h2><h2 id="单列索引、多列索引"><a href="#单列索引、多列索引" class="headerlink" title="单列索引、多列索引"></a><font color="#0000FF">单列索引、多列索引</font></h2><ul>
+<li>单列索引，如index(id),index(name),可以对id和name单独使用索引</li>
+<li>多列索引，如index(id,name)，相当于建立了2个索引，index(id)和index(id,name)，不能单独对name使用索引</li>
+</ul>
+<h2 id="组合索引（最左前缀）"><a href="#组合索引（最左前缀）" class="headerlink" title="组合索引（最左前缀）"></a><font color="#0000FF">组合索引（最左前缀）</font></h2><hr>
+<h1 id="非关系型数据库"><a href="#非关系型数据库" class="headerlink" title="非关系型数据库"></a><table><tr><td bgcolor="#C7C7C7">非关系型数据库</td></tr></table></h1><h1 id="Q-amp-A"><a href="#Q-amp-A" class="headerlink" title="Q &amp; A"></a><table><tr><td bgcolor="#C7C7C7">Q &amp; A</td></tr></table></h1><h2 id="哈希-hash-比树-tree-更快，索引结构为什么要设计成树型"><a href="#哈希-hash-比树-tree-更快，索引结构为什么要设计成树型" class="headerlink" title=" 哈希(hash)比树(tree)更快，索引结构为什么要设计成树型"></a><font color="#0000FF"> 哈希(hash)比树(tree)更快，索引结构为什么要设计成树型</font></h2><ol>
+<li>单行查询的SQL，hash 比 tree 的效率高，hash时间复杂度都是O(1)，tree平均时间复杂度都是O(lg(n))</li>
+<li>排序查询的SQL，hash 比 tree 的效率低，如 分组：group by，排序：order by，比较：&lt;、&gt;。hash时间复杂度O(n)，tree时间复杂度O(log(n)) </li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>时间复杂度</th>
+<th style="text-align:center">hash</th>
+<th style="text-align:right">tree</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>单行sql</td>
+<td style="text-align:center">O(1)</td>
+<td style="text-align:right">O(log(n))</td>
+</tr>
+<tr>
+<td>排序sql</td>
+<td style="text-align:center">O(n)</td>
+<td style="text-align:right">O(log(n))</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a><table><tr><td bgcolor="#C7C7C7">总结</td></tr></table></h1>
+    </div>
+    
+    <div class="post-footer">
+        <div>
+            
+        </div>
+        <div>
+            
+        </div>
+    </div>
+</article>
+
+<div class="article-nav prev-next-wrap clearfix">
+    
+        <a href="/2020/12/03/数据库之实战篇/" class="pre-post btn btn-default" title="数据库之实战篇">
+            <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
+            <span class="hidden-xs">数据库之实战篇</span>
+        </a>
+    
+    
+        <a href="/2020/12/02/GCC和G++的编译/" class="next-post btn btn-default" title="GCC和G++的编译">
+            <span class="hidden-lg">下一篇</span>
+            <span class="hidden-xs">GCC和G++的编译</span><i class="fa fa-angle-right fa-fw"></i>
+        </a>
+    
+</div>
+
+
+    <div id="comments">
+        
+    
+    <div id="vcomments" class="valine"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="/assets/valine.min.js"></script>
+
+    <script>
+        new Valine({
+            av: AV,
+            el: '#vcomments',
+            appId: 'XWA5gq7VCJybw7YQhf5HG20r-gzGzoHsz',
+            appKey: '8FW1WEwrysHXaUD1bhGn2Rp8',
+            placeholder: '说点什么吧',
+            notify: true,
+            verify: false,
+            avatar: 'https://blog.xtcgch.ink/img/comment-avatar.jpg',
+            meta: 'nick,mail'.split(','),
+            pageSize: '10',
+            path: window.location.pathname,
+            lang: 'zh-CN'.toLowerCase()
+        })
+    </script>
+
+
+    </div>
+
+
+
+
+
+                </main>
+                
+                    <aside id="article-toc" role="navigation" class="col-md-4">
+    <div class="widget">
+        <h3 class="title">文章目录</h3>
+        
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#脑图"><span class="toc-text">脑图</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#关系型数据库"><span class="toc-text">关系型数据库</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#原则"><span class="toc-text">原则</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#命名规范"><span class="toc-text">命名规范</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#建表设计规范"><span class="toc-text">建表设计规范</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#字段类型选择"><span class="toc-text">字段类型选择</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#建索引"><span class="toc-text">建索引</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#SQL规范"><span class="toc-text">SQL规范</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#数据库的5种索引类型"><span class="toc-text">数据库的5种索引类型</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#普通索引"><span class="toc-text">普通索引</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#唯一索引"><span class="toc-text">唯一索引</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#全文索引（FULLTEXT）"><span class="toc-text">全文索引（FULLTEXT）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#单列索引、多列索引"><span class="toc-text">单列索引、多列索引</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#组合索引（最左前缀）"><span class="toc-text">组合索引（最左前缀）</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#非关系型数据库"><span class="toc-text">非关系型数据库</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Q-amp-A"><span class="toc-text">Q &amp; A</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#哈希-hash-比树-tree-更快，索引结构为什么要设计成树型"><span class="toc-text"> 哈希(hash)比树(tree)更快，索引结构为什么要设计成树型</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#总结"><span class="toc-text">总结</span></a></li></ol>
+        
+    </div>
+</aside>
+
+                
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</footer>
+
+<a id="back-to-top" class="icon-btn hide">
+	<i class="fa fa-chevron-up"></i>
+</a>
+
+
+
+
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="busuanzi">
+    
+</div>
+
+            </div>
+            <div class="col-sm-12">
+                <span>Copyright &copy; 2018
+                </span> |
+                <span>
+                    Powered by <a href="//hexo.io" class="copyright-links" target="_blank" rel="nofollow">Hexo</a>
+                </span> |
+                <span>
+                    Theme by <a href="//github.com/shenliyang/hexo-theme-snippet.git" class="copyright-links" target="_blank" rel="nofollow">Snippet</a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+<script src="/js/app.js?rev=@@hash"></script>
+
+</body>
+</html>

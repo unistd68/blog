@@ -1,0 +1,375 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="我的博客 - blog">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="browsermode" content="application">
+    <meta name="screen-orientation" content="portrait">
+    <link rel="dns-prefetch" href="https://lives.xtcgch.ink">
+    <!--SEO-->
+
+<meta name="description" content="脑容量不够，笔记来凑">
+
+
+
+
+
+<meta name="robots" content="all">
+<meta name="google" content="all">
+<meta name="googlebot" content="all">
+<meta name="verify" content="all">
+    <!--Title-->
+
+
+<title>编程语言之C++11特性 | 我的博客 - blog</title>
+
+
+    <link rel="alternate" href="/atom.xml" title="我的博客 - blog" type="application/atom+xml">
+
+
+    <link rel="icon" href="https://blog.xtcgch.ink/img/background/海绵宝宝.ico">
+
+    
+
+
+
+<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7">
+<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.5.0">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash">
+
+
+
+
+    
+
+
+
+
+
+    
+
+</head>
+
+</html>
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+
+<body>
+    <header class="main-header" style="background-image:url(https://blog.xtcgch.ink/img/head-bg.jpg)">
+    <div class="main-header-box">
+        <a class="header-avatar" href="/" title="unistd68">
+            <img src="/img/background/海绵宝宝.jpg" alt="logo头像" class="img-responsive center-block">
+        </a>
+        <div class="branding">
+        	<!--<h2 class="text-hide">Snippet主题,从未如此简单有趣</h2>-->
+            
+                <h2> 脑容量不够，笔记来凑 </h2>
+            
+    	</div>
+    </div>
+</header>
+    <nav class="main-navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header"><span class="nav-toggle-button collapsed pull-right" data-toggle="collapse" data-target="#main-menu" id="mnav">
+                    <span class="sr-only"></span>
+                        <i class="fa fa-bars"></i>
+                    </span>
+                    <a class="navbar-brand" href="https://lives.xtcgch.ink">我的博客 - blog</a>
+                </div>
+                <div class="collapse navbar-collapse" id="main-menu">
+                    <ul class="menu">
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="https://blog.xtcgch.ink/"><i class="fa "></i>主页</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="https://blog.xtcgch.ink/categories/原理/"><i class="fa "></i>原理</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="https://blog.xtcgch.ink/categories/代码/"><i class="fa "></i>代码</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="https://blog.xtcgch.ink/categories/开源/"><i class="fa "></i>开源</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="https://blog.xtcgch.ink/categories/面试/"><i class="fa "></i>面试</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="https://blog.xtcgch.ink/categories/其他/"><i class="fa "></i>其他</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="https://blog.xtcgch.ink/archives/"><i class="fa "></i>时间轴</a>
+                            </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+    <section class="content-wrap">
+        <div class="container">
+            <div class="row">
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="编程语言之C++11特性">
+            
+	            编程语言之C++11特性
+            
+        </h1>
+        <div class="post-meta">
+    
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <a href="https://blog.xtcgch.ink/categories/原理">
+            原理
+        </a>
+    </span>
+    
+
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+                
+                    <a href="https://blog.xtcgch.ink/tags/C++" title="C++">
+                        C++
+                    </a>
+                
+                    <a href="https://blog.xtcgch.ink/tags/C++11" title="C++11">
+                        C++11
+                    </a>
+                
+            
+        </span>
+    </span>
+    
+
+    
+        
+        <span class="fa-wrap">
+            <i class="fa fa-clock-o"></i>
+            <span class="date-meta">2021/04/21</span>
+        </span>
+        
+    
+</div>
+
+            
+            
+    </div>
+    
+    <div class="post-body post-content">
+        <p><strong>摘要：</strong>本文主要介绍C++17特性。</p>
+<a id="more"></a>
+<hr>
+<h1 id="脑图"><a href="#脑图" class="headerlink" title="脑图"></a>脑图</h1><p><img src="脑图.png" alt></p>
+<hr>
+<h1 id="C-11"><a href="#C-11" class="headerlink" title="C++11"></a><table><tr><td bgcolor="#C7C7C7">C++11</td></tr></table></h1><h2 id="左值和右值"><a href="#左值和右值" class="headerlink" title="左值和右值"></a><font color="#0000FF">左值和右值</font></h2><p>左值和右值的概念主要涉及到模板类，可以通过std::move()和std::static_cast&lt;&gt;()来调整</p>
+<p><strong>左值和右值的概念</strong></p>
+<p>demo:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">int a; // a 为左值</span><br><span class="line">a = 3; // 3 为右值</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li>左值是可寻址的变量，有持久性；</li>
+<li>右值一般是不可寻址的常量，或<strong>在表达式求值过程中创建的无名临时对象</strong>，短暂性的,如<code>int &amp;&amp;a = sqrt(4)</code>中<code>sqrt(4)</code>是右值，a则是右值引用</li>
+<li>左值和右值主要的区别之一是左值可以被修改，而右值不能。</li>
+</ul>
+<p><strong>左值引用和右值引用</strong></p>
+<ul>
+<li>左值引用：引用一个对象；</li>
+<li>右值引用：就是必须绑定到右值的引用，C++11中右值引用可以实现“移动语义”，通过 &amp;&amp; 获得右值引用。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">int x = 6; // x是左值，6是右值</span><br><span class="line">int &amp;y = x; // 左值引用，y引用x</span><br><span class="line"></span><br><span class="line">int &amp;z1 = x * 6; // 错误，x*6是一个右值</span><br><span class="line">const int &amp;z2 =  x * 6; // 正确，可以将一个const引用绑定到一个右值</span><br><span class="line"></span><br><span class="line">int &amp;&amp;z3 = x * 6; // 正确，右值引用</span><br><span class="line">int &amp;&amp;z4 = x; // 错误，x是一个左值</span><br></pre></td></tr></table></figure>
+<p><strong>新规则</strong></p>
+<ul>
+<li>规则1（引用折叠规则）：如果间接的创建一个引用的引用，则这些引用就会“折叠”。在所有情况下（除了一个例外），引用折叠成一个普通的左值引用类型。一种特殊情况下，引用会折叠成右值引用，即右值引用的右值引用， T&amp;&amp; &amp;&amp;。即</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">X&amp; &amp;、X&amp; &amp;&amp;、X&amp;&amp; &amp;都折叠成X&amp; -&gt; 表示左值引用</span><br><span class="line">X&amp;&amp; &amp;&amp;折叠为X&amp;&amp; -&gt; 表示右值引用</span><br></pre></td></tr></table></figure>
+<ul>
+<li>规则2（右值引用的特殊类型推断规则）：当将一个左值传递给一个参数是右值引用的函数，且此右值引用指向模板类型参数(T&amp;&amp;)时，编译器推断模板参数类型为实参的左值引用，如<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">template&lt;typename T&gt; </span><br><span class="line">void f(T&amp;&amp;);</span><br><span class="line"></span><br><span class="line">int i = 42;</span><br><span class="line">f(i)</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>f将被实例化为:<code>void f&lt;int&amp;&gt;(int&amp;)</code></p>
+<ul>
+<li>规则3：虽然不能隐式的将一个左值转换为右值引用，但是可以通过static_cast显示地将一个左值转换为一个右值。【C++11中为static_cast新增的转换功能】</li>
+</ul>
+<p><strong>右值能被 const 类型的引用所指向</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">int x = 5;</span><br><span class="line">const int&amp; y = x * 6;</span><br><span class="line">std::cout&lt;&lt;&quot;y:&quot;&lt;&lt;y&lt;&lt;std::endl; //y = 30</span><br></pre></td></tr></table></figure></p>
+<p>demo：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">void func(int&amp;&amp; a)</span><br><span class="line">&#123;</span><br><span class="line">    cout &lt;&lt; a &lt;&lt; endl;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int a = 6;</span><br><span class="line">func(std::move(a));</span><br><span class="line"></span><br><span class="line">int b = 10;</span><br><span class="line">func(static_cast&lt;int&amp;&amp;&gt;(b));</span><br></pre></td></tr></table></figure></p>
+<p>首先，func函数中的a参数定义为右值引用，那么在使用func函数时，必须保证传入的参数为右值。<br>由<code>int a = 6;</code>可知，a是左值，因此，需要将a转化为右值才能作为func函数的形参，可以使用<code>std::move()</code>或 <code>static_cast&lt;&gt;()</code>进行调整</p>
+<h2 id="std-bind"><a href="#std-bind" class="headerlink" title="std::bind"></a><font color="#0000FF">std::bind</font></h2><p><strong>1.参数:</strong></p>
+<p>f：一个可调用对象（可以是函数对象、函数指针、函数引用、成员函数指针、数据成员指针），它的参数将被绑定到args上。<br>args：绑定参数列表，参数会被值或占位符替换，其长度必须与f接收的参数个数一致。</p>
+<p>参数可以有2种形式：</p>
+<ul>
+<li>明确的值</li>
+<li>占位符，下划线+值，如<code>std::placeholders::_1</code>和<code>std::placeholders::_2</code></li>
+</ul>
+<p><strong>2.调用std::bind的一般形式为：</strong></p>
+<p>auto newCallable = std::bind(callable, arg_list);</p>
+<p><strong>3.返回类型:</strong></p>
+<p>std::bind的返回类型是一个未指定类型T的函数对象，这个类型T满足以下条件: std::is_bind_expression<t>::value == true</t></p>
+<p><strong>4.demo:</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line">// 普通函数</span><br><span class="line">int add(int a, int b)&#123;return a+b;&#125; </span><br><span class="line">ostringstream &amp; printStr(ostringstream &amp;os, const string&amp; s, char c)&#123;os &lt;&lt; s &lt;&lt; c;return os;&#125;</span><br><span class="line"></span><br><span class="line">// 结构体或类</span><br><span class="line">struct Foo &#123;</span><br><span class="line">    void print_sum(int n1, int n2)</span><br><span class="line">    &#123;</span><br><span class="line">        std::cout &lt;&lt; n1+n2 &lt;&lt; &apos;\n&apos;;</span><br><span class="line">    &#125;</span><br><span class="line">    int data = 10;</span><br><span class="line">&#125;;</span><br><span class="line">struct Foo &#123;</span><br><span class="line">    int value;</span><br><span class="line">    void f() &#123; std::cout &lt;&lt; &quot;f(&quot; &lt;&lt; this-&gt;value &lt;&lt; &quot;)\n&quot;; &#125;</span><br><span class="line">    void g() &#123; std::cout &lt;&lt; &quot;g(&quot; &lt;&lt; this-&gt;value &lt;&lt; &quot;)\n&quot;; &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">// 绑定全部参数和调用</span><br><span class="line">auto f1 = std::bind(add, 95, 5);</span><br><span class="line">f1(); // = 100</span><br><span class="line"></span><br><span class="line">// 绑定部分参数和调用</span><br><span class="line">auto f2 = std::bind(add, 95, _1);</span><br><span class="line">f2(5); // = 100</span><br><span class="line">auto f3 = std::bind(add, _1, 5);</span><br><span class="line">f3(95); // = 100</span><br><span class="line"></span><br><span class="line">// 绑定一个引用参数</span><br><span class="line">ostringstream os1;</span><br><span class="line">char c = &apos; &apos;;</span><br><span class="line">std::bind(printStr, ref(os1), _1, c);</span><br><span class="line"></span><br><span class="line">// 绑定成员函数，部分参数和调用</span><br><span class="line">Foo foo;</span><br><span class="line">auto f4 = std::bind(&amp;Foo::print_sum, &amp;foo, 95, _1);</span><br><span class="line">f4(5); // = 100</span><br><span class="line"></span><br><span class="line">// 指向成员函数的指针</span><br><span class="line">void apply(Foo* foo1, Foo* foo2, void (Foo::*fun)()) &#123;</span><br><span class="line">    (foo1-&gt;*fun)();  // call fun on the object foo1</span><br><span class="line">    (foo2-&gt;*fun)();  // call fun on the object foo2</span><br><span class="line">&#125;</span><br><span class="line">void test() &#123;</span><br><span class="line">    Foo foo1&#123;1&#125;;</span><br><span class="line">    Foo foo2&#123;2&#125;;</span><br><span class="line">    apply(&amp;foo1, &amp;foo2, &amp;Foo::f);</span><br><span class="line">    apply(&amp;foo1, &amp;foo2, &amp;Foo::g);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="std-mem-fn"><a href="#std-mem-fn" class="headerlink" title="std::mem_fn"></a><font color="#0000FF">std::mem_fn</font></h2><h2 id="std-function"><a href="#std-function" class="headerlink" title="std::function"></a><font color="#0000FF">std::function</font></h2><h2 id="std-mem-fn、std-bind、std-function的区别"><a href="#std-mem-fn、std-bind、std-function的区别" class="headerlink" title="std::mem_fn、std::bind、std::function的区别"></a><font color="#0000FF">std::mem_fn、std::bind、std::function的区别</font></h2><ol>
+<li>std::function是重量级的，功能强大，也复杂，是类模板,比如<code>std::function&lt;int&lt;int&gt;&gt;</code></li>
+<li>std::mem_fn、std::bind是具有未指定返回类型的函数模板，即使用<code>auto ret</code>获取返回值</li>
+</ol>
+<h2 id="std-move"><a href="#std-move" class="headerlink" title="std::move"></a><font color="#0000FF">std::move</font></h2><h2 id="std-forward"><a href="#std-forward" class="headerlink" title="std::forward"></a><font color="#0000FF">std::forward</font></h2><h2 id="std-async"><a href="#std-async" class="headerlink" title="std::async"></a><font color="#0000FF">std::async</font></h2><p><strong>函数原型</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">template&lt;class Fn, class... Args&gt;</span><br><span class="line">future&lt;typename result_of&lt;Fn(Args...)&gt;::type&gt; async(launch policy, Fn&amp;&amp; fn, Args&amp;&amp;...args);</span><br></pre></td></tr></table></figure>
+<p><strong>参数</strong></p>
+<ul>
+<li>launch policy : 表示异步或同步，默认是由系统决定<ul>
+<li>std::launch::async 传递的可调用对象异步执行；</li>
+<li>std::launch::deferred 传递的可调用对象同步执行；</li>
+<li>std::launch::async | std::launch::deferred （默认）可以异步或是同步，取决于操作系统。</li>
+</ul>
+</li>
+<li>Fn&amp;&amp; fn ： 函数</li>
+<li>Args&amp;&amp;…args ： 函数参数</li>
+</ul>
+<h2 id="std-condition-variable"><a href="#std-condition-variable" class="headerlink" title="std::condition_variable"></a><font color="#0000FF">std::condition_variable</font></h2>
+    </div>
+    
+    <div class="post-footer">
+        <div>
+            
+        </div>
+        <div>
+            
+        </div>
+    </div>
+</article>
+
+<div class="article-nav prev-next-wrap clearfix">
+    
+        <a href="/2021/04/24/IPC之线程锁/" class="pre-post btn btn-default" title="IPC之线程锁">
+            <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
+            <span class="hidden-xs">IPC之线程锁</span>
+        </a>
+    
+    
+        <a href="/2021/04/18/多线程/" class="next-post btn btn-default" title="多线程">
+            <span class="hidden-lg">下一篇</span>
+            <span class="hidden-xs">多线程</span><i class="fa fa-angle-right fa-fw"></i>
+        </a>
+    
+</div>
+
+
+    <div id="comments">
+        
+    
+    <div id="vcomments" class="valine"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="/assets/valine.min.js"></script>
+
+    <script>
+        new Valine({
+            av: AV,
+            el: '#vcomments',
+            appId: 'XWA5gq7VCJybw7YQhf5HG20r-gzGzoHsz',
+            appKey: '8FW1WEwrysHXaUD1bhGn2Rp8',
+            placeholder: '说点什么吧',
+            notify: true,
+            verify: false,
+            avatar: 'https://blog.xtcgch.ink/img/comment-avatar.jpg',
+            meta: 'nick,mail'.split(','),
+            pageSize: '10',
+            path: window.location.pathname,
+            lang: 'zh-CN'.toLowerCase()
+        })
+    </script>
+
+
+    </div>
+
+
+
+
+
+                </main>
+                
+                    <aside id="article-toc" role="navigation" class="col-md-4">
+    <div class="widget">
+        <h3 class="title">文章目录</h3>
+        
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#脑图"><span class="toc-text">脑图</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#C-11"><span class="toc-text">C++11</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#左值和右值"><span class="toc-text">左值和右值</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#std-bind"><span class="toc-text">std::bind</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#std-mem-fn"><span class="toc-text">std::mem_fn</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#std-function"><span class="toc-text">std::function</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#std-mem-fn、std-bind、std-function的区别"><span class="toc-text">std::mem_fn、std::bind、std::function的区别</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#std-move"><span class="toc-text">std::move</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#std-forward"><span class="toc-text">std::forward</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#std-async"><span class="toc-text">std::async</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#std-condition-variable"><span class="toc-text">std::condition_variable</span></a></li></ol></li></ol>
+        
+    </div>
+</aside>
+
+                
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</footer>
+
+<a id="back-to-top" class="icon-btn hide">
+	<i class="fa fa-chevron-up"></i>
+</a>
+
+
+
+
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="busuanzi">
+    
+</div>
+
+            </div>
+            <div class="col-sm-12">
+                <span>Copyright &copy; 2018
+                </span> |
+                <span>
+                    Powered by <a href="//hexo.io" class="copyright-links" target="_blank" rel="nofollow">Hexo</a>
+                </span> |
+                <span>
+                    Theme by <a href="//github.com/shenliyang/hexo-theme-snippet.git" class="copyright-links" target="_blank" rel="nofollow">Snippet</a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+<script src="/js/app.js?rev=@@hash"></script>
+
+</body>
+</html>

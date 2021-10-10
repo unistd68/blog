@@ -1,0 +1,576 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="我的博客 - blog">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="browsermode" content="application">
+    <meta name="screen-orientation" content="portrait">
+    <link rel="dns-prefetch" href="https://lives.xtcgch.ink">
+    <!--SEO-->
+
+<meta name="description" content="脑容量不够，笔记来凑">
+
+
+
+
+
+<meta name="robots" content="all">
+<meta name="google" content="all">
+<meta name="googlebot" content="all">
+<meta name="verify" content="all">
+    <!--Title-->
+
+
+<title>编程语言之python | 我的博客 - blog</title>
+
+
+    <link rel="alternate" href="/atom.xml" title="我的博客 - blog" type="application/atom+xml">
+
+
+    <link rel="icon" href="https://blog.xtcgch.ink/img/background/海绵宝宝.ico">
+
+    
+
+
+
+<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7">
+<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.5.0">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash">
+
+
+
+
+    
+
+
+
+
+
+    
+
+</head>
+
+</html>
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+
+<body>
+    <header class="main-header" style="background-image:url(https://blog.xtcgch.ink/img/head-bg.jpg)">
+    <div class="main-header-box">
+        <a class="header-avatar" href="/" title="unistd68">
+            <img src="/img/background/海绵宝宝.jpg" alt="logo头像" class="img-responsive center-block">
+        </a>
+        <div class="branding">
+        	<!--<h2 class="text-hide">Snippet主题,从未如此简单有趣</h2>-->
+            
+                <h2> 脑容量不够，笔记来凑 </h2>
+            
+    	</div>
+    </div>
+</header>
+    <nav class="main-navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header"><span class="nav-toggle-button collapsed pull-right" data-toggle="collapse" data-target="#main-menu" id="mnav">
+                    <span class="sr-only"></span>
+                        <i class="fa fa-bars"></i>
+                    </span>
+                    <a class="navbar-brand" href="https://lives.xtcgch.ink">我的博客 - blog</a>
+                </div>
+                <div class="collapse navbar-collapse" id="main-menu">
+                    <ul class="menu">
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="https://blog.xtcgch.ink/"><i class="fa "></i>主页</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="https://blog.xtcgch.ink/categories/原理/"><i class="fa "></i>原理</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="https://blog.xtcgch.ink/categories/代码/"><i class="fa "></i>代码</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="https://blog.xtcgch.ink/categories/开源/"><i class="fa "></i>开源</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="https://blog.xtcgch.ink/categories/面试/"><i class="fa "></i>面试</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="https://blog.xtcgch.ink/categories/其他/"><i class="fa "></i>其他</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="https://blog.xtcgch.ink/archives/"><i class="fa "></i>时间轴</a>
+                            </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+    <section class="content-wrap">
+        <div class="container">
+            <div class="row">
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="编程语言之python">
+            
+	            编程语言之python
+            
+        </h1>
+        <div class="post-meta">
+    
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <a href="https://blog.xtcgch.ink/categories/原理">
+            原理
+        </a>
+    </span>
+    
+
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+                
+                    <a href="https://blog.xtcgch.ink/tags/PYTHON" title="PYTHON">
+                        PYTHON
+                    </a>
+                
+            
+        </span>
+    </span>
+    
+
+    
+        
+        <span class="fa-wrap">
+            <i class="fa fa-clock-o"></i>
+            <span class="date-meta">2020/01/27</span>
+        </span>
+        
+    
+</div>
+
+            
+            
+            <p class="fa fa-exclamation-triangle warning">
+                本文于<strong>622</strong>天之前发表，文中内容可能已经过时。
+            </p>
+        
+    </div>
+    
+    <div class="post-body post-content">
+        <p><strong>摘要：</strong>记录python的学习过程！</p>
+<a id="more"></a>
+<hr>
+<h2 id="脑图"><a href="#脑图" class="headerlink" title="脑图"></a>脑图</h2><p><img src="python.png" alt="python脑图"></p>
+<hr>
+<h2 id="定义引用的python处理器"><a href="#定义引用的python处理器" class="headerlink" title="定义引用的python处理器"></a><table><tr><td bgcolor="#C7C7C7">定义引用的python处理器</td></tr></table></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#!/usr/bin/python</span><br></pre></td></tr></table></figure>
+<h2 id="Python2-x-与-3​​-x-版本区别"><a href="#Python2-x-与-3​​-x-版本区别" class="headerlink" title="Python2.x 与 3​​.x 版本区别"></a><table><tr><td bgcolor="#C7C7C7">Python2.x 与 3​​.x 版本区别</td></tr></table></h2><ul>
+<li><p>print 函数</p>
+</li>
+<li><p>Unicode</p>
+</li>
+<li><p>除法运算</p>
+</li>
+<li><p>异常</p>
+</li>
+<li><p>xrange</p>
+</li>
+<li><p>八进制字面量表示</p>
+</li>
+<li><p>不等运算符</p>
+</li>
+<li><p>去掉了repr表达式``</p>
+</li>
+<li><p>多个模块被改名</p>
+</li>
+<li><p>数据类型</p>
+<ul>
+<li>Py3.X去除了long类型，现在只有一种整型——int，但它的行为就像2.X版本的long</li>
+<li>新增了bytes类型，对应于2.X版本的八位串</li>
+</ul>
+</li>
+<li><p>dict的.keys()、.items 和.values()方法返回迭代器，而之前的iterkeys()等函数都被废弃。同时去掉的还有 dict.has_key()，用 in替代它</p>
+</li>
+</ul>
+<p>定义一个bytes字面量的方法如下:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; b = b&apos;china&apos; </span><br><span class="line">&gt;&gt;&gt; type(b) </span><br><span class="line">&lt;type &apos;bytes&apos;&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="引用包和模块"><a href="#引用包和模块" class="headerlink" title="引用包和模块"></a><table><tr><td bgcolor="#C7C7C7">引用包和模块</td></tr></table></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">import sys</span><br><span class="line">import commands</span><br><span class="line">import MySQLdb</span><br><span class="line">import csv</span><br><span class="line">import datetime</span><br><span class="line">import time</span><br><span class="line"></span><br><span class="line">import os</span><br></pre></td></tr></table></figure>
+<h2 id="行和缩进"><a href="#行和缩进" class="headerlink" title="行和缩进"></a><table><tr><td bgcolor="#C7C7C7">行和缩进</td></tr></table></h2><ol>
+<li><p>Python 的代码块不使用大括号 {} 来控制类，函数以及其他逻辑判断</p>
+</li>
+<li><p>python 最具特色的就是用缩进来写模块</p>
+</li>
+<li><p>缩进的空白数量是可变的，但是所有代码块语句必须包含相同的缩进空白数量，这个必须严格执行</p>
+</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">if True:</span><br><span class="line">    print &quot;True&quot;</span><br><span class="line">else:</span><br><span class="line">  print &quot;False&quot;</span><br></pre></td></tr></table></figure>
+<h2 id="函数"><a href="#函数" class="headerlink" title="函数"></a><table><tr><td bgcolor="#C7C7C7">函数</td></tr></table></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">def get_refund_bills_with_mid(nums):</span><br><span class="line">    data= 12345 + nums</span><br><span class="line">    return nums</span><br><span class="line"></span><br><span class="line">retval = get_refund_bills_with_mid(5)</span><br></pre></td></tr></table></figure>
+<h3 id="不定长参数"><a href="#不定长参数" class="headerlink" title="不定长参数"></a><font color="#0000FF">不定长参数</font></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">#!/usr/bin/python</span><br><span class="line"># -*- coding: UTF-8 -*-</span><br><span class="line"> </span><br><span class="line"># 可写函数说明</span><br><span class="line">def printinfo( arg1, *vartuple ):</span><br><span class="line">   &quot;打印任何传入的参数&quot;</span><br><span class="line">   print &quot;输出: &quot;</span><br><span class="line">   print arg1</span><br><span class="line">   for var in vartuple:</span><br><span class="line">      print var</span><br><span class="line">   return</span><br><span class="line"> </span><br><span class="line"># 调用printinfo 函数</span><br><span class="line">printinfo( 10 )</span><br><span class="line">printinfo( 70, 60, 50 )</span><br></pre></td></tr></table></figure>
+<h3 id="匿名函数"><a href="#匿名函数" class="headerlink" title="匿名函数"></a><font color="#0000FF">匿名函数</font></h3><p>python 使用 lambda 来创建匿名函数。</p>
+<ul>
+<li><p>lambda只是一个表达式，函数体比def简单很多</p>
+</li>
+<li><p>lambda的主体是一个表达式，而不是一个代码块。仅仅能在lambda表达式中封装有限的逻辑进去</p>
+</li>
+<li><p>lambda函数拥有自己的命名空间，且不能访问自有参数列表之外或全局命名空间里的参数</p>
+</li>
+<li><p>虽然lambda函数看起来只能写一行，却不等同于C或C++的内联函数，后者的目的是调用小函数时不占用栈内存从而增加运行效率</p>
+</li>
+</ul>
+<h3 id="return语句"><a href="#return语句" class="headerlink" title="return语句"></a><font color="#0000FF">return语句</font></h3><h2 id="Python-标识符"><a href="#Python-标识符" class="headerlink" title="Python 标识符"></a><table><tr><td bgcolor="#C7C7C7">Python 标识符</td></tr></table></h2><ol>
+<li><p>Python 中的标识符是区分大小写的</p>
+</li>
+<li><p>以下划线开头的标识符是有特殊意义的</p>
+<ul>
+<li>以单下划线开头 _foo 的代表不能直接访问的类属性,需通过类提供的接口进行访问</li>
+<li>以双下划线开头的 __foo 代表类的私有成员</li>
+<li>以双下划线开头和结尾的 <strong>foo</strong> 代表 Python 里特殊方法专用的标识</li>
+<li>Python 可以同一行显示多条语句，方法是用分号 ; 分开<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">print &apos;hello&apos;;print &apos;runoob&apos;;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ol>
+<h2 id="多行语句"><a href="#多行语句" class="headerlink" title="多行语句"></a><table><tr><td bgcolor="#C7C7C7">多行语句</td></tr></table></h2><ol>
+<li><p>Python语句中一般以新行作为语句的结束符</p>
+</li>
+<li><p>可以使用斜杠（ \）将一行的语句分为多行显示</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">total = item_one + \</span><br><span class="line">        item_two + \</span><br><span class="line">        item_three</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>语句中包含 [], {} 或 () 括号就不需要使用多行连接符</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">days = [&apos;Monday&apos;, &apos;Tuesday&apos;, &apos;Wednesday&apos;,</span><br><span class="line">        &apos;Thursday&apos;, &apos;Friday&apos;]</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="Python-引号"><a href="#Python-引号" class="headerlink" title="Python 引号"></a><table><tr><td bgcolor="#C7C7C7">Python 引号</td></tr></table></h2><ol>
+<li><p>Python 可以使用引号( ‘ )、双引号( “ )、三引号( ‘’’ 或 “”” ) 来表示字符串</p>
+</li>
+<li><p>三引号(“””)可以由多行组成，编写多行文本的快捷语法，常用于文档字符串，在文件的特定地点，被当做注释</p>
+</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">word = &apos;word&apos;</span><br><span class="line">sentence = &quot;这是一个句子。&quot;</span><br><span class="line">paragraph = &quot;&quot;&quot;这是一个段落。</span><br><span class="line">包含了多个语句&quot;&quot;&quot;</span><br></pre></td></tr></table></figure>
+<h2 id="Python注释"><a href="#Python注释" class="headerlink" title="Python注释"></a><table><tr><td bgcolor="#C7C7C7">Python注释</td></tr></table></h2><ol>
+<li>单行注释：#</li>
+</ol>
+<p><strong>注意：</strong>第一行的<code>#! /bin/bash</code>不是表示注释，而是指明了执行该脚本的bash解释器的位置</p>
+<ol>
+<li>python 中多行注释使用三个单引号(‘’’)或三个双引号(“””)</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&apos;&apos;&apos;</span><br><span class="line">这是多行注释，使用单引号。</span><br><span class="line">这是多行注释，使用单引号。</span><br><span class="line">这是多行注释，使用单引号。</span><br><span class="line">&apos;&apos;&apos;</span><br><span class="line"></span><br><span class="line">&quot;&quot;&quot;</span><br><span class="line">这是多行注释，使用双引号。</span><br><span class="line">这是多行注释，使用双引号。</span><br><span class="line">这是多行注释，使用双引号。</span><br><span class="line">&quot;&quot;&quot;</span><br></pre></td></tr></table></figure>
+<h2 id="空行"><a href="#空行" class="headerlink" title="空行"></a><table><tr><td bgcolor="#C7C7C7">空行</td></tr></table></h2><ol>
+<li><p>函数之间或类的方法之间用空行分隔，表示一段新的代码的开始</p>
+</li>
+<li><p>空行的作用在于分隔两段不同功能或含义的代码，便于日后代码的维护或重构</p>
+</li>
+<li><p>空行也是程序代码的一部分</p>
+</li>
+</ol>
+<h2 id="同一行显示多条语句"><a href="#同一行显示多条语句" class="headerlink" title="同一行显示多条语句"></a><table><tr><td bgcolor="#C7C7C7">同一行显示多条语句</td></tr></table></h2><p>Python可以在同一行中使用多条语句，语句之间使用分号(;)分割</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">#!/usr/bin/python</span><br><span class="line"></span><br><span class="line">import sys; x = &apos;runoob&apos;; sys.stdout.write(x + &apos;\n&apos;)</span><br></pre></td></tr></table></figure>
+<h2 id="输出"><a href="#输出" class="headerlink" title="输出"></a><table><tr><td bgcolor="#C7C7C7">输出</td></tr></table></h2><ol>
+<li>屏幕输出<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">print (&quot;%s , %d&quot;%(str,intval))</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>print 默认输出是换行的，如果要实现不换行需要在变量末尾加上逗号 ,</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">#!/usr/bin/python</span><br><span class="line"># -*- coding: UTF-8 -*-</span><br><span class="line"></span><br><span class="line">x=&quot;a&quot;</span><br><span class="line">y=&quot;b&quot;</span><br><span class="line"># 换行输出</span><br><span class="line">print x</span><br><span class="line">print y</span><br><span class="line"></span><br><span class="line">print &apos;---------&apos;</span><br><span class="line"># 不换行输出</span><br><span class="line">print x,</span><br><span class="line">print y,</span><br><span class="line"></span><br><span class="line"># 不换行输出</span><br><span class="line">print x,y</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>文件输出<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">fo = open(&quot;text.txt&quot;,&quot;w&quot;)</span><br><span class="line">fo.write(&quot;%s , %d&quot;%(str,intval))</span><br><span class="line">fo.close()</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="MYSQL数据库连接"><a href="#MYSQL数据库连接" class="headerlink" title="MYSQL数据库连接"></a><table><tr><td bgcolor="#C7C7C7">MYSQL数据库连接</td></tr></table></h2><ol>
+<li>引入mysql模块</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">import MySQLdb</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>链接mysql数据库</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">posbill_read = MySQLdb.connect(host=&quot;&quot;,user = &quot;&quot;,passwd = &quot;&quot;,use_unicode=True,charset=&apos;utf8&apos;)</span><br><span class="line">cursor_read = posbill_read.cursor()</span><br><span class="line">cursor_read.close()</span><br><span class="line">posbill_read.close()</span><br></pre></td></tr></table></figure>
+<ol start="3">
+<li>事务的提交和回滚</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">posbill_read.commit()</span><br><span class="line">posbill_read.rollback()</span><br></pre></td></tr></table></figure>
+<ol start="4">
+<li>获取数据</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">results = cursor_read.execute(sql)</span><br><span class="line">for one in results:</span><br><span class="line">    data0 = one[0]</span><br><span class="line">    data1 = one[1]</span><br></pre></td></tr></table></figure>
+<h2 id="设置全局编码"><a href="#设置全局编码" class="headerlink" title="设置全局编码"></a><table><tr><td bgcolor="#C7C7C7">设置全局编码</td></tr></table></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">import sys</span><br><span class="line">reload(sys)</span><br><span class="line">sys.setdefaultencoding(&apos;utf8&apos;) # 设置默认编码格式为&apos;utf-8&apos;</span><br></pre></td></tr></table></figure>
+<h2 id="map的使用"><a href="#map的使用" class="headerlink" title="map的使用"></a><table><tr><td bgcolor="#C7C7C7">map的使用</td></tr></table></h2><ol>
+<li><p>定义</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">map_data = &#123;&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>赋值</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">if key not in map_data:</span><br><span class="line">      map_data[key] = value</span><br><span class="line">else:</span><br><span class="line">      map_data[key] = value2</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>遍历</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">for key in map_data.keys():</span><br><span class="line">    print key</span><br><span class="line">    print map_data[key]</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="读取配置文件"><a href="#读取配置文件" class="headerlink" title="读取配置文件"></a><table><tr><td bgcolor="#C7C7C7">读取配置文件</td></tr></table></h2><ol>
+<li><p>引用包</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">import ConfigParser</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>加载配置文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cf = ConfigParser.ConfigParser()</span><br><span class="line">cf.read(&quot;/home/data/config.properties&quot;)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>读取配置节点</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ip= cf.get(&quot;node1&quot;, &quot;IP&quot;)</span><br><span class="line">port = cf.get(&quot;node1&quot;, &quot;PORT&quot;)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>配置文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[node1]</span><br><span class="line">IP = 127.0.0.1</span><br><span class="line">PORT = 3306</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>demo</p>
+</li>
+</ol>
+<p>配置文件:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">[posbill_pos]</span><br><span class="line">IP = 127.0.0.1</span><br><span class="line">User = root</span><br><span class="line">Password = admin</span><br><span class="line">CharsetName = utf8</span><br><span class="line">ClientIP = 127.0.0.1</span><br><span class="line">Port = 3308</span><br><span class="line">Database = test</span><br></pre></td></tr></table></figure>
+<p>读取方法:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line">import ConfigParser</span><br><span class="line"></span><br><span class="line">config_path = &quot;/home/root/tools/config_tools.properties&quot;</span><br><span class="line"></span><br><span class="line">#map_key</span><br><span class="line">db_alias_IP = &quot;IP&quot;</span><br><span class="line">db_alias_Port = &quot;Port&quot;</span><br><span class="line">db_alias_User = &quot;User&quot;</span><br><span class="line">db_alias_Password = &quot;Password&quot;</span><br><span class="line">db_alias_CharsetName = &quot;CharsetName&quot;</span><br><span class="line"></span><br><span class="line">db_info = &#123;&#125;</span><br><span class="line"></span><br><span class="line">def close_db_conn(cursor_obj,posbill_obj):</span><br><span class="line">    cursor_obj.close()</span><br><span class="line">    posbill_obj.close()</span><br><span class="line"></span><br><span class="line">def get_config_info(file_path,db_alias):</span><br><span class="line">    cf = ConfigParser.ConfigParser()</span><br><span class="line">    cf.read(file_path)</span><br><span class="line">    #写入key和value</span><br><span class="line">    db_info[db_alias_IP] = cf.get(db_alias, db_alias_IP)</span><br><span class="line">    db_info[db_alias_Port] = cf.get(db_alias, db_alias_Port)</span><br><span class="line">    db_info[db_alias_User] = cf.get(db_alias, db_alias_User)</span><br><span class="line">    db_info[db_alias_Password] = cf.get(db_alias, db_alias_Password)</span><br><span class="line">    db_info[db_alias_CharsetName] = cf.get(db_alias, db_alias_CharsetName)</span><br><span class="line">    print &quot;########################################################&quot;</span><br><span class="line">    print &quot;配置文件数据&quot;</span><br><span class="line">    print (&quot;db_alias:%s&quot;%(db_alias))</span><br><span class="line">    print (&quot;db_info[db_alias_IP]:%s&quot;%(db_info[db_alias_IP]))</span><br><span class="line">    print (&quot;db_info[db_alias_Port]:%s&quot;%(db_info[db_alias_Port]))</span><br><span class="line">    print (&quot;db_info[db_alias_User]:%s&quot;%(db_info[db_alias_User]))</span><br><span class="line">    print (&quot;db_info[db_alias_Password]:%s&quot;%(db_info[db_alias_Password]))</span><br><span class="line">    print (&quot;db_info[db_alias_CharsetName]:%s&quot;%(db_info[db_alias_CharsetName]))</span><br><span class="line">    print &quot;########################################################&quot;</span><br><span class="line"></span><br><span class="line">if __name__ == &apos;__main__&apos;:</span><br><span class="line">    #读刷卡清分库</span><br><span class="line">    get_config_info(config_path,&quot;config.properties&quot;)</span><br><span class="line">    posbill_pos = MySQLdb.connect(host = db_info[db_alias_IP], port = int(db_info[db_alias_Port]), user = db_info[db_alias_User], passwd = db_info[db_alias_Password], use_unicode = True, charset = db_info[db_alias_CharsetName])</span><br><span class="line">    cursor_posbill_pos = posbill_pos.cursor()</span><br><span class="line">    close_db_conn(cursor_posbill_pos,posbill_pos)</span><br><span class="line">    close_db_conn(cursor_posbill_scan,posbill_scan)</span><br></pre></td></tr></table></figure></p>
+<h2 id="获取命令行参数"><a href="#获取命令行参数" class="headerlink" title="获取命令行参数"></a><table><tr><td bgcolor="#C7C7C7">获取命令行参数</td></tr></table></h2><h3 id="获取参数个数"><a href="#获取参数个数" class="headerlink" title="获取参数个数"></a><font color="#0000FF">获取参数个数</font></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">count = sys.argc</span><br></pre></td></tr></table></figure>
+<h3 id="获取某个参数"><a href="#获取某个参数" class="headerlink" title="获取某个参数"></a><font color="#0000FF">获取某个参数</font></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">param = sys.argv[1]</span><br></pre></td></tr></table></figure>
+<h2 id="IF语句"><a href="#IF语句" class="headerlink" title="IF语句"></a><table><tr><td bgcolor="#C7C7C7">IF语句</td></tr></table></h2><ol>
+<li>多条件判断<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">if key1 ==1 and key2 != 2:</span><br><span class="line">    print &quot;if 1&quot;</span><br><span class="line">elif key1 !=2 or key2 ==2 :</span><br><span class="line">    print &quot;if 2&quot;</span><br><span class="line">else:</span><br><span class="line">    print &quot;if 3&quot;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="while语句"><a href="#while语句" class="headerlink" title="while语句"></a><table><tr><td bgcolor="#C7C7C7">while语句</td></tr></table></h2><p>while语句分为2类：while和while  else 语句</p>
+<p>常用到的关键词有：<strong>continue</strong>、<strong>break</strong></p>
+<ol>
+<li>while语句</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">#!/usr/bin/python</span><br><span class="line"> </span><br><span class="line">count = 0</span><br><span class="line">while (count &lt; 9):</span><br><span class="line">   print &apos;The count is:&apos;, count</span><br><span class="line">   count = count + 1</span><br><span class="line"> </span><br><span class="line">print &quot;Good bye!&quot;</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>while else 语句</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">#!/usr/bin/python</span><br><span class="line"> </span><br><span class="line">count = 0</span><br><span class="line">while count &lt; 5:</span><br><span class="line">   print count, &quot; is  less than 5&quot;</span><br><span class="line">   count = count + 1</span><br><span class="line">else:</span><br><span class="line">   print count, &quot; is not less than 5&quot;</span><br></pre></td></tr></table></figure>
+<h2 id="常用运算"><a href="#常用运算" class="headerlink" title="常用运算"></a><table><tr><td bgcolor="#C7C7C7">常用运算</td></tr></table></h2><h3 id="布尔运算"><a href="#布尔运算" class="headerlink" title="布尔运算"></a><font color="#0000FF">布尔运算</font></h3><h3 id="字符串运算"><a href="#字符串运算" class="headerlink" title="字符串运算"></a><font color="#0000FF">字符串运算</font></h3><h3 id="关系运算"><a href="#关系运算" class="headerlink" title="关系运算"></a><font color="#0000FF">关系运算</font></h3><h3 id="算术运算"><a href="#算术运算" class="headerlink" title="算术运算"></a><font color="#0000FF">算术运算</font></h3><h2 id="网络编程"><a href="#网络编程" class="headerlink" title="网络编程"></a><table><tr><td bgcolor="#C7C7C7">网络编程</td></tr></table></h2><ol>
+<li><p>服务器端</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">#!/usr/bin/python </span><br><span class="line"># -*- coding: UTF-8 -*- </span><br><span class="line"># 文件名：server.py </span><br><span class="line">import socket # 导入 socket 模块 </span><br><span class="line">s = socket.socket() # 创建 socket 对象 </span><br><span class="line">host = socket.gethostname() # 获取本地主机名 </span><br><span class="line">port = 12345 # 设置端口 </span><br><span class="line">s.bind((host, port)) # 绑定端口 </span><br><span class="line">s.listen(5) # 等待客户端连接 </span><br><span class="line">while True: </span><br><span class="line">    c,addr = s.accept() # 建立客户端连接 </span><br><span class="line">    print &apos;连接地址：&apos;, addr </span><br><span class="line">    c.send(&apos;欢迎访问菜鸟教程！&apos;) </span><br><span class="line">    c.close() # 关闭连接</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>客户端</p>
+</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">#!/usr/bin/python </span><br><span class="line"># -*- coding: UTF-8 -*- # </span><br><span class="line">文件名：client.py </span><br><span class="line">import socket # 导入 socket 模块 </span><br><span class="line">s = socket.socket() # 创建 socket 对象 </span><br><span class="line">host = socket.gethostname() # 获取本地主机名 </span><br><span class="line">port = 12345 # 设置端口号 </span><br><span class="line">s.connect((host, port)) </span><br><span class="line">print s.recv(1024) </span><br><span class="line">s.close()</span><br></pre></td></tr></table></figure>
+<h2 id="多线程"><a href="#多线程" class="headerlink" title="多线程"></a><table><tr><td bgcolor="#C7C7C7">多线程</td></tr></table></h2><ol>
+<li><p>函数式：调用thread模块中的start_new_thread()函数来产生新线程。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">#!/usr/bin/python </span><br><span class="line"># -*- coding: UTF-8 -*- </span><br><span class="line">import thread </span><br><span class="line">import time </span><br><span class="line">#为线程定义一个函数 </span><br><span class="line">def print_time( threadName, delay):</span><br><span class="line">    count = 0 </span><br><span class="line">    while count &lt; 5: </span><br><span class="line">        time.sleep(delay) </span><br><span class="line">        count += 1 </span><br><span class="line">        print &quot;%s: %s&quot; % ( threadName, time.ctime(time.time()) ) </span><br><span class="line"># 创建两个线程 </span><br><span class="line">try: </span><br><span class="line">    thread.start_new_thread( print_time, (&quot;Thread-1&quot;, 2, ) ) </span><br><span class="line">    thread.start_new_thread( print_time, (&quot;Thread-2&quot;, 4, ) ) </span><br><span class="line">except: </span><br><span class="line">     print &quot;Error: unable to start thread&quot; </span><br><span class="line">while 1: pass</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>使用Threading模块创建线程<br>使用Threading模块创建线程，直接从threading.Thread继承，然后重写<strong>init</strong>方法和run方法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">#!/usr/bin/python </span><br><span class="line"># -*- coding: UTF-8 -*- </span><br><span class="line">import threading </span><br><span class="line">import time </span><br><span class="line">exitFlag = 0 </span><br><span class="line">class myThread (threading.Thread): #继承父类threading.Thread </span><br><span class="line">def __init__(self, threadID, name, counter): </span><br><span class="line">    threading.Thread.__init__(self) </span><br><span class="line">    self.threadID = threadID </span><br><span class="line">    self.name = name </span><br><span class="line">    self.counter = counter </span><br><span class="line">    def run(self): #把要执行的代码写到run函数里面 线程在创建后会直接运行run函数 </span><br><span class="line">    print &quot;Starting &quot; + self.name </span><br><span class="line">    print_time(self.name, self.counter, 5) </span><br><span class="line">    print &quot;Exiting &quot; + self.name </span><br><span class="line">    def print_time(threadName, delay, counter): </span><br><span class="line">        while counter: </span><br><span class="line">            if exitFlag: </span><br><span class="line">                (threading.Thread).exit() </span><br><span class="line">                time.sleep(delay) </span><br><span class="line">                print &quot;%s: %s&quot; % (threadName, time.ctime(time.time())) </span><br><span class="line">                counter -= 1      </span><br><span class="line"># 创建新线程 </span><br><span class="line">thread1 = myThread(1, &quot;Thread-1&quot;, 1) </span><br><span class="line">thread2 = myThread(2, &quot;Thread-2&quot;, 2) </span><br><span class="line"></span><br><span class="line"># 开启线程 </span><br><span class="line">thread1.start() </span><br><span class="line">thread2.start() </span><br><span class="line"></span><br><span class="line">print &quot;Exiting Main Thread&quot;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>线程同步</p>
+</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">#!/usr/bin/python </span><br><span class="line"># -*- coding: UTF-8 -*- </span><br><span class="line">import threading </span><br><span class="line">import time </span><br><span class="line">class myThread (threading.Thread): </span><br><span class="line">    def __init__(self, threadID, name, counter): </span><br><span class="line">      threading.Thread.__init__(self) </span><br><span class="line">      self.threadID = threadID </span><br><span class="line">      self.name = name </span><br><span class="line">      self.counter = counter </span><br><span class="line">      def run(self): </span><br><span class="line">          print &quot;Starting &quot; + self.name </span><br><span class="line">          # 获得锁，成功获得锁定后返回True </span><br><span class="line">          # 可选的timeout参数不填时将一直阻塞直到获得锁定 </span><br><span class="line">          # 否则超时后将返回False </span><br><span class="line">          hreadLock.acquire() </span><br><span class="line">          print_time(self.name, self.counter, 3) </span><br><span class="line">          # 释放锁 </span><br><span class="line">          threadLock.release() </span><br><span class="line">def print_time(threadName, delay, counter): </span><br><span class="line">    while counter: time.sleep(delay) </span><br><span class="line">    print &quot;%s: %s&quot; % (threadName, time.ctime(time.time())) </span><br><span class="line">    counter -= 1 </span><br><span class="line">    hreadLock = threading.Lock() </span><br><span class="line">    threads = [] </span><br><span class="line"># 创建新线程 </span><br><span class="line">thread1 = myThread(1, &quot;Thread-1&quot;, 1) </span><br><span class="line">thread2 = myThread(2, &quot;Thread-2&quot;, 2) </span><br><span class="line"></span><br><span class="line"># 开启新线程 </span><br><span class="line">thread1.start() </span><br><span class="line">thread2.start() </span><br><span class="line"># 添加线程到线程列表 </span><br><span class="line">threads.append(thread1) </span><br><span class="line">threads.append(thread2) </span><br><span class="line"># 等待所有线程完成 </span><br><span class="line">for t in threads: </span><br><span class="line">    t.join() </span><br><span class="line">    print &quot;Exiting Main Thread&quot;</span><br></pre></td></tr></table></figure>
+<ol start="4">
+<li>线程优先队列<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line">#!/usr/bin/python </span><br><span class="line"># -*- coding: UTF-8 -*- </span><br><span class="line">import Queue </span><br><span class="line">import threading </span><br><span class="line">import time </span><br><span class="line">exitFlag = 0 </span><br><span class="line">class myThread (threading.Thread): </span><br><span class="line">    def __init__(self, threadID, name, q): </span><br><span class="line">        threading.Thread.__init__(self) </span><br><span class="line">        self.threadID = threadID </span><br><span class="line">        self.name = name </span><br><span class="line">        self.q = q </span><br><span class="line">    def run(self): </span><br><span class="line">        print &quot;Starting &quot; + self.name </span><br><span class="line">        process_data(self.name, self.q) </span><br><span class="line">        print &quot;Exiting &quot; + self.name </span><br><span class="line">def process_data(threadName, q): </span><br><span class="line">    while not exitFlag: </span><br><span class="line">        queueLock.acquire() </span><br><span class="line">        if not workQueue.empty(): </span><br><span class="line">            data = q.get() </span><br><span class="line">            queueLock.release() </span><br><span class="line">            print &quot;%s processing %s&quot; % (threadName, data) </span><br><span class="line">        else: </span><br><span class="line">            queueLock.release() </span><br><span class="line">        time.sleep(1) </span><br><span class="line">threadList = [&quot;Thread-1&quot;, &quot;Thread-2&quot;, &quot;Thread-3&quot;] </span><br><span class="line">nameList = [&quot;One&quot;, &quot;Two&quot;, &quot;Three&quot;, &quot;Four&quot;, &quot;Five&quot;] </span><br><span class="line">queueLock = threading.Lock() </span><br><span class="line">workQueue = Queue.Queue(10) </span><br><span class="line">threads = [] </span><br><span class="line">threadID = 1 </span><br><span class="line"></span><br><span class="line"># 创建新线程 </span><br><span class="line">for tName in threadList: </span><br><span class="line">    thread = myThread(threadID, tName, workQueue) </span><br><span class="line">    thread.start() </span><br><span class="line">    threads.append(thread) </span><br><span class="line">    threadID += 1 </span><br><span class="line"></span><br><span class="line"># 填充队列 </span><br><span class="line">queueLock.acquire() </span><br><span class="line">for word in nameList: </span><br><span class="line">    workQueue.put(word) </span><br><span class="line">    queueLock.release() </span><br><span class="line"></span><br><span class="line"># 等待队列清空 </span><br><span class="line">while not workQueue.empty(): </span><br><span class="line">    pass </span><br><span class="line"></span><br><span class="line"># 通知线程是时候退出 </span><br><span class="line">exitFlag = 1 </span><br><span class="line"></span><br><span class="line"># 等待所有线程完成 </span><br><span class="line">for t in threads: </span><br><span class="line">    t.join() </span><br><span class="line">print &quot;Exiting Main Thread&quot;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="json"><a href="#json" class="headerlink" title="json"></a><table><tr><td bgcolor="#C7C7C7">json</td></tr></table></h2><ol>
+<li><p>json函数</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">import json</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">函数</span><br><span class="line">描述</span><br><span class="line">json.dumps</span><br><span class="line">将 Python 对象编码成 JSON 字符串</span><br><span class="line">json.loads</span><br><span class="line">将已编码的 JSON 字符串解码为 Python 对象</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>json.dumps</p>
+</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">#!/usr/bin/pythonimport json</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">data = [ &#123; &apos;a&apos; : 1, &apos;b&apos; : 2, &apos;c&apos; : 3, &apos;d&apos; : 4, &apos;e&apos; : 5 &#125; ]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">json = json.dumps(data)</span><br><span class="line"></span><br><span class="line">print json</span><br></pre></td></tr></table></figure>
+<ol start="3">
+<li>json.loads</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">#!/usr/bin/pythonimport json</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">jsonData = &#123;&quot;a&quot;:1,&quot;b&quot;:2,&quot;c&quot;:3,&quot;d&quot;:4,&quot;e&quot;:5&#125;;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">text = json.loads(jsonData)</span><br><span class="line"></span><br><span class="line">print text</span><br></pre></td></tr></table></figure>
+<h2 id="XML-解析"><a href="#XML-解析" class="headerlink" title="XML 解析"></a><table><tr><td bgcolor="#C7C7C7">XML 解析</td></tr></table></h2><p><strong>movies.xml</strong>:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">&lt;collection shelf=&quot;New Arrivals&quot;&gt;</span><br><span class="line">&lt;movie title=&quot;Enemy Behind&quot;&gt;</span><br><span class="line">   &lt;type&gt;War, Thriller&lt;/type&gt;</span><br><span class="line">   &lt;format&gt;DVD&lt;/format&gt;</span><br><span class="line">   &lt;year&gt;2003&lt;/year&gt;</span><br><span class="line">   &lt;rating&gt;PG&lt;/rating&gt;</span><br><span class="line">   &lt;stars&gt;10&lt;/stars&gt;</span><br><span class="line">   &lt;description&gt;Talk about a US-Japan war&lt;/description&gt;</span><br><span class="line">&lt;/movie&gt;</span><br><span class="line">&lt;movie title=&quot;Transformers&quot;&gt;</span><br><span class="line">   &lt;type&gt;Anime, Science Fiction&lt;/type&gt;</span><br><span class="line">   &lt;format&gt;DVD&lt;/format&gt;</span><br><span class="line">   &lt;year&gt;1989&lt;/year&gt;</span><br><span class="line">   &lt;rating&gt;R&lt;/rating&gt;</span><br><span class="line">   &lt;stars&gt;8&lt;/stars&gt;</span><br><span class="line">   &lt;description&gt;A schientific fiction&lt;/description&gt;</span><br><span class="line">&lt;/movie&gt;</span><br><span class="line">   &lt;movie title=&quot;Trigun&quot;&gt;</span><br><span class="line">   &lt;type&gt;Anime, Action&lt;/type&gt;</span><br><span class="line">   &lt;format&gt;DVD&lt;/format&gt;</span><br><span class="line">   &lt;episodes&gt;4&lt;/episodes&gt;</span><br><span class="line">   &lt;rating&gt;PG&lt;/rating&gt;</span><br><span class="line">   &lt;stars&gt;10&lt;/stars&gt;</span><br><span class="line">   &lt;description&gt;Vash the Stampede!&lt;/description&gt;</span><br><span class="line">&lt;/movie&gt;</span><br><span class="line">&lt;movie title=&quot;Ishtar&quot;&gt;</span><br><span class="line">   &lt;type&gt;Comedy&lt;/type&gt;</span><br><span class="line">   &lt;format&gt;VHS&lt;/format&gt;</span><br><span class="line">   &lt;rating&gt;PG&lt;/rating&gt;</span><br><span class="line">   &lt;stars&gt;2&lt;/stars&gt;</span><br><span class="line">   &lt;description&gt;Viewable boredom&lt;/description&gt;</span><br><span class="line">&lt;/movie&gt;</span><br><span class="line">&lt;/collection&gt;</span><br></pre></td></tr></table></figure></p>
+<h3 id="使用sax解析"><a href="#使用sax解析" class="headerlink" title="使用sax解析"></a><font color="#0000FF">使用sax解析</font></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br></pre></td><td class="code"><pre><span class="line">#!/usr/bin/python</span><br><span class="line"># -*- coding: UTF-8 -*-</span><br><span class="line"> </span><br><span class="line">import xml.sax</span><br><span class="line"> </span><br><span class="line">class MovieHandler( xml.sax.ContentHandler ):</span><br><span class="line">   def __init__(self):</span><br><span class="line">      self.CurrentData = &quot;&quot;</span><br><span class="line">      self.type = &quot;&quot;</span><br><span class="line">      self.format = &quot;&quot;</span><br><span class="line">      self.year = &quot;&quot;</span><br><span class="line">      self.rating = &quot;&quot;</span><br><span class="line">      self.stars = &quot;&quot;</span><br><span class="line">      self.description = &quot;&quot;</span><br><span class="line"> </span><br><span class="line">   # 元素开始事件处理</span><br><span class="line">   def startElement(self, tag, attributes):</span><br><span class="line">      self.CurrentData = tag</span><br><span class="line">      if tag == &quot;movie&quot;:</span><br><span class="line">         print &quot;*****Movie*****&quot;</span><br><span class="line">         title = attributes[&quot;title&quot;]</span><br><span class="line">         print &quot;Title:&quot;, title</span><br><span class="line"> </span><br><span class="line">   # 元素结束事件处理</span><br><span class="line">   def endElement(self, tag):</span><br><span class="line">      if self.CurrentData == &quot;type&quot;:</span><br><span class="line">         print &quot;Type:&quot;, self.type</span><br><span class="line">      elif self.CurrentData == &quot;format&quot;:</span><br><span class="line">         print &quot;Format:&quot;, self.format</span><br><span class="line">      elif self.CurrentData == &quot;year&quot;:</span><br><span class="line">         print &quot;Year:&quot;, self.year</span><br><span class="line">      elif self.CurrentData == &quot;rating&quot;:</span><br><span class="line">         print &quot;Rating:&quot;, self.rating</span><br><span class="line">      elif self.CurrentData == &quot;stars&quot;:</span><br><span class="line">         print &quot;Stars:&quot;, self.stars</span><br><span class="line">      elif self.CurrentData == &quot;description&quot;:</span><br><span class="line">         print &quot;Description:&quot;, self.description</span><br><span class="line">      self.CurrentData = &quot;&quot;</span><br><span class="line"> </span><br><span class="line">   # 内容事件处理</span><br><span class="line">   def characters(self, content):</span><br><span class="line">      if self.CurrentData == &quot;type&quot;:</span><br><span class="line">         self.type = content</span><br><span class="line">      elif self.CurrentData == &quot;format&quot;:</span><br><span class="line">         self.format = content</span><br><span class="line">      elif self.CurrentData == &quot;year&quot;:</span><br><span class="line">         self.year = content</span><br><span class="line">      elif self.CurrentData == &quot;rating&quot;:</span><br><span class="line">         self.rating = content</span><br><span class="line">      elif self.CurrentData == &quot;stars&quot;:</span><br><span class="line">         self.stars = content</span><br><span class="line">      elif self.CurrentData == &quot;description&quot;:</span><br><span class="line">         self.description = content</span><br><span class="line">  </span><br><span class="line">if ( __name__ == &quot;__main__&quot;):</span><br><span class="line">   </span><br><span class="line">   # 创建一个 XMLReader</span><br><span class="line">   parser = xml.sax.make_parser()</span><br><span class="line">   # turn off namepsaces</span><br><span class="line">   parser.setFeature(xml.sax.handler.feature_namespaces, 0)</span><br><span class="line"> </span><br><span class="line">   # 重写 ContextHandler</span><br><span class="line">   Handler = MovieHandler()</span><br><span class="line">   parser.setContentHandler( Handler )</span><br><span class="line">   </span><br><span class="line">   parser.parse(&quot;movies.xml&quot;)</span><br></pre></td></tr></table></figure>
+<h3 id="使用xml-dom"><a href="#使用xml-dom" class="headerlink" title="使用xml.dom"></a><font color="#0000FF">使用xml.dom</font></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">#!/usr/bin/python</span><br><span class="line"># -*- coding: UTF-8 -*-</span><br><span class="line"> </span><br><span class="line">from xml.dom.minidom import parse</span><br><span class="line">import xml.dom.minidom</span><br><span class="line"> </span><br><span class="line"># 使用minidom解析器打开 XML 文档</span><br><span class="line">DOMTree = xml.dom.minidom.parse(&quot;movies.xml&quot;)</span><br><span class="line">collection = DOMTree.documentElement</span><br><span class="line">if collection.hasAttribute(&quot;shelf&quot;):</span><br><span class="line">   print &quot;Root element : %s&quot; % collection.getAttribute(&quot;shelf&quot;)</span><br><span class="line"> </span><br><span class="line"># 在集合中获取所有电影</span><br><span class="line">movies = collection.getElementsByTagName(&quot;movie&quot;)</span><br><span class="line"> </span><br><span class="line"># 打印每部电影的详细信息</span><br><span class="line">for movie in movies:</span><br><span class="line">   print &quot;*****Movie*****&quot;</span><br><span class="line">   if movie.hasAttribute(&quot;title&quot;):</span><br><span class="line">      print &quot;Title: %s&quot; % movie.getAttribute(&quot;title&quot;)</span><br><span class="line"> </span><br><span class="line">   type = movie.getElementsByTagName(&apos;type&apos;)[0]</span><br><span class="line">   print &quot;Type: %s&quot; % type.childNodes[0].data</span><br><span class="line">   format = movie.getElementsByTagName(&apos;format&apos;)[0]</span><br><span class="line">   print &quot;Format: %s&quot; % format.childNodes[0].data</span><br><span class="line">   rating = movie.getElementsByTagName(&apos;rating&apos;)[0]</span><br><span class="line">   print &quot;Rating: %s&quot; % rating.childNodes[0].data</span><br><span class="line">   description = movie.getElementsByTagName(&apos;description&apos;)[0]</span><br><span class="line">   print &quot;Description: %s&quot; % description.childNodes[0].data</span><br></pre></td></tr></table></figure>
+<h2 id="操作excel"><a href="#操作excel" class="headerlink" title="操作excel"></a><table><tr><td bgcolor="#C7C7C7">操作excel</td></tr></table></h2><ol>
+<li>安装和引入openpyxl模块</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pip install openpyxl</span><br><span class="line">import openpyxl</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>加载excel</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">path = &apos;/home/lucas/test/python_excel/test.xlsx&apos;</span><br><span class="line"># 加载工作本</span><br><span class="line">workbook = openpyxl.load_workbook(path)</span><br></pre></td></tr></table></figure>
+<ol start="3">
+<li>获取工作表</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sheet = workbook[&apos;Sheet1&apos;]</span><br></pre></td></tr></table></figure>
+<ol start="4">
+<li>获取单元格的值</li>
+</ol>
+<ul>
+<li>根据row和col的索引来遍历</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">data=&#123;&#125;</span><br><span class="line">for x in range(1,8):</span><br><span class="line">	for y in range(1,3):</span><br><span class="line">		cell = sheet.cell(row=x, column=y)</span><br><span class="line">		if y != 1:</span><br><span class="line">			data[x] = cell.value</span><br></pre></td></tr></table></figure>
+<ul>
+<li>根据起始单元格遍历</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">cells = sheet[&apos;A1&apos;:&apos;C1&apos;]</span><br><span class="line">for row in cells:</span><br><span class="line">    for col in row:</span><br><span class="line">    	# 获取属性值</span><br><span class="line">        print(col.value)</span><br></pre></td></tr></table></figure>
+<ol start="5">
+<li>写入和保存excel</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"># -*- coding: utf-8 -*-</span><br><span class="line">import openpyxl</span><br><span class="line"></span><br><span class="line">path = &apos;/home/lucas/test/python_excel/test.xlsx&apos;</span><br><span class="line">wb = openpyxl.Workbook()</span><br><span class="line"># 创建一个 sheet</span><br><span class="line">sheet = wb.create_sheet(&apos;sheet1&apos;)</span><br><span class="line"># 写入文本形式</span><br><span class="line">sheet[&apos;A1&apos;] = &apos;12345&apos;</span><br><span class="line">wb.save(path)</span><br></pre></td></tr></table></figure>
+<ol start="6">
+<li>lxml版本升级</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install lxml --upgrade</span><br></pre></td></tr></table></figure>
+<h2 id="操作csv"><a href="#操作csv" class="headerlink" title="操作csv"></a><table><tr><td bgcolor="#C7C7C7">操作csv</td></tr></table></h2><ol>
+<li>引入csv模块</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">import csv</span><br></pre></td></tr></table></figure>
+<h2 id="异常处理"><a href="#异常处理" class="headerlink" title="异常处理"></a><font color="#0000FF">异常处理</font></h2><p>python提供了两个非常重要的功能来处理python程序在运行中出现的异常和错误:</p>
+<ul>
+<li><p>异常处理</p>
+</li>
+<li><p>断言(Assertions)</p>
+</li>
+</ul>
+<h3 id="捕获标准异常"><a href="#捕获标准异常" class="headerlink" title="捕获标准异常"></a><font color="#0000FF">捕获标准异常</font></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">#!/usr/bin/python</span><br><span class="line"># -*- coding: UTF-8 -*-</span><br><span class="line"></span><br><span class="line">try:</span><br><span class="line">    fh = open(&quot;testfile&quot;, &quot;w&quot;)</span><br><span class="line">    fh.write(&quot;这是一个测试文件，用于测试异常!!&quot;)</span><br><span class="line">except IOError:</span><br><span class="line">    print &quot;Error: 没有找到文件或读取文件失败&quot;</span><br><span class="line">else:</span><br><span class="line">    print &quot;内容写入文件成功&quot;</span><br><span class="line">    fh.close()</span><br></pre></td></tr></table></figure>
+<h3 id="自定义异常"><a href="#自定义异常" class="headerlink" title="自定义异常"></a><font color="#0000FF">自定义异常</font></h3><p>定义：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">class Networkerror(RuntimeError):</span><br><span class="line">    def __init__(self, arg):</span><br><span class="line">        self.args = arg</span><br></pre></td></tr></table></figure>
+<p>捕获：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">try:</span><br><span class="line">    raise Networkerror(&quot;Bad hostname&quot;)</span><br><span class="line">except Networkerror,e:</span><br><span class="line">    print e.args</span><br></pre></td></tr></table></figure>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a><font color="#0000FF">总结</font></h2><p>无</p>
+
+    </div>
+    
+    <div class="post-footer">
+        <div>
+            
+        </div>
+        <div>
+            
+        </div>
+    </div>
+</article>
+
+<div class="article-nav prev-next-wrap clearfix">
+    
+        <a href="/2020/01/27/编程语言之go/" class="pre-post btn btn-default" title="编程语言之go">
+            <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
+            <span class="hidden-xs">编程语言之go</span>
+        </a>
+    
+    
+        <a href="/2020/01/27/数据库之SQL优化/" class="next-post btn btn-default" title="【专项】 数据库之SQL优化">
+            <span class="hidden-lg">下一篇</span>
+            <span class="hidden-xs">【专项】 数据库之SQL优化</span><i class="fa fa-angle-right fa-fw"></i>
+        </a>
+    
+</div>
+
+
+    <div id="comments">
+        
+    
+    <div id="vcomments" class="valine"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="/assets/valine.min.js"></script>
+
+    <script>
+        new Valine({
+            av: AV,
+            el: '#vcomments',
+            appId: 'XWA5gq7VCJybw7YQhf5HG20r-gzGzoHsz',
+            appKey: '8FW1WEwrysHXaUD1bhGn2Rp8',
+            placeholder: '说点什么吧',
+            notify: true,
+            verify: false,
+            avatar: 'https://blog.xtcgch.ink/img/comment-avatar.jpg',
+            meta: 'nick,mail'.split(','),
+            pageSize: '10',
+            path: window.location.pathname,
+            lang: 'zh-CN'.toLowerCase()
+        })
+    </script>
+
+
+    </div>
+
+
+
+
+
+                </main>
+                
+                    <aside id="article-toc" role="navigation" class="col-md-4">
+    <div class="widget">
+        <h3 class="title">文章目录</h3>
+        
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#脑图"><span class="toc-text">脑图</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#定义引用的python处理器"><span class="toc-text">定义引用的python处理器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Python2-x-与-3​​-x-版本区别"><span class="toc-text">Python2.x 与 3​​.x 版本区别</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#引用包和模块"><span class="toc-text">引用包和模块</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#行和缩进"><span class="toc-text">行和缩进</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#函数"><span class="toc-text">函数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#不定长参数"><span class="toc-text">不定长参数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#匿名函数"><span class="toc-text">匿名函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#return语句"><span class="toc-text">return语句</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Python-标识符"><span class="toc-text">Python 标识符</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#多行语句"><span class="toc-text">多行语句</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Python-引号"><span class="toc-text">Python 引号</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Python注释"><span class="toc-text">Python注释</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#空行"><span class="toc-text">空行</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#同一行显示多条语句"><span class="toc-text">同一行显示多条语句</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#输出"><span class="toc-text">输出</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#MYSQL数据库连接"><span class="toc-text">MYSQL数据库连接</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#设置全局编码"><span class="toc-text">设置全局编码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#map的使用"><span class="toc-text">map的使用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#读取配置文件"><span class="toc-text">读取配置文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#获取命令行参数"><span class="toc-text">获取命令行参数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#获取参数个数"><span class="toc-text">获取参数个数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#获取某个参数"><span class="toc-text">获取某个参数</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#IF语句"><span class="toc-text">IF语句</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#while语句"><span class="toc-text">while语句</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#常用运算"><span class="toc-text">常用运算</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#布尔运算"><span class="toc-text">布尔运算</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#字符串运算"><span class="toc-text">字符串运算</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#关系运算"><span class="toc-text">关系运算</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#算术运算"><span class="toc-text">算术运算</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#网络编程"><span class="toc-text">网络编程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#多线程"><span class="toc-text">多线程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#json"><span class="toc-text">json</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#XML-解析"><span class="toc-text">XML 解析</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#使用sax解析"><span class="toc-text">使用sax解析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#使用xml-dom"><span class="toc-text">使用xml.dom</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#操作excel"><span class="toc-text">操作excel</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#操作csv"><span class="toc-text">操作csv</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#异常处理"><span class="toc-text">异常处理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#捕获标准异常"><span class="toc-text">捕获标准异常</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#自定义异常"><span class="toc-text">自定义异常</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#总结"><span class="toc-text">总结</span></a></li></ol>
+        
+    </div>
+</aside>
+
+                
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</footer>
+
+<a id="back-to-top" class="icon-btn hide">
+	<i class="fa fa-chevron-up"></i>
+</a>
+
+
+
+
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="busuanzi">
+    
+</div>
+
+            </div>
+            <div class="col-sm-12">
+                <span>Copyright &copy; 2018
+                </span> |
+                <span>
+                    Powered by <a href="//hexo.io" class="copyright-links" target="_blank" rel="nofollow">Hexo</a>
+                </span> |
+                <span>
+                    Theme by <a href="//github.com/shenliyang/hexo-theme-snippet.git" class="copyright-links" target="_blank" rel="nofollow">Snippet</a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+<script src="/js/app.js?rev=@@hash"></script>
+
+</body>
+</html>
