@@ -198,10 +198,10 @@
 <h1 id="poco"><a href="#poco" class="headerlink" title="poco"></a><table><tr><td bgcolor="#C7C7C7">poco</td></tr></table></h1><h2 id="下载和安装"><a href="#下载和安装" class="headerlink" title="下载和安装"></a><font color="#0000FF">下载和安装</font></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/pocoproject/poco.git</span><br><span class="line">cd poco</span><br><span class="line">cmake .</span><br><span class="line">sudo make </span><br><span class="line">sudo make install</span><br></pre></td></tr></table></figure>
 <p>安装成功后</p>
 <ul>
-<li>include路径：</li>
-<li>lib路径：</li>
+<li>include路径：<code>/usr/local/include/Poco</code></li>
+<li>lib路径：<code>/usr/local/lib/libPoco*.so</code></li>
 </ul>
-<h2 id="配置动态库"><a href="#配置动态库" class="headerlink" title="配置动态库"></a><font color="#0000FF">配置动态库</font></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo vim /etc/ld.so.conf</span><br><span class="line">/usr/local/lib #加入改行</span><br></pre></td></tr></table></figure>
+<h2 id="配置动态库"><a href="#配置动态库" class="headerlink" title="配置动态库"></a><font color="#0000FF">配置动态库</font></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo vim /etc/ld.so.conf</span><br><span class="line">/usr/local/lib #加入该行</span><br></pre></td></tr></table></figure>
 <p>退出，保存文件，刷新缓存<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo /sbin/ldconfig -v</span><br></pre></td></tr></table></figure></p>
 <h2 id="数据库读写用到的头文件"><a href="#数据库读写用到的头文件" class="headerlink" title="数据库读写用到的头文件"></a><font color="#0000FF">数据库读写用到的头文件</font></h2><ul>
 <li>Poco/Data/Session.h</li>
@@ -227,6 +227,11 @@
 </article>
 
 <div class="article-nav prev-next-wrap clearfix">
+    
+        <a href="/2021/10/11/数据库之日志/" class="pre-post btn btn-default" title="【专项】 数据库之日志">
+            <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
+            <span class="hidden-xs">【专项】 数据库之日志</span>
+        </a>
     
     
         <a href="/2021/10/10/编程语言之C++17特性/" class="next-post btn btn-default" title="编程语言之C++17特性">

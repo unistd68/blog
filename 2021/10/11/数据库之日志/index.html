@@ -29,7 +29,7 @@
     <!--Title-->
 
 
-<title>可变参数 | 我的博客 - blog</title>
+<title>【专项】 数据库之日志 | 我的博客 - blog</title>
 
 
     <link rel="alternate" href="/atom.xml" title="我的博客 - blog" type="application/atom+xml">
@@ -136,9 +136,9 @@
                     <p id="process"></p>
 <article class="post">
     <div class="post-head">
-        <h1 id="可变参数">
+        <h1 id="【专项】 数据库之日志">
             
-	            可变参数
+	            【专项】 数据库之日志
             
         </h1>
         <div class="post-meta">
@@ -146,8 +146,8 @@
     
     <span class="categories-meta fa-wrap">
         <i class="fa fa-folder-open-o"></i>
-        <a href="https://blog.xtcgch.ink/categories/原理">
-            原理
+        <a href="https://blog.xtcgch.ink/categories/专项">
+            专项
         </a>
     </span>
     
@@ -158,8 +158,8 @@
         <span class="tags-meta">
             
                 
-                    <a href="https://blog.xtcgch.ink/tags/C++" title="C++">
-                        C++
+                    <a href="https://blog.xtcgch.ink/tags/数据库" title="数据库">
+                        数据库
                     </a>
                 
             
@@ -171,7 +171,7 @@
         
         <span class="fa-wrap">
             <i class="fa fa-clock-o"></i>
-            <span class="date-meta">2021/08/06</span>
+            <span class="date-meta">2021/10/11</span>
         </span>
         
     
@@ -182,15 +182,12 @@
     </div>
     
     <div class="post-body post-content">
-        <p><strong>摘要：</strong>这是摘要！</p>
+        <p><strong>摘要：</strong>本文主要介绍mysql的日志系统。</p>
 <a id="more"></a>
 <hr>
-<h1 id="1-可变参数宏"><a href="#1-可变参数宏" class="headerlink" title="1. 可变参数宏"></a><table><tr><td bgcolor="#C7C7C7">1. 可变参数宏</td></tr></table></h1><p>实现步骤如下：<br>　　　　１. 函数原型中使用省略号；<br>　　　　２. 函数定义中创建一个va_list变量；<br>　　　　 3. 初始化va_list变量；<br>　　　　 4. 访问参数列表；<br>　　　　 5. 完成清理工作；</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">/* --sum.cpp-- 可变参数宏实现求任意个整形值得和 */</span><br><span class="line">#include &lt;stdarg.h&gt;</span><br><span class="line"></span><br><span class="line">int sum(int count, ...);    　　//原型中使用省略号</span><br><span class="line"></span><br><span class="line">int sum(int count, ...)&#123;    　　//count 表示可变参数个数</span><br><span class="line">    va_list ap;　　　　　　　　　　//声明一个va_list变量</span><br><span class="line">    va_start(ap, count);　　 　　//初始化，第二个参数为最后一个确定的形参</span><br><span class="line"></span><br><span class="line">    int sum = 0;  </span><br><span class="line">    for(int i = 0; i &lt; count; i++)          </span><br><span class="line">        sum += va_arg(ap, int); //读取可变参数，的二个参数为可变参数的类型</span><br><span class="line"></span><br><span class="line">    va_end(ap);          　　　　//清理工作 </span><br><span class="line">    return sum;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h1 id="2-initializer-list标准库类型"><a href="#2-initializer-list标准库类型" class="headerlink" title="2. initializer_list标准库类型"></a><table><tr><td bgcolor="#C7C7C7">2. initializer_list标准库类型</td></tr></table></h1><p>实现步骤如下：<br>　　　　１. 函数原型中使用实例化initializer_list模板代表可变参数列表；<br>　　　　２. 使用迭代器访问initializer_list中的参数；<br>　　　　 3. 传入实参写在{}之内。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">/* --sum.cpp-- 利用initializer_list模板实现求人一个整形值得和 */</span><br><span class="line">#include &lt;initializer_list&gt;</span><br><span class="line"></span><br><span class="line">int sum(initializer_list&lt;int&gt; il);  //函数原型用int实例化initializer_list作为形参</span><br><span class="line"></span><br><span class="line">int sum(inttializer_list&lt;int&gt; il)&#123;</span><br><span class="line">    int sum = 0;</span><br><span class="line">    for(auto p = il.begin(); p != il.end(); p++)   //使用迭代器访问参数</span><br><span class="line">        sum += *p;</span><br><span class="line">    return sum;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">sum(&#123;1,2,3&#125;)</span><br><span class="line">sum(&#123;2,5,7,8,9,10&#125;)</span><br></pre></td></tr></table></figure>
-<h1 id="3-可变参数模板"><a href="#3-可变参数模板" class="headerlink" title="3. 可变参数模板"></a><table><tr><td bgcolor="#C7C7C7">3. 可变参数模板</td></tr></table></h1><p>步骤如下：<br>　　１. 编写含有模板参数包和函数参数包的模板函数；<br>　　 2. 函数定义递归调用自己，每一步递归参数包中参数减一；<br>　　 3. 编写处理边界情况（参数包含有零个参数）的模板。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">int sum()</span><br><span class="line">&#123;</span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//展开函数</span><br><span class="line">template &lt;class T, class ...Args&gt;</span><br><span class="line">T sum(T head, Args... rest)</span><br><span class="line">&#123;</span><br><span class="line">   return head + sum(rest...);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">sum(1,2,3,4); // head依次是1，2，3，4</span><br></pre></td></tr></table></figure>
+<h1 id="脑图"><a href="#脑图" class="headerlink" title="脑图"></a>脑图</h1><p><img src="脑图.png" alt></p>
+<hr>
+<h1 id="MySQL日志"><a href="#MySQL日志" class="headerlink" title="MySQL日志"></a><table><tr><td bgcolor="#C7C7C7">MySQL日志</td></tr></table></h1><h2 id="扩展点一"><a href="#扩展点一" class="headerlink" title="扩展点一"></a><font color="#0000FF">扩展点一</font></h2><h2 id="扩展点二"><a href="#扩展点二" class="headerlink" title="扩展点二"></a><font color="#0000FF">扩展点二</font></h2>
     </div>
     
     <div class="post-footer">
@@ -205,15 +202,15 @@
 
 <div class="article-nav prev-next-wrap clearfix">
     
-        <a href="/2021/08/14/守护进程/" class="pre-post btn btn-default" title="守护进程">
+        <a href="/2021/10/11/Linux之CentOS7环境检测/" class="pre-post btn btn-default" title="Linux之CentOS7环境检测">
             <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
-            <span class="hidden-xs">守护进程</span>
+            <span class="hidden-xs">Linux之CentOS7环境检测</span>
         </a>
     
     
-        <a href="/2021/08/05/windows之bat使用/" class="next-post btn btn-default" title="windows之bat使用">
+        <a href="/2021/10/10/开源之poco/" class="next-post btn btn-default" title="开源之poco">
             <span class="hidden-lg">下一篇</span>
-            <span class="hidden-xs">windows之bat使用</span><i class="fa fa-angle-right fa-fw"></i>
+            <span class="hidden-xs">开源之poco</span><i class="fa fa-angle-right fa-fw"></i>
         </a>
     
 </div>
@@ -256,7 +253,7 @@
     <div class="widget">
         <h3 class="title">文章目录</h3>
         
-            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-可变参数宏"><span class="toc-text">1. 可变参数宏</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-initializer-list标准库类型"><span class="toc-text">2. initializer_list标准库类型</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-可变参数模板"><span class="toc-text">3. 可变参数模板</span></a></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#脑图"><span class="toc-text">脑图</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#MySQL日志"><span class="toc-text">MySQL日志</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#扩展点一"><span class="toc-text">扩展点一</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#扩展点二"><span class="toc-text">扩展点二</span></a></li></ol></li></ol>
         
     </div>
 </aside>
