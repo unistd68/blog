@@ -1,0 +1,365 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="我的博客 - blog">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="browsermode" content="application">
+    <meta name="screen-orientation" content="portrait">
+    <link rel="dns-prefetch" href="https://lives.xtcgch.ink">
+    <!--SEO-->
+
+<meta name="description" content="脑容量不够，笔记来凑">
+
+
+
+
+
+<meta name="robots" content="all">
+<meta name="google" content="all">
+<meta name="googlebot" content="all">
+<meta name="verify" content="all">
+    <!--Title-->
+
+
+<title>【专项】 数据库之MySQL缓存 | 我的博客 - blog</title>
+
+
+    <link rel="alternate" href="/atom.xml" title="我的博客 - blog" type="application/atom+xml">
+
+
+    <link rel="icon" href="https://blog.xtcgch.ink/img/background/海绵宝宝.ico">
+
+    
+
+
+
+<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7">
+<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.5.0">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash">
+
+
+
+
+    
+
+
+
+
+
+    
+
+</head>
+
+</html>
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+
+<body>
+    <header class="main-header" style="background-image:url(https://blog.xtcgch.ink/img/head-bg.jpg)">
+    <div class="main-header-box">
+        <a class="header-avatar" href="/" title="unistd68">
+            <img src="/img/background/海绵宝宝.jpg" alt="logo头像" class="img-responsive center-block">
+        </a>
+        <div class="branding">
+        	<!--<h2 class="text-hide">Snippet主题,从未如此简单有趣</h2>-->
+            
+                <h2> 脑容量不够，笔记来凑 </h2>
+            
+    	</div>
+    </div>
+</header>
+    <nav class="main-navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header"><span class="nav-toggle-button collapsed pull-right" data-toggle="collapse" data-target="#main-menu" id="mnav">
+                    <span class="sr-only"></span>
+                        <i class="fa fa-bars"></i>
+                    </span>
+                    <a class="navbar-brand" href="https://lives.xtcgch.ink">我的博客 - blog</a>
+                </div>
+                <div class="collapse navbar-collapse" id="main-menu">
+                    <ul class="menu">
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="https://blog.xtcgch.ink/"><i class="fa "></i>主页</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="https://blog.xtcgch.ink/categories/原理/"><i class="fa "></i>原理</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="https://blog.xtcgch.ink/categories/代码/"><i class="fa "></i>代码</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="https://blog.xtcgch.ink/categories/开源/"><i class="fa "></i>开源</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="https://blog.xtcgch.ink/categories/面试/"><i class="fa "></i>面试</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="https://blog.xtcgch.ink/categories/其他/"><i class="fa "></i>其他</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="https://blog.xtcgch.ink/archives/"><i class="fa "></i>时间轴</a>
+                            </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+    <section class="content-wrap">
+        <div class="container">
+            <div class="row">
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="【专项】 数据库之MySQL缓存">
+            
+	            【专项】 数据库之MySQL缓存
+            
+        </h1>
+        <div class="post-meta">
+    
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <a href="https://blog.xtcgch.ink/categories/专项">
+            专项
+        </a>
+    </span>
+    
+
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+                
+                    <a href="https://blog.xtcgch.ink/tags/数据库" title="数据库">
+                        数据库
+                    </a>
+                
+                    <a href="https://blog.xtcgch.ink/tags/MySQL" title="MySQL">
+                        MySQL
+                    </a>
+                
+                    <a href="https://blog.xtcgch.ink/tags/缓存" title="缓存">
+                        缓存
+                    </a>
+                
+            
+        </span>
+    </span>
+    
+
+    
+        
+        <span class="fa-wrap">
+            <i class="fa fa-clock-o"></i>
+            <span class="date-meta">2021/10/11</span>
+        </span>
+        
+    
+</div>
+
+            
+            
+    </div>
+    
+    <div class="post-body post-content">
+        <p><strong>摘要：</strong>这是摘要！</p>
+<a id="more"></a>
+<hr>
+<h1 id="脑图"><a href="#脑图" class="headerlink" title="脑图"></a>脑图</h1><p><img src="脑图.png" alt></p>
+<hr>
+<p>其他模板的标题</p>
+<h1 id="MySQL查询缓存"><a href="#MySQL查询缓存" class="headerlink" title="MySQL查询缓存"></a><table><tr><td bgcolor="#C7C7C7">MySQL查询缓存</td></tr></table></h1><h1 id="MySQL缓存规则"><a href="#MySQL缓存规则" class="headerlink" title="MySQL缓存规则"></a><table><tr><td bgcolor="#C7C7C7">MySQL缓存规则</td></tr></table></h1><h2 id="缓存机制"><a href="#缓存机制" class="headerlink" title="缓存机制"></a><font color="#0000FF">缓存机制</font></h2><ol>
+<li>开启了缓存，MySQL Server会自动将查询语句和结果集返回到内存，下次再查直接从内存中取</li>
+<li>缓存的结果是通过sessions共享的，所以一个client查询的缓存结果，另一个client也可以使用</li>
+<li>MySQL Query Cache内容为 select 的结果集, cache 使用完整的SQL字符串做 key, 并区分大小写，空格等。即两个SQL必须完全一致才会导致cache命中。即检查查询缓存时，MySQL Server不会对SQL做任何处理，它精确的使用客户端传来的查询，只要字符大小写或注释有点不同，查询缓存就认为是不同的查询</li>
+<li>prepared statement永远不会cache到结果，即使参数完全一样。在 5.1 之后会得到改善</li>
+<li>where条件中如包含任何一个不确定的函数将永远不会被cache, 比如current_date, now等</li>
+<li>date 之类的函数如果返回是以小时或天级别的，最好先算出来再传进去</li>
+<li>太大的result set不会被cache (&lt; query_cache_limit)</li>
+<li>MySQL缓存在分库分表环境下是不起作用的</li>
+<li>执行SQL里有触发器,自定义函数时，MySQL缓存也是不起作用的</li>
+</ol>
+<h2 id="缓存失效"><a href="#缓存失效" class="headerlink" title="缓存失效"></a><font color="#0000FF">缓存失效</font></h2><ol>
+<li>在表的结构或数据发生改变时，查询缓存中的数据不再有效。如INSERT、UPDATE、 DELETE、TRUNCATE、ALTER TABLE、DROP TABLE或DROP DATABASE会导致缓存数据失效。所以查询缓存适合有大量相同查询的应用，不适合有大量数据更新的应用</li>
+<li>一旦表数据进行任何一行的修改，基于该表相关cache立即全部失效</li>
+</ol>
+<h2 id="缓存机制中的内存管理"><a href="#缓存机制中的内存管理" class="headerlink" title="缓存机制中的内存管理"></a><font color="#0000FF">缓存机制中的内存管理</font></h2><h1 id="如何配置和缓存MySQL缓存"><a href="#如何配置和缓存MySQL缓存" class="headerlink" title=" 如何配置和缓存MySQL缓存 "></a><table><tr><td bgcolor="#C7C7C7"> 如何配置和缓存MySQL缓存 </td></tr></table></h1><p><strong> 开启缓存 </strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; set global query_cache_size = 600000; --设置缓存内存大小</span><br><span class="line">mysql&gt; set global query_cache_type = ON;     --开启查询缓存</span><br></pre></td></tr></table></figure>
+<p><strong> 关闭缓存 </strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; set global query_cache_size = 0; --设置缓存内存大小为0， 即初始化是不分配缓存内存</span><br><span class="line">mysql&gt; set global query_cache_type = OFF;     --关闭查询缓存</span><br></pre></td></tr></table></figure>
+<h1 id="MySQL缓存的优缺点"><a href="#MySQL缓存的优缺点" class="headerlink" title=" MySQL缓存的优缺点 "></a><table><tr><td bgcolor="#C7C7C7"> MySQL缓存的优缺点 </td></tr></table></h1><h2 id="优点"><a href="#优点" class="headerlink" title="优点"></a><font color="#0000FF">优点</font></h2><p>Query Cache的查询，发生在MySQL接收到客户端的查询请求、查询权限验证之后和查询SQL解析之前。也就是说，当MySQL接收到客户端的查询SQL之后，仅仅只需要对其进行相应的权限验证之后，就会通过Query Cache来查找结果，甚至都不需要经过Optimizer模块进行执行计划的分析优化，更不需要发生任何存储引擎的交互。由于Query Cache是基于内存的，直接从内存中返回相应的查询结果，因此减少了大量的磁盘I/O和CPU计算，导致效率非常高</p>
+<h2 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a><font color="#0000FF">缺点</font></h2><ol>
+<li>查询语句的hash计算和hash查找带来的资源消耗。如果将query_cache_type设置为1（也就是ON），那么MySQL会对每条接收到的SELECT类型的查询进行hash计算，然后查找这个查询的缓存结果是否存在。虽然hash计算和查找的效率已经足够高了，一条查询语句所带来的开销可以忽略，但一旦涉及到高并发，有成千上万条查询语句时，hash计算和查找所带来的开销就必须重视了</li>
+<li>Query Cache的失效问题。如果表的变更比较频繁，则会造成Query Cache的失效率非常高。表的变更不仅仅指表中的数据发生变化，还包括表结构或者索引的任何变化</li>
+<li>查询语句不同，但查询结果相同的查询都会被缓存，这样便会造成内存资源的过度消耗。查询语句的字符大小写、空格或者注释的不同，Query Cache都会认为是不同的查询（因为他们的hash值会不同）</li>
+<li>相关系统变量设置不合理会造成大量的内存碎片，这样便会导致Query Cache频繁清理内存</li>
+</ol>
+<h1 id="MySQL缓存对性能的影响"><a href="#MySQL缓存对性能的影响" class="headerlink" title=" MySQL缓存对性能的影响 "></a><font color="#0000FF"> MySQL缓存对性能的影响 </font></h1><h1 id="MySQL缓存适用场景"><a href="#MySQL缓存适用场景" class="headerlink" title=" MySQL缓存适用场景 "></a><table><tr><td bgcolor="#C7C7C7"> MySQL缓存适用场景 </td></tr></table></h1><p>1、查询缓存可以降低查询执行的时间，但是却不能减少查询结果传输的网络消耗，如果网络传输消耗是整个查询过程的主要瓶颈，那么查询缓存的作用也很小</p>
+<p>2、对于那些需要消耗大量资源的查询通常都是非常适合缓存的，对于复杂的SELECT语句都可以使用查询缓存，不过需要注意的是，涉及表上的UPDATE、DELETE、INSERT操作相比SELECT来说要非常少才行</p>
+<p>3、查询缓存命中率：Qcache_hits/(Qcahce_hits+Com_select)，查询缓存命中率多大才是好的命中率，需要具体情况具体分析。只要查询缓存带来的效率提升大于查询缓存带来的额外消耗，即使30%的命中率也是值得。另外，缓存了哪些查询也很重要，如果被缓存的查询本身消耗巨大，那么即使缓存命中率低，对系统性能提升仍然是有好处的。</p>
+<p>4、任何SELECT语句没有从查询缓存中返回都称为“缓存未命中”，以如下列情况：</p>
+<ul>
+<li>查询语句无法被缓存，可能因为查询中包含一个不确定的函数，或者查询结果太大而无法缓存</li>
+<li>MySQL从未处理这个查询，所以结果也从不曾被缓存过</li>
+<li>虽然之前缓存了查询结果，但由于查询缓存的内存用完了，MYSQL需要删除某些缓存，或者由于数据表被修改导致缓存失效</li>
+</ul>
+<p>如果服务器上有大量缓存缓存未命中，但是实际上绝大查询都被缓存了，那么一定是有如下情况发生：</p>
+<ul>
+<li>查询缓存还没有完成预热，即MySQL还没有机会将查询结果都缓存起来</li>
+<li>查询语句之前从未执行过。如果应用程序不会重复执行一条查询语句，那么即使完成预热仍然会有很多缓存未命中</li>
+<li>缓存失效操作太多，缓存碎片、内存不足、数据修改都会造成缓存失效。可以通过参数Com_*来查看数据修改的情况（包括Com_update，Com_delete等），还可以通过Qcache_lowmem_prunes来查看有多少次失效是由于内存不足导致的</li>
+</ul>
+<p>5、有一个直观的方法能够反映查询缓存是否对系统有好处，推荐一个指标：”命中和写入“的比率，即Qcache_hits和Qcache_inserts的比值。根据经验来看，当这个比值大于3：1时通常查询缓存是有效的，如果能达到10：1最好</p>
+<p>6、通常可以通过观察查询缓存内存的实际使用情况Qcache_free_memory，来确定是否需要缩小或者扩大查询缓存</p>
+<p><strong> 总结 </strong></p>
+<p>适用查询类的应用： 如博客</p>
+
+    </div>
+    
+    <div class="post-footer">
+        <div>
+            
+        </div>
+        <div>
+            
+        </div>
+    </div>
+</article>
+
+<div class="article-nav prev-next-wrap clearfix">
+    
+        <a href="/2021/10/14/算法之sm4/" class="pre-post btn btn-default" title="算法之sm4">
+            <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
+            <span class="hidden-xs">算法之sm4</span>
+        </a>
+    
+    
+        <a href="/2021/10/11/Linux之CentOS7环境检测/" class="next-post btn btn-default" title="Linux之CentOS7环境检测">
+            <span class="hidden-lg">下一篇</span>
+            <span class="hidden-xs">Linux之CentOS7环境检测</span><i class="fa fa-angle-right fa-fw"></i>
+        </a>
+    
+</div>
+
+
+    <div id="comments">
+        
+    
+    <div id="vcomments" class="valine"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="/assets/valine.min.js"></script>
+
+    <script>
+        new Valine({
+            av: AV,
+            el: '#vcomments',
+            appId: 'XWA5gq7VCJybw7YQhf5HG20r-gzGzoHsz',
+            appKey: '8FW1WEwrysHXaUD1bhGn2Rp8',
+            placeholder: '说点什么吧',
+            notify: true,
+            verify: false,
+            avatar: 'https://blog.xtcgch.ink/img/comment-avatar.jpg',
+            meta: 'nick,mail'.split(','),
+            pageSize: '10',
+            path: window.location.pathname,
+            lang: 'zh-CN'.toLowerCase()
+        })
+    </script>
+
+
+    </div>
+
+
+
+
+
+                </main>
+                
+                    <aside id="article-toc" role="navigation" class="col-md-4">
+    <div class="widget">
+        <h3 class="title">文章目录</h3>
+        
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#脑图"><span class="toc-text">脑图</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#MySQL查询缓存"><span class="toc-text">MySQL查询缓存</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#MySQL缓存规则"><span class="toc-text">MySQL缓存规则</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#缓存机制"><span class="toc-text">缓存机制</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#缓存失效"><span class="toc-text">缓存失效</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#缓存机制中的内存管理"><span class="toc-text">缓存机制中的内存管理</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#如何配置和缓存MySQL缓存"><span class="toc-text"> 如何配置和缓存MySQL缓存 </span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#MySQL缓存的优缺点"><span class="toc-text"> MySQL缓存的优缺点 </span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#优点"><span class="toc-text">优点</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#缺点"><span class="toc-text">缺点</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#MySQL缓存对性能的影响"><span class="toc-text"> MySQL缓存对性能的影响 </span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#MySQL缓存适用场景"><span class="toc-text"> MySQL缓存适用场景 </span></a></li></ol>
+        
+    </div>
+</aside>
+
+                
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</footer>
+
+<a id="back-to-top" class="icon-btn hide">
+	<i class="fa fa-chevron-up"></i>
+</a>
+
+
+
+
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="busuanzi">
+    
+</div>
+
+            </div>
+            <div class="col-sm-12">
+                <span>Copyright &copy; 2018
+                </span> |
+                <span>
+                    Powered by <a href="//hexo.io" class="copyright-links" target="_blank" rel="nofollow">Hexo</a>
+                </span> |
+                <span>
+                    Theme by <a href="//github.com/shenliyang/hexo-theme-snippet.git" class="copyright-links" target="_blank" rel="nofollow">Snippet</a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+<script src="/js/app.js?rev=@@hash"></script>
+
+</body>
+</html>

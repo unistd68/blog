@@ -187,7 +187,33 @@
 <hr>
 <h1 id="脑图"><a href="#脑图" class="headerlink" title="脑图"></a>脑图</h1><p><img src="脑图.png" alt></p>
 <hr>
-<h1 id="MySQL日志"><a href="#MySQL日志" class="headerlink" title="MySQL日志"></a><table><tr><td bgcolor="#C7C7C7">MySQL日志</td></tr></table></h1><h2 id="扩展点一"><a href="#扩展点一" class="headerlink" title="扩展点一"></a><font color="#0000FF">扩展点一</font></h2><h2 id="扩展点二"><a href="#扩展点二" class="headerlink" title="扩展点二"></a><font color="#0000FF">扩展点二</font></h2>
+<h1 id="MySQL日志"><a href="#MySQL日志" class="headerlink" title="MySQL日志"></a><table><tr><td bgcolor="#C7C7C7">MySQL日志</td></tr></table></h1><h2 id="bin日志"><a href="#bin日志" class="headerlink" title=" bin日志 "></a><font color="#0000FF"> bin日志 </font></h2><h2 id="redo日志"><a href="#redo日志" class="headerlink" title=" redo日志 "></a><font color="#0000FF"> redo日志 </font></h2><p>redo日志： 物理日志 , 被称之为重做日志，是在数据库发生意外时，进行数据恢复，redo log会备份是事务执行过程中的修改数据，redo log备份的是事务过程中最新的数据位置</p>
+<p>redo log包括两部分：</p>
+<ul>
+<li>一是内存中的日志缓冲(redo log buffer)，该部分日志是易失性的</li>
+<li>二是磁盘上的重做日志文件(redo log file)，该部分日志是持久的</li>
+</ul>
+<p><strong> 工作原理 ：</strong></p>
+<p><strong> 写入机制 </strong></p>
+<ul>
+<li>write point：这个指针记录当前位置，一边写，一边移动，写到最后一个文件末尾后就回到 0 号文件重新覆盖写</li>
+<li>check point：这个指针记录当前要擦除的位置，也是往后推移并且循环的，擦除记录前要把记录更新到数据文件</li>
+</ul>
+<p>redo log写满时候，指针回到原点，重新开始覆盖保存，如果 write pos 追上checkpoint，表示写满，这时候不能再执行新的更新，得停下来先擦掉一些记录，把checkpoint推进一下节点</p>
+<p><a href="持久策略.png">持久策略</a></p>
+<ol>
+<li>0：设置值为0，表示Log Buffer中的数据不经过OS缓存，直接调用fsync直接刷到磁盘文件保存</li>
+<li>1：设置值为1（默认值），事务提交后，会保存到log buffer，接着保存到os buffer缓存，同时调用fsync同步刷到磁盘</li>
+<li>2：设置值为2，数据不写到log buffer，直接缓存到os buffer，每隔一秒，调用fsync刷数据到磁盘</li>
+</ol>
+<p><strong> log group </strong></p>
+<p><strong> redo log file </strong></p>
+<h2 id="undo日志"><a href="#undo日志" class="headerlink" title=" undo日志 "></a><font color="#0000FF"> undo日志 </font></h2><p>undo日志： </p>
+<ul>
+<li>逻辑日志,用于回滚</li>
+<li>保证事务原子性</li>
+</ul>
+
     </div>
     
     <div class="post-footer">
@@ -253,7 +279,7 @@
     <div class="widget">
         <h3 class="title">文章目录</h3>
         
-            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#脑图"><span class="toc-text">脑图</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#MySQL日志"><span class="toc-text">MySQL日志</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#扩展点一"><span class="toc-text">扩展点一</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#扩展点二"><span class="toc-text">扩展点二</span></a></li></ol></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#脑图"><span class="toc-text">脑图</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#MySQL日志"><span class="toc-text">MySQL日志</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#bin日志"><span class="toc-text"> bin日志 </span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#redo日志"><span class="toc-text"> redo日志 </span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#undo日志"><span class="toc-text"> undo日志 </span></a></li></ol></li></ol>
         
     </div>
 </aside>
