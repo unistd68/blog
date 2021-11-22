@@ -1,0 +1,709 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="我的博客 - blog">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="browsermode" content="application">
+    <meta name="screen-orientation" content="portrait">
+    <link rel="dns-prefetch" href="https://lives.xtcgch.ink">
+    <!--SEO-->
+
+<meta name="description" content="脑容量不够，笔记来凑">
+
+
+
+
+
+<meta name="robots" content="all">
+<meta name="google" content="all">
+<meta name="googlebot" content="all">
+<meta name="verify" content="all">
+    <!--Title-->
+
+
+<title>数据结构之算法篇 | 我的博客 - blog</title>
+
+
+    <link rel="alternate" href="/atom.xml" title="我的博客 - blog" type="application/atom+xml">
+
+
+    <link rel="icon" href="https://blog.xtcgch.ink/img/background/海绵宝宝.ico">
+
+    
+
+
+
+<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7">
+<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.5.0">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash">
+
+
+
+
+    
+
+
+
+
+
+    
+
+</head>
+
+</html>
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+
+<body>
+    <header class="main-header" style="background-image:url(https://blog.xtcgch.ink/img/head-bg.jpg)">
+    <div class="main-header-box">
+        <a class="header-avatar" href="/" title="unistd68">
+            <img src="/img/background/海绵宝宝.jpg" alt="logo头像" class="img-responsive center-block">
+        </a>
+        <div class="branding">
+        	<!--<h2 class="text-hide">Snippet主题,从未如此简单有趣</h2>-->
+            
+                <h2> 脑容量不够，笔记来凑 </h2>
+            
+    	</div>
+    </div>
+</header>
+    <nav class="main-navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header"><span class="nav-toggle-button collapsed pull-right" data-toggle="collapse" data-target="#main-menu" id="mnav">
+                    <span class="sr-only"></span>
+                        <i class="fa fa-bars"></i>
+                    </span>
+                    <a class="navbar-brand" href="https://lives.xtcgch.ink">我的博客 - blog</a>
+                </div>
+                <div class="collapse navbar-collapse" id="main-menu">
+                    <ul class="menu">
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="https://blog.xtcgch.ink/"><i class="fa "></i>主页</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="https://blog.xtcgch.ink/categories/原理/"><i class="fa "></i>原理</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="https://blog.xtcgch.ink/categories/代码/"><i class="fa "></i>代码</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="https://blog.xtcgch.ink/categories/开源/"><i class="fa "></i>开源</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="https://blog.xtcgch.ink/categories/面试/"><i class="fa "></i>面试</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="https://blog.xtcgch.ink/categories/其他/"><i class="fa "></i>其他</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="https://blog.xtcgch.ink/archives/"><i class="fa "></i>时间轴</a>
+                            </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+    <section class="content-wrap">
+        <div class="container">
+            <div class="row">
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="数据结构之算法篇">
+            
+	            数据结构之算法篇
+            
+        </h1>
+        <div class="post-meta">
+    
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <a href="https://blog.xtcgch.ink/categories/算法">
+            算法
+        </a>
+    </span>
+    
+
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+                
+                    <a href="https://blog.xtcgch.ink/tags/算法" title="算法">
+                        算法
+                    </a>
+                
+            
+        </span>
+    </span>
+    
+
+    
+        
+        <span class="fa-wrap">
+            <i class="fa fa-clock-o"></i>
+            <span class="date-meta">2021/11/03</span>
+        </span>
+        
+    
+</div>
+
+            
+            
+    </div>
+    
+    <div class="post-body post-content">
+        <p><strong>摘要：</strong> 本文记录下常用几种算法的思路。</p>
+<a id="more"></a>
+<hr>
+<h1 id="脑图"><a href="#脑图" class="headerlink" title="脑图"></a>脑图</h1><p><img src="脑图.png" alt></p>
+<hr>
+<!-- <h1 style="color: #ffffff; line-height: 2.0em; margin-top: 1.6em; margin-bottom: 1.6em; font-weight: bold; border-bottom: 2px solid #ef7060; font-size: 1.5em;">
+    <span style="font-size: inherit; line-height: inherit; display: inline-block; font-weight: normal; background: #ef7060; color: #ffffff; padding: 3px 10px 1px; border-top-right-radius: 3px; border-top-left-radius: 3px;margin-right: 3px;">
+    动态规划
+    </span>
+</h1>
+
+
+## <font color=#0000FF>标题二</font>
+
+
+<font color=#EE7600>橙色字体</font>
+
+
+<font color=#EE2C2C>浅红字体</font> -->
+<h1 style="color: #ffffff; line-height: 2.0em; margin-top: 1.6em; margin-bottom: 1.6em; font-weight: bold; border-bottom: 2px solid #ef7060; font-size: 1.5em;"><br>    <span style="font-size: inherit; line-height: inherit; display: inline-block; font-weight: normal; background: #ef7060; color: #ffffff; padding: 3px 10px 1px; border-top-right-radius: 3px; border-top-left-radius: 3px;margin-right: 3px;"><br>    动态规划<br>    </span><br></h1>
+
+<font color="#EE7600"> 特点 </font>
+
+<ol>
+<li>快速处理复杂的计算，去除重复的计算</li>
+<li>以空间换时间</li>
+<li>重叠子问题</li>
+<li>最优子结构</li>
+</ol>
+<font color="#EE7600"> 适用场景 </font>
+
+<ol>
+<li>能穷举结果的</li>
+<li>边界确定的</li>
+</ol>
+<font color="#EE7600"> 使用步骤 </font>
+
+<ol>
+<li>状态定义： 构建问题最优解模型，包括问题最优解的定义、有哪些计算解的自变量</li>
+<li>初始状态： 确定基础子问题的解（即已知解），原问题和子问题的解都是以基础子问题的解为起始点，在迭代计算中得到的</li>
+<li>定义好一张二维表(可能也只是一维数组)</li>
+<li>填表</li>
+<li>找出状态转移公式</li>
+<li>求出最优解</li>
+<li>返回值： 确定应返回的问题的解是什么，即动态规划在何处停止迭代</li>
+<li>确定状态</li>
+</ol>
+<font color="#EE7600"> 实战 </font>
+
+
+
+<font color="#EE7600"> 扩展题目 </font>
+
+
+
+
+<hr>
+<p>:joy:</p>
+<p>:smile:</p>
+<p>:heart:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:right">-</th>
+<th style="text-align:center">0</th>
+<th style="text-align:center">1</th>
+<th style="text-align:center">2</th>
+<th style="text-align:center">3</th>
+<th style="text-align:center">4</th>
+<th style="text-align:center">5</th>
+<th style="text-align:center">6</th>
+<th style="text-align:center">7</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right">0</td>
+<td style="text-align:center">true</td>
+<td style="text-align:center">true</td>
+<td style="text-align:center">true</td>
+<td style="text-align:center">true</td>
+<td style="text-align:center">true</td>
+<td style="text-align:center">true</td>
+<td style="text-align:center">true</td>
+<td style="text-align:center">true</td>
+</tr>
+<tr>
+<td style="text-align:right">1</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">true</td>
+<td style="text-align:center">true</td>
+<td style="text-align:center">true</td>
+<td style="text-align:center">true</td>
+<td style="text-align:center">true</td>
+<td style="text-align:center">true</td>
+<td style="text-align:center">true</td>
+</tr>
+<tr>
+<td style="text-align:right">2</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">true</td>
+<td style="text-align:center">true</td>
+<td style="text-align:center">true</td>
+<td style="text-align:center">true</td>
+<td style="text-align:center">true</td>
+<td style="text-align:center">true</td>
+</tr>
+<tr>
+<td style="text-align:right">3</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">true</td>
+<td style="text-align:center">true</td>
+<td style="text-align:center">true</td>
+<td style="text-align:center">true</td>
+<td style="text-align:center">true</td>
+</tr>
+<tr>
+<td style="text-align:right">4</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">true</td>
+<td style="text-align:center">true</td>
+<td style="text-align:center">true</td>
+<td style="text-align:center">true</td>
+</tr>
+<tr>
+<td style="text-align:right">5</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">true</td>
+<td style="text-align:center">true</td>
+<td style="text-align:center">true</td>
+</tr>
+<tr>
+<td style="text-align:right">6</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">true</td>
+<td style="text-align:center">true</td>
+</tr>
+<tr>
+<td style="text-align:right">7</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">true</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th style="text-align:right">-</th>
+<th style="text-align:center">1</th>
+<th style="text-align:center">2</th>
+<th style="text-align:center">3</th>
+<th style="text-align:center">4</th>
+<th style="text-align:center">5</th>
+<th style="text-align:center">6</th>
+<th style="text-align:center">7</th>
+<th style="text-align:center">8</th>
+<th style="text-align:center">9</th>
+<th style="text-align:center">10</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right">1</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">5</td>
+<td style="text-align:center">8</td>
+<td style="text-align:center">9</td>
+<td style="text-align:center">10</td>
+<td style="text-align:center">17</td>
+<td style="text-align:center">17</td>
+<td style="text-align:center">20</td>
+<td style="text-align:center">24</td>
+<td style="text-align:center">30</td>
+</tr>
+<tr>
+<td style="text-align:right">2</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">2</td>
+<td style="text-align:center">6</td>
+<td style="text-align:center">10</td>
+<td style="text-align:center">13</td>
+<td style="text-align:center">true</td>
+<td style="text-align:center">true</td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:right">3</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">3</td>
+<td style="text-align:center">7</td>
+<td style="text-align:center">true</td>
+<td style="text-align:center">true</td>
+<td style="text-align:center">true</td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:right">4</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">4</td>
+<td style="text-align:center">true</td>
+<td style="text-align:center">true</td>
+<td style="text-align:center">true</td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:right">5</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">5</td>
+<td style="text-align:center">true</td>
+<td style="text-align:center">true</td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:right">6</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">6</td>
+<td style="text-align:center">true</td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:right">7</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">7</td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:right">8</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">true</td>
+<td style="text-align:center">8</td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:right">9</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">true</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">9</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:right">10</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">true</td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center">10</td>
+</tr>
+</tbody>
+</table>
+<p>-&gt;<br>p[10]={};</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:right">-</th>
+<th style="text-align:center">0</th>
+<th style="text-align:center">1</th>
+<th style="text-align:center">2</th>
+<th style="text-align:center">3</th>
+<th style="text-align:center">4</th>
+<th style="text-align:center">5</th>
+<th style="text-align:center">6</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right">0</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">0</td>
+</tr>
+<tr>
+<td style="text-align:right">1</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">2</td>
+<td style="text-align:center">3</td>
+<td style="text-align:center">6</td>
+<td style="text-align:center">7</td>
+<td style="text-align:center">11</td>
+<td style="text-align:center">15</td>
+</tr>
+<tr>
+<td style="text-align:right">2</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">4</td>
+<td style="text-align:center">6</td>
+<td style="text-align:center">8</td>
+<td style="text-align:center">9</td>
+<td style="text-align:center">13</td>
+</tr>
+<tr>
+<td style="text-align:right">3</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">6</td>
+<td style="text-align:center">7</td>
+<td style="text-align:center">10</td>
+<td style="text-align:center">12</td>
+</tr>
+<tr>
+<td style="text-align:right">4</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">8</td>
+<td style="text-align:center">9</td>
+<td style="text-align:center">12</td>
+</tr>
+<tr>
+<td style="text-align:right">5</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">10</td>
+<td style="text-align:center">12</td>
+</tr>
+<tr>
+<td style="text-align:right">6</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">12</td>
+</tr>
+</tbody>
+</table>
+<p>-&gt;p[7] = {0,2,4,6,8,11,15};</p>
+<hr>
+
+    </div>
+    
+    <div class="post-footer">
+        <div>
+            
+        </div>
+        <div>
+            
+        </div>
+    </div>
+</article>
+
+<div class="article-nav prev-next-wrap clearfix">
+    
+        <a href="/2021/11/22/求职之架构篇/" class="pre-post btn btn-default" title="求职之架构篇">
+            <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
+            <span class="hidden-xs">求职之架构篇</span>
+        </a>
+    
+    
+        <a href="/2021/10/28/求职之linux内核/" class="next-post btn btn-default" title="求职之linux内核">
+            <span class="hidden-lg">下一篇</span>
+            <span class="hidden-xs">求职之linux内核</span><i class="fa fa-angle-right fa-fw"></i>
+        </a>
+    
+</div>
+
+
+    <div id="comments">
+        
+    
+    <div id="vcomments" class="valine"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="/assets/valine.min.js"></script>
+
+    <script>
+        new Valine({
+            av: AV,
+            el: '#vcomments',
+            appId: 'XWA5gq7VCJybw7YQhf5HG20r-gzGzoHsz',
+            appKey: '8FW1WEwrysHXaUD1bhGn2Rp8',
+            placeholder: '说点什么吧',
+            notify: true,
+            verify: false,
+            avatar: 'https://blog.xtcgch.ink/img/comment-avatar.jpg',
+            meta: 'nick,mail'.split(','),
+            pageSize: '10',
+            path: window.location.pathname,
+            lang: 'zh-CN'.toLowerCase()
+        })
+    </script>
+
+
+    </div>
+
+
+
+
+
+                </main>
+                
+                    <aside id="article-toc" role="navigation" class="col-md-4">
+    <div class="widget">
+        <h3 class="title">文章目录</h3>
+        
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#脑图"><span class="toc-text">脑图</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-text">        动态规划    </span></a></li></ol>
+        
+    </div>
+</aside>
+
+                
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</footer>
+
+<a id="back-to-top" class="icon-btn hide">
+	<i class="fa fa-chevron-up"></i>
+</a>
+
+
+
+
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="busuanzi">
+    
+</div>
+
+            </div>
+            <div class="col-sm-12">
+                <span>Copyright &copy; 2018
+                </span> |
+                <span>
+                    Powered by <a href="//hexo.io" class="copyright-links" target="_blank" rel="nofollow">Hexo</a>
+                </span> |
+                <span>
+                    Theme by <a href="//github.com/shenliyang/hexo-theme-snippet.git" class="copyright-links" target="_blank" rel="nofollow">Snippet</a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+<script src="/js/app.js?rev=@@hash"></script>
+
+</body>
+</html>

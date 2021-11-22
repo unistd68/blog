@@ -180,7 +180,7 @@
             
             
             <p class="fa fa-exclamation-triangle warning">
-                本文于<strong>940</strong>天之前发表，文中内容可能已经过时。
+                本文于<strong>961</strong>天之前发表，文中内容可能已经过时。
             </p>
         
     </div>
@@ -201,15 +201,15 @@
 <p>协程占有的资源量比线程小，且通常情况下协程间的切换对资源的消耗是比较小的，主要是因为协程切换时不会发生上下文的切换，cpu会根据偏移量来找到协程对应的栈位置，所以协程间的切换只是偏移量发生了改变，因此对资源的消耗量很小。</p>
 <p>和线程比，在IO任务不处理具体事情时，线程会被挂起，但是协程会一直切换，会消耗一定的cpu资源，目前可测出的消耗率约为1%-2%。</p>
 <hr>
-<h2 style="color: #ffffff; line-height: 2.0em; margin-top: 1.6em; margin-bottom: 1.6em; font-weight: bold; border-bottom: 2px solid #ef7060; font-size: 1.5em;"><br>    <span style="font-size: inherit; line-height: inherit; display: inline-block; font-weight: normal; background: #ef7060; color: #ffffff; padding: 3px 10px 1px; border-top-right-radius: 3px; border-top-left-radius: 3px;margin-right: 3px;"><br>    语言层面<br>    </span><br></h2>
+<h2 style="color: #ffffff; line-height: 2.0em; margin-top: 1.6em; margin-bottom: 1.6em; font-weight: bold; border-bottom: 2px solid #ef7060; font-size: 1.5em;"><br>    <span style="font-size: inherit; line-height: inherit; display: inline-block; font-weight: normal; background: #ef7060; color: #ffffff; padding: 3px 10px 1px; border-top-right-radius: 3px; border-top-left-radius: 3px;margin-right: 3px;">语言层面<br>    </span><br></h2>
 
 <p>目前支持协程的编程语言主要有python，lua，C/C++</p>
 <hr>
-<h2 style="color: #ffffff; line-height: 2.0em; margin-top: 1.6em; margin-bottom: 1.6em; font-weight: bold; border-bottom: 2px solid #ef7060; font-size: 1.5em;"><br>    <span style="font-size: inherit; line-height: inherit; display: inline-block; font-weight: normal; background: #ef7060; color: #ffffff; padding: 3px 10px 1px; border-top-right-radius: 3px; border-top-left-radius: 3px;margin-right: 3px;">应用场景    </span><br></h2>
+<h2 style="color: #ffffff; line-height: 2.0em; margin-top: 1.6em; margin-bottom: 1.6em; font-weight: bold; border-bottom: 2px solid #ef7060; font-size: 1.5em;"><br>    <span style="font-size: inherit; line-height: inherit; display: inline-block; font-weight: normal; background: #ef7060; color: #ffffff; padding: 3px 10px 1px; border-top-right-radius: 3px; border-top-left-radius: 3px;margin-right: 3px;">应用场景<br>    </span><br></h2>
 
 <p>协程的特性是由IO事件来进行切换，因此在一些IO事件比较频繁的场景下运用，能够产生比较巨大的正面效果，如http/https请求，udp/tcp请求，数据库IO，文件IO，日志IO</p>
 <hr>
-<h2 style="color: #ffffff; line-height: 2.0em; margin-top: 1.6em; margin-bottom: 1.6em; font-weight: bold; border-bottom: 2px solid #ef7060; font-size: 1.5em;"><br>    <span style="font-size: inherit; line-height: inherit; display: inline-block; font-weight: normal; background: #ef7060; color: #ffffff; padding: 3px 10px 1px; border-top-right-radius: 3px; border-top-left-radius: 3px;margin-right: 3px;">一些协程库    </span><br></h2>
+<h2 style="color: #ffffff; line-height: 2.0em; margin-top: 1.6em; margin-bottom: 1.6em; font-weight: bold; border-bottom: 2px solid #ef7060; font-size: 1.5em;"><br>    <span style="font-size: inherit; line-height: inherit; display: inline-block; font-weight: normal; background: #ef7060; color: #ffffff; padding: 3px 10px 1px; border-top-right-radius: 3px; border-top-left-radius: 3px;margin-right: 3px;">一些协程库<br>    </span><br></h2>
 
 <ul>
 <li>libco</li>
@@ -298,7 +298,7 @@
     <div class="widget">
         <h3 class="title">文章目录</h3>
         
-            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-text">    简单介绍    </span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-text">        语言层面    </span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-text">    应用场景    </span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-text">    一些协程库    </span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-text">    坑    </span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1、锁"><span class="toc-text">1、锁</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2、socket"><span class="toc-text">2、socket</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-text">    一些使用建议    </span></a></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-text">    简单介绍    </span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-text">    语言层面    </span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-text">    应用场景    </span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-text">    一些协程库    </span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-text">    坑    </span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1、锁"><span class="toc-text">1、锁</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2、socket"><span class="toc-text">2、socket</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-text">    一些使用建议    </span></a></li></ol>
         
     </div>
 </aside>
