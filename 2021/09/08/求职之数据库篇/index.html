@@ -193,43 +193,37 @@
         <p><strong>摘要：</strong>这是摘要！</p>
 <a id="more"></a>
 <hr>
-<h1 id="脑图"><a href="#脑图" class="headerlink" title="脑图"></a>脑图</h1><p><img src="脑图.png" alt></p>
+<p><a href="https://blog.csdn.net/ThinkWon/article/details/104778621" target="_blank" rel="noopener">面经一</a></p>
+<h1 id="★★★-一、基础知识-★★★"><a href="#★★★-一、基础知识-★★★" class="headerlink" title="★★★ 一、基础知识 ★★★"></a><div align="center"><font size="70">★★★ 一、基础知识 ★★★</font></div></h1><h2 style="color: #ffffff; line-height: 2.0em; margin-top: 1.6em; margin-bottom: 1.6em; font-weight: bold; border-bottom: 2px solid #ef7060; font-size: 1.5em;"><br>    <span style="font-size: inherit; line-height: inherit; display: inline-block; font-weight: normal; background: #ef7060; color: #ffffff; padding: 3px 10px 1px; border-top-right-radius: 3px; border-top-left-radius: 3px;margin-right: 3px;"> 什么是MySQL </span><br></h2>
+
+
+
+<p>百度百科上的解释：MySQL是一种开放源代码的关系型数据库管理系统（RDBMS），使用最常用的数据库管理语言–结构化查询语言（SQL）进行数据库管理。MySQL是开放源代码的，因此任何人都可以在General Public License的许可下下载并根据个性化的需要对其进行修改。</p>
+<h2 style="color: #ffffff; line-height: 2.0em; margin-top: 1.6em; margin-bottom: 1.6em; font-weight: bold; border-bottom: 2px solid #ef7060; font-size: 1.5em;"><br>    <span style="font-size: inherit; line-height: inherit; display: inline-block; font-weight: normal; background: #ef7060; color: #ffffff; padding: 3px 10px 1px; border-top-right-radius: 3px; border-top-left-radius: 3px;margin-right: 3px;">  什么是最左前缀原则？什么是最左匹配原则 </span><br></h2>
+
+<p>就是最左优先，在创建多列索引时，要根据业务需求，where子句中使用最频繁的一列放在最左边。</p>
+<p>最左前缀匹配原则，非常重要的原则，mysql会一直向右匹配直到遇到范围查询(&gt;、&lt;、between、like)就停止匹配，比如a = 1 and b = 2 and c &gt; 3 and d = 4 如果建立(a,b,c,d)顺序的索引，d是用不到索引的，如果建立(a,b,d,c)的索引则都可以用到，a,b,d的顺序可以任意调整。</p>
+<p>=和in可以乱序，比如a = 1 and b = 2 and c = 3 建立(a,b,c)索引可以任意顺序，mysql的查询优化器会帮你优化成索引可以识别的形式</p>
+<h2 style="color: #ffffff; line-height: 2.0em; margin-top: 1.6em; margin-bottom: 1.6em; font-weight: bold; border-bottom: 2px solid #ef7060; font-size: 1.5em;"><br>    <span style="font-size: inherit; line-height: inherit; display: inline-block; font-weight: normal; background: #ef7060; color: #ffffff; padding: 3px 10px 1px; border-top-right-radius: 3px; border-top-left-radius: 3px;margin-right: 3px;"> 数据库的三大范式 </span><br></h2>
+
+<p>第一范式：确保每列保持原子性，数据表中的所有字段值都是不可分解的原子值。<br>第二范式：确保表中的每列都和主键相关<br>第三范式：确保每列都和主键列直接相关而不是间接相关</p>
 <hr>
-<h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a><table><tr><td bgcolor="#C7C7C7">目录</td></tr></table></h2><p><a href="#基础篇">★★★ 复健篇 ★★★</a></p>
-<ul>
-<li><a href="#1.1">1 数据库事物的一致性</a></li>
-</ul>
-<p><a href="#基础篇">★★★ 一、基础篇 ★★★</a></p>
-<ul>
-<li><a href="#1.1">1 数据库事物的一致性</a></li>
-<li><a href="#1.2">2 redis和memcache</a></li>
-<li><a href="#1.3">3 数据库索引</a></li>
-<li><a href="#1.4">4 事务</a></li>
-<li><a href="#1.5">5 MySQL两种引擎的区别</a></li>
-<li><a href="#1.6">6 隔离的级别</a></li>
-<li><a href="#1.7">7 回表</a></li>
-<li><a href="#1.8">8 log分类</a></li>
-<li><a href="#1.9">9 覆盖索引</a></li>
-<li><a href="#1.10">10 为什么说B+树比B树更适合数据库索引</a></li>
-<li><a href="#1.11">11 B+树做索引和hash索引的区别</a></li>
-<li><a href="#1.12">12 B+树是怎么查找的，B+树查找的时间复杂度</a></li>
-<li><a href="#1.13">13 redis索引</a></li>
-<li><a href="#1.14">14 如何提升Mysql的查找性能</a></li>
-<li><a href="#1.15">15 碰到数据库的慢查询,如何解决</a></li>
-<li><a href="#1.16">16 MYSQL容灾机制</a></li>
-<li><a href="#1.17">17 有10亿条记录中只有100万条记录是活跃的，怎么设计</a></li>
-<li><a href="#1.18">18 数据库锁的类型有哪些</a></li>
-<li><a href="#1.19">19 lock和latch</a></li>
-<li><a href="#1.20">20 MySQL innoDB 中的锁升级</a></li>
-<li><a href="#1.21">21 锁的类型</a></li>
-</ul>
-<p><a href="#进阶篇">★★★ 二、进阶篇 ★★★</a></p>
-<ul>
-<li><a href="#1.21">1 并发读和写时的工作过程</a></li>
-</ul>
+<h1 id="★★★-二、数据类型-★★★"><a href="#★★★-二、数据类型-★★★" class="headerlink" title="★★★ 二、数据类型 ★★★"></a><div align="center"><font size="70">★★★ 二、数据类型 ★★★</font></div></h1><h2 style="color: #ffffff; line-height: 2.0em; margin-top: 1.6em; margin-bottom: 1.6em; font-weight: bold; border-bottom: 2px solid #ef7060; font-size: 1.5em;"><br>    <span style="font-size: inherit; line-height: inherit; display: inline-block; font-weight: normal; background: #ef7060; color: #ffffff; padding: 3px 10px 1px; border-top-right-radius: 3px; border-top-left-radius: 3px;margin-right: 3px;"> MySQL的数据类型有哪些 </span><br></h2>
+
+<p>整数</p>
+<p>TINYINT、SMALLINT、MEDIUMINT、INT、BIGINT分别占用8、16、24、32、64位存储空间。值得注意的是，INT(10)中的10只是表示显示字符的个数，并无实际意义。一般和UNSIGNED ZEROFILL配合使用才有实际意义，例如，数据类型INT(3)，属性为UNSIGNED ZEROFILL，如果插入的数据为3的话，实际存储的数据为003。</p>
+<p>浮点数</p>
+<p>FLOAT、DOUBLE及DECIMAL为浮点数类型，DECIMAL是利用字符串进行处理的，能存储精确的小数。相比于FLOAT和DOUBLE，DECIMAL的效率更低些。FLOAT、DOUBLE及DECIMAL都可以指定列宽，例如FLOAT(5,2)表示一共5位，两位存储小数部分，三位存储整数部分。</p>
+<p>字符串</p>
+<p>字符串常用的主要有CHAR和VARCHAR，VARCHAR主要用于存储可变长字符串，相比于定长的CHAR更节省空间。CHAR是定长的，根据定义的字符串长度分配空间。</p>
+<p>应用场景：对于经常变更的数据使用CHAR更好，CHAR不容易产生碎片。对于非常短的列也是使用CHAR更好些，CHAR相比于VARCHAR在效率上更高些。一般避免使用TEXT/BLOB等类型，因为查询时会使用临时表，造成严重的性能开销。</p>
+<p>日期</p>
+<p>比较常用的有year、time、date、datetime、timestamp等，datetime保存从1000年到9999年的时间，精度位秒，使用8字节的存储空间，与时区无关。timestamp和UNIX的时间戳相同，保存从1970年1月1日午夜到2038年的时间，精度到秒，使用四个字节的存储空间，并且与时区相关。</p>
+<p>应用场景：尽量使用timestamp，相比于datetime它有着更高的空间效率。</p>
 <hr>
-<h1 id="★★★-一、基础篇-★★★"><a href="#★★★-一、基础篇-★★★" class="headerlink" title="★★★ 一、基础篇 ★★★"></a><div align="center" id="基础篇"><font size="70">★★★ 一、基础篇 ★★★</font></div></h1><h2 id="1-什么是MySQL"><a href="#1-什么是MySQL" class="headerlink" title="1 什么是MySQL"></a><table><tr><td bgcolor="#C7C7C7" id="1.1">1 什么是MySQL</td></tr></table></h2><p>百度百科上的解释：MySQL是一种开放源代码的关系型数据库管理系统（RDBMS），使用最常用的数据库管理语言–结构化查询语言（SQL）进行数据库管理。MySQL是开放源代码的，因此任何人都可以在General Public License的许可下下载并根据个性化的需要对其进行修改。</p>
-<h2 id="MySQL常用的存储引擎有什么？它们有什么区别？"><a href="#MySQL常用的存储引擎有什么？它们有什么区别？" class="headerlink" title="MySQL常用的存储引擎有什么？它们有什么区别？"></a><table><tr><td bgcolor="#C7C7C7">MySQL常用的存储引擎有什么？它们有什么区别？</td></tr></table></h2><ol>
+<h1 id="★★★-三、引擎-★★★"><a href="#★★★-三、引擎-★★★" class="headerlink" title="★★★ 三、引擎 ★★★"></a><div align="center"><font size="70">★★★ 三、引擎 ★★★</font></div></h1><h2 style="color: #ffffff; line-height: 2.0em; margin-top: 1.6em; margin-bottom: 1.6em; font-weight: bold; border-bottom: 2px solid #ef7060; font-size: 1.5em;"><br>    <span style="font-size: inherit; line-height: inherit; display: inline-block; font-weight: normal; background: #ef7060; color: #ffffff; padding: 3px 10px 1px; border-top-right-radius: 3px; border-top-left-radius: 3px;margin-right: 3px;"> MySQL常用的存储引擎有什么？它们有什么区别？ </span><br></h2>
+
+<ol>
 <li>InnoDB</li>
 </ol>
 <p>InnoDB是MySQL的默认存储引擎，支持事务、行锁和外键等操作。</p>
@@ -274,7 +268,7 @@
 <tr>
 <td style="text-align:center">查询性能</td>
 <td style="text-align:center">一般情况相比于MyISAM较差</td>
-<td style="text-align:center">一般情况相比于InnoDB较差</td>
+<td style="text-align:center">一般情况相比于InnoDB较好</td>
 </tr>
 <tr>
 <td style="text-align:center">索引</td>
@@ -283,23 +277,20 @@
 </tr>
 </tbody>
 </table>
-<h2 id="数据库的三大范式"><a href="#数据库的三大范式" class="headerlink" title="数据库的三大范式"></a><table><tr><td bgcolor="#C7C7C7">数据库的三大范式</td></tr></table></h2><p>第一范式：确保每列保持原子性，数据表中的所有字段值都是不可分解的原子值。<br>第二范式：确保表中的每列都和主键相关<br>第三范式：确保每列都和主键列直接相关而不是间接相关</p>
-<h2 id="MySQL的数据类型有哪些"><a href="#MySQL的数据类型有哪些" class="headerlink" title="MySQL的数据类型有哪些"></a><table><tr><td bgcolor="#C7C7C7">MySQL的数据类型有哪些</td></tr></table></h2><p>整数</p>
-<p>TINYINT、SMALLINT、MEDIUMINT、INT、BIGINT分别占用8、16、24、32、64位存储空间。值得注意的是，INT(10)中的10只是表示显示字符的个数，并无实际意义。一般和UNSIGNED ZEROFILL配合使用才有实际意义，例如，数据类型INT(3)，属性为UNSIGNED ZEROFILL，如果插入的数据为3的话，实际存储的数据为003。</p>
-<p>浮点数</p>
-<p>FLOAT、DOUBLE及DECIMAL为浮点数类型，DECIMAL是利用字符串进行处理的，能存储精确的小数。相比于FLOAT和DOUBLE，DECIMAL的效率更低些。FLOAT、DOUBLE及DECIMAL都可以指定列宽，例如FLOAT(5,2)表示一共5位，两位存储小数部分，三位存储整数部分。</p>
-<p>字符串</p>
-<p>字符串常用的主要有CHAR和VARCHAR，VARCHAR主要用于存储可变长字符串，相比于定长的CHAR更节省空间。CHAR是定长的，根据定义的字符串长度分配空间。</p>
-<p>应用场景：对于经常变更的数据使用CHAR更好，CHAR不容易产生碎片。对于非常短的列也是使用CHAR更好些，CHAR相比于VARCHAR在效率上更高些。一般避免使用TEXT/BLOB等类型，因为查询时会使用临时表，造成严重的性能开销。</p>
-<p>日期</p>
-<p>比较常用的有year、time、date、datetime、timestamp等，datetime保存从1000年到9999年的时间，精度位秒，使用8字节的存储空间，与时区无关。timestamp和UNIX的时间戳相同，保存从1970年1月1日午夜到2038年的时间，精度到秒，使用四个字节的存储空间，并且与时区相关。</p>
-<p>应用场景：尽量使用timestamp，相比于datetime它有着更高的空间效率。</p>
-<h2 id="什么是索引"><a href="#什么是索引" class="headerlink" title="什么是索引"></a><table><tr><td bgcolor="#C7C7C7">什么是索引</td></tr></table></h2><p>索引是对数据库表的一列或者多列的值进行排序一种结构，使用索引可以快速访问数据表中的特定信息</p>
-<h2 id="索引的优缺点"><a href="#索引的优缺点" class="headerlink" title="索引的优缺点"></a><table><tr><td bgcolor="#C7C7C7">索引的优缺点</td></tr></table></h2><p>优点：</p>
+<hr>
+<h1 id="★★★-四、索引-★★★"><a href="#★★★-四、索引-★★★" class="headerlink" title="★★★ 四、索引 ★★★"></a><div align="center"><font size="70">★★★ 四、索引 ★★★</font></div></h1><h2 style="color: #ffffff; line-height: 2.0em; margin-top: 1.6em; margin-bottom: 1.6em; font-weight: bold; border-bottom: 2px solid #ef7060; font-size: 1.5em;"><br>    <span style="font-size: inherit; line-height: inherit; display: inline-block; font-weight: normal; background: #ef7060; color: #ffffff; padding: 3px 10px 1px; border-top-right-radius: 3px; border-top-left-radius: 3px;margin-right: 3px;">什么是索引 </span><br></h2>
+
+<p>索引是对数据库表的一列或者多列的值进行排序一种结构，使用索引可以快速访问数据表中的特定信息</p>
+<h2 style="color: #ffffff; line-height: 2.0em; margin-top: 1.6em; margin-bottom: 1.6em; font-weight: bold; border-bottom: 2px solid #ef7060; font-size: 1.5em;"><br>    <span style="font-size: inherit; line-height: inherit; display: inline-block; font-weight: normal; background: #ef7060; color: #ffffff; padding: 3px 10px 1px; border-top-right-radius: 3px; border-top-left-radius: 3px;margin-right: 3px;">索引的优缺点 </span><br></h2>
+
+<p>优点：</p>
 <p>大大加快数据检索的速度。<br>将随机I/O变成顺序I/O(因为B+树的叶子节点是连接在一起的)<br>加速表与表之间的连接</p>
 <p>缺点：</p>
 <p>从空间角度考虑，建立索引需要占用物理空间<br>从时间角度 考虑，创建和维护索引都需要花费时间，例如对数据进行增删改的时候都需要维护索引。</p>
-<h2 id="索引的数据结构"><a href="#索引的数据结构" class="headerlink" title="索引的数据结构"></a><table><tr><td bgcolor="#C7C7C7">索引的数据结构</td></tr></table></h2><ol>
+<h2 style="color: #ffffff; line-height: 2.0em; margin-top: 1.6em; margin-bottom: 1.6em; font-weight: bold; border-bottom: 2px solid #ef7060; font-size: 1.5em;"><br>    <span style="font-size: inherit; line-height: inherit; display: inline-block; font-weight: normal; background: #ef7060; color: #ffffff; padding: 3px 10px 1px; border-top-right-radius: 3px; border-top-left-radius: 3px;margin-right: 3px;">索引的数据结构</span><br></h2>
+
+
+<ol>
 <li>B+树索引</li>
 </ol>
 <p>B+树的索引又可以分为主索引和辅助索引。其中主索引为聚簇索引，辅助索引为非聚簇索引</p>
@@ -311,26 +302,35 @@
 <li>哈希索引</li>
 </ol>
 <p>哈希索引是基于哈希表实现的，对于每一行数据，存储引擎会对索引列通过哈希算法进行哈希计算得到哈希码，并且哈希算法要尽量保证不同的列值计算出的哈希码值是不同的，将哈希码的值作为哈希表的key值，将指向数据行的指针作为哈希表的value值。这样查找一个数据的时间复杂度就是o(1)，一般多用于精确查找</p>
-<h2 id="Hash索引和B-树的区别"><a href="#Hash索引和B-树的区别" class="headerlink" title="Hash索引和B+树的区别"></a><table><tr><td bgcolor="#C7C7C7">Hash索引和B+树的区别</td></tr></table></h2><p>因为两者数据结构上的差异导致它们的使用场景也不同，哈希索引一般多用于精确的等值查找，B+索引则多用于除了精确的等值查找外的其他查找。在大多数情况下，会选择使用B+树索引。</p>
+<h2 style="color: #ffffff; line-height: 2.0em; margin-top: 1.6em; margin-bottom: 1.6em; font-weight: bold; border-bottom: 2px solid #ef7060; font-size: 1.5em;"><br>    <span style="font-size: inherit; line-height: inherit; display: inline-block; font-weight: normal; background: #ef7060; color: #ffffff; padding: 3px 10px 1px; border-top-right-radius: 3px; border-top-left-radius: 3px;margin-right: 3px;">Hash索引和B+树的区别</span><br></h2>
+
+<p>因为两者数据结构上的差异导致它们的使用场景也不同，哈希索引一般多用于精确的等值查找，B+索引则多用于除了精确的等值查找外的其他查找。在大多数情况下，会选择使用B+树索引。</p>
 <ul>
 <li>哈希索引不支持排序，因为哈希表是无序的。</li>
-<li>哈希索引不、支持范围查找。</li>
+<li>哈希索引不支持范围查找。</li>
 <li>哈希索引不支持模糊查询及多列索引的最左前缀匹配。</li>
 <li>因为哈希表中会存在哈希冲突，所以哈希索引的性能是不稳定的，而B+树索引的性能是相对稳定的，每次查询都是从根节点到叶子节点</li>
 </ul>
-<h2 id="B树和B-树的区别"><a href="#B树和B-树的区别" class="headerlink" title="B树和B+树的区别"></a><table><tr><td bgcolor="#C7C7C7">B树和B+树的区别</td></tr></table></h2><ol>
+<h2 style="color: #ffffff; line-height: 2.0em; margin-top: 1.6em; margin-bottom: 1.6em; font-weight: bold; border-bottom: 2px solid #ef7060; font-size: 1.5em;"><br>    <span style="font-size: inherit; line-height: inherit; display: inline-block; font-weight: normal; background: #ef7060; color: #ffffff; padding: 3px 10px 1px; border-top-right-radius: 3px; border-top-left-radius: 3px;margin-right: 3px;">B树和B+树的区别</span><br></h2>
+
+<ol>
 <li><p>B树中的内部节点和叶子节点均存放键和值，而B+树的内部节点只有键没有值，叶子节点存放所有的键和值。</p>
 </li>
 <li><p>B＋树的叶子节点是通过相连在一起的，方便顺序检索</p>
 </li>
 </ol>
-<h2 id="数据库为什么使用B-树而不是B树"><a href="#数据库为什么使用B-树而不是B树" class="headerlink" title="数据库为什么使用B+树而不是B树"></a><table><tr><td bgcolor="#C7C7C7">数据库为什么使用B+树而不是B树</td></tr></table></h2><ul>
+<h2 style="color: #ffffff; line-height: 2.0em; margin-top: 1.6em; margin-bottom: 1.6em; font-weight: bold; border-bottom: 2px solid #ef7060; font-size: 1.5em;"><br>    <span style="font-size: inherit; line-height: inherit; display: inline-block; font-weight: normal; background: #ef7060; color: #ffffff; padding: 3px 10px 1px; border-top-right-radius: 3px; border-top-left-radius: 3px;margin-right: 3px;">数据库为什么使用B+树而不是B树</span><br></h2>
+
+<ul>
 <li>B树适用于随机检索，而B+树适用于随机检索和顺序检索</li>
 <li>B+树的空间利用率更高，因为B树每个节点要存储键和值，而B+树的内部节点只存储键，这样B+树的一个节点就可以存储更多的索引，从而使树的高度变低，减少了I/O次数，使得数据检索速度更快。</li>
 <li>B+树的叶子节点都是连接在一起的，所以范围查找，顺序查找更加方便</li>
 <li>B+树的性能更加稳定，因为在B+树中，每次查询都是从根节点到叶子节点，而在B树中，要查询的值可能不在叶子节点，在内部节点就已经找到</li>
 </ul>
-<h2 id="索引的类型有哪些"><a href="#索引的类型有哪些" class="headerlink" title="索引的类型有哪些"></a><table><tr><td bgcolor="#C7C7C7">索引的类型有哪些</td></tr></table></h2><p>MySQL主要的索引类型主要有FULLTEXT，HASH，BTREE，RTREE</p>
+<h2 style="color: #ffffff; line-height: 2.0em; margin-top: 1.6em; margin-bottom: 1.6em; font-weight: bold; border-bottom: 2px solid #ef7060; font-size: 1.5em;"><br>    <span style="font-size: inherit; line-height: inherit; display: inline-block; font-weight: normal; background: #ef7060; color: #ffffff; padding: 3px 10px 1px; border-top-right-radius: 3px; border-top-left-radius: 3px;margin-right: 3px;">索引的类型有哪些</span><br></h2>
+
+
+<p>MySQL主要的索引类型主要有FULLTEXT，HASH，BTREE，RTREE</p>
 <p>FULLTEXT</p>
 <p>FULLTEXT即全文索引，MyISAM存储引擎和InnoDB存储引擎在MySQL5.6.4以上版本支持全文索引，一般用于查找文本中的关键字，而不是直接比较是否相等，多在CHAR，VARCHAR，TAXT等数据类型上创建全文索引。全文索引主要是用来解决WHERE name LIKE “%zhang%”等针对文本的模糊查询效率低的问题。</p>
 <p>HASH</p>
@@ -339,388 +339,54 @@
 <p>BTREE即B+树索引，INnoDB存储引擎默认的索引，支持排序、分组、范围查询、模糊查询等，并且性能稳定。</p>
 <p>RTREE</p>
 <p>RTREE即空间数据索引，多用于地理数据的存储，相比于其他索引，空间数据索引的优势在于范围查找</p>
-<h2 id="索引的种类有哪些"><a href="#索引的种类有哪些" class="headerlink" title="索引的种类有哪些"></a><table><tr><td bgcolor="#C7C7C7">索引的种类有哪些</td></tr></table></h2><ul>
+<h2 style="color: #ffffff; line-height: 2.0em; margin-top: 1.6em; margin-bottom: 1.6em; font-weight: bold; border-bottom: 2px solid #ef7060; font-size: 1.5em;"><br>    <span style="font-size: inherit; line-height: inherit; display: inline-block; font-weight: normal; background: #ef7060; color: #ffffff; padding: 3px 10px 1px; border-top-right-radius: 3px; border-top-left-radius: 3px;margin-right: 3px;">索引的种类有哪些</span><br></h2>
+
+<ul>
 <li>主键索引：数据列不允许重复，不能为NULL，一个表只能有一个主键索引</li>
 <li>组合索引：由多个列值组成的索引。</li>
 <li>唯一索引：数据列不允许重复，可以为NULL，索引列的值必须唯一的，如果是组合索引，则列值的组合必须唯一。</li>
 <li>全文索引：对文本的内容进行搜索。</li>
 <li>普通索引：基本的索引类型，可以为NULL</li>
 </ul>
-<h2 id="什么是聚簇索引，什么是非聚簇索引"><a href="#什么是聚簇索引，什么是非聚簇索引" class="headerlink" title="什么是聚簇索引，什么是非聚簇索引"></a><table><tr><td bgcolor="#C7C7C7">什么是聚簇索引，什么是非聚簇索引</td></tr></table></h2><p>聚簇索引和非聚簇索引最主要的区别是数据和索引是否分开存储。</p>
+<h2 style="color: #ffffff; line-height: 2.0em; margin-top: 1.6em; margin-bottom: 1.6em; font-weight: bold; border-bottom: 2px solid #ef7060; font-size: 1.5em;"><br>    <span style="font-size: inherit; line-height: inherit; display: inline-block; font-weight: normal; background: #ef7060; color: #ffffff; padding: 3px 10px 1px; border-top-right-radius: 3px; border-top-left-radius: 3px;margin-right: 3px;">什么是聚簇索引，什么是非聚簇索引</span><br></h2>
+
+<p>聚簇索引和非聚簇索引最主要的区别是数据和索引是否分开存储。</p>
 <p>聚簇索引：将数据和索引放到一起存储，索引结构的叶子节点保留了数据行。<br>非聚簇索引：将数据进和索引分开存储，索引叶子节点存储的是指向数据行的地址。<br>在InnoDB存储引擎中，默认的索引为B+树索引，利用主键创建的索引为主索引，也是聚簇索引，在主索引之上创建的索引为辅助索引，也是非聚簇索引。为什么说辅助索引是在主索引之上创建的呢，因为辅助索引中的叶子节点存储的是主键。</p>
 <p>在MyISAM存储引擎中，默认的索引也是B+树索引，但主索引和辅助索引都是非聚簇索引，也就是说索引结构的叶子节点存储的都是一个指向数据行的地址。并且使用辅助索引检索无需访问主键的索引</p>
-<h2 id="非聚簇索引一定会进行回表查询吗"><a href="#非聚簇索引一定会进行回表查询吗" class="headerlink" title="非聚簇索引一定会进行回表查询吗"></a><table><tr><td bgcolor="#C7C7C7">非聚簇索引一定会进行回表查询吗</td></tr></table></h2><p>上面是说了非聚簇索引的叶子节点存储的是主键，也就是说要先通过非聚簇索引找到主键，再通过聚簇索引找到主键所对应的数据，后面这个再通过聚簇索引找到主键对应的数据的过程就是回表查询，那么非聚簇索引就一定会进行回表查询吗？</p>
+<h2 style="color: #ffffff; line-height: 2.0em; margin-top: 1.6em; margin-bottom: 1.6em; font-weight: bold; border-bottom: 2px solid #ef7060; font-size: 1.5em;"><br>    <span style="font-size: inherit; line-height: inherit; display: inline-block; font-weight: normal; background: #ef7060; color: #ffffff; padding: 3px 10px 1px; border-top-right-radius: 3px; border-top-left-radius: 3px;margin-right: 3px;">非聚簇索引一定会进行回表查询吗</span><br></h2>
+
+<p>上面是说了非聚簇索引的叶子节点存储的是主键，也就是说要先通过非聚簇索引找到主键，再通过聚簇索引找到主键所对应的数据，后面这个再通过聚簇索引找到主键对应的数据的过程就是回表查询，那么非聚簇索引就一定会进行回表查询吗？</p>
 <p>答案是不一定的，这里涉及到一个索引覆盖的问题，如果查询的数据再辅助索引上完全能获取到便不需要回表查询。例如有一张表存储着个人信息包括id、name、age等字段。假设聚簇索引是以ID为键值构建的索引，非聚簇索引是以name为键值构建的索引，select id,name from user where name = ‘zhangsan’;这个查询便不需要进行回表查询因为，通过非聚簇索引已经能全部检索出数据，这就是索引覆盖的情况。如果查询语句是这样，select id,name,age from user where name = ‘zhangsan’;则需要进行回表查询，因为通过非聚簇索引不能检索出age的值。那应该如何解决那呢？只需要将索引覆盖即可，建立age和name的联合索引再使用select id,name,age from user where name = ‘zhangsan’;进行查询即可。</p>
 <p>所以通过索引覆盖能解决非聚簇索引回表查询的问题</p>
-<h2 id="事务的四大特性是什么"><a href="#事务的四大特性是什么" class="headerlink" title="事务的四大特性是什么"></a><table><tr><td bgcolor="#C7C7C7">事务的四大特性是什么</td></tr></table></h2><p>原子性：原子性是指包含事务的操作要么全部执行成功，要么全部失败回滚。<br>一致性：一致性指事务在执行前后状态是一致的。<br>隔离性：一个事务所进行的修改在最终提交之前，对其他事务是不可见的。<br>持久性：数据一旦提交，其所作的修改将永久地保存到数据库中。</p>
-<h2 id="数据库的并发一致性问题"><a href="#数据库的并发一致性问题" class="headerlink" title="数据库的并发一致性问题"></a><table><tr><td bgcolor="#C7C7C7">数据库的并发一致性问题</td></tr></table></h2><p>当多个事务并发执行时，可能会出现以下问题：</p>
-<ul>
-<li>脏读：事务A更新了数据，但还没有提交，这时事务B读取到事务A更新后的数据，然后事务A回滚了，事务B读取到的数据就成为脏数据了。</li>
-<li>不可重复读：事务A对数据进行多次读取，事务B在事务A多次读取的过程中执行了更新操作并提交了，导致事务A多次读取到的数据并不一致。</li>
-<li>幻读：事务A在读取数据后，事务B向事务A读取的数据中插入了几条数据，事务A再次读取数据时发现多了几条数据，和之前读取的数据不一致。</li>
-<li>丢失修改：事务A和事务B都对同一个数据进行修改，事务A先修改，事务B随后修改，事务B的修改覆盖了事务A的修改。<br>不可重复度和幻读看起来比较像，它们主要的区别是：在不可重复读中，发现数据不一致主要是数据被更新了。在幻读中，发现数据不一致主要是数据增多或者减少了。</li>
-</ul>
-<h2 id="数据库的隔离级别有哪些"><a href="#数据库的隔离级别有哪些" class="headerlink" title="数据库的隔离级别有哪些"></a><table><tr><td bgcolor="#C7C7C7">数据库的隔离级别有哪些</td></tr></table></h2><ul>
-<li>未提交读：一个事务在提交前，它的修改对其他事务也是可见的。</li>
-<li>提交读：一个事务提交之后，它的修改才能被其他事务看到。</li>
-<li>可重复读：在同一个事务中多次读取到的数据是一致的。</li>
-<li>串行化：需要加锁实现，会强制事务串行执行。</li>
-</ul>
-<p>数据库的隔离级别分别可以解决数据库的脏读、不可重复读、幻读等问题。</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">隔离级别</th>
-<th style="text-align:center">脏读</th>
-<th style="text-align:center">不可重复读</th>
-<th style="text-align:center">幻读</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">未提交读</td>
-<td style="text-align:center">允许</td>
-<td style="text-align:center">允许</td>
-<td style="text-align:center">允许</td>
-</tr>
-<tr>
-<td style="text-align:center">提交读</td>
-<td style="text-align:center">不允许</td>
-<td style="text-align:center">允许</td>
-<td style="text-align:center">允许</td>
-</tr>
-<tr>
-<td style="text-align:center">可重复读</td>
-<td style="text-align:center">不允许</td>
-<td style="text-align:center">不允许</td>
-<td style="text-align:center">允许</td>
-</tr>
-<tr>
-<td style="text-align:center">串行化</td>
-<td style="text-align:center">不允许</td>
-<td style="text-align:center">不允许</td>
-<td style="text-align:center">不允许</td>
-</tr>
-</tbody>
-</table>
-<p><strong>MySQL的默认隔离级别是可重复读</strong></p>
-<h2 id="隔离级别是如何实现的"><a href="#隔离级别是如何实现的" class="headerlink" title="隔离级别是如何实现的"></a><table><tr><td bgcolor="#C7C7C7">隔离级别是如何实现的</td></tr></table></h2><p>事务的隔离机制主要是依靠锁机制和MVCC(多版本并发控制)实现的，提交读和可重复读可以通过MVCC实现，串行化可以通过锁机制实现。</p>
-<h2 id="什么是MVCC"><a href="#什么是MVCC" class="headerlink" title="什么是MVCC"></a><table><tr><td bgcolor="#C7C7C7">什么是MVCC</td></tr></table></h2><p>MVCC(multiple version concurrent control)是一种控制并发的方法，主要用来提高数据库的并发性能。</p>
-<p>在了解MVCC时应该先了解当前读和快照读。</p>
-<p>当前读：读取的是数据库的最新版本，并且在读取时要保证其他事务不会修该当前记录，所以会对读取的记录加锁。<br>快照读：不加锁读取操作即为快照读，使用MVCC来读取快照中的数据，避免加锁带来的性能损耗。<br>可以看到MVCC的作用就是在不加锁的情况下，解决数据库读写冲突问题，并且解决脏读、幻读、不可重复读等问题，但是不能解决丢失修改问题。</p>
-<p><strong>MVCC的实现原理：</strong></p>
-<ol>
-<li>版本号</li>
-</ol>
-<ul>
-<li>系统版本号：是一个自增的ID，每开启一个事务，系统版本号都会递增。</li>
-<li>事务版本号：事务版本号就是事务开始时的系统版本号，可以通过事务版本号的大小判断事务的时间顺序。</li>
-</ul>
-<ol start="2">
-<li>行记录隐藏的列</li>
-</ol>
-<p>DB_ROW_ID：所需空间6byte，隐含的自增ID，用来生成聚簇索引，如果数据表没有指定聚簇索引，InnoDB会利用这个隐藏ID创建聚簇索引。</p>
-<p>DB_TRX_ID：所需空间6byte，最近修改的事务ID，记录创建这条记录或最后一次修改这条记录的事务ID。</p>
-<p>DB_ROLL_PTR：所需空间7byte，回滚指针，指向这条记录的上一个版本。</p>
-<p>它们大致长这样，省略了具体字段的值</p>
-<ol start="3">
-<li>undo日志</li>
-</ol>
-<p>MVCC做使用到的快照会存储在Undo日志中，该日志通过回滚指针将一个一个数据行的所有快照连接起来。它们大致长这样。</p>
-<p><strong>在重复读的隔离级别下，InnoDB的工作流程：</strong></p>
-<ol>
-<li>SELECT</li>
-</ol>
-<p>作为查询的结果要满足两个条件：</p>
-<p>当前事务所要查询的数据行快照的创建版本号必须小于当前事务的版本号，这样做的目的是保证当前事务读取的数据行的快照要么是在当前事务开始前就已经存在的，要么就是当前事务自身插入或者修改过的。<br>当前事务所要读取的数据行快照的删除版本号必须是大于当前事务的版本号，如果是小于等于的话，表示该数据行快照已经被删除，不能读取。</p>
-<ol start="2">
-<li>INSERT</li>
-</ol>
-<p>将当前系统版本号作为数据行快照的创建版本号。</p>
-<ol start="3">
-<li>DELETE</li>
-</ol>
-<p>将当前系统版本号作为数据行快照的删除版本号。</p>
-<ol start="4">
-<li>UPDATE</li>
-</ol>
-<p>保存当前系统版本号为更新前的数据行快照创建行版本号，并保存当前系统版本号为更新后的数据行快照的删除版本号，其实就是，先删除在插入即为更新</p>
-<h2 id="数据库的锁与隔离级别的关系"><a href="#数据库的锁与隔离级别的关系" class="headerlink" title="数据库的锁与隔离级别的关系"></a><table><tr><td bgcolor="#C7C7C7">数据库的锁与隔离级别的关系</td></tr></table></h2><table>
-<thead>
-<tr>
-<th style="text-align:center">隔离级别</th>
-<th style="text-align:center">实现方式</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">未提交读</td>
-<td style="text-align:center">总是读取最新的数据，无需加锁</td>
-</tr>
-<tr>
-<td style="text-align:center">提交读</td>
-<td style="text-align:center">读取数据时加共享锁，读取数据后释放共享锁</td>
-</tr>
-<tr>
-<td style="text-align:center">可重复读</td>
-<td style="text-align:center">读取数据时加共享锁，事务结束后释放共享锁</td>
-</tr>
-<tr>
-<td style="text-align:center">串行化</td>
-<td style="text-align:center">锁定整个范围的键，一直持有锁直到事务结</td>
-</tr>
-</tbody>
-</table>
-<h2 id="数据库锁的类型有哪些"><a href="#数据库锁的类型有哪些" class="headerlink" title="数据库锁的类型有哪些"></a><table><tr><td bgcolor="#C7C7C7">数据库锁的类型有哪些</td></tr></table></h2><p><strong>按照锁的粒度可以将MySQL锁分为三种：</strong></p>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">MySQL锁类别</th>
-<th style="text-align:center">资源开销</th>
-<th style="text-align:center">加锁速度</th>
-<th style="text-align:center">是否会出现死锁</th>
-<th style="text-align:center">锁的粒度</th>
-<th style="text-align:center">并发度</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">表级锁</td>
-<td style="text-align:center">小</td>
-<td style="text-align:center">快</td>
-<td style="text-align:center">不会    大</td>
-<td style="text-align:center">低</td>
-</tr>
-<tr>
-<td style="text-align:center">行级锁</td>
-<td style="text-align:center">大</td>
-<td style="text-align:center">慢</td>
-<td style="text-align:center">会</td>
-<td style="text-align:center">小</td>
-<td style="text-align:center">高</td>
-</tr>
-<tr>
-<td style="text-align:center">页面锁</td>
-<td style="text-align:center">一般</td>
-<td style="text-align:center">一般</td>
-<td style="text-align:center">不会</td>
-<td style="text-align:center">一般</td>
-<td style="text-align:center">一般</td>
-</tr>
-</tbody>
-</table>
-<p>MyISAM默认采用表级锁，InnoDB默认采用行级锁。</p>
-<p>从锁的类别上区别可以分为共享锁和排他锁</p>
-<p>共享锁：共享锁又称读锁，简写为S锁，一个事务对一个数据对象加了S锁，可以对这个数据对象进行读取操作，但不能进行更新操作。并且在加锁期间其他事务只能对这个数据对象加S锁，不能加X锁。<br>排他锁：排他锁又称为写锁，简写为X锁，一个事务对一个数据对象加了X锁，可以对这个对象进行读取和更新操作，加锁期间，其他事务不能对该数据对象进行加X锁或S锁。</p>
-<h2 id="MySQL中InnoDB引擎的行锁模式及其是如何实现的"><a href="#MySQL中InnoDB引擎的行锁模式及其是如何实现的" class="headerlink" title="MySQL中InnoDB引擎的行锁模式及其是如何实现的"></a><table><tr><td bgcolor="#C7C7C7">MySQL中InnoDB引擎的行锁模式及其是如何实现的</td></tr></table></h2><h2 id="什么是数据库的乐观锁和悲观锁，如何实现"><a href="#什么是数据库的乐观锁和悲观锁，如何实现" class="headerlink" title="什么是数据库的乐观锁和悲观锁，如何实现"></a><table><tr><td bgcolor="#C7C7C7">什么是数据库的乐观锁和悲观锁，如何实现</td></tr></table></h2><p>乐观锁：系统假设数据的更新在大多数时候是不会产生冲突的，所以数据库只在更新操作提交的时候对数据检测冲突，如果存在冲突，则数据更新失败。</p>
-<p>乐观锁实现方式：一般通过版本号和CAS算法实现。</p>
-<p>悲观锁：假定会发生并发冲突，屏蔽一切可能违反数据完整性的操作。通俗讲就是每次去拿数据的时候都认为别人会修改，所以每次在拿数据的时候都会上锁。</p>
-<p>悲观锁的实现方式：通过数据库的锁机制实现，对查询语句添加for updata。</p>
-<h2 id="什么是死锁？如何避免"><a href="#什么是死锁？如何避免" class="headerlink" title="什么是死锁？如何避免"></a><table><tr><td bgcolor="#C7C7C7">什么是死锁？如何避免</td></tr></table></h2><p>死锁是指两个或者两个以上进程在执行过程中，由于竞争资源或者由于彼此通信而造成的一种阻塞的现象。在MySQL中，MyISAM是一次获得所需的全部锁，要么全部满足，要么等待，所以不会出现死锁。在InnoDB存储引擎中，除了单个SQL组成的事务外，锁都是逐步获得的，所以存在死锁问题。</p>
-<p>如何避免MySQL发生死锁或锁冲突：</p>
-<ol>
-<li><p>如果不同的程序并发存取多个表，尽量以相同的顺序访问表。</p>
-</li>
-<li><p>在程序以批量方式处理数据的时候，如果已经对数据排序，尽量保证每个线程按照固定的顺序来处理记录。</p>
-</li>
-<li><p>在事务中，如果需要更新记录，应直接申请足够级别的排他锁，而不应该先申请共享锁，更新时在申请排他锁，因为在当前用户申请排他锁时，其他事务可能已经获得了相同记录的共享锁，从而造成锁冲突或者死锁。</p>
-</li>
-<li><p>尽量使用较低的隔离级别</p>
-</li>
-<li><p>尽量使用索引访问数据，使加锁更加准确，从而减少锁冲突的机会</p>
-</li>
-<li><p>合理选择事务的大小，小事务发生锁冲突的概率更低</p>
-</li>
-<li><p>尽量用相等的条件访问数据，可以避免Next-Key锁对并发插入的影响。</p>
-</li>
-<li><p>不要申请超过实际需要的锁级别，查询时尽量不要显示加锁</p>
-</li>
-<li><p>对于一些特定的事务，可以表锁来提高处理速度或减少死锁的概率。</p>
-</li>
-</ol>
-<h2 id="了解慢日志查询吗？统计过慢查询吗？对慢查询如何优化"><a href="#了解慢日志查询吗？统计过慢查询吗？对慢查询如何优化" class="headerlink" title="了解慢日志查询吗？统计过慢查询吗？对慢查询如何优化"></a><table><tr><td bgcolor="#C7C7C7">了解慢日志查询吗？统计过慢查询吗？对慢查询如何优化</td></tr></table></h2><p>慢查询一般用于记录执行时间超过某个临界值的SQL语句的日志。</p>
-<p><strong>相关参数：</strong></p>
-<p>slow_query_log：是否开启慢日志查询，1表示开启，0表示关闭。<br>slow_query_log_file：MySQL数据库慢查询日志存储路径。<br>long_query_time：慢查询阈值，当SQL语句查询时间大于阈值，会被记录在日志上。<br>log_queries_not_using_indexes：未使用索引的查询会被记录到慢查询日志中。<br>log_output：日志存储方式。“FILE”表示将日志存入文件。“TABLE”表示将日志存入数据库。</p>
-<p><strong>如何对慢查询进行优化？</strong></p>
-<ol>
-<li>分析语句的执行计划，查看SQL语句的索引是否命中</li>
-<li>优化数据库的结构，将字段很多的表分解成多个表，或者考虑建立中间表。</li>
-<li>优化LIMIT分页</li>
-</ol>
-<h2 id="主键一般用自增ID还是UUID"><a href="#主键一般用自增ID还是UUID" class="headerlink" title="主键一般用自增ID还是UUID"></a><table><tr><td bgcolor="#C7C7C7">主键一般用自增ID还是UUID</td></tr></table></h2><p><strong>1.使用自增ID的好处：</strong></p>
-<ul>
-<li>字段长度较uuid会小很多。</li>
-<li>数据库自动编号，按顺序存放，利于检索</li>
-<li>无需担心主键重复问题</li>
-</ul>
-<p><strong>2.使用自增ID的缺点：</strong></p>
-<ul>
-<li>因为是自增，在某些业务场景下，容易被其他人查到业务量。</li>
-<li>发生数据迁移时，或者表合并时会非常麻烦</li>
-<li>在高并发的场景下，竞争自增锁会降低数据库的吞吐能力</li>
-</ul>
-<p>UUID：通用唯一标识码，UUID是基于当前时间、计数器和硬件标识等数据计算生成的。</p>
-<p><strong>3.使用UUID的优点：</strong></p>
-<p>唯一标识，不会考虑重复问题，在数据拆分、合并时也能达到全局的唯一性。<br>可以在应用层生成，提高数据库的吞吐能力。<br>无需担心业务量泄露的问题。</p>
-<p><strong>4.使用UUID的缺点：</strong></p>
-<ul>
-<li>因为UUID是随机生成的，所以会发生随机IO，影响插入速度，并且会造成硬盘的使用率较低。</li>
-<li>UUID占用空间较大，建立的索引越多，造成的影响越大。</li>
-<li>UUID之间比较大小较自增ID慢不少，影响查询速度。</li>
-<li>最后说下结论，一般情况MySQL推荐使用自增ID。因为在MySQL的InnoDB存储引擎中，主键索引是一种聚簇索引，主键索引的B+树的叶子节点按照顺序存储了主键值及数据，如果主键索引是自增ID，只需要按顺序往后排列即可，如果是UUID，ID是随机生成的，在数据插入时会造成大量的数据移动，产生大量的内存碎片，造成插入性能的下降</li>
-</ul>
-<h2 id="字段为什么要设置成not-null"><a href="#字段为什么要设置成not-null" class="headerlink" title="字段为什么要设置成not null"></a><table><tr><td bgcolor="#C7C7C7">字段为什么要设置成not null</td></tr></table></h2><p>NULL和空值是不一样的，空值是不占用空间的，而NULL是占用空间的，所以字段设为NOT NULL后仍然可以插入空值。</p>
-<p>字段设置成not null主要有以下几点原因：</p>
-<ol>
-<li>NULL值会影响一些函数的统计，如count，遇到NULL值，这条记录不会统计在内。</li>
-<li>B树不存储NULL，所以索引用不到NULL，会造成第一点中说的统计不到的问题。</li>
-<li>NOT IN子查询在有NULL值的情况下返回的结果都是空值。</li>
-</ol>
-<p>例如user表如下</p>
-<table>
-<thead>
-<tr>
-<th>id</th>
-<th>username</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>0</td>
-<td>zhangsan</td>
-</tr>
-<tr>
-<td>1</td>
-<td>lisi</td>
-</tr>
-<tr>
-<td>2</td>
-<td>null</td>
-</tr>
-</tbody>
-</table>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select * from `user` where username NOT IN (select username from `user` where id != 0)</span><br></pre></td></tr></table></figure>
-<p>这条查询语句应该查到zhangsan这条数据，但是结果显示为null。</p>
-<ol start="4">
-<li>MySQL在进行比较的时候，NULL会参与字段的比较，因为NULL是一种比较特殊的数据类型，数据库在处理时需要进行特数处理，增加了数据库处理记录的复杂性。</li>
-</ol>
-<h2 id="SQL语句执行的很慢原因是什么"><a href="#SQL语句执行的很慢原因是什么" class="headerlink" title="SQL语句执行的很慢原因是什么"></a><table><tr><td bgcolor="#C7C7C7">SQL语句执行的很慢原因是什么</td></tr></table></h2><ul>
-<li>如果SQL语句只是偶尔执行很慢，可能是执行的时候遇到了锁，也可能是redo log日志写满了，要将redo log中的数据同步到磁盘中去。</li>
-<li>如果SQL语句一直都很慢，可能是字段上没有索引或者字段有索引但是没用上索引</li>
-</ul>
-<h2 id="什么是垂直分表、垂直分库、水平分表、水平分库"><a href="#什么是垂直分表、垂直分库、水平分表、水平分库" class="headerlink" title="什么是垂直分表、垂直分库、水平分表、水平分库"></a><table><tr><td bgcolor="#C7C7C7">什么是垂直分表、垂直分库、水平分表、水平分库</td></tr></table></h2><p><strong>垂直分表：</strong></p>
-<p>将一个表按照字段分成多个表，每个表存储其中一部分字段。一般会将常用的字段放到一个表中，将不常用的字段放到另一个表中。</p>
-<p><strong>垂直分表的优势：</strong></p>
-<ul>
-<li>避免IO竞争减少锁表的概率。因为大的字段效率更低，第一数据量大，需要的读取时间长。第二，大字段占用的空间更大，单页内存储的行数变少，会使得IO操作增多。</li>
-<li>可以更好地提升热门数据的查询效率。</li>
-</ul>
-<p><strong>垂直分库：</strong></p>
-<p>按照业务对表进行分类，部署到不同的数据库上面，不同的数据库可以放到不同的服务器上面。</p>
-<p><strong>垂直分库的优势：</strong></p>
-<ul>
-<li>降低业务中的耦合，方便对不同的业务进行分级管理。</li>
-<li>可以提升IO、数据库连接数、解决单机硬件资源的瓶颈问题。</li>
-</ul>
-<p><strong>垂直拆分（分库、分表）的缺点：</strong></p>
-<ul>
-<li>主键出现冗余，需要管理冗余列</li>
-<li>事务的处理变得复杂</li>
-<li>仍然存在单表数据量过大的问题</li>
-</ul>
-<p><strong>水平分表：</strong></p>
-<p>在同一个数据库内，把同一个表的数据按照一定规则拆分到多个表中。</p>
-<p><strong>水平分表的优势：</strong></p>
-<ul>
-<li>解决了单表数据量过大的问题</li>
-<li>避免IO竞争并减少锁表的概率</li>
-<li>水平分库：把同一个表的数据按照一定规则拆分到不同的数据库中，不同的数据库可以放到不同的服务器上。</li>
-</ul>
-<p>例如学生表，按照学号后3位进行分库分表，总共10库100表</p>
-<p><strong>水平分库的优势：</strong></p>
-<ul>
-<li>解决了单库大数据量的瓶颈问题</li>
-<li>IO冲突减少，锁的竞争减少，某个数据库出现问题不影响其他数据库（可用性），提高了系统的稳定性和可用性</li>
-</ul>
-<p><strong>水平拆分（分表、分库）的缺点：</strong></p>
-<ul>
-<li>分片事务一致性难以解决</li>
-<li>跨节点JOIN性能差，逻辑会变得复杂</li>
-<li>数据扩展难度大，不易维护</li>
-</ul>
-<p>在系统设计时应根据业务耦合来确定垂直分库和垂直分表的方案，在数据访问压力不是特别大时应考虑缓存、读写分离等方法，若数据量很大，或持续增长可考虑水平分库分表，水平拆分所涉及的逻辑比较复杂，常见的方案有客户端架构和恶代理架构</p>
-<h2 id="分库分表后，ID键如何处理"><a href="#分库分表后，ID键如何处理" class="headerlink" title="分库分表后，ID键如何处理"></a><table><tr><td bgcolor="#C7C7C7">分库分表后，ID键如何处理</td></tr></table></h2><p>分库分表后不能每个表的ID都是从1开始，所以需要一个全局ID，设置全局ID主要有以下几种方法：</p>
-<ol>
-<li><p>UUID：优点：本地生成ID，不需要远程调用；全局唯一不重复。缺点：占用空间大，不适合作为索引。</p>
-</li>
-<li><p>数据库自增ID：在分库分表表后使用数据库自增ID，需要一个专门用于生成主键的库，每次服务接收到请求，先向这个库中插入一条没有意义的数据，获取一个数据库自增的ID，利用这个ID去分库分表中写数据。优点：简单易实现。缺点：在高并发下存在瓶颈。</p>
-</li>
-<li><p>Redis生成ID：优点：不依赖数据库，性能比较好。缺点：引入新的组件会使得系统复杂度增加</p>
-</li>
-<li><p>Twitter的snowflake算法：是一个64位的long型的ID，其中有1bit是不用的，41bit作为毫秒数，10bit作为工作机器ID，12bit作为序列号。</p>
-</li>
-</ol>
-<p>1bit：第一个bit默认为0，因为二进制中第一个bit为1的话为负数，但是ID不能为负数.</p>
-<p>41bit：表示的是时间戳，单位是毫秒。</p>
-<p>10bit：记录工作机器ID，其中5个bit表示机房ID，5个bit表示机器ID。</p>
-<p>12bit：用来记录同一毫秒内产生的不同ID。</p>
-<ol start="5">
-<li>美团的Leaf分布式ID生成系统：<img src="https://tech.meituan.com/2017/04/21/mt-leaf.html" alt="查看"></li>
-</ol>
-<h2 id="MySQL的复制原理及流程？如何实现主从复制"><a href="#MySQL的复制原理及流程？如何实现主从复制" class="headerlink" title="MySQL的复制原理及流程？如何实现主从复制"></a><table><tr><td bgcolor="#C7C7C7">MySQL的复制原理及流程？如何实现主从复制</td></tr></table></h2><p>MySQL复制：为保证主服务器和从服务器的数据一致性，在向主服务器插入数据后，从服务器会自动将主服务器中修改的数据同步过来。</p>
-<p>主从复制的原理：</p>
-<p>主从复制主要有三个线程：binlog线程，I/O线程，SQL线程。</p>
-<ul>
-<li>binlog线程：负责将主服务器上的数据更改写入到二进制日志（Binary log）中。</li>
-<li>I/O线程：负责从主服务器上读取二进制日志（Binary log），并写入从服务器的中继日志（Relay log）中。</li>
-<li>SQL线程：负责读取中继日志，解析出主服务器中已经执行的数据更改并在从服务器中重放</li>
-</ul>
-<ol>
-<li>Master在每个事务更新数据完成之前，将操作记录写入到binlog中。</li>
-<li>Slave从库连接Master主库，并且Master有多少个Slave就会创建多少个binlog dump线程。当Master节点的binlog发生变化时，binlog dump会通知所有的Slave，并将相应的binlog发送给Slave。</li>
-<li>I/O线程接收到binlog内容后，将其写入到中继日志（Relay log）中。</li>
-<li>SQL线程读取中继日志，并在从服务器中重放。</li>
-</ol>
-<p>主从复制的作用：</p>
-<ul>
-<li>高可用和故障转移</li>
-<li>负载均衡</li>
-<li>数据备份</li>
-<li>升级测试</li>
-</ul>
-<h2 id="读写分离"><a href="#读写分离" class="headerlink" title="读写分离"></a><table><tr><td bgcolor="#C7C7C7">读写分离</td></tr></table></h2><p>读写分离主要依赖于主从复制，主从复制为读写分离服务。</p>
-<p>读写分离的优势：</p>
-<ul>
-<li>主服务器负责写，从服务器负责读，缓解了锁的竞争</li>
-<li>从服务器可以使用MyISAM，提升查询性能及节约系统开销</li>
-<li>增加冗余，提高可用性</li>
-</ul>
-<h2 id="MySQL日志系统：redo-log、binlog、undo-log-区别与作用"><a href="#MySQL日志系统：redo-log、binlog、undo-log-区别与作用" class="headerlink" title="MySQL日志系统：redo log、binlog、undo log 区别与作用"></a><table><tr><td bgcolor="#C7C7C7">MySQL日志系统：redo log、binlog、undo log 区别与作用</td></tr></table></h2><p>日志是mysql数据库的重要组成部分，记录着数据库运行期间各种状态信息。mysql日志主要包括错误日志、查询日志、慢查询日志、事务日志、二进制日志几大类。</p>
-<p><strong>binlog</strong></p>
-<p>binlog用于记录数据库执行的写入性操作(不包括查询)信息，以二进制的形式保存在磁盘中。binlog是mysql的逻辑日志，并且由Server层进行记录，使用任何存储引擎的mysql数据库都会记录binlog日志。</p>
-<p>逻辑日志：可以简单理解为记录的就是sql语句。<br>物理日志：因为mysql数据最终是保存在数据页中的，物理日志记录的就是数据页变更。<br>binlog是通过追加的方式进行写入的，可以通过max_binlog_size参数设置每个binlog文件的大小，当文件大小达到给定值之后，会生成新的文件来保存日志。</p>
-<p>binlog使用场景<br>在实际应用中，binlog的主要使用场景有两个，分别是主从复制和数据恢复。</p>
-<p>主从复制：在Master端开启binlog，然后将binlog发送到各个Slave端，Slave端重放binlog从而达到主从数据一致。<br>数据恢复：通过使用mysqlbinlog工具来恢复数据。<br>binlog刷盘时机<br>对于InnoDB存储引擎而言，只有在事务提交时才会记录biglog，此时记录还在内存中，那么biglog是什么时候刷到磁盘中的呢？mysql通过sync_binlog参数控制biglog的刷盘时机，取值范围是0-N：</p>
-<p>0：不去强制要求，由系统自行判断何时写入磁盘；<br>1：每次commit的时候都要将binlog写入磁盘；<br>N：每N个事务，才会将binlog写入磁盘。<br>从上面可以看出，sync_binlog最安全的是设置是1，这也是MySQL 5.7.7之后版本的默认值。但是设置一个大一些的值可以提升数据库性能，因此实际情况下也可以将值适当调大，牺牲一定的一致性来获取更好的性能。</p>
-<p>推荐阅读：Java面试题拆解</p>
-<p>binlog日志格式<br>binlog日志有三种格式，分别为STATMENT、ROW和MIXED。</p>
-<p>在 MySQL 5.7.7之前，默认的格式是STATEMENT，MySQL 5.7.7之后，默认值是ROW。日志格式通过binlog-format指定。<br>STATMENT</p>
-<p>基于SQL语句的复制(statement-based replication, SBR)，每一条会修改数据的sql语句会记录到binlog中。</p>
-<p>优点：不需要记录每一行的变化，减少了binlog日志量，节约了IO, 从而提高了性能；<br>缺点：在某些情况下会导致主从数据不一致，比如执行sysdate()、slepp()等。<br>ROW</p>
-<p>基于行的复制(row-based replication, RBR)，不记录每条sql语句的上下文信息，仅需记录哪条数据被修改了。</p>
-<p>优点：不会出现某些特定情况下的存储过程、或function、或trigger的调用和触发无法被正确复制的问题；<br>缺点：会产生大量的日志，尤其是alter table的时候会让日志暴涨<br>MIXED</p>
-<p>基于STATMENT和ROW两种模式的混合复制(mixed-based replication, MBR)，一般的复制使用STATEMENT模式保存binlog，对于STATEMENT模式无法复制的操作使用ROW模式保存binlog</p>
-<p><strong>redo log</strong></p>
-<p>redo log包括两部分：一个是内存中的日志缓冲(redo log buffer)，另一个是磁盘上的日志文件(redo log file)。mysql每执行一条DML语句，先将记录写入redo log buffer，后续某个时间点再一次性将多个操作记录写到redo log file。这种先写日志，再写磁盘的技术就是MySQL里经常说到的WAL(Write-Ahead Logging) 技术。</p>
-<p>在计算机操作系统中，用户空间(user space)下的缓冲区数据一般情况下是无法直接写入磁盘的，中间必须经过操作系统内核空间(kernel space)缓冲区(OS Buffer)。因此，redo log buffer写入redo log file实际上是先写入OS Buffer，然后再通过系统调用fsync()将其刷到redo log file中</p>
-<p>redo log与binlog区别</p>
-<p>由binlog和redo log的区别可知：binlog日志只用于归档，只依靠binlog是没有crash-safe能力的。但只有redo log也不行，因为redo log是InnoDB特有的，且日志上的记录落盘后会被覆盖掉。因此需要binlog和redo log二者同时记录，才能保证当数据库发生宕机重启时，数据不会丢失。</p>
-<p><strong>undo log</strong></p>
-<p>数据库事务四大特性中有一个是原子性，具体来说就是 原子性是指对数据库的一系列操作，要么全部成功，要么全部失败，不可能出现部分成功的情况。</p>
-<p>实际上，原子性底层就是通过undo log实现的。undo log主要记录了数据的逻辑变化，比如一条INSERT语句，对应一条DELETE的undo log，对于每个UPDATE语句，对应一条相反的UPDATE的undo log，这样在发生错误时，就能回滚到事务之前的数据状态。</p>
-<p>同时，undo log也是MVCC(多版本并发控制)实现的关键</p>
 <hr>
-<h2 id="18-数据库锁的类型有哪些"><a href="#18-数据库锁的类型有哪些" class="headerlink" title="18 数据库锁的类型有哪些"></a><table><tr><td bgcolor="#C7C7C7" id="1.18">18 数据库锁的类型有哪些</td></tr></table></h2><table>
+<h1 id="★★★-五、事务-★★★"><a href="#★★★-五、事务-★★★" class="headerlink" title="★★★ 五、事务 ★★★"></a><div align="center"><font size="70">★★★ 五、事务 ★★★</font></div></h1><h2 style="color: #ffffff; line-height: 2.0em; margin-top: 1.6em; margin-bottom: 1.6em; font-weight: bold; border-bottom: 2px solid #ef7060; font-size: 1.5em;"><br>    <span style="font-size: inherit; line-height: inherit; display: inline-block; font-weight: normal; background: #ef7060; color: #ffffff; padding: 3px 10px 1px; border-top-right-radius: 3px; border-top-left-radius: 3px;margin-right: 3px;">事务的四大特性是什么（ACID）</span><br></h2>
+
+<p>原子性：原子性是指包含事务的操作要么全部执行成功，要么全部失败回滚。<br>一致性：一致性指事务在执行前后状态是一致的。<br>隔离性：一个事务所进行的修改在最终提交之前，对其他事务是不可见的。<br>持久性：数据一旦提交，其所作的修改将永久地保存到数据库中。</p>
+<hr>
+<h1 id="★★★-六、锁-★★★"><a href="#★★★-六、锁-★★★" class="headerlink" title="★★★ 六、锁 ★★★"></a><div align="center"><font size="70">★★★ 六、锁 ★★★</font></div></h1><h2 style="color: #ffffff; line-height: 2.0em; margin-top: 1.6em; margin-bottom: 1.6em; font-weight: bold; border-bottom: 2px solid #ef7060; font-size: 1.5em;"><br>    <span style="font-size: inherit; line-height: inherit; display: inline-block; font-weight: normal; background: #ef7060; color: #ffffff; padding: 3px 10px 1px; border-top-right-radius: 3px; border-top-left-radius: 3px;margin-right: 3px;">  判断锁的级别</span><br></h2>
+
+
+<p>例子: 假设表foods ，存在有id跟name、status三个字段，id是主键，status有索引。</p>
+<p>例1: (明确指定主键，并且有此记录，行级锁)SELECT * FROM foods WHERE id=1 FOR UPDATE;</p>
+<p>SELECT * FROM foods WHERE id=1 and name=’咖啡色的羊驼’ FOR UPDATE;</p>
+<p>例2: (明确指定主键/索引，若查无此记录，无锁)SELECT * FROM foods WHERE id=-1 FOR UPDATE;</p>
+<p>例3: (无主键/索引，表级锁)SELECT * FROM foods WHERE name=’咖啡色的羊驼’ FOR UPDATE;</p>
+<p>例4: (主键/索引不明确，表级锁)SELECT * FROM foods WHERE id&lt;&gt;’3’ FOR UPDATE;</p>
+<p>SELECT * FROM foods WHERE id LIKE ‘3’ FOR UPDATE;</p>
+<p>for update的注意点1.for update 仅适用于InnoDB，并且必须开启事务，在begin与commit之间才生效</p>
+<h2 style="color: #ffffff; line-height: 2.0em; margin-top: 1.6em; margin-bottom: 1.6em; font-weight: bold; border-bottom: 2px solid #ef7060; font-size: 1.5em;"><br>    <span style="font-size: inherit; line-height: inherit; display: inline-block; font-weight: normal; background: #ef7060; color: #ffffff; padding: 3px 10px 1px; border-top-right-radius: 3px; border-top-left-radius: 3px;margin-right: 3px;">  MySQL中的锁升级</span><br></h2>
+
+<p>锁升级是指将当前锁的粒度降低，如一把行锁升级唯一把页锁，或者将页锁升级为表锁，如果在数据库设计中认为锁是一中稀有资源，哪么就会频繁有锁升级的现象</p>
+<p>发生锁升级的情况:</p>
+<ul>
+<li>当一条SQL语句对一个对象上持有的锁数量超锁了阈值，默认这个阈值为5000，但是对于不同对象不会发生锁升级</li>
+<li>锁资源占用的内存超过激活内存的百分之40 就会发生锁升级</li>
+</ul>
+<p>注意： innoDB 引擎不存在锁升级的问题</p>
+<hr>
+<h2 style="color: #ffffff; line-height: 2.0em; margin-top: 1.6em; margin-bottom: 1.6em; font-weight: bold; border-bottom: 2px solid #ef7060; font-size: 1.5em;"><br>    <span style="font-size: inherit; line-height: inherit; display: inline-block; font-weight: normal; background: #ef7060; color: #ffffff; padding: 3px 10px 1px; border-top-right-radius: 3px; border-top-left-radius: 3px;margin-right: 3px;"> 数据库锁的类型有哪些</span><br></h2>
+
+<table>
 <thead>
 <tr>
 <th style="text-align:left">级别</th>
@@ -774,22 +440,462 @@
 </tr>
 </tbody>
 </table>
-<hr>
-<h2 id="19-lock和latch"><a href="#19-lock和latch" class="headerlink" title="19 lock和latch"></a><table><tr><td bgcolor="#C7C7C7" id="1.19">19 lock和latch</td></tr></table></h2><hr>
-<h2 id="20-MySQL中的锁升级"><a href="#20-MySQL中的锁升级" class="headerlink" title="20 MySQL中的锁升级"></a><table><tr><td bgcolor="#C7C7C7" id="1.20">20 MySQL中的锁升级</td></tr></table></h2><p>锁升级是指将当前锁的粒度降低，如一把行锁升级唯一把页锁，或者将页锁升级为表锁，如果在数据库设计中认为锁是一中稀有资源，哪么就会频繁有锁升级的现象</p>
-<p>发生锁升级的情况:</p>
+<h2 style="color: #ffffff; line-height: 2.0em; margin-top: 1.6em; margin-bottom: 1.6em; font-weight: bold; border-bottom: 2px solid #ef7060; font-size: 1.5em;"><br>    <span style="font-size: inherit; line-height: inherit; display: inline-block; font-weight: normal; background: #ef7060; color: #ffffff; padding: 3px 10px 1px; border-top-right-radius: 3px; border-top-left-radius: 3px;margin-right: 3px;"> 锁的类型</span><br></h2>
+
+
 <ul>
-<li>当一条SQL语句对一个对象上持有的锁数量超锁了阈值，默认这个阈值为5000，但是对于不同对象不会发生锁升级</li>
-<li>锁资源占用的内存超过激活内存的百分之40 就会发生锁升级</li>
-</ul>
-<p>注意： innoDB 引擎不存在锁升级的问题</p>
-<hr>
-<h2 id="21-锁的类型"><a href="#21-锁的类型" class="headerlink" title="21 锁的类型"></a><table><tr><td bgcolor="#C7C7C7" id="1.21">21 锁的类型</td></tr></table></h2><ul>
 <li>排他锁</li>
 <li>共享锁</li>
 </ul>
+<h2 style="color: #ffffff; line-height: 2.0em; margin-top: 1.6em; margin-bottom: 1.6em; font-weight: bold; border-bottom: 2px solid #ef7060; font-size: 1.5em;"><br>    <span style="font-size: inherit; line-height: inherit; display: inline-block; font-weight: normal; background: #ef7060; color: #ffffff; padding: 3px 10px 1px; border-top-right-radius: 3px; border-top-left-radius: 3px;margin-right: 3px;">什么是死锁？如何避免</span><br></h2>
+
+<p>死锁是指两个或者两个以上进程在执行过程中，由于竞争资源或者由于彼此通信而造成的一种阻塞的现象。在MySQL中，MyISAM是一次获得所需的全部锁，要么全部满足，要么等待，所以不会出现死锁。在InnoDB存储引擎中，除了单个SQL组成的事务外，锁都是逐步获得的，所以存在死锁问题。</p>
+<p>如何避免MySQL发生死锁或锁冲突：</p>
+<ol>
+<li><p>如果不同的程序并发存取多个表，尽量以相同的顺序访问表。</p>
+</li>
+<li><p>在程序以批量方式处理数据的时候，如果已经对数据排序，尽量保证每个线程按照固定的顺序来处理记录。</p>
+</li>
+<li><p>在事务中，如果需要更新记录，应直接申请足够级别的排他锁，而不应该先申请共享锁，更新时在申请排他锁，因为在当前用户申请排他锁时，其他事务可能已经获得了相同记录的共享锁，从而造成锁冲突或者死锁。</p>
+</li>
+<li><p>尽量使用较低的隔离级别</p>
+</li>
+<li><p>尽量使用索引访问数据，使加锁更加准确，从而减少锁冲突的机会</p>
+</li>
+<li><p>合理选择事务的大小，小事务发生锁冲突的概率更低</p>
+</li>
+<li><p>尽量用相等的条件访问数据，可以避免Next-Key锁对并发插入的影响。</p>
+</li>
+<li><p>不要申请超过实际需要的锁级别，查询时尽量不要显示加锁</p>
+</li>
+<li><p>对于一些特定的事务，可以表锁来提高处理速度或减少死锁的概率。</p>
+</li>
+</ol>
+<h2 style="color: #ffffff; line-height: 2.0em; margin-top: 1.6em; margin-bottom: 1.6em; font-weight: bold; border-bottom: 2px solid #ef7060; font-size: 1.5em;"><br>    <span style="font-size: inherit; line-height: inherit; display: inline-block; font-weight: normal; background: #ef7060; color: #ffffff; padding: 3px 10px 1px; border-top-right-radius: 3px; border-top-left-radius: 3px;margin-right: 3px;">什么是数据库的乐观锁和悲观锁，如何实现</span><br></h2>
+
+<p>乐观锁：系统假设数据的更新在大多数时候是不会产生冲突的，所以数据库只在更新操作提交的时候对数据检测冲突，如果存在冲突，则数据更新失败。</p>
+<p>乐观锁实现方式：一般通过版本号和CAS算法实现。</p>
+<p>悲观锁：假定会发生并发冲突，屏蔽一切可能违反数据完整性的操作。通俗讲就是每次去拿数据的时候都认为别人会修改，所以每次在拿数据的时候都会上锁。</p>
+<p>悲观锁的实现方式：通过数据库的锁机制实现，对查询语句添加for updata。</p>
+<h2 style="color: #ffffff; line-height: 2.0em; margin-top: 1.6em; margin-bottom: 1.6em; font-weight: bold; border-bottom: 2px solid #ef7060; font-size: 1.5em;"><br>    <span style="font-size: inherit; line-height: inherit; display: inline-block; font-weight: normal; background: #ef7060; color: #ffffff; padding: 3px 10px 1px; border-top-right-radius: 3px; border-top-left-radius: 3px;margin-right: 3px;">数据库锁的类型有哪些</span><br></h2>
+
+
+<p><strong>按照锁的粒度可以将MySQL锁分为三种：</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">MySQL锁类别</th>
+<th style="text-align:center">资源开销</th>
+<th style="text-align:center">加锁速度</th>
+<th style="text-align:center">是否会出现死锁</th>
+<th style="text-align:center">锁的粒度</th>
+<th style="text-align:center">并发度</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">表级锁</td>
+<td style="text-align:center">小</td>
+<td style="text-align:center">快</td>
+<td style="text-align:center">不会    大</td>
+<td style="text-align:center">低</td>
+</tr>
+<tr>
+<td style="text-align:center">行级锁</td>
+<td style="text-align:center">大</td>
+<td style="text-align:center">慢</td>
+<td style="text-align:center">会</td>
+<td style="text-align:center">小</td>
+<td style="text-align:center">高</td>
+</tr>
+<tr>
+<td style="text-align:center">页面锁</td>
+<td style="text-align:center">一般</td>
+<td style="text-align:center">一般</td>
+<td style="text-align:center">不会</td>
+<td style="text-align:center">一般</td>
+<td style="text-align:center">一般</td>
+</tr>
+</tbody>
+</table>
+<p>MyISAM默认采用表级锁，InnoDB默认采用行级锁。</p>
+<p>从锁的类别上区别可以分为共享锁和排他锁</p>
+<p>共享锁：共享锁又称读锁，简写为S锁，一个事务对一个数据对象加了S锁，可以对这个数据对象进行读取操作，但不能进行更新操作。并且在加锁期间其他事务只能对这个数据对象加S锁，不能加X锁。<br>排他锁：排他锁又称为写锁，简写为X锁，一个事务对一个数据对象加了X锁，可以对这个对象进行读取和更新操作，加锁期间，其他事务不能对该数据对象进行加X锁或S锁。</p>
+<h2 style="color: #ffffff; line-height: 2.0em; margin-top: 1.6em; margin-bottom: 1.6em; font-weight: bold; border-bottom: 2px solid #ef7060; font-size: 1.5em;"><br>    <span style="font-size: inherit; line-height: inherit; display: inline-block; font-weight: normal; background: #ef7060; color: #ffffff; padding: 3px 10px 1px; border-top-right-radius: 3px; border-top-left-radius: 3px;margin-right: 3px;">MySQL中InnoDB引擎的行锁模式及其是如何实现的</span><br></h2>
+
+
+
+<h2 style="color: #ffffff; line-height: 2.0em; margin-top: 1.6em; margin-bottom: 1.6em; font-weight: bold; border-bottom: 2px solid #ef7060; font-size: 1.5em;"><br>    <span style="font-size: inherit; line-height: inherit; display: inline-block; font-weight: normal; background: #ef7060; color: #ffffff; padding: 3px 10px 1px; border-top-right-radius: 3px; border-top-left-radius: 3px;margin-right: 3px;">数据库的锁与隔离级别的关系</span><br></h2>
+
+<table>
+<thead>
+<tr>
+<th style="text-align:center">隔离级别</th>
+<th style="text-align:center">实现方式</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">未提交读</td>
+<td style="text-align:center">总是读取最新的数据，无需加锁</td>
+</tr>
+<tr>
+<td style="text-align:center">提交读</td>
+<td style="text-align:center">读取数据时加共享锁，读取数据后释放共享锁</td>
+</tr>
+<tr>
+<td style="text-align:center">可重复读</td>
+<td style="text-align:center">读取数据时加共享锁，事务结束后释放共享锁</td>
+</tr>
+<tr>
+<td style="text-align:center">串行化</td>
+<td style="text-align:center">锁定整个范围的键，一直持有锁直到事务结</td>
+</tr>
+</tbody>
+</table>
+<h2 style="color: #ffffff; line-height: 2.0em; margin-top: 1.6em; margin-bottom: 1.6em; font-weight: bold; border-bottom: 2px solid #ef7060; font-size: 1.5em;"><br>    <span style="font-size: inherit; line-height: inherit; display: inline-block; font-weight: normal; background: #ef7060; color: #ffffff; padding: 3px 10px 1px; border-top-right-radius: 3px; border-top-left-radius: 3px;margin-right: 3px;"> 19 lock和latch</span><br></h2>
+
+
+
+<h1 id="★★★-七、视图-★★★"><a href="#★★★-七、视图-★★★" class="headerlink" title="★★★ 七、视图 ★★★"></a><div align="center"><font size="70">★★★ 七、视图 ★★★</font></div></h1><h2 style="color: #ffffff; line-height: 2.0em; margin-top: 1.6em; margin-bottom: 1.6em; font-weight: bold; border-bottom: 2px solid #ef7060; font-size: 1.5em;"><br>    <span style="font-size: inherit; line-height: inherit; display: inline-block; font-weight: normal; background: #ef7060; color: #ffffff; padding: 3px 10px 1px; border-top-right-radius: 3px; border-top-left-radius: 3px;margin-right: 3px;">  什么是视图？以及视图的使用场景有哪些？</span><br></h2>
+
+
 <hr>
-<h1 id="★★★-二、进阶篇-★★★"><a href="#★★★-二、进阶篇-★★★" class="headerlink" title="★★★ 二、进阶篇 ★★★"></a><div align="center" id="进阶篇"><font size="70">★★★ 二、进阶篇 ★★★</font></div></h1>
+<h1 id="★★★-八、日志-★★★"><a href="#★★★-八、日志-★★★" class="headerlink" title="★★★ 八、日志 ★★★"></a><div align="center"><font size="70">★★★ 八、日志 ★★★</font></div></h1><h2 style="color: #ffffff; line-height: 2.0em; margin-top: 1.6em; margin-bottom: 1.6em; font-weight: bold; border-bottom: 2px solid #ef7060; font-size: 1.5em;"><br>    <span style="font-size: inherit; line-height: inherit; display: inline-block; font-weight: normal; background: #ef7060; color: #ffffff; padding: 3px 10px 1px; border-top-right-radius: 3px; border-top-left-radius: 3px;margin-right: 3px;"> MySQL日志系统：redo log、binlog、undo log 区别与作用</span><br></h2>
+
+<p>日志是mysql数据库的重要组成部分，记录着数据库运行期间各种状态信息。mysql日志主要包括错误日志、查询日志、慢查询日志、事务日志、二进制日志几大类。</p>
+<p><strong>binlog</strong></p>
+<p>binlog用于记录数据库执行的写入性操作(不包括查询)信息，以二进制的形式保存在磁盘中。binlog是mysql的逻辑日志，并且由Server层进行记录，使用任何存储引擎的mysql数据库都会记录binlog日志。</p>
+<p>逻辑日志：可以简单理解为记录的就是sql语句。<br>物理日志：因为mysql数据最终是保存在数据页中的，物理日志记录的就是数据页变更。<br>binlog是通过追加的方式进行写入的，可以通过max_binlog_size参数设置每个binlog文件的大小，当文件大小达到给定值之后，会生成新的文件来保存日志。</p>
+<p>binlog使用场景<br>在实际应用中，binlog的主要使用场景有两个，分别是主从复制和数据恢复。</p>
+<p>主从复制：在Master端开启binlog，然后将binlog发送到各个Slave端，Slave端重放binlog从而达到主从数据一致。<br>数据恢复：通过使用mysqlbinlog工具来恢复数据。<br>binlog刷盘时机<br>对于InnoDB存储引擎而言，只有在事务提交时才会记录biglog，此时记录还在内存中，那么biglog是什么时候刷到磁盘中的呢？mysql通过sync_binlog参数控制biglog的刷盘时机，取值范围是0-N：</p>
+<p>0：不去强制要求，由系统自行判断何时写入磁盘；<br>1：每次commit的时候都要将binlog写入磁盘；<br>N：每N个事务，才会将binlog写入磁盘。<br>从上面可以看出，sync_binlog最安全的是设置是1，这也是MySQL 5.7.7之后版本的默认值。但是设置一个大一些的值可以提升数据库性能，因此实际情况下也可以将值适当调大，牺牲一定的一致性来获取更好的性能。</p>
+<p>推荐阅读：Java面试题拆解</p>
+<p>binlog日志格式<br>binlog日志有三种格式，分别为STATMENT、ROW和MIXED。</p>
+<p>在 MySQL 5.7.7之前，默认的格式是STATEMENT，MySQL 5.7.7之后，默认值是ROW。日志格式通过binlog-format指定。<br>STATMENT</p>
+<p>基于SQL语句的复制(statement-based replication, SBR)，每一条会修改数据的sql语句会记录到binlog中。</p>
+<p>优点：不需要记录每一行的变化，减少了binlog日志量，节约了IO, 从而提高了性能；<br>缺点：在某些情况下会导致主从数据不一致，比如执行sysdate()、slepp()等。<br>ROW</p>
+<p>基于行的复制(row-based replication, RBR)，不记录每条sql语句的上下文信息，仅需记录哪条数据被修改了。</p>
+<p>优点：不会出现某些特定情况下的存储过程、或function、或trigger的调用和触发无法被正确复制的问题；<br>缺点：会产生大量的日志，尤其是alter table的时候会让日志暴涨<br>MIXED</p>
+<p>基于STATMENT和ROW两种模式的混合复制(mixed-based replication, MBR)，一般的复制使用STATEMENT模式保存binlog，对于STATEMENT模式无法复制的操作使用ROW模式保存binlog</p>
+<p><strong>redo log</strong></p>
+<p>redo log包括两部分：一个是内存中的日志缓冲(redo log buffer)，另一个是磁盘上的日志文件(redo log file)。mysql每执行一条DML语句，先将记录写入redo log buffer，后续某个时间点再一次性将多个操作记录写到redo log file。这种先写日志，再写磁盘的技术就是MySQL里经常说到的WAL(Write-Ahead Logging) 技术。</p>
+<p>在计算机操作系统中，用户空间(user space)下的缓冲区数据一般情况下是无法直接写入磁盘的，中间必须经过操作系统内核空间(kernel space)缓冲区(OS Buffer)。因此，redo log buffer写入redo log file实际上是先写入OS Buffer，然后再通过系统调用fsync()将其刷到redo log file中</p>
+<p>redo log与binlog区别</p>
+<p>由binlog和redo log的区别可知：binlog日志只用于归档，只依靠binlog是没有crash-safe能力的。但只有redo log也不行，因为redo log是InnoDB特有的，且日志上的记录落盘后会被覆盖掉。因此需要binlog和redo log二者同时记录，才能保证当数据库发生宕机重启时，数据不会丢失。</p>
+<p><strong>undo log</strong></p>
+<p>数据库事务四大特性中有一个是原子性，具体来说就是 原子性是指对数据库的一系列操作，要么全部成功，要么全部失败，不可能出现部分成功的情况。</p>
+<p>实际上，原子性底层就是通过undo log实现的。undo log主要记录了数据的逻辑变化，比如一条INSERT语句，对应一条DELETE的undo log，对于每个UPDATE语句，对应一条相反的UPDATE的undo log，这样在发生错误时，就能回滚到事务之前的数据状态。</p>
+<p>同时，undo log也是MVCC(多版本并发控制)实现的关键</p>
+<h2 style="color: #ffffff; line-height: 2.0em; margin-top: 1.6em; margin-bottom: 1.6em; font-weight: bold; border-bottom: 2px solid #ef7060; font-size: 1.5em;"><br>    <span style="font-size: inherit; line-height: inherit; display: inline-block; font-weight: normal; background: #ef7060; color: #ffffff; padding: 3px 10px 1px; border-top-right-radius: 3px; border-top-left-radius: 3px;margin-right: 3px;">了解慢日志查询吗？统计过慢查询吗？对慢查询如何优化</span><br></h2>
+
+
+<p>慢查询一般用于记录执行时间超过某个临界值的SQL语句的日志。</p>
+<p><strong>相关参数：</strong></p>
+<p>slow_query_log：是否开启慢日志查询，1表示开启，0表示关闭。<br>slow_query_log_file：MySQL数据库慢查询日志存储路径。<br>long_query_time：慢查询阈值，当SQL语句查询时间大于阈值，会被记录在日志上。<br>log_queries_not_using_indexes：未使用索引的查询会被记录到慢查询日志中。<br>log_output：日志存储方式。“FILE”表示将日志存入文件。“TABLE”表示将日志存入数据库。</p>
+<p><strong>如何对慢查询进行优化？</strong></p>
+<ol>
+<li>分析语句的执行计划，查看SQL语句的索引是否命中</li>
+<li>优化数据库的结构，将字段很多的表分解成多个表，或者考虑建立中间表。</li>
+<li>优化LIMIT分页</li>
+</ol>
+<h2 style="color: #ffffff; line-height: 2.0em; margin-top: 1.6em; margin-bottom: 1.6em; font-weight: bold; border-bottom: 2px solid #ef7060; font-size: 1.5em;"><br>    <span style="font-size: inherit; line-height: inherit; display: inline-block; font-weight: normal; background: #ef7060; color: #ffffff; padding: 3px 10px 1px; border-top-right-radius: 3px; border-top-left-radius: 3px;margin-right: 3px;">主键一般用自增ID还是UUID</span><br></h2>
+
+<p><strong>1.使用自增ID的好处：</strong></p>
+<ul>
+<li>字段长度较uuid会小很多。</li>
+<li>数据库自动编号，按顺序存放，利于检索</li>
+<li>无需担心主键重复问题</li>
+</ul>
+<p><strong>2.使用自增ID的缺点：</strong></p>
+<ul>
+<li>因为是自增，在某些业务场景下，容易被其他人查到业务量。</li>
+<li>发生数据迁移时，或者表合并时会非常麻烦</li>
+<li>在高并发的场景下，竞争自增锁会降低数据库的吞吐能力</li>
+</ul>
+<p>UUID：通用唯一标识码，UUID是基于当前时间、计数器和硬件标识等数据计算生成的。</p>
+<p><strong>3.使用UUID的优点：</strong></p>
+<p>唯一标识，不会考虑重复问题，在数据拆分、合并时也能达到全局的唯一性。<br>可以在应用层生成，提高数据库的吞吐能力。<br>无需担心业务量泄露的问题。</p>
+<p><strong>4.使用UUID的缺点：</strong></p>
+<ul>
+<li>因为UUID是随机生成的，所以会发生随机IO，影响插入速度，并且会造成硬盘的使用率较低。</li>
+<li>UUID占用空间较大，建立的索引越多，造成的影响越大。</li>
+<li>UUID之间比较大小较自增ID慢不少，影响查询速度。</li>
+<li>最后说下结论，一般情况MySQL推荐使用自增ID。因为在MySQL的InnoDB存储引擎中，主键索引是一种聚簇索引，主键索引的B+树的叶子节点按照顺序存储了主键值及数据，如果主键索引是自增ID，只需要按顺序往后排列即可，如果是UUID，ID是随机生成的，在数据插入时会造成大量的数据移动，产生大量的内存碎片，造成插入性能的下降</li>
+</ul>
+<hr>
+<h1 id="★★★-九、优化-★★★"><a href="#★★★-九、优化-★★★" class="headerlink" title="★★★ 九、优化 ★★★"></a><div align="center"><font size="70">★★★ 九、优化 ★★★</font></div></h1><hr>
+<h1 id="★★★-十、并发类问题-★★★"><a href="#★★★-十、并发类问题-★★★" class="headerlink" title="★★★ 十、并发类问题 ★★★"></a><div align="center"><font size="70">★★★ 十、并发类问题 ★★★</font></div></h1><h2 style="color: #ffffff; line-height: 2.0em; margin-top: 1.6em; margin-bottom: 1.6em; font-weight: bold; border-bottom: 2px solid #ef7060; font-size: 1.5em;"><br>    <span style="font-size: inherit; line-height: inherit; display: inline-block; font-weight: normal; background: #ef7060; color: #ffffff; padding: 3px 10px 1px; border-top-right-radius: 3px; border-top-left-radius: 3px;margin-right: 3px;">数据库的并发一致性问题</span><br></h2>
+
+<p>当多个事务并发执行时，可能会出现以下问题：</p>
+<ul>
+<li>脏读：事务A更新了数据，但还没有提交，这时事务B读取到事务A更新后的数据，然后事务A回滚了，事务B读取到的数据就成为脏数据了。</li>
+<li>不可重复读：事务A对数据进行多次读取，事务B在事务A多次读取的过程中执行了更新操作并提交了，导致事务A多次读取到的数据并不一致。</li>
+<li>幻读：事务A在读取数据后，事务B向事务A读取的数据中插入了几条数据，事务A再次读取数据时发现多了几条数据，和之前读取的数据不一致。</li>
+<li>丢失修改：事务A和事务B都对同一个数据进行修改，事务A先修改，事务B随后修改，事务B的修改覆盖了事务A的修改。<br>不可重复度和幻读看起来比较像，它们主要的区别是：在不可重复读中，发现数据不一致主要是数据被更新了。在幻读中，发现数据不一致主要是数据增多或者减少了。</li>
+</ul>
+<hr>
+<hr>
+<h1 id="★★★-十一、其他-★★★"><a href="#★★★-十一、其他-★★★" class="headerlink" title="★★★ 十一、其他 ★★★"></a><div align="center"><font size="70">★★★ 十一、其他 ★★★</font></div></h1><h2 style="color: #ffffff; line-height: 2.0em; margin-top: 1.6em; margin-bottom: 1.6em; font-weight: bold; border-bottom: 2px solid #ef7060; font-size: 1.5em;"><br>    <span style="font-size: inherit; line-height: inherit; display: inline-block; font-weight: normal; background: #ef7060; color: #ffffff; padding: 3px 10px 1px; border-top-right-radius: 3px; border-top-left-radius: 3px;margin-right: 3px;"> 什么是MySQL InnoDB下的当前读和快照读？ </span><br></h2>
+
+<font color="#0000FF"> ★ 当前读 ★ </font>
+
+<p>它读取的数据库记录，都是当前最新的版本，会对当前读取的数据进行加锁，防止其他事务修改数据。是悲观锁的一种操作。</p>
+<p>如下操作都是当前读：</p>
+<ul>
+<li>select lock in share mode (共享锁)</li>
+<li>select for update (排他锁)</li>
+<li>update (排他锁)</li>
+<li>insert (排他锁)</li>
+<li>delete (排他锁)</li>
+<li>串行化事务隔离级别</li>
+</ul>
+<font color="#0000FF"> ★ 快照读 ★ </font>
+
+<p>快照读的实现是基于多版本并发控制，即MVCC，既然是多版本，那么快照读读到的数据不一定是当前最新的数据，有可能是之前历史版本的数据。</p>
+<p>如下操作是快照读：</p>
+<p>不加锁的select操作（注：事务级别不是串行化）</p>
+<h2 style="color: #ffffff; line-height: 2.0em; margin-top: 1.6em; margin-bottom: 1.6em; font-weight: bold; border-bottom: 2px solid #ef7060; font-size: 1.5em;"><br>    <span style="font-size: inherit; line-height: inherit; display: inline-block; font-weight: normal; background: #ef7060; color: #ffffff; padding: 3px 10px 1px; border-top-right-radius: 3px; border-top-left-radius: 3px;margin-right: 3px;">  百万级别或以上的数据如何删除</span><br></h2>
+
+<p>关于索引：由于索引需要额外的维护成本，因为索引文件是单独存在的文件,所以当我们对数据的增加,修改,删除,都会产生额外的对索引文件的操作,这些操作需要消耗额外的IO,会降低增/改/删的执行效率。所以，在我们删除数据库百万级别数据的时候，查询MySQL官方手册得知删除数据的速度和创建的索引数量是成正比的。</p>
+<ol>
+<li>先删除索引</li>
+<li>然后删除其中无用数据</li>
+<li>删除完成后重新创建索引</li>
+</ol>
+<h2 style="color: #ffffff; line-height: 2.0em; margin-top: 1.6em; margin-bottom: 1.6em; font-weight: bold; border-bottom: 2px solid #ef7060; font-size: 1.5em;"><br>    <span style="font-size: inherit; line-height: inherit; display: inline-block; font-weight: normal; background: #ef7060; color: #ffffff; padding: 3px 10px 1px; border-top-right-radius: 3px; border-top-left-radius: 3px;margin-right: 3px;">读写分离</span><br></h2>
+
+<p>读写分离主要依赖于主从复制，主从复制为读写分离服务。</p>
+<p>读写分离的优势：</p>
+<ul>
+<li>主服务器负责写，从服务器负责读，缓解了锁的竞争</li>
+<li>从服务器可以使用MyISAM，提升查询性能及节约系统开销</li>
+<li>增加冗余，提高可用性</li>
+</ul>
+<h2 style="color: #ffffff; line-height: 2.0em; margin-top: 1.6em; margin-bottom: 1.6em; font-weight: bold; border-bottom: 2px solid #ef7060; font-size: 1.5em;"><br>    <span style="font-size: inherit; line-height: inherit; display: inline-block; font-weight: normal; background: #ef7060; color: #ffffff; padding: 3px 10px 1px; border-top-right-radius: 3px; border-top-left-radius: 3px;margin-right: 3px;">MySQL的复制原理及流程？如何实现主从复制</span><br></h2>
+
+<p>MySQL复制：为保证主服务器和从服务器的数据一致性，在向主服务器插入数据后，从服务器会自动将主服务器中修改的数据同步过来。</p>
+<p>主从复制的原理：</p>
+<p>主从复制主要有三个线程：binlog线程，I/O线程，SQL线程。</p>
+<ul>
+<li>binlog线程：负责将主服务器上的数据更改写入到二进制日志（Binary log）中。</li>
+<li>I/O线程：负责从主服务器上读取二进制日志（Binary log），并写入从服务器的中继日志（Relay log）中。</li>
+<li>SQL线程：负责读取中继日志，解析出主服务器中已经执行的数据更改并在从服务器中重放</li>
+</ul>
+<ol>
+<li>Master在每个事务更新数据完成之前，将操作记录写入到binlog中。</li>
+<li>Slave从库连接Master主库，并且Master有多少个Slave就会创建多少个binlog dump线程。当Master节点的binlog发生变化时，binlog dump会通知所有的Slave，并将相应的binlog发送给Slave。</li>
+<li>I/O线程接收到binlog内容后，将其写入到中继日志（Relay log）中。</li>
+<li>SQL线程读取中继日志，并在从服务器中重放。</li>
+</ol>
+<p>主从复制的作用：</p>
+<ul>
+<li>高可用和故障转移</li>
+<li>负载均衡</li>
+<li>数据备份</li>
+<li>升级测试</li>
+</ul>
+<h2 style="color: #ffffff; line-height: 2.0em; margin-top: 1.6em; margin-bottom: 1.6em; font-weight: bold; border-bottom: 2px solid #ef7060; font-size: 1.5em;"><br>    <span style="font-size: inherit; line-height: inherit; display: inline-block; font-weight: normal; background: #ef7060; color: #ffffff; padding: 3px 10px 1px; border-top-right-radius: 3px; border-top-left-radius: 3px;margin-right: 3px;">分库分表后，ID键如何处理</span><br></h2>
+
+<p>分库分表后不能每个表的ID都是从1开始，所以需要一个全局ID，设置全局ID主要有以下几种方法：</p>
+<ol>
+<li><p>UUID：优点：本地生成ID，不需要远程调用；全局唯一不重复。缺点：占用空间大，不适合作为索引。</p>
+</li>
+<li><p>数据库自增ID：在分库分表表后使用数据库自增ID，需要一个专门用于生成主键的库，每次服务接收到请求，先向这个库中插入一条没有意义的数据，获取一个数据库自增的ID，利用这个ID去分库分表中写数据。优点：简单易实现。缺点：在高并发下存在瓶颈。</p>
+</li>
+<li><p>Redis生成ID：优点：不依赖数据库，性能比较好。缺点：引入新的组件会使得系统复杂度增加</p>
+</li>
+<li><p>Twitter的snowflake算法：是一个64位的long型的ID，其中有1bit是不用的，41bit作为毫秒数，10bit作为工作机器ID，12bit作为序列号。</p>
+</li>
+</ol>
+<p>1bit：第一个bit默认为0，因为二进制中第一个bit为1的话为负数，但是ID不能为负数.</p>
+<p>41bit：表示的是时间戳，单位是毫秒。</p>
+<p>10bit：记录工作机器ID，其中5个bit表示机房ID，5个bit表示机器ID。</p>
+<p>12bit：用来记录同一毫秒内产生的不同ID。</p>
+<ol start="5">
+<li>美团的Leaf分布式ID生成系统：<img src="https://tech.meituan.com/2017/04/21/mt-leaf.html" alt="查看"></li>
+</ol>
+<h2 style="color: #ffffff; line-height: 2.0em; margin-top: 1.6em; margin-bottom: 1.6em; font-weight: bold; border-bottom: 2px solid #ef7060; font-size: 1.5em;"><br>    <span style="font-size: inherit; line-height: inherit; display: inline-block; font-weight: normal; background: #ef7060; color: #ffffff; padding: 3px 10px 1px; border-top-right-radius: 3px; border-top-left-radius: 3px;margin-right: 3px;">SQL语句执行的很慢原因是什么</span><br></h2>
+
+<ul>
+<li>如果SQL语句只是偶尔执行很慢，可能是执行的时候遇到了锁，也可能是redo log日志写满了，要将redo log中的数据同步到磁盘中去。</li>
+<li>如果SQL语句一直都很慢，可能是字段上没有索引或者字段有索引但是没用上索引</li>
+</ul>
+<h2 style="color: #ffffff; line-height: 2.0em; margin-top: 1.6em; margin-bottom: 1.6em; font-weight: bold; border-bottom: 2px solid #ef7060; font-size: 1.5em;"><br>    <span style="font-size: inherit; line-height: inherit; display: inline-block; font-weight: normal; background: #ef7060; color: #ffffff; padding: 3px 10px 1px; border-top-right-radius: 3px; border-top-left-radius: 3px;margin-right: 3px;">什么是垂直分表、垂直分库、水平分表、水平分库</span><br></h2>
+
+<p><strong>垂直分表：</strong></p>
+<p>将一个表按照字段分成多个表，每个表存储其中一部分字段。一般会将常用的字段放到一个表中，将不常用的字段放到另一个表中。</p>
+<p><strong>垂直分表的优势：</strong></p>
+<ul>
+<li>避免IO竞争减少锁表的概率。因为大的字段效率更低，第一数据量大，需要的读取时间长。第二，大字段占用的空间更大，单页内存储的行数变少，会使得IO操作增多。</li>
+<li>可以更好地提升热门数据的查询效率。</li>
+</ul>
+<p><strong>垂直分库：</strong></p>
+<p>按照业务对表进行分类，部署到不同的数据库上面，不同的数据库可以放到不同的服务器上面。</p>
+<p><strong>垂直分库的优势：</strong></p>
+<ul>
+<li>降低业务中的耦合，方便对不同的业务进行分级管理。</li>
+<li>可以提升IO、数据库连接数、解决单机硬件资源的瓶颈问题。</li>
+</ul>
+<p><strong>垂直拆分（分库、分表）的缺点：</strong></p>
+<ul>
+<li>主键出现冗余，需要管理冗余列</li>
+<li>事务的处理变得复杂</li>
+<li>仍然存在单表数据量过大的问题</li>
+</ul>
+<p><strong>水平分表：</strong></p>
+<p>在同一个数据库内，把同一个表的数据按照一定规则拆分到多个表中。</p>
+<p><strong>水平分表的优势：</strong></p>
+<ul>
+<li>解决了单表数据量过大的问题</li>
+<li>避免IO竞争并减少锁表的概率</li>
+<li>水平分库：把同一个表的数据按照一定规则拆分到不同的数据库中，不同的数据库可以放到不同的服务器上。</li>
+</ul>
+<p>例如学生表，按照学号后3位进行分库分表，总共10库100表</p>
+<p><strong>水平分库的优势：</strong></p>
+<ul>
+<li>解决了单库大数据量的瓶颈问题</li>
+<li>IO冲突减少，锁的竞争减少，某个数据库出现问题不影响其他数据库（可用性），提高了系统的稳定性和可用性</li>
+</ul>
+<p><strong>水平拆分（分表、分库）的缺点：</strong></p>
+<ul>
+<li>分片事务一致性难以解决</li>
+<li>跨节点JOIN性能差，逻辑会变得复杂</li>
+<li>数据扩展难度大，不易维护</li>
+</ul>
+<p>在系统设计时应根据业务耦合来确定垂直分库和垂直分表的方案，在数据访问压力不是特别大时应考虑缓存、读写分离等方法，若数据量很大，或持续增长可考虑水平分库分表，水平拆分所涉及的逻辑比较复杂，常见的方案有客户端架构和恶代理架构</p>
+<h2 style="color: #ffffff; line-height: 2.0em; margin-top: 1.6em; margin-bottom: 1.6em; font-weight: bold; border-bottom: 2px solid #ef7060; font-size: 1.5em;"><br>    <span style="font-size: inherit; line-height: inherit; display: inline-block; font-weight: normal; background: #ef7060; color: #ffffff; padding: 3px 10px 1px; border-top-right-radius: 3px; border-top-left-radius: 3px;margin-right: 3px;">字段为什么要设置成not null</span><br></h2>
+
+<p>NULL和空值是不一样的，空值是不占用空间的，而NULL是占用空间的，所以字段设为NOT NULL后仍然可以插入空值。</p>
+<p>字段设置成not null主要有以下几点原因：</p>
+<ol>
+<li>NULL值会影响一些函数的统计，如count，遇到NULL值，这条记录不会统计在内。</li>
+<li>B树不存储NULL，所以索引用不到NULL，会造成第一点中说的统计不到的问题。</li>
+<li>NOT IN子查询在有NULL值的情况下返回的结果都是空值。</li>
+</ol>
+<p>例如user表如下</p>
+<table>
+<thead>
+<tr>
+<th>id</th>
+<th>username</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>zhangsan</td>
+</tr>
+<tr>
+<td>1</td>
+<td>lisi</td>
+</tr>
+<tr>
+<td>2</td>
+<td>null</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select * from `user` where username NOT IN (select username from `user` where id != 0)</span><br></pre></td></tr></table></figure>
+<p>这条查询语句应该查到zhangsan这条数据，但是结果显示为null。</p>
+<ol start="4">
+<li>MySQL在进行比较的时候，NULL会参与字段的比较，因为NULL是一种比较特殊的数据类型，数据库在处理时需要进行特数处理，增加了数据库处理记录的复杂性。</li>
+</ol>
+<h2 style="color: #ffffff; line-height: 2.0em; margin-top: 1.6em; margin-bottom: 1.6em; font-weight: bold; border-bottom: 2px solid #ef7060; font-size: 1.5em;"><br>    <span style="font-size: inherit; line-height: inherit; display: inline-block; font-weight: normal; background: #ef7060; color: #ffffff; padding: 3px 10px 1px; border-top-right-radius: 3px; border-top-left-radius: 3px;margin-right: 3px;">数据库的隔离级别有哪些</span><br></h2>
+
+<ul>
+<li>未提交读：一个事务在提交前，它的修改对其他事务也是可见的。</li>
+<li>提交读：一个事务提交之后，它的修改才能被其他事务看到。</li>
+<li>可重复读：在同一个事务中多次读取到的数据是一致的。</li>
+<li>串行化：需要加锁实现，会强制事务串行执行。</li>
+</ul>
+<p>数据库的隔离级别分别可以解决数据库的脏读、不可重复读、幻读等问题。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">隔离级别</th>
+<th style="text-align:center">脏读</th>
+<th style="text-align:center">不可重复读</th>
+<th style="text-align:center">幻读</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">未提交读</td>
+<td style="text-align:center">允许</td>
+<td style="text-align:center">允许</td>
+<td style="text-align:center">允许</td>
+</tr>
+<tr>
+<td style="text-align:center">提交读</td>
+<td style="text-align:center">不允许</td>
+<td style="text-align:center">允许</td>
+<td style="text-align:center">允许</td>
+</tr>
+<tr>
+<td style="text-align:center">可重复读</td>
+<td style="text-align:center">不允许</td>
+<td style="text-align:center">不允许</td>
+<td style="text-align:center">允许</td>
+</tr>
+<tr>
+<td style="text-align:center">串行化</td>
+<td style="text-align:center">不允许</td>
+<td style="text-align:center">不允许</td>
+<td style="text-align:center">不允许</td>
+</tr>
+</tbody>
+</table>
+<p><strong>MySQL的默认隔离级别是可重复读</strong></p>
+<h2 style="color: #ffffff; line-height: 2.0em; margin-top: 1.6em; margin-bottom: 1.6em; font-weight: bold; border-bottom: 2px solid #ef7060; font-size: 1.5em;"><br>    <span style="font-size: inherit; line-height: inherit; display: inline-block; font-weight: normal; background: #ef7060; color: #ffffff; padding: 3px 10px 1px; border-top-right-radius: 3px; border-top-left-radius: 3px;margin-right: 3px;">隔离级别是如何实现的</span><br></h2>
+
+<p>事务的隔离机制主要是依靠锁机制和MVCC(多版本并发控制)实现的，提交读和可重复读可以通过MVCC实现，串行化可以通过锁机制实现。</p>
+<h2 style="color: #ffffff; line-height: 2.0em; margin-top: 1.6em; margin-bottom: 1.6em; font-weight: bold; border-bottom: 2px solid #ef7060; font-size: 1.5em;"><br>    <span style="font-size: inherit; line-height: inherit; display: inline-block; font-weight: normal; background: #ef7060; color: #ffffff; padding: 3px 10px 1px; border-top-right-radius: 3px; border-top-left-radius: 3px;margin-right: 3px;">什么是MVCC</span><br></h2>
+
+<p><a href="https://www.php.cn/mysql-tutorials-460111.html" target="_blank" rel="noopener">参考文章</a></p>
+<p>MVCC(multiple version concurrent control)是一种控制并发的方法，主要用来提高数据库的并发性能。</p>
+<p>在了解MVCC时应该先了解当前读和快照读。</p>
+<p>当前读：读取的是数据库的最新版本，并且在读取时要保证其他事务不会修该当前记录，所以会对读取的记录加锁。<br>快照读：不加锁读取操作即为快照读，使用MVCC来读取快照中的数据，避免加锁带来的性能损耗。<br>可以看到MVCC的作用就是在不加锁的情况下，解决数据库读写冲突问题，并且解决脏读、幻读、不可重复读等问题，但是不能解决丢失修改问题。</p>
+<p><strong>MVCC的实现原理：</strong></p>
+<ol>
+<li>版本号</li>
+</ol>
+<ul>
+<li>系统版本号：是一个自增的ID，每开启一个事务，系统版本号都会递增。</li>
+<li>事务版本号：事务版本号就是事务开始时的系统版本号，可以通过事务版本号的大小判断事务的时间顺序。</li>
+</ul>
+<ol start="2">
+<li>行记录隐藏的列</li>
+</ol>
+<p>DB_ROW_ID：所需空间6byte，隐含的自增ID，用来生成聚簇索引，如果数据表没有指定聚簇索引，InnoDB会利用这个隐藏ID创建聚簇索引。</p>
+<p>DB_TRX_ID：所需空间6byte，最近修改的事务ID，记录创建这条记录或最后一次修改这条记录的事务ID。</p>
+<p>DB_ROLL_PTR：所需空间7byte，回滚指针，指向这条记录的上一个版本。</p>
+<p>它们大致长这样，省略了具体字段的值</p>
+<ol start="3">
+<li>undo日志</li>
+</ol>
+<p>MVCC做使用到的快照会存储在Undo日志中，该日志通过回滚指针将一个一个数据行的所有快照连接起来。它们大致长这样。</p>
+<p><strong>在重复读的隔离级别下，InnoDB的工作流程：</strong></p>
+<ol>
+<li>SELECT</li>
+</ol>
+<p>作为查询的结果要满足两个条件：</p>
+<p>当前事务所要查询的数据行快照的创建版本号必须小于当前事务的版本号，这样做的目的是保证当前事务读取的数据行的快照要么是在当前事务开始前就已经存在的，要么就是当前事务自身插入或者修改过的。<br>当前事务所要读取的数据行快照的删除版本号必须是大于当前事务的版本号，如果是小于等于的话，表示该数据行快照已经被删除，不能读取。</p>
+<ol start="2">
+<li>INSERT</li>
+</ol>
+<p>将当前系统版本号作为数据行快照的创建版本号。</p>
+<ol start="3">
+<li>DELETE</li>
+</ol>
+<p>将当前系统版本号作为数据行快照的删除版本号。</p>
+<ol start="4">
+<li>UPDATE</li>
+</ol>
+<p>保存当前系统版本号为更新前的数据行快照创建行版本号，并保存当前系统版本号为更新后的数据行快照的删除版本号，其实就是，先删除在插入即为更新</p>
+<h2 style="color: #ffffff; line-height: 2.0em; margin-top: 1.6em; margin-bottom: 1.6em; font-weight: bold; border-bottom: 2px solid #ef7060; font-size: 1.5em;"><br>    <span style="font-size: inherit; line-height: inherit; display: inline-block; font-weight: normal; background: #ef7060; color: #ffffff; padding: 3px 10px 1px; border-top-right-radius: 3px; border-top-left-radius: 3px;margin-right: 3px;">  drop、delete 与 truncate 的区别?drop、delete 与 truncate 分别在什么场景之下使用？</span><br></h2>
+
+
     </div>
     
     <div class="post-footer">
@@ -855,7 +961,7 @@
     <div class="widget">
         <h3 class="title">文章目录</h3>
         
-            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#脑图"><span class="toc-text">脑图</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#目录"><span class="toc-text">目录</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#★★★-一、基础篇-★★★"><span class="toc-text">★★★ 一、基础篇 ★★★</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-什么是MySQL"><span class="toc-text">1 什么是MySQL</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#MySQL常用的存储引擎有什么？它们有什么区别？"><span class="toc-text">MySQL常用的存储引擎有什么？它们有什么区别？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数据库的三大范式"><span class="toc-text">数据库的三大范式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#MySQL的数据类型有哪些"><span class="toc-text">MySQL的数据类型有哪些</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#什么是索引"><span class="toc-text">什么是索引</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#索引的优缺点"><span class="toc-text">索引的优缺点</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#索引的数据结构"><span class="toc-text">索引的数据结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Hash索引和B-树的区别"><span class="toc-text">Hash索引和B+树的区别</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#B树和B-树的区别"><span class="toc-text">B树和B+树的区别</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数据库为什么使用B-树而不是B树"><span class="toc-text">数据库为什么使用B+树而不是B树</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#索引的类型有哪些"><span class="toc-text">索引的类型有哪些</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#索引的种类有哪些"><span class="toc-text">索引的种类有哪些</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#什么是聚簇索引，什么是非聚簇索引"><span class="toc-text">什么是聚簇索引，什么是非聚簇索引</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#非聚簇索引一定会进行回表查询吗"><span class="toc-text">非聚簇索引一定会进行回表查询吗</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#事务的四大特性是什么"><span class="toc-text">事务的四大特性是什么</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数据库的并发一致性问题"><span class="toc-text">数据库的并发一致性问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数据库的隔离级别有哪些"><span class="toc-text">数据库的隔离级别有哪些</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#隔离级别是如何实现的"><span class="toc-text">隔离级别是如何实现的</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#什么是MVCC"><span class="toc-text">什么是MVCC</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数据库的锁与隔离级别的关系"><span class="toc-text">数据库的锁与隔离级别的关系</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数据库锁的类型有哪些"><span class="toc-text">数据库锁的类型有哪些</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#MySQL中InnoDB引擎的行锁模式及其是如何实现的"><span class="toc-text">MySQL中InnoDB引擎的行锁模式及其是如何实现的</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#什么是数据库的乐观锁和悲观锁，如何实现"><span class="toc-text">什么是数据库的乐观锁和悲观锁，如何实现</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#什么是死锁？如何避免"><span class="toc-text">什么是死锁？如何避免</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#了解慢日志查询吗？统计过慢查询吗？对慢查询如何优化"><span class="toc-text">了解慢日志查询吗？统计过慢查询吗？对慢查询如何优化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#主键一般用自增ID还是UUID"><span class="toc-text">主键一般用自增ID还是UUID</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#字段为什么要设置成not-null"><span class="toc-text">字段为什么要设置成not null</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#SQL语句执行的很慢原因是什么"><span class="toc-text">SQL语句执行的很慢原因是什么</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#什么是垂直分表、垂直分库、水平分表、水平分库"><span class="toc-text">什么是垂直分表、垂直分库、水平分表、水平分库</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#分库分表后，ID键如何处理"><span class="toc-text">分库分表后，ID键如何处理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#MySQL的复制原理及流程？如何实现主从复制"><span class="toc-text">MySQL的复制原理及流程？如何实现主从复制</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#读写分离"><span class="toc-text">读写分离</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#MySQL日志系统：redo-log、binlog、undo-log-区别与作用"><span class="toc-text">MySQL日志系统：redo log、binlog、undo log 区别与作用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#18-数据库锁的类型有哪些"><span class="toc-text">18 数据库锁的类型有哪些</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#19-lock和latch"><span class="toc-text">19 lock和latch</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#20-MySQL中的锁升级"><span class="toc-text">20 MySQL中的锁升级</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#21-锁的类型"><span class="toc-text">21 锁的类型</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#★★★-二、进阶篇-★★★"><span class="toc-text">★★★ 二、进阶篇 ★★★</span></a></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#★★★-一、基础知识-★★★"><span class="toc-text">★★★ 一、基础知识 ★★★</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-text">     什么是MySQL </span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-text">      什么是最左前缀原则？什么是最左匹配原则 </span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-text">     数据库的三大范式 </span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#★★★-二、数据类型-★★★"><span class="toc-text">★★★ 二、数据类型 ★★★</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-text">     MySQL的数据类型有哪些 </span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#★★★-三、引擎-★★★"><span class="toc-text">★★★ 三、引擎 ★★★</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-text">     MySQL常用的存储引擎有什么？它们有什么区别？ </span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#★★★-四、索引-★★★"><span class="toc-text">★★★ 四、索引 ★★★</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-text">    什么是索引 </span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-text">    索引的优缺点 </span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-text">    索引的数据结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-text">    Hash索引和B+树的区别</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-text">    B树和B+树的区别</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-text">    数据库为什么使用B+树而不是B树</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-text">    索引的类型有哪些</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-text">    索引的种类有哪些</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-text">    什么是聚簇索引，什么是非聚簇索引</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-text">    非聚簇索引一定会进行回表查询吗</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#★★★-五、事务-★★★"><span class="toc-text">★★★ 五、事务 ★★★</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-text">    事务的四大特性是什么（ACID）</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#★★★-六、锁-★★★"><span class="toc-text">★★★ 六、锁 ★★★</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-text">      判断锁的级别</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-text">      MySQL中的锁升级</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-text">     数据库锁的类型有哪些</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-text">     锁的类型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-text">    什么是死锁？如何避免</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-text">    什么是数据库的乐观锁和悲观锁，如何实现</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-text">    数据库锁的类型有哪些</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-text">    MySQL中InnoDB引擎的行锁模式及其是如何实现的</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-text">    数据库的锁与隔离级别的关系</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-text">     19 lock和latch</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#★★★-七、视图-★★★"><span class="toc-text">★★★ 七、视图 ★★★</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-text">      什么是视图？以及视图的使用场景有哪些？</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#★★★-八、日志-★★★"><span class="toc-text">★★★ 八、日志 ★★★</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-text">     MySQL日志系统：redo log、binlog、undo log 区别与作用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-text">    了解慢日志查询吗？统计过慢查询吗？对慢查询如何优化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-text">    主键一般用自增ID还是UUID</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#★★★-九、优化-★★★"><span class="toc-text">★★★ 九、优化 ★★★</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#★★★-十、并发类问题-★★★"><span class="toc-text">★★★ 十、并发类问题 ★★★</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-text">    数据库的并发一致性问题</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#★★★-十一、其他-★★★"><span class="toc-text">★★★ 十一、其他 ★★★</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-text">     什么是MySQL InnoDB下的当前读和快照读？ </span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-text">      百万级别或以上的数据如何删除</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-text">    读写分离</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-text">    MySQL的复制原理及流程？如何实现主从复制</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-text">    分库分表后，ID键如何处理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-text">    SQL语句执行的很慢原因是什么</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-text">    什么是垂直分表、垂直分库、水平分表、水平分库</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-text">    字段为什么要设置成not null</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-text">    数据库的隔离级别有哪些</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-text">    隔离级别是如何实现的</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-text">    什么是MVCC</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-text">      drop、delete 与 truncate 的区别?drop、delete 与 truncate 分别在什么场景之下使用？</span></a></li></ol></li></ol>
         
     </div>
 </aside>
