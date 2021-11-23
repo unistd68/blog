@@ -104,7 +104,7 @@
                             </li>
                         
                             <li role="presentation" class="text-center">
-                                <a href="https://blog.xtcgch.ink/categories/代码/"><i class="fa "></i>代码</a>
+                                <a href="https://blog.xtcgch.ink/categories/实战/"><i class="fa "></i>实战</a>
                             </li>
                         
                             <li role="presentation" class="text-center">
@@ -112,7 +112,7 @@
                             </li>
                         
                             <li role="presentation" class="text-center">
-                                <a href="https://blog.xtcgch.ink/categories/面试/"><i class="fa "></i>面试</a>
+                                <a href="https://blog.xtcgch.ink/categories/求职/"><i class="fa "></i>求职</a>
                             </li>
                         
                             <li role="presentation" class="text-center">
@@ -212,7 +212,7 @@
 </ul>
 <p><a href="#进阶篇">★★★ 二、进阶篇 ★★★</a></p>
 <hr>
-<h1 id="★★★-一、基础篇-★★★"><a href="#★★★-一、基础篇-★★★" class="headerlink" title="★★★ 一、基础篇 ★★★"></a><div align="center" id="基础篇"><font size="70">★★★ 一、基础篇 ★★★</font></div></h1><h2 id="1-select，epoll的区别"><a href="#1-select，epoll的区别" class="headerlink" title="1 select，epoll的区别"></a><table><tr><td bgcolor="#C7C7C7" id="1.1">1 select，epoll的区别</td></tr></table></h2><h2 id="2-Linux虚拟地址空间"><a href="#2-Linux虚拟地址空间" class="headerlink" title="2 Linux虚拟地址空间"></a><table><tr><td bgcolor="#C7C7C7" id="1.2">2 Linux虚拟地址空间</td></tr></table></h2><p>为了防止不同进程同一时刻在物理内存中运行而对物理内存的争夺和践踏，采用了虚拟内存。</p>
+<h1 id="★★★-一、基础篇-★★★"><a href="#★★★-一、基础篇-★★★" class="headerlink" title="★★★ 一、基础篇 ★★★"></a><div align="center" id="基础篇"><font size="70">★★★ 一、基础篇 ★★★</font></div></h1><h2 id="1-select，epoll的区别"><a href="#1-select，epoll的区别" class="headerlink" title="1 select，epoll的区别"></a><table><tr><td bgcolor="#C7C7C7" id="1.01">1 select，epoll的区别</td></tr></table></h2><h2 id="2-Linux虚拟地址空间"><a href="#2-Linux虚拟地址空间" class="headerlink" title="2 Linux虚拟地址空间"></a><table><tr><td bgcolor="#C7C7C7" id="1.02">2 Linux虚拟地址空间</td></tr></table></h2><p>为了防止不同进程同一时刻在物理内存中运行而对物理内存的争夺和践踏，采用了虚拟内存。</p>
 <p>虚拟内存技术使得不同进程在运行过程中，它所看到的是自己独自占有了当前系统的4G内存。所有进程共享同一物理内存，每个进程只把自己目前需要的虚拟内存空间映射并存储到物理内存上。 </p>
 <p>事实上，在每个进程创建加载时，内核只是为进程“创建”了虚拟内存的布局，具体就是初始化进程控制表中内存相关的链表，实际上并不立即就把虚拟内存对应位置的程序数据和代码（比如.text .data段）拷贝到物理内存中，只是建立好虚拟内存和磁盘文件之间的映射就好（叫做存储器映射），等到运行到对应的程序时，才会通过缺页异常，来拷贝数据。</p>
 <p>还有进程运行过程中，要动态分配内存，比如malloc时，也只是分配了虚拟内存，即为这块虚拟内存对应的页表项做相应设置，当进程真正访问到此数据时，才引发缺页异常。</p>
@@ -230,7 +230,7 @@
 <p>2.虚拟地址到物理地址的转换，增加了指令的执行时间。</p>
 <p>3.页面的换入换出需要磁盘I/O，这是很耗时的</p>
 <p>4.如果一页中只有一部分数据，会浪费内存。</p>
-<h2 id="3-fork和vfork的区别"><a href="#3-fork和vfork的区别" class="headerlink" title="3 fork和vfork的区别"></a><table><tr><td bgcolor="#C7C7C7" id="1.3">3 fork和vfork的区别</td></tr></table></h2><p>fork的基础知识：<br>fork:创建一个和当前进程映像一样的进程可以通过fork( )系统调用：</p>
+<h2 id="3-fork和vfork的区别"><a href="#3-fork和vfork的区别" class="headerlink" title="3 fork和vfork的区别"></a><table><tr><td bgcolor="#C7C7C7" id="1.03">3 fork和vfork的区别</td></tr></table></h2><p>fork的基础知识：<br>fork:创建一个和当前进程映像一样的进程可以通过fork( )系统调用：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;sys/types.h&gt;</span><br><span class="line"></span><br><span class="line">#include &lt;unistd.h&gt;</span><br><span class="line"></span><br><span class="line">pid_t fork(void);</span><br></pre></td></tr></table></figure>
 <p>成功调用fork( )会创建一个新的进程，它几乎与调用fork( )的进程一模一样，这两个进程都会继续运行。在子进程中，成功的fork( )调用会返回0。在父进程中fork( )返回子进程的pid。如果出现错误，fork( )返回一个负值。</p>
 <p>最常见的fork( )用法是创建一个新的进程，然后使用exec( )载入二进制映像，替换当前进程的映像。这种情况下，派生（fork）了新的进程，而这个子进程会执行一个新的二进制可执行文件的映像。这种“派生加执行”的方式是很常见的。</p>
@@ -258,7 +258,7 @@
 <li><p>当需要改变共享数据段中变量的值，则拷贝父进程。</p>
 </li>
 </ol>
-<h2 id="4-如何判断一个程序是死锁还是死循环"><a href="#4-如何判断一个程序是死锁还是死循环" class="headerlink" title="4 如何判断一个程序是死锁还是死循环"></a><table><tr><td bgcolor="#C7C7C7" id="1.4">4 如何判断一个程序是死锁还是死循环</td></tr></table></h2><p><strong>1. 定位</strong></p>
+<h2 id="4-如何判断一个程序是死锁还是死循环"><a href="#4-如何判断一个程序是死锁还是死循环" class="headerlink" title="4 如何判断一个程序是死锁还是死循环"></a><table><tr><td bgcolor="#C7C7C7" id="1.04">4 如何判断一个程序是死锁还是死循环</td></tr></table></h2><p><strong>1. 定位</strong></p>
 <ul>
 <li>死循环</li>
 </ul>
@@ -275,7 +275,7 @@
 <blockquote>
 <p>top 、 ps </p>
 </blockquote>
-<h2 id="5-用户态到内核态的转化原理"><a href="#5-用户态到内核态的转化原理" class="headerlink" title="5 用户态到内核态的转化原理"></a><table><tr><td bgcolor="#C7C7C7" id="1.5">5 用户态到内核态的转化原理</td></tr></table></h2><p><strong>用户态切换到内核态的3种方式</strong></p>
+<h2 id="5-用户态到内核态的转化原理"><a href="#5-用户态到内核态的转化原理" class="headerlink" title="5 用户态到内核态的转化原理"></a><table><tr><td bgcolor="#C7C7C7" id="1.05">5 用户态到内核态的转化原理</td></tr></table></h2><p><strong>用户态切换到内核态的3种方式</strong></p>
 <ol>
 <li>系统调用</li>
 </ol>
@@ -295,7 +295,73 @@
 <li>使用ss0和esp0指向的内核栈将当前进程的cs,eip，eflags，ss,esp信息保存起来，这个过程也完成了由用户栈找到内核栈的切换过程，同时保存了被暂停执行的程序的下一条指令。</li>
 <li>将先前由中断向量检索得到的中断处理程序的cs，eip信息装入相应的寄存器，开始执行中断处理程序，这时就转到了内核态的程序执行了。</li>
 </ol>
-<hr>
+ <h2 id="1.06" style="color: #ffffff; line-height: 2.0em; margin-top: 1.6em; margin-bottom: 1.6em; font-weight: bold; border-bottom: 2px solid #ef7060; font-size: 1.5em;"><br>    <span style="font-size: inherit; line-height: inherit; display: inline-block; font-weight: normal; background: #ef7060; color: #ffffff; padding: 3px 10px 1px; border-top-right-radius: 0px; border-top-left-radius: 15px;margin-right: 3px;">16 软硬链接</span><br></h2>
+
+<p><strong>inode是什么</strong></p>
+<p>理解inode，要从文件储存说起。</p>
+<p>文件储存在硬盘上，硬盘的最小存储单位叫做”扇区”（Sector）。每个扇区储存512字节（相当于0.5KB）。</p>
+<p>操作系统读取硬盘的时候，不会一个个扇区地读取，这样效率太低，而是一次性连续读取多个扇区，即一次性读取一个”块”（block）。这种由多个扇区组成的”块”，是文件存取的最小单位。”块”的大小，最常见的是4KB，即连续八个 sector组成一个 block。</p>
+<p>文件数据都储存在”块”中，那么很显然，我们还必须找到一个地方储存文件的元信息，比如文件的创建者、文件的创建日期、文件的大小等等。这种储存文件元信息的区域就叫做inode，中文译名为”索引节点”。</p>
+<p>每一个文件都有对应的inode，里面包含了与该文件有关的一些信息。</p>
+<p><strong>inode的内容</strong></p>
+<p>inode包含文件的元信息，具体来说有以下内容：</p>
+<ul>
+<li>文件的字节数</li>
+<li>文件拥有者的User ID</li>
+<li>文件的Group ID</li>
+<li>文件的读、写、执行权限</li>
+<li>文件的时间戳，共有三个：ctime指inode上一次变动的时间，mtime指文件内容上一次变动的时间，atime指文件上一次打开的时间。</li>
+<li>链接数，即有多少文件名指向这个inode</li>
+<li>文件数据block的位置</li>
+</ul>
+<p>可以用stat命令，查看某个文件的inode信息：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">stat example.txt</span><br></pre></td></tr></table></figure></p>
+<p><strong>inode的大小</strong></p>
+<p>inode也会消耗硬盘空间，所以硬盘格式化的时候，操作系统自动将硬盘分成两个区域。一个是数据区，存放文件数据；另一个是inode区（inode table），存放inode所包含的信息。</p>
+<p>每个inode节点的大小，一般是128字节或256字节。inode节点的总数，在格式化时就给定，一般是每1KB或每2KB就设置一个inode。假定在一块1GB的硬盘中，每个inode节点的大小为128字节，每1KB就设置一个inode，那么inode table的大小就会达到128MB，占整块硬盘的12.8%。</p>
+<p>查看每个硬盘分区的inode总数和已经使用的数量，可以使用df命令。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">　　df -i</span><br></pre></td></tr></table></figure></p>
+<p>查看每个inode节点的大小，可以用如下命令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">　sudo dumpe2fs -h /dev/hda | grep &quot;Inode size&quot;</span><br></pre></td></tr></table></figure>
+<p><strong>inode号码</strong></p>
+<p>每个inode都有一个号码，操作系统用inode号码来识别不同的文件。</p>
+<p>这里值得重复一遍，Unix/linux系统内部不使用文件名，而使用inode号码来识别文件。对于系统来说，文件名只是inode号码便于识别的别称或者绰号。</p>
+<p>表面上，用户通过文件名，打开文件。实际上，系统内部这个过程分成三步：首先，系统找到这个文件名对应的inode号码；其次，通过inode号码，获取inode信息；最后，根据inode信息，找到文件数据所在的block，读出数据。</p>
+<p>使用ls -i命令，可以看到文件名对应的inode号码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ls -i example.txt</span><br></pre></td></tr></table></figure>
+<p><strong>硬链接</strong></p>
+<ul>
+<li>具有相同inode节点号的多个文件互为硬链接文件；</li>
+<li>删除硬链接文件或者删除源文件任意之一，文件实体并未被删除；</li>
+<li>只有删除了源文件和所有对应的硬链接文件，文件实体才会被删除；</li>
+<li>硬链接文件是文件的另一个入口；</li>
+<li>可以通过给文件设置硬链接文件来防止重要文件被误删；</li>
+<li>创建硬链接命令 ln 源文件 硬链接文件；</li>
+<li>硬链接文件是普通文件，可以用rm删除；</li>
+<li>对于静态文件（没有进程正在调用），当硬链接数为0时文件就被删除。注意：如果有进程正在调用，则无法删除或者即使文件名被删除但空间不会释放。</li>
+</ul>
+<p><strong>软链接</strong></p>
+<ul>
+<li>软链接类似windows系统的快捷方式；</li>
+<li>软链接里面存放的是源文件的路径，指向源文件；</li>
+<li>删除源文件，软链接依然存在，但无法访问源文件内容；</li>
+<li>软链接失效时一般是白字红底闪烁；</li>
+<li>创建软链接命令 ln -s 源文件 软链接文件；</li>
+<li>软链接和源文件是不同的文件，文件类型也不同，inode号也不同；</li>
+<li>软链接的文件类型是“l”，可以用rm删除。</li>
+</ul>
+<p><strong>硬链接和软链接的区别</strong></p>
+<ul>
+<li>原理上，硬链接和源文件的inode节点号相同，两者互为硬链接。软连接和源文件的inode节点号不同，进而指向的block也不同，软连接block中存放了源文件的路径名。</li>
+<li>实际上，硬链接和源文件是同一份文件，而软连接是独立的文件，类似于快捷方式，存储着源文件的位置信息便于指向。</li>
+<li>使用限制上，不能对目录创建硬链接，不能对不同文件系统创建硬链接，不能对不存在的文件创建硬链接。可以对目录创建软连接，可以跨文件系统创建软连接，可以对不存在的文件创建软连接。</li>
+</ul>
+<p><strong>inode的特殊作用</strong></p>
+<p>由于inode号码与文件名分离，这种机制导致了一些Unix/Linux系统特有的现象。</p>
+<ul>
+<li>有时，文件名包含特殊字符，无法正常删除。这时，直接删除inode节点，就能起到删除文件的作用。</li>
+<li>移动文件或重命名文件，只是改变文件名，不影响inode号码。</li>
+<li>打开一个文件以后，系统就以inode号码来识别这个文件，不再考虑文件名。因此，通常来说，系统无法从inode号码得知文件名。</li>
+</ul>
+<p>第3点使得软件更新变得简单，可以在不关闭软件的情况下进行更新，不需要重启。因为系统通过inode号码，识别运行中的文件，不通过文件名。更新的时候，新版文件以同样的文件名，生成一个新的inode，不会影响到运行中的文件。等到下一次运行这个软件的时候，文件名就自动指向新版文件，旧版文件的inode则被回收。</p>
 <hr>
 <h1 id="★★★-二、进阶篇-★★★"><a href="#★★★-二、进阶篇-★★★" class="headerlink" title="★★★ 二、进阶篇 ★★★"></a><div align="center" id="进阶篇"><font size="70">★★★ 二、进阶篇 ★★★</font></div></h1>
     </div>
@@ -318,9 +384,9 @@
         </a>
     
     
-        <a href="/2021/09/09/求职之网络通信篇/" class="next-post btn btn-default" title="【求职】求职之网络通信篇">
+        <a href="/2021/09/09/求职之网络通信篇/" class="next-post btn btn-default" title="求职之网络通信篇">
             <span class="hidden-lg">下一篇</span>
-            <span class="hidden-xs">【求职】求职之网络通信篇</span><i class="fa fa-angle-right fa-fw"></i>
+            <span class="hidden-xs">求职之网络通信篇</span><i class="fa fa-angle-right fa-fw"></i>
         </a>
     
 </div>
@@ -363,7 +429,7 @@
     <div class="widget">
         <h3 class="title">文章目录</h3>
         
-            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#脑图"><span class="toc-text">脑图</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#★★★-目录-★★★"><span class="toc-text">★★★ 目录 ★★★</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#★★★-一、基础篇-★★★"><span class="toc-text">★★★ 一、基础篇 ★★★</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-select，epoll的区别"><span class="toc-text">1 select，epoll的区别</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-Linux虚拟地址空间"><span class="toc-text">2 Linux虚拟地址空间</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-fork和vfork的区别"><span class="toc-text">3 fork和vfork的区别</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-如何判断一个程序是死锁还是死循环"><span class="toc-text">4 如何判断一个程序是死锁还是死循环</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-用户态到内核态的转化原理"><span class="toc-text">5 用户态到内核态的转化原理</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#★★★-二、进阶篇-★★★"><span class="toc-text">★★★ 二、进阶篇 ★★★</span></a></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#脑图"><span class="toc-text">脑图</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#★★★-目录-★★★"><span class="toc-text">★★★ 目录 ★★★</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#★★★-一、基础篇-★★★"><span class="toc-text">★★★ 一、基础篇 ★★★</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-select，epoll的区别"><span class="toc-text">1 select，epoll的区别</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-Linux虚拟地址空间"><span class="toc-text">2 Linux虚拟地址空间</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-fork和vfork的区别"><span class="toc-text">3 fork和vfork的区别</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-如何判断一个程序是死锁还是死循环"><span class="toc-text">4 如何判断一个程序是死锁还是死循环</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-用户态到内核态的转化原理"><span class="toc-text">5 用户态到内核态的转化原理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1.06"><span class="toc-text">    16 软硬链接</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#★★★-二、进阶篇-★★★"><span class="toc-text">★★★ 二、进阶篇 ★★★</span></a></li></ol>
         
     </div>
 </aside>
