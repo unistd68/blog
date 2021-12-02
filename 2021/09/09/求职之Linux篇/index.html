@@ -212,7 +212,7 @@
 </ul>
 <p><a href="#进阶篇">★★★ 二、进阶篇 ★★★</a></p>
 <hr>
-<h1 id="★★★-一、基础篇-★★★"><a href="#★★★-一、基础篇-★★★" class="headerlink" title="★★★ 一、基础篇 ★★★"></a><div align="center" id="基础篇"><font size="70">★★★ 一、基础篇 ★★★</font></div></h1><h2 id="1-select，epoll的区别"><a href="#1-select，epoll的区别" class="headerlink" title="1 select，epoll的区别"></a><table><tr><td bgcolor="#C7C7C7" id="1.01">1 select，epoll的区别</td></tr></table></h2><h2 id="2-Linux虚拟地址空间"><a href="#2-Linux虚拟地址空间" class="headerlink" title="2 Linux虚拟地址空间"></a><table><tr><td bgcolor="#C7C7C7" id="1.02">2 Linux虚拟地址空间</td></tr></table></h2><p>为了防止不同进程同一时刻在物理内存中运行而对物理内存的争夺和践踏，采用了虚拟内存。</p>
+<h2 id="一、基础篇"><a href="#一、基础篇" class="headerlink" title="一、基础篇"></a>一、基础篇</h2><h3 id="select，epoll的区别"><a href="#select，epoll的区别" class="headerlink" title=" select，epoll的区别"></a><span> select，epoll的区别</span></h3><h3 id="Linux虚拟地址空间"><a href="#Linux虚拟地址空间" class="headerlink" title=" Linux虚拟地址空间"></a><span> Linux虚拟地址空间</span></h3><p>为了防止不同进程同一时刻在物理内存中运行而对物理内存的争夺和践踏，采用了虚拟内存。</p>
 <p>虚拟内存技术使得不同进程在运行过程中，它所看到的是自己独自占有了当前系统的4G内存。所有进程共享同一物理内存，每个进程只把自己目前需要的虚拟内存空间映射并存储到物理内存上。 </p>
 <p>事实上，在每个进程创建加载时，内核只是为进程“创建”了虚拟内存的布局，具体就是初始化进程控制表中内存相关的链表，实际上并不立即就把虚拟内存对应位置的程序数据和代码（比如.text .data段）拷贝到物理内存中，只是建立好虚拟内存和磁盘文件之间的映射就好（叫做存储器映射），等到运行到对应的程序时，才会通过缺页异常，来拷贝数据。</p>
 <p>还有进程运行过程中，要动态分配内存，比如malloc时，也只是分配了虚拟内存，即为这块虚拟内存对应的页表项做相应设置，当进程真正访问到此数据时，才引发缺页异常。</p>
@@ -230,7 +230,7 @@
 <p>2.虚拟地址到物理地址的转换，增加了指令的执行时间。</p>
 <p>3.页面的换入换出需要磁盘I/O，这是很耗时的</p>
 <p>4.如果一页中只有一部分数据，会浪费内存。</p>
-<h2 id="3-fork和vfork的区别"><a href="#3-fork和vfork的区别" class="headerlink" title="3 fork和vfork的区别"></a><table><tr><td bgcolor="#C7C7C7" id="1.03">3 fork和vfork的区别</td></tr></table></h2><p>fork的基础知识：<br>fork:创建一个和当前进程映像一样的进程可以通过fork( )系统调用：</p>
+<h3 id="fork和vfork的区别"><a href="#fork和vfork的区别" class="headerlink" title=" fork和vfork的区别"></a><span> fork和vfork的区别</span></h3><p>fork的基础知识：<br>fork:创建一个和当前进程映像一样的进程可以通过fork( )系统调用：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;sys/types.h&gt;</span><br><span class="line"></span><br><span class="line">#include &lt;unistd.h&gt;</span><br><span class="line"></span><br><span class="line">pid_t fork(void);</span><br></pre></td></tr></table></figure>
 <p>成功调用fork( )会创建一个新的进程，它几乎与调用fork( )的进程一模一样，这两个进程都会继续运行。在子进程中，成功的fork( )调用会返回0。在父进程中fork( )返回子进程的pid。如果出现错误，fork( )返回一个负值。</p>
 <p>最常见的fork( )用法是创建一个新的进程，然后使用exec( )载入二进制映像，替换当前进程的映像。这种情况下，派生（fork）了新的进程，而这个子进程会执行一个新的二进制可执行文件的映像。这种“派生加执行”的方式是很常见的。</p>
@@ -258,7 +258,7 @@
 <li><p>当需要改变共享数据段中变量的值，则拷贝父进程。</p>
 </li>
 </ol>
-<h2 id="4-如何判断一个程序是死锁还是死循环"><a href="#4-如何判断一个程序是死锁还是死循环" class="headerlink" title="4 如何判断一个程序是死锁还是死循环"></a><table><tr><td bgcolor="#C7C7C7" id="1.04">4 如何判断一个程序是死锁还是死循环</td></tr></table></h2><p><strong>1. 定位</strong></p>
+<h3 id="如何判断一个程序是死锁还是死循环"><a href="#如何判断一个程序是死锁还是死循环" class="headerlink" title=" 如何判断一个程序是死锁还是死循环"></a><span> 如何判断一个程序是死锁还是死循环</span></h3><p><strong>1. 定位</strong></p>
 <ul>
 <li>死循环</li>
 </ul>
@@ -275,7 +275,7 @@
 <blockquote>
 <p>top 、 ps </p>
 </blockquote>
-<h2 id="5-用户态到内核态的转化原理"><a href="#5-用户态到内核态的转化原理" class="headerlink" title="5 用户态到内核态的转化原理"></a><table><tr><td bgcolor="#C7C7C7" id="1.05">5 用户态到内核态的转化原理</td></tr></table></h2><p><strong>用户态切换到内核态的3种方式</strong></p>
+<h3 id="用户态到内核态的转化原理"><a href="#用户态到内核态的转化原理" class="headerlink" title=" 用户态到内核态的转化原理"></a><span> 用户态到内核态的转化原理</span></h3><p><strong>用户态切换到内核态的3种方式</strong></p>
 <ol>
 <li>系统调用</li>
 </ol>
@@ -295,9 +295,7 @@
 <li>使用ss0和esp0指向的内核栈将当前进程的cs,eip，eflags，ss,esp信息保存起来，这个过程也完成了由用户栈找到内核栈的切换过程，同时保存了被暂停执行的程序的下一条指令。</li>
 <li>将先前由中断向量检索得到的中断处理程序的cs，eip信息装入相应的寄存器，开始执行中断处理程序，这时就转到了内核态的程序执行了。</li>
 </ol>
- <h2 id="1.06" style="color: #ffffff; line-height: 2.0em; margin-top: 1.6em; margin-bottom: 1.6em; font-weight: bold; border-bottom: 2px solid #ef7060; font-size: 1.5em;"><br>    <span style="font-size: inherit; line-height: inherit; display: inline-block; font-weight: normal; background: #ef7060; color: #ffffff; padding: 3px 10px 1px; border-top-right-radius: 0px; border-top-left-radius: 15px;margin-right: 3px;">16 软硬链接</span><br></h2>
-
-<p><strong>inode是什么</strong></p>
+<h3 id="软硬链接"><a href="#软硬链接" class="headerlink" title=" 软硬链接"></a><span> 软硬链接</span></h3><p><strong>inode是什么</strong></p>
 <p>理解inode，要从文件储存说起。</p>
 <p>文件储存在硬盘上，硬盘的最小存储单位叫做”扇区”（Sector）。每个扇区储存512字节（相当于0.5KB）。</p>
 <p>操作系统读取硬盘的时候，不会一个个扇区地读取，这样效率太低，而是一次性连续读取多个扇区，即一次性读取一个”块”（block）。这种由多个扇区组成的”块”，是文件存取的最小单位。”块”的大小，最常见的是4KB，即连续八个 sector组成一个 block。</p>
@@ -363,7 +361,7 @@
 </ul>
 <p>第3点使得软件更新变得简单，可以在不关闭软件的情况下进行更新，不需要重启。因为系统通过inode号码，识别运行中的文件，不通过文件名。更新的时候，新版文件以同样的文件名，生成一个新的inode，不会影响到运行中的文件。等到下一次运行这个软件的时候，文件名就自动指向新版文件，旧版文件的inode则被回收。</p>
 <hr>
-<h1 id="★★★-二、进阶篇-★★★"><a href="#★★★-二、进阶篇-★★★" class="headerlink" title="★★★ 二、进阶篇 ★★★"></a><div align="center" id="进阶篇"><font size="70">★★★ 二、进阶篇 ★★★</font></div></h1>
+<h2 id="二、进阶篇"><a href="#二、进阶篇" class="headerlink" title="二、进阶篇"></a>二、进阶篇</h2>
     </div>
     
     <div class="post-footer">
@@ -378,9 +376,9 @@
 
 <div class="article-nav prev-next-wrap clearfix">
     
-        <a href="/2021/09/09/求职之C++篇/" class="pre-post btn btn-default" title="【求职】求职之C++篇">
+        <a href="/2021/09/09/求职之C++篇/" class="pre-post btn btn-default" title="求职之C++篇">
             <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
-            <span class="hidden-xs">【求职】求职之C++篇</span>
+            <span class="hidden-xs">求职之C++篇</span>
         </a>
     
     
@@ -429,7 +427,7 @@
     <div class="widget">
         <h3 class="title">文章目录</h3>
         
-            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#脑图"><span class="toc-text">脑图</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#★★★-目录-★★★"><span class="toc-text">★★★ 目录 ★★★</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#★★★-一、基础篇-★★★"><span class="toc-text">★★★ 一、基础篇 ★★★</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-select，epoll的区别"><span class="toc-text">1 select，epoll的区别</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-Linux虚拟地址空间"><span class="toc-text">2 Linux虚拟地址空间</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-fork和vfork的区别"><span class="toc-text">3 fork和vfork的区别</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-如何判断一个程序是死锁还是死循环"><span class="toc-text">4 如何判断一个程序是死锁还是死循环</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-用户态到内核态的转化原理"><span class="toc-text">5 用户态到内核态的转化原理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1.06"><span class="toc-text">    16 软硬链接</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#★★★-二、进阶篇-★★★"><span class="toc-text">★★★ 二、进阶篇 ★★★</span></a></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#脑图"><span class="toc-text">脑图</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#★★★-目录-★★★"><span class="toc-text">★★★ 目录 ★★★</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、基础篇"><span class="toc-text">一、基础篇</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#select，epoll的区别"><span class="toc-text"> select，epoll的区别</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Linux虚拟地址空间"><span class="toc-text"> Linux虚拟地址空间</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#fork和vfork的区别"><span class="toc-text"> fork和vfork的区别</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#如何判断一个程序是死锁还是死循环"><span class="toc-text"> 如何判断一个程序是死锁还是死循环</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#用户态到内核态的转化原理"><span class="toc-text"> 用户态到内核态的转化原理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#软硬链接"><span class="toc-text"> 软硬链接</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、进阶篇"><span class="toc-text">二、进阶篇</span></a></li></ol></li></ol>
         
     </div>
 </aside>

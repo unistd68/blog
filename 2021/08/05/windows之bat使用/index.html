@@ -228,6 +228,19 @@
 </blockquote>
 <p>date #显示当前日期，并提示输入新日期，按”回车”略过输入<br>date/t #只显示当前日期，不提示输入新日期<br>time #显示当前时间，并提示输入新时间，按”回车”略过输入<br>time/t #只显示当前时间，不提示输入新时间</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">set curDate=%date:~0,4%%date:~5,2%%date:~8,2% </span><br><span class="line">echo %curDate%  ::结果 20210806</span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="端口转发"><a href="#端口转发" class="headerlink" title=" 端口转发 "></a><span> 端口转发 </span></h2><ol>
+<li><p>添加端口转发</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">netsh interface portproxy add v4tov4 listenport=4000 listenaddress=127.0.0.1 connectport=4000 connectaddress=172.31.217.198</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>删除端口转发</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">netsh interface portproxy del v4tov4 listenport=4000 listenaddress=127.0.0.1</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>查看已存在的端口映射</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">netsh interface portproxy show v4tov4</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="内外穿透"><a href="#内外穿透" class="headerlink" title=" 内外穿透 "></a><span> 内外穿透 </span></h2>
     </div>
     
     <div class="post-footer">
@@ -293,7 +306,7 @@
     <div class="widget">
         <h3 class="title">文章目录</h3>
         
-            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#脑图"><span class="toc-text">脑图</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#知识理解"><span class="toc-text">知识理解</span></a></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#脑图"><span class="toc-text">脑图</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#知识理解"><span class="toc-text">知识理解</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#端口转发"><span class="toc-text"> 端口转发 </span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#内外穿透"><span class="toc-text"> 内外穿透 </span></a></li></ol></li></ol>
         
     </div>
 </aside>

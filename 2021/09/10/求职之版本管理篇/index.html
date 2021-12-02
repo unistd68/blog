@@ -192,10 +192,7 @@
     <div class="post-body post-content">
         <p><strong>摘要：</strong>这是摘要！</p>
 <a id="more"></a>
-<hr>
-<h1 id="脑图"><a href="#脑图" class="headerlink" title="脑图"></a>脑图</h1><p><img src="脑图.png" alt></p>
-<hr>
-<h1 id="★★★-一、基础篇-★★★"><a href="#★★★-一、基础篇-★★★" class="headerlink" title="★★★ 一、基础篇 ★★★"></a><div align="center" id="基础篇"><font size="70">★★★ 一、基础篇 ★★★</font></div></h1><h2 id="1-git工作流"><a href="#1-git工作流" class="headerlink" title="1 git工作流"></a><table><tr><td bgcolor="#C7C7C7" id="1.1">1 git工作流</td></tr></table></h2><h3 id="1-1-Git常见工作流"><a href="#1-1-Git常见工作流" class="headerlink" title="1.1 Git常见工作流"></a><font color="#0000FF">1.1 Git常见工作流</font></h3><ol>
+<h2 id="git工作流"><a href="#git工作流" class="headerlink" title="git工作流"></a>git工作流</h2><h3 id="Git常见工作流"><a href="#Git常见工作流" class="headerlink" title=" Git常见工作流"></a><span> Git常见工作流</span></h3><ol>
 <li>集中式工作流</li>
 </ol>
 <p><img src="集中式工作流.png" alt="集中式工作流图解"></p>
@@ -215,13 +212,13 @@
 <li>Pull Requests工作流（特殊，不能算独立的工作流）</li>
 </ol>
 <p><img src="pull-request-overview工作流.png" alt="pull-request-overview工作流图解"></p>
-<h3 id="1-1-Git主要优点"><a href="#1-1-Git主要优点" class="headerlink" title="1.1 Git主要优点"></a><font color="#0000FF">1.1 Git主要优点</font></h3><ul>
+<h3 id="Git主要优点"><a href="#Git主要优点" class="headerlink" title=" Git主要优点"></a><span> Git主要优点</span></h3><ul>
 <li>分布式存储，本地仓库包含了远程仓库的所有内容。</li>
 <li>安全性高，远程仓库文件丢失了也不怕。</li>
 <li>优秀的分支模型，创建/合并分支都非常快速便捷。</li>
 </ul>
-<h3 id="1-2-Git分支管理"><a href="#1-2-Git分支管理" class="headerlink" title="1.2 Git分支管理"></a><font color="#0000FF">1.2 Git分支管理</font></h3><p>我们在实际工作中会创建很多分支以便于不同场景下的开发，但是如果没有分支规范就会造成分支杂乱，大家往往也搞不清楚某一个分支是在做什么，下面我们就介绍一下我们常用的并且推荐大家使用的分支类型。</p>
-<h3 id="1-3-Git分支类型"><a href="#1-3-Git分支类型" class="headerlink" title="1.3 Git分支类型"></a><font color="#0000FF">1.3 Git分支类型</font></h3><p><strong>master 分支</strong></p>
+<h3 id="Git分支管理"><a href="#Git分支管理" class="headerlink" title=" Git分支管理"></a><span> Git分支管理</span></h3><p>我们在实际工作中会创建很多分支以便于不同场景下的开发，但是如果没有分支规范就会造成分支杂乱，大家往往也搞不清楚某一个分支是在做什么，下面我们就介绍一下我们常用的并且推荐大家使用的分支类型。</p>
+<h3 id="Git分支类型"><a href="#Git分支类型" class="headerlink" title=" Git分支类型"></a><span> Git分支类型</span></h3><p><strong>master 分支</strong></p>
 <p>master 为产品主分支，该分支为只读唯一分支，也是用于部署生产环境的分支，需确保master分支的稳定性。<br>master 分支一般由release分支或hotfix分支合并，任何情况下都不应该直接修改master分支代码。<br>产品的功能全部实现后，最终在master分支对外发布，另外所有在master分支的推送应该打标签（tag）做记录，方便追溯。<br>master 分支不可删除。</p>
 <p><strong>develop 分支</strong></p>
 <p>develop 为主开发分支，基于master分支创建，始终保持最新完成功能的代码以及bug修复后的代码。<br>develop 分支为只读唯一分支，只能从其他分支合并，不可以直接在该分支做功能开发或bug修复。<br>一般开发新功能时，feature分支都是基于develop分支下创建的。<br>develop 分支包含所有要发布到下一个release的代码。<br>feature功能分支完成后, 开发人员需合并到develop分支(不推送远程)，需先将develop分支合并到feature，解决完冲突后再合并到develop分支。<br>当所有新功能开发完成后，开发人员并自测完成后，此时从develop拉取release分支，进行提测。<br>release或hotfix 分支上线完成后, 开发人员需合并到develop分支并推送远程。<br>develop 分支不可删。</p>
@@ -231,8 +228,8 @@
 <p>release 分支为预上线分支，基于本次上线所有的feature分支合并到develop分支之后，从develop分支创建。<br>分支命名: release/ 开头的为预上线分支，建议的命名规则: release/version_publishtime，例如：release/v2.1.1_20201018，含义为：版本号v2.1.1计划于2020年10月18日时发布。<br>release 分支主要用于提交给测试人员进行功能测试。发布提测阶段，会以release分支代码为基准进行提测。测试过程中发现的bug在本分支进行修复，上线完成后需合并到develop/master分支并推送远程。<br>release 分支属于临时分支，产品上线后可选删除。<br>❝ 当有一组feature开发完成后，首先开发人员会各自将最新功能代码合并到develop分支。进入提测阶段时，开发组长在develop分支上创建release分支。 如果在测试过程中发现bug需要修复，则直接由开发者在release分支修复并提交。当测试完成后，开发组长将release分支合并到master和develop分支，此时master为最新可发布代码，用作产品发布上线。<br>❞<br><strong>hotfix 分支</strong></p>
 <p>hotfix 分支为线上bug修复分支或叫补丁分支，主要用于对线上的版本进行bug修复。<br>分支命名: hotfix/ 开头的为修复分支，它的命名规则与 feature 分支类似，建议的命名规则: hotfix/user_createtime_hotfix，例如：hotfix/ftd_20201018_alipaybugfix，含义为：开发人员ftd在2020年10月18日时创建了一个支付宝支付bug修复的分支。<br>hotfix 分支用于线上出现紧急问题时，需要及时修复，以master分支为基线，创建hotfix分支。当问题修复完成后，需要合并到master分支和develop分支并推送远程。<br>所有hotfix分支的修改会进入到下一个release。<br>hotfix 分支属于临时分支，bug修复上线后可选删除。<br>以上就是在工作中常用到的6种分支类型，覆盖了开发中的常见场景，大家也可以根据实际工作情况进行调整，重点是让团队小伙伴都能对整个分支的类型及作用了解即可。</p>
 <p>分支创建好了，小伙伴们也都开始按照流程开始开发了，但是在日常开发中由于缺少对于commit message的约束，导致填写内容随意、质量参差不齐，可读性低亦难以维护。在项目中引入commit message规范已是迫在眉睫。书写良好的commit message能大大提高代码维护的效率。</p>
-<h3 id="1-4-Git-Flow工作流"><a href="#1-4-Git-Flow工作流" class="headerlink" title="1.4 Git Flow工作流"></a><font color="#0000FF">1.4 Git Flow工作流</font></h3><p>我们现在已经了解了Git的分支，包括分支有哪些类型，什么情况下使用什么类型的分支，以及提交的格式规范等。不过往往在一个团队人数较多，创建的分支也比较多的时候，还是会带来很多分支操作上的困扰。那有没有一个什么好的流程来规范大家呢，针对这些问题，建议大家使用Git Flow的工作流模式。</p>
-<h3 id="1-5-Git-Flow-流程图"><a href="#1-5-Git-Flow-流程图" class="headerlink" title="1.5 Git Flow 流程图"></a><font color="#0000FF">1.5 Git Flow 流程图</font></h3><p>「1，主分支流程」</p>
+<h3 id="Git-Flow工作流"><a href="#Git-Flow工作流" class="headerlink" title=" Git Flow工作流"></a><span> Git Flow工作流</span></h3><p>我们现在已经了解了Git的分支，包括分支有哪些类型，什么情况下使用什么类型的分支，以及提交的格式规范等。不过往往在一个团队人数较多，创建的分支也比较多的时候，还是会带来很多分支操作上的困扰。那有没有一个什么好的流程来规范大家呢，针对这些问题，建议大家使用Git Flow的工作流模式。</p>
+<h3 id="Git-Flow-流程图"><a href="#Git-Flow-流程图" class="headerlink" title=" Git Flow 流程图"></a><span> Git Flow 流程图</span></h3><p>「1，主分支流程」</p>
 <p>master分支记录了每次版本发布历史和tag标记。<br>develop分支记录了所有开发的版本历史。<br>develop分支仅第一次创建时从master分支拉取。</p>
 <p>「2，开发流程」</p>
 <p>feature分支是从develop分支拉取的分支。<br>每个feature完成后需合并到develop分支。</p>
@@ -287,9 +284,9 @@
 <li>所有功能分支基于不稳定的develop</li>
 <li>需要维护两个长期分支master和develop</li>
 </ul>
-<h3 id="1-6-Git-Flow实战"><a href="#1-6-Git-Flow实战" class="headerlink" title="1.6 Git Flow实战"></a><font color="#0000FF">1.6 Git Flow实战</font></h3><p>Git Flow的流程搞清楚后，我们下面开始实际的项目实战，假设我们现在有一个商城的项目，并且我们已经建好了Git仓库。</p>
+<h3 id="Git-Flow实战"><a href="#Git-Flow实战" class="headerlink" title=" Git Flow实战"></a><span> Git Flow实战</span></h3><p>Git Flow的流程搞清楚后，我们下面开始实际的项目实战，假设我们现在有一个商城的项目，并且我们已经建好了Git仓库。</p>
 <p>我们通过命令行和图形界面的方式分别向大家展示如何使用Git Flow工作流。</p>
-<h3 id="1-6-Git-Flow-命令示例"><a href="#1-6-Git-Flow-命令示例" class="headerlink" title="1.6 Git Flow 命令示例"></a><font color="#0000FF">1.6 Git Flow 命令示例</font></h3><p><strong>开始 Feature</strong></p>
+<h3 id="Git-Flow-命令示例"><a href="#Git-Flow-命令示例" class="headerlink" title=" Git Flow 命令示例"></a><span> Git Flow 命令示例</span></h3><p><strong>开始 Feature</strong></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># 创建feature分支</span><br><span class="line">git flow feature start ftd_20201018_wechatpay</span><br><span class="line"></span><br><span class="line"># 指定当前分支pull的源为develop</span><br><span class="line">git branch --set-upstream-to=origin/develop feature/ftd_20201018_wechatpay</span><br></pre></td></tr></table></figure>
 <p><strong>完成 Feature</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># 发布feature</span><br><span class="line">git flow feature publish ftd_20201018_wechatpay</span><br><span class="line"></span><br><span class="line"># 完成feature</span><br><span class="line">git flow feature finish ftd_20201018_wechatpay</span><br></pre></td></tr></table></figure></p>
 <p><strong>开始 Release</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git flow release start v1.0_20201031</span><br></pre></td></tr></table></figure></p>
@@ -303,7 +300,7 @@
 <p><strong>Hotfix</strong><br>hotfix流程与上述流程操作方法类似</p>
 <p><a href="https://fhxisdog.github.io/2020/04/git_work_flow/" title="git常见工作流" target="_blank" rel="noopener">参考文章：git常见工作流</a></p>
 <hr>
-<h1 id="★★★-二、进阶篇-★★★"><a href="#★★★-二、进阶篇-★★★" class="headerlink" title="★★★ 二、进阶篇 ★★★"></a><div align="center"><font size="70">★★★ 二、进阶篇 ★★★</font></div></h1>
+
     </div>
     
     <div class="post-footer">
@@ -369,7 +366,7 @@
     <div class="widget">
         <h3 class="title">文章目录</h3>
         
-            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#脑图"><span class="toc-text">脑图</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#★★★-一、基础篇-★★★"><span class="toc-text">★★★ 一、基础篇 ★★★</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-git工作流"><span class="toc-text">1 git工作流</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-Git常见工作流"><span class="toc-text">1.1 Git常见工作流</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-Git主要优点"><span class="toc-text">1.1 Git主要优点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-Git分支管理"><span class="toc-text">1.2 Git分支管理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-3-Git分支类型"><span class="toc-text">1.3 Git分支类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-4-Git-Flow工作流"><span class="toc-text">1.4 Git Flow工作流</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-5-Git-Flow-流程图"><span class="toc-text">1.5 Git Flow 流程图</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-6-Git-Flow实战"><span class="toc-text">1.6 Git Flow实战</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-6-Git-Flow-命令示例"><span class="toc-text">1.6 Git Flow 命令示例</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#★★★-二、进阶篇-★★★"><span class="toc-text">★★★ 二、进阶篇 ★★★</span></a></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#git工作流"><span class="toc-text">git工作流</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Git常见工作流"><span class="toc-text"> Git常见工作流</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Git主要优点"><span class="toc-text"> Git主要优点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Git分支管理"><span class="toc-text"> Git分支管理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Git分支类型"><span class="toc-text"> Git分支类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Git-Flow工作流"><span class="toc-text"> Git Flow工作流</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Git-Flow-流程图"><span class="toc-text"> Git Flow 流程图</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Git-Flow实战"><span class="toc-text"> Git Flow实战</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Git-Flow-命令示例"><span class="toc-text"> Git Flow 命令示例</span></a></li></ol></li></ol>
         
     </div>
 </aside>
