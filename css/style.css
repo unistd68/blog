@@ -624,7 +624,12 @@ pre {
   font-family: "Georgia", "Xin Gothic", "Hiragino Sans GB", "Droid Sans Fallback", "Microsoft YaHei", "SimSun", sans-serif;
   color: #333;
   font-size: 1.5em;
-  margin: 0.83em 0;
+  /* margin: 0.83em 0; */
+  /* 自定义 */
+  /* box-shadow: 0px 0px 20px 0px rgb(43 145 255 / 58%); */
+  color: #EE7600;
+  font-weight: bold;
+  text-align: center;
 }
 
 .post-content h3 {
@@ -736,7 +741,8 @@ pre {
 }
 
 .post-content hr {
-  border-top: #dededc 1px solid;
+  /* border-top: #dededc 1px solid; */
+  border-top: #e67e22 1px solid;
 }
 
 .post-content blockquote {
@@ -1263,10 +1269,23 @@ pre {
   top: 0;
   bottom: 70px;
   overflow-y: auto;
+  height: 30vw;
 }
+
+/* #article-toc .widget .title {
+  /* margin-top: 0;
+  padding-bottom: 7px;
+  border-bottom: 1px solid #ebebeb;
+  margin-bottom: 21px; */
+  /* margin: 0 auto;
+  position: relative;
+  font-size: bold;
+} */ 
 
 #article-toc ol {
   list-style: none;
+  /* overflow-y: auto;
+  height: 20vw; */
 }
 
 #article-toc .toc {
@@ -1880,18 +1899,18 @@ pre .javascript .function {
     margin-bottom: 10px;
   }
 }
-
+/* 
 .view-card {
   width: 98%;
   margin: 2px 1% 20px 1%;
   padding: 0px 5px 0px 10px;
-  /* background: linear-gradient(156deg, #ffffff 2%, #2b91ff 85%); */
+  background: linear-gradient(156deg, #ffffff 2%, #2b91ff 85%);
   border-radius: 8px;
   box-shadow: 0px 0px 20px 0px rgb(43 145 255 / 58%);
 
 }
 
-h3 {
+.h3 {
   color: #ffffff;
   line-height: 2.0em;
   margin-top: 1.6em;
@@ -1901,7 +1920,7 @@ h3 {
   font-size: 1.5em;
 }
 
-h3 span {
+.h3 span {
   font-size: inherit;
   line-height: inherit;
   display: inline-block;
@@ -1914,26 +1933,19 @@ h3 span {
   margin-right: 3px;
 }
 
-h2 {
+.h2 {
   width: 100%;
-  /* height:auto; */
   margin: 20px 0;
   padding: 10px 0;
-  /* background: linear-gradient(90deg,orange 0%, orange 25%, white 50%, orange 75%, orange 100%); */
   box-shadow: 0px 0px 20px 0px rgb(43 145 255 / 58%);
   text-align: center;
 }
 
-div {
+.div {
   line-height: 30px;
 }
 
-/* div p{
-  border-bottom: 1px solid #dbdbdb; 
-  border-top:0px; 
-  border-left:0px; 
-  border-right:0px;
-} */
+
 
 .font_star1 {
   color: #EE7600;
@@ -1950,7 +1962,6 @@ div {
 }
 
 p {
-  /* letter-spacing: 1px; */
   word-spacing: 10px;
 }
 
@@ -1967,4 +1978,25 @@ p.bolder {
   border-top:0px; 
   border-left:0px; 
   border-right:0px;
+} */
+
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+
+  background-color: #e4e4e4;
+  border-radius: 100px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #dfb984;
+  border-radius: 100px;
+width: 30px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #ce923f;
 }
